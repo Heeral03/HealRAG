@@ -23,12 +23,19 @@ app = FastAPI(
 # Global singleton pipeline instance
 pipeline_instance: Optional[CRAGPipeline] = None
 
+from embedder import build_index
+from seeder import generate_synthetic_corpus
+from chunker import chunk_directory
+
 @app.on_event("startup")
 def startup_event():
     global pipeline_instance
     print("[HealRAG API] Initializing Vector DB and CRAG Pipeline on startup...")
-    if not config.FAISS_INDEX_PATH.exists():
-        build_index()
+    if not config.FAISS_INDEX_PATH.exists() or not config.METADATA_PATH.exists():
+        print("[HealRAG API] FAISS index missing. Seeding corpus and building FAISS index...")
+        generate_synthetic_corpus()
+        chunks = chunk_directory(config.CORPUS_DIR, config.CHUNK_SIZE_WORDS, config.CHUNK_OVERLAP_WORDS)
+        build_index(chunks)
     pipeline_instance = CRAGPipeline()
     print("[HealRAG API] CRAG Service initialized successfully.")
 
