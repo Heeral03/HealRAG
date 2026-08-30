@@ -1,4 +1,4 @@
-# HealRAG 🏥⚖️
+# HealRAG
 ### Production-Grade Digital Health Corrective RAG (CRAG) Engine
 
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
@@ -19,7 +19,7 @@ HealRAG resolves these failure modes by combining an active **Retrieval Evaluato
 
 ---
 
-## 🏛️ System Architecture
+## System Architecture
 
 ```
                             +-------------------+
@@ -61,7 +61,7 @@ HealRAG resolves these failure modes by combining an active **Retrieval Evaluato
 
 ---
 
-## 📊 Benchmark & Quantitative Ablation Study
+## Benchmark & Quantitative Ablation Study
 
 HealRAG was benchmarked against a **24-question test battery** (18 baseline regulatory queries + 6 specialized failure-mode stress queries).
 
@@ -75,7 +75,7 @@ HealRAG was benchmarked against a **24-question test battery** (18 baseline regu
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Installation
 
@@ -101,7 +101,7 @@ GROQ_API_KEY=gsk_your_groq_api_key_here
 
 ---
 
-## 💻 Usage Options
+## Usage Options
 
 ### A. Run CLI
 
@@ -143,7 +143,7 @@ python3 eval/compare_vanilla_vs_crag.py
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 HealRAG/
@@ -174,6 +174,6 @@ HealRAG/
 
 ---
 
-## 📜 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
