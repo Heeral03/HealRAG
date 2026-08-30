@@ -1,0 +1,137 @@
+{
+  "action_distribution": {
+    "CORRECT": "11/24 (45.8%)",
+    "AMBIGUOUS": "6/24 (25.0%)",
+    "INCORRECT": "7/24 (29.2%)"
+  },
+  "standalone_evaluator_accuracy": "75.0%",
+  "cost_latency_tradeoffs": {
+    "vanilla_avg_cost_per_query": "$0.000984",
+    "crag_avg_cost_per_query": "$0.000756",
+    "net_cost_reduction": "23.2%",
+    "fast_path_latency": "1.21s",
+    "fallback_path_latency": "3.80s"
+  },
+  "detailed_predictions": [
+    {
+      "question": "What special categories of personal data are prohibited from processing under GDPR Article 9(1)?",
+      "predicted_action": "CORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "What three clinical sections are mandatory in the International Patient Summary (IPS) profile?",
+      "predicted_action": "CORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "What is the primary role of Health Data Access Bodies (HDABs) under EHDS Chapter IV Article 36?",
+      "predicted_action": "CORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "What are the required core attributes of a FHIR Patient Resource?",
+      "predicted_action": "CORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "What platform does the EU Commission establish under EHDS Chapter II Article 5 for cross-border health data exchange?",
+      "predicted_action": "CORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "What architectural principles define Fast Healthcare Interoperability Resources (FHIR)?",
+      "predicted_action": "CORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "How does EHDS secondary data use under Article 34 interact with GDPR Article 89 safeguards for scientific research?",
+      "predicted_action": "CORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "Compare the opt-out mechanism rights for natural persons under EHDS Chapter IV Article 38 against the restriction rights under Chapter II Article 7.",
+      "predicted_action": "CORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "In a cross-border IPS exchange, what coding standards are recommended for diagnostic results versus clinical procedure histories?",
+      "predicted_action": "AMBIGUOUS",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "How do academic evaluations of SMART on FHIR OAuth2 scope-based filters impact API performance and data leakage?",
+      "predicted_action": "CORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "What prohibited secondary uses under EHDS Article 35 safeguard individuals against financial discrimination?",
+      "predicted_action": "AMBIGUOUS",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "How can Zero-Knowledge Proofs (ZKPs) be integrated into EHDS Health Data Access Bodies (HDABs) to satisfy Chapter IV security guidelines?",
+      "predicted_action": "CORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "What are the penalty fine tiers under US HIPAA Privacy Rule for patient data breaches?",
+      "predicted_action": "INCORRECT",
+      "ground_truth": "INCORRECT"
+    },
+    {
+      "question": "What specific breaking changes were introduced in FHIR Release 4B (R4B) compared to Release 5 (R5)?",
+      "predicted_action": "INCORRECT",
+      "ground_truth": "INCORRECT"
+    },
+    {
+      "question": "What is the maximum CPU memory limit allowed for Docker containers hosting a MyHealth@EU gateway?",
+      "predicted_action": "INCORRECT",
+      "ground_truth": "INCORRECT"
+    },
+    {
+      "question": "Does the EHDS regulation mandate that all EU citizens install a mobile app called EuroHealthWallet by 2026?",
+      "predicted_action": "AMBIGUOUS",
+      "ground_truth": "INCORRECT"
+    },
+    {
+      "question": "What are the exact LOINC codes used for measuring blood glucose levels in FHIR Observation resources according to our corpus?",
+      "predicted_action": "INCORRECT",
+      "ground_truth": "INCORRECT"
+    },
+    {
+      "question": "How does Article 17 of GDPR (Right to be Forgotten) apply to immutable blockchain smart contracts in healthcare?",
+      "predicted_action": "INCORRECT",
+      "ground_truth": "INCORRECT"
+    },
+    {
+      "question": "Does EHDS Chapter IV allow commercial health insurance companies to calculate individual risk profiles using patient genetic data?",
+      "predicted_action": "AMBIGUOUS",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "In EHR FHIR Export for Patient PAT-0015, what was the exact LOINC code and numerical value recorded for body weight?",
+      "predicted_action": "CORRECT",
+      "ground_truth": "AMBIGUOUS"
+    },
+    {
+      "question": "What is the official European Commission release date and adopted legal text for the EU AI Act (Regulation 2024/1689) healthcare risk classification?",
+      "predicted_action": "INCORRECT",
+      "ground_truth": "INCORRECT"
+    },
+    {
+      "question": "How are break-glass emergency procedures handled in cross-border patient data exchange?",
+      "predicted_action": "AMBIGUOUS",
+      "ground_truth": "AMBIGUOUS"
+    },
+    {
+      "question": "What are the exact REST API URL endpoints defined for FHIR Release 5 (R5) SubscriptionTopic resources?",
+      "predicted_action": "INCORRECT",
+      "ground_truth": "CORRECT"
+    },
+    {
+      "question": "What are the mandatory logging fields required by national medicine regulatory agencies when an HDAB issues a multi-country secondary data permit?",
+      "predicted_action": "AMBIGUOUS",
+      "ground_truth": "CORRECT"
+    }
+  ]
+}

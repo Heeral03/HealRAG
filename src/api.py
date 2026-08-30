@@ -61,6 +61,7 @@ class QueryResponse(BaseModel):
     latency_sec: float
     final_chunks: List[ChunkResponse]
     response: str
+    observability: Optional[Dict] = None
 
 @app.get("/", tags=["Health Check"])
 def root():
@@ -140,7 +141,8 @@ def execute_query(req: QueryRequest):
                 pipeline_log=res["pipeline_log"],
                 latency_sec=round(latency, 3),
                 final_chunks=formatted_chunks,
-                response=res["response"]
+                response=res["response"],
+                observability=res.get("observability")
             )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Pipeline execution error: {str(e)}")

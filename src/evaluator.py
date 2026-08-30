@@ -85,19 +85,27 @@ class RetrievalEvaluator:
 
     def evaluate_chunks(
         self, query: str, retrieved_chunks: List[Dict]
-    ) -> Tuple[str, float, List[Dict]]:
+    ) -> Tuple[str, float, List[Dict], Dict]:
         """
         Evaluates a list of retrieved chunks for a given query.
         Returns:
           - overall_action: "CORRECT", "AMBIGUOUS", or "INCORRECT"
-          - confidence_score: float score representing max/avg chunk relevance
+          - confidence_score: float score representing max chunk relevance
           - annotated_chunks: list of chunks with individual evaluation scores
+          - eval_details: dict containing granular observability breakdowns and rationale
         """
         if not retrieved_chunks:
-            return "INCORRECT", 0.0, []
+            eval_details = {
+                "max_score": 0.0,
+                "top_similarity_score": 0.0,
+                "top_keyword_coverage": 0.0,
+                "reasoning": "No chunks retrieved from vector database."
+            }
+            return "INCORRECT", 0.0, [], eval_details
 
         annotated_chunks = []
         scores = []
+        chunk_metrics = []
 
         for chunk in retrieved_chunks:
             sim_score = chunk.get("similarity_score", 0.0)
@@ -105,8 +113,8 @@ class RetrievalEvaluator:
             if self.backend == "t5" and self.t5_evaluator:
                 t5_score = self.t5_evaluator.score_pair(query, chunk.get("text", ""))
                 eval_score = 0.5 * sim_score + 0.5 * t5_score
+                kw_ratio = 0.0
             else:
-                # Heuristic keyword match boost: check if key query terms appear in chunk text
                 query_terms = [
                     term.lower()
                     for term in query.replace("?", "").replace(".", "").split()
@@ -114,15 +122,16 @@ class RetrievalEvaluator:
                 ]
                 text_lower = chunk.get("text", "").lower()
                 matches = sum(1 for term in query_terms if term in text_lower)
-                keyword_ratio = matches / len(query_terms) if query_terms else 0.0
-
-                # Composite evaluator score combining vector similarity & key-term coverage
-                eval_score = 0.7 * sim_score + 0.3 * keyword_ratio
+                kw_ratio = matches / len(query_terms) if query_terms else 0.0
+                eval_score = 0.7 * sim_score + 0.3 * kw_ratio
 
             scores.append(eval_score)
 
             chunk_copy = dict(chunk)
             chunk_copy["eval_score"] = round(eval_score, 4)
+            chunk_copy["similarity_score"] = round(sim_score, 4)
+            chunk_copy["keyword_coverage_score"] = round(kw_ratio, 4)
+
             if eval_score >= self.upper_threshold:
                 chunk_copy["eval_status"] = "CORRECT"
             elif eval_score >= self.lower_threshold:
@@ -131,18 +140,53 @@ class RetrievalEvaluator:
                 chunk_copy["eval_status"] = "INCORRECT"
 
             annotated_chunks.append(chunk_copy)
+            chunk_metrics.append({
+                "source": chunk.get("source", "Unknown"),
+                "composite_score": round(eval_score, 4),
+                "similarity_score": round(sim_score, 4),
+                "keyword_coverage": round(kw_ratio, 4),
+                "eval_status": chunk_copy["eval_status"]
+            })
 
-        # Overall retrieval confidence is governed by the highest-scoring chunk
         max_score = max(scores) if scores else 0.0
+        best_chunk_idx = scores.index(max_score) if scores else 0
+        best_metric = chunk_metrics[best_chunk_idx] if chunk_metrics else {}
+        winning_chunk = annotated_chunks[best_chunk_idx] if annotated_chunks else {}
 
         if max_score >= self.upper_threshold:
             overall_action = "CORRECT"
+            trust_grade = "HIGH_CONFIDENCE_VERIFIED"
+            reasoning = f"Top chunk '{best_metric.get('source', 'N/A')}' score ({max_score:.4f}) >= upper threshold ({self.upper_threshold}). Local context is highly relevant."
         elif max_score >= self.lower_threshold:
             overall_action = "AMBIGUOUS"
+            trust_grade = "MEDIUM_CONFIDENCE_HYBRID"
+            reasoning = f"Top chunk '{best_metric.get('source', 'N/A')}' score ({max_score:.4f}) is between lower ({self.lower_threshold}) and upper ({self.upper_threshold}) thresholds. Triggering query expansion and hybrid search."
         else:
             overall_action = "INCORRECT"
+            trust_grade = "LOW_CONFIDENCE_EXTERNAL_FALLBACK"
+            reasoning = f"Top chunk '{best_metric.get('source', 'N/A')}' score ({max_score:.4f}) < lower threshold ({self.lower_threshold}). Local context is irrelevant; discarding local chunks and triggering web search."
 
-        return overall_action, round(max_score, 4), annotated_chunks
+        # Provenance Metadata Extension
+        provenance = {
+            "winning_chunk_index": best_chunk_idx,
+            "provenance_source": winning_chunk.get("source", "External Web Search"),
+            "provenance_confidence_score": round(max_score, 4),
+            "trust_grade": trust_grade,
+            "trust_rationale": reasoning
+        }
+
+        eval_details = {
+            "max_score": round(max_score, 4),
+            "top_similarity_score": best_metric.get("similarity_score", 0.0),
+            "top_keyword_coverage": best_metric.get("keyword_coverage", 0.0),
+            "upper_threshold": self.upper_threshold,
+            "lower_threshold": self.lower_threshold,
+            "reasoning": reasoning,
+            "provenance": provenance,
+            "chunk_metrics": chunk_metrics
+        }
+
+        return overall_action, round(max_score, 4), annotated_chunks, eval_details
 
 
 if __name__ == "__main__":
@@ -152,9 +196,10 @@ if __name__ == "__main__":
         {"source": "doc_001.txt", "text": "GDPR Article 9 covers processing of personal health data.", "similarity_score": 0.82},
         {"source": "doc_002.txt", "text": "Random unrelated document content.", "similarity_score": 0.31},
     ]
-    action, score, annotated = evaluator.evaluate_chunks(sample_query, sample_chunks)
+    action, score, annotated, details = evaluator.evaluate_chunks(sample_query, sample_chunks)
     print(f"Backend: {evaluator.backend}")
     print(f"Query: {sample_query}")
     print(f"Evaluator Action: {action} (Score: {score})")
+    print(f"Reasoning: {details['reasoning']}")
     for c in annotated:
-        print(f" - {c['source']} => Status: {c['eval_status']}, Score: {c['eval_score']}")
+        print(f" - {c['source']} => Status: {c['eval_status']}, Composite: {c['eval_score']} (Sim: {c['similarity_score']}, Key: {c['keyword_coverage_score']})")
