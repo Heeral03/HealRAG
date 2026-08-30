@@ -326,6 +326,62 @@ def seed_corpus():
             f.write(fhir_dump)
         count += 1
 
+    # Generate UK NHS Regulatory & Standards Documents
+    nhs_docs = [
+        (
+            "doc_111_nhs_caldicott_principles.txt",
+            """UK NHS Caldicott Principles and Data Protection:
+The 8 Caldicott Principles govern the handling of patient-identifiable information within the UK National Health Service (NHS).
+Principle 1: Justify the purpose(s) for using confidential information.
+Principle 2: Use confidential information only when absolutely necessary.
+Principle 3: Use the minimum necessary confidential information.
+Principle 4: Access to confidential information should be on a strict need-to-know basis.
+Principle 5: Everyone with access to confidential information should be aware of their responsibilities.
+Principle 6: Comply with the law (Data Protection Act 2018 / UK GDPR).
+Principle 7: The duty to share information for direct patient care can be as important as the duty to protect patient confidentiality.
+Principle 8: Inform patients and service users about how their confidential information is used.
+Caldicott Guardians are senior health or social care professionals appointed in NHS organizations to ensure these principles are respected.""",
+        ),
+        (
+            "doc_112_nhs_dspt_framework.txt",
+            """NHS Data Security and Protection Toolkit (DSPT):
+The Data Security and Protection Toolkit (DSPT) is an online self-assessment tool that allows NHS organizations and third-party healthcare vendors to measure their performance against the UK National Data Guardian's 10 Data Security Standards.
+Key Compliance Requirements:
+1. Personal Confidential Data: All staff ensure PCD is handled legally and securely.
+2. Staff Training: 95% of staff must complete annual data security training.
+3. Managing Data Access: Access permissions are reviewed regularly and revoked upon termination.
+4. Process Reviews: Processes involving PCD are reviewed at least annually.
+5. Responding to Incidents: Cyber security incidents must be reported to the NHS Digital Cyber Operations team within 24 hours.
+6. Continuity Planning: Business continuity plans for cyber attacks and system outages are tested annually.
+7. System Security: Unsupported operating systems, software, and unpatched vulnerabilities are prohibited on NHS networks.
+8. Accountable Officers: Named senior roles (SIRO and Caldicott Guardian) oversee data risk.""",
+        ),
+        (
+            "doc_113_nhs_fhir_uk_core.txt",
+            """NHS UK Core FHIR Implementation Guide:
+NHS England and NHS Digital publish the UK Core FHIR specifications for interoperability across UK health and social care systems.
+Key UK Core Resources & Extensions:
+1. UKCore-Patient: Includes NHS Number extension (URL: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumber) with mandatory verification status coding.
+2. UKCore-Practitioner: Captures Professional Registration Details (GMC code for doctors, NMC code for nurses).
+3. UKCore-Organization: Maps to ODS Codes (Organisation Data Service codes managed by NHS Digital).
+4. UKCore-Consent: Captures National Data Opt-out preferences where patients choose to opt out of their confidential patient information being used for research and planning.""",
+        ),
+        (
+            "doc_114_nhs_national_data_opt_out.txt",
+            """NHS National Data Opt-out Policy:
+The NHS National Data Opt-out is a service that allows patients in England to opt out of their confidential patient information being used for research and planning purposes.
+Scope & Exceptions:
+- Applies to: Secondary processing of confidential patient information across NHS England, UK Health Security Agency (UKHSA), and local authorities.
+- Exemptions: Direct care (opt-out does not apply when sharing data for direct treatment), mandatory legal disclosures (court orders), and public health emergency directions under Regulation 3 of the Health Service Control of Patient Information Regulations 2002 (COPI).
+- Enforcement: All health and care organizations handling NHS patient data must adhere to the National Data Opt-out policy and filter data disclosures against the NHS Digital central opt-out repository.""",
+        ),
+    ]
+
+    for filename, content in nhs_docs:
+        with open(corpus_dir / filename, "w", encoding="utf-8") as f:
+            f.write(content.strip())
+        count += 1
+
     print(f"Successfully seeded {count-1} documents in {corpus_dir}")
 
 if __name__ == "__main__":

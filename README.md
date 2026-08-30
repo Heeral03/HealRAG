@@ -1,4 +1,4 @@
-# HealRAG: A Corrective RAG System for Digital Health Regulation
+# HealRAG: A Corrective RAG System for EU & UK Digital Health Governance
 
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.141.1-green.svg)](https://fastapi.tiangolo.com/)
@@ -6,7 +6,7 @@
 [![Groq LLM](https://img.shields.io/badge/LLM-Groq--120B-purple.svg)](https://groq.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**What it is:** HealRAG is a Retrieval-Augmented Generation system that answers questions about EU digital health regulation (GDPR, EHDS, FHIR/IPS standards) — but unlike a standard RAG pipeline, it doesn't blindly trust whatever it retrieves. It implements the core idea from Yan et al.'s *Corrective Retrieval Augmented Generation* (CRAG) paper: **evaluate retrieval quality before generating an answer, and self-correct when that retrieval is weak.**
+**What it is:** HealRAG is a Retrieval-Augmented Generation system that answers complex queries about **EU and UK digital health regulations** (GDPR, EHDS, UK NHS Caldicott Principles, NHS DSPT, National Data Opt-out, and HL7 FHIR / UK Core standards) — but unlike a standard RAG pipeline, it doesn't blindly trust whatever it retrieves. It implements the core idea from Yan et al.'s *Corrective Retrieval Augmented Generation* (CRAG) paper: **evaluate retrieval quality before generating an answer, and self-correct when that retrieval is weak.**
 
 ---
 
