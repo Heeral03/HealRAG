@@ -1,6 +1,7 @@
---extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.2.2+cpu
+torch>=2.5.0
 sentence-transformers
+transformers>=4.40.0,<5.0.0
+numpy>=1.26.4,<2.0.0
 faiss-cpu
 python-dotenv
 groq
