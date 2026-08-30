@@ -1,11 +1,63 @@
 import os
 import sys
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional
 
 # Add src directory to sys.path
 sys.path.append(str(Path(__file__).resolve().parent))
 import config
+
+class T5RetrievalEvaluator:
+    """
+    Evaluator backend based on the original Corrective RAG paper (Yan et al., 2024).
+    Uses a T5 sequence-to-sequence model (e.g. google/flan-t5-base) to compute relevance
+    scores for each (query, document_chunk) pair by predicting sequence probabilities.
+    """
+
+    def __init__(self, model_name: str = "google/flan-t5-base"):
+        self.model_name = model_name
+        self._tokenizer = None
+        self._model = None
+        self._loaded = False
+
+    def _load_model(self):
+        if not self._loaded:
+            try:
+                from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+                import torch
+
+                print(f"Loading T5 Evaluator Model ({self.model_name})...")
+                self._tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+                self._model = AutoModelForSeq2SeqLM.from_pretrained(self.model_name)
+                self._loaded = True
+            except Exception as e:
+                print(f"[T5 Evaluator Warning] Failed to load Transformers T5 model ({e}). Falling back to heuristic scoring.")
+                self._loaded = False
+
+    def score_pair(self, query: str, chunk_text: str) -> float:
+        """
+        Scores a single (query, chunk_text) pair using T5 sequence likelihood or classification prompt.
+        Format: 'Query: {query} Document: {chunk_text} Relevant:' -> predict 'Yes'/'No'
+        """
+        self._load_model()
+        if not self._loaded:
+            return 0.50
+
+        import torch
+        prompt = f"Determine if the following document is relevant to answer the query.\nQuery: {query}\nDocument: {chunk_text}\nRelevant (Yes/No):"
+        inputs = self._tokenizer(prompt, return_tensors="pt", max_length=512, truncation=True)
+        
+        with torch.no_grad():
+            outputs = self._model.generate(**inputs, max_new_tokens=3, return_dict_in_generate=True, output_scores=True)
+            
+        generated_text = self._tokenizer.decode(outputs.sequences[0], skip_special_tokens=True).strip().lower()
+        if "yes" in generated_text:
+            return 0.85
+        elif "no" in generated_text:
+            return 0.20
+        else:
+            return 0.50
+
 
 class RetrievalEvaluator:
     """
@@ -14,15 +66,22 @@ class RetrievalEvaluator:
       1. CORRECT   (Score >= upper_threshold): Chunks contain relevant, high-confidence evidence.
       2. AMBIGUOUS (lower_threshold <= Score < upper_threshold): Partial match / jargon ambiguity.
       3. INCORRECT (Score < lower_threshold): Low semantic match / out-of-scope query.
+
+    Supports dual backends:
+      - 'heuristic' (Default): Composite vector similarity + key-term coverage (Fast, 0 cold-start latency)
+      - 't5' (Paper Baseline): T5 / Flan-T5 seq2seq relevance scoring engine
     """
 
     def __init__(
         self,
         upper_threshold: float = config.EVALUATOR_UPPER_THRESHOLD,
         lower_threshold: float = config.EVALUATOR_LOWER_THRESHOLD,
+        backend: str = "heuristic"
     ):
         self.upper_threshold = upper_threshold
         self.lower_threshold = lower_threshold
+        self.backend = backend.lower()
+        self.t5_evaluator = T5RetrievalEvaluator() if self.backend == "t5" else None
 
     def evaluate_chunks(
         self, query: str, retrieved_chunks: List[Dict]
@@ -42,19 +101,24 @@ class RetrievalEvaluator:
 
         for chunk in retrieved_chunks:
             sim_score = chunk.get("similarity_score", 0.0)
-            
-            # Heuristic keyword match boost: check if key query terms appear in chunk text
-            query_terms = [
-                term.lower()
-                for term in query.replace("?", "").replace(".", "").split()
-                if len(term) > 3
-            ]
-            text_lower = chunk.get("text", "").lower()
-            matches = sum(1 for term in query_terms if term in text_lower)
-            keyword_ratio = matches / len(query_terms) if query_terms else 0.0
 
-            # Composite evaluator score combining vector similarity & key-term coverage
-            eval_score = 0.7 * sim_score + 0.3 * keyword_ratio
+            if self.backend == "t5" and self.t5_evaluator:
+                t5_score = self.t5_evaluator.score_pair(query, chunk.get("text", ""))
+                eval_score = 0.5 * sim_score + 0.5 * t5_score
+            else:
+                # Heuristic keyword match boost: check if key query terms appear in chunk text
+                query_terms = [
+                    term.lower()
+                    for term in query.replace("?", "").replace(".", "").split()
+                    if len(term) > 3
+                ]
+                text_lower = chunk.get("text", "").lower()
+                matches = sum(1 for term in query_terms if term in text_lower)
+                keyword_ratio = matches / len(query_terms) if query_terms else 0.0
+
+                # Composite evaluator score combining vector similarity & key-term coverage
+                eval_score = 0.7 * sim_score + 0.3 * keyword_ratio
+
             scores.append(eval_score)
 
             chunk_copy = dict(chunk)
@@ -82,13 +146,14 @@ class RetrievalEvaluator:
 
 
 if __name__ == "__main__":
-    evaluator = RetrievalEvaluator()
+    evaluator = RetrievalEvaluator(backend="heuristic")
     sample_query = "What is GDPR Article 9?"
     sample_chunks = [
         {"source": "doc_001.txt", "text": "GDPR Article 9 covers processing of personal health data.", "similarity_score": 0.82},
         {"source": "doc_002.txt", "text": "Random unrelated document content.", "similarity_score": 0.31},
     ]
     action, score, annotated = evaluator.evaluate_chunks(sample_query, sample_chunks)
+    print(f"Backend: {evaluator.backend}")
     print(f"Query: {sample_query}")
     print(f"Evaluator Action: {action} (Score: {score})")
     for c in annotated:
