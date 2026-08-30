@@ -137,10 +137,22 @@ python3 -m uvicorn src.api:app --host 0.0.0.0 --port 8000
        -d '{"query": "What is GDPR Article 9?", "top_k": 3}'
   ```
 
-### 4. Run Full Ablation Study
+### 4. Cloud & Public Deployment (Render / Docker)
 
+#### Option A: Deploy on Render.com (Free Public URL)
+1. Push this repository to GitHub.
+2. Sign up at [Render.com](https://render.com) and click **New +** -> **Web Service**.
+3. Connect your **HealRAG** GitHub repository.
+4. Set Environment Variable: `GROQ_API_KEY = gsk_your_key_here`.
+5. Render will automatically detect the `Dockerfile` and deploy your public service at `https://healrag.onrender.com/docs`.
+
+#### Option B: Run via Docker Locally
 ```bash
-python3 eval/run_full_ablation_benchmark.py
+# Build Docker image
+docker build -t healrag .
+
+# Run container exposing port 8000
+docker run -p 8000:8000 --env-file .env healrag
 ```
 
 ---
