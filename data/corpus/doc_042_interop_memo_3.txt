@@ -1,0 +1,1 @@
+Regional Interoperability Document: EHR Audit log requirements: Logging practitioner ID and timestamp for every access request to IPS.

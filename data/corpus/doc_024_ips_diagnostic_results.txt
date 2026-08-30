@@ -1,0 +1,1 @@
+IPS Diagnostic Results Section: The IPS profile contains optional but recommended sections. The Diagnostic Results section includes links to laboratory reports, pathology findings, and diagnostic imaging statements. It uses standardized coding systems such as LOINC for lab test categories and UCUM for measurement units to ensure international semantic interoperability.

@@ -1,0 +1,1 @@
+Regional Interoperability Document: Interoperability framework update: Supporting French NCPH discharge summary transformations to FHIR.

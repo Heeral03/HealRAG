@@ -1,0 +1,6 @@
+NHS National Data Opt-out Policy:
+The NHS National Data Opt-out is a service that allows patients in England to opt out of their confidential patient information being used for research and planning purposes.
+Scope & Exceptions:
+- Applies to: Secondary processing of confidential patient information across NHS England, UK Health Security Agency (UKHSA), and local authorities.
+- Exemptions: Direct care (opt-out does not apply when sharing data for direct treatment), mandatory legal disclosures (court orders), and public health emergency directions under Regulation 3 of the Health Service Control of Patient Information Regulations 2002 (COPI).
+- Enforcement: All health and care organizations handling NHS patient data must adhere to the National Data Opt-out policy and filter data disclosures against the NHS Digital central opt-out repository.

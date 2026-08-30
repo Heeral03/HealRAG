@@ -1,0 +1,1002 @@
+{
+  "0": {
+    "text": "GDPR Article 9(1) - Processing of special categories of personal data: Processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation shall be prohibited.",
+    "source": "doc_001_gdpr_art9_para1.txt",
+    "chunk_index": 0
+  },
+  "1": {
+    "text": "GDPR Article 9(2)(a) - Exceptions to health data processing ban: Paragraph 1 shall not apply if the data subject has given explicit consent to the processing of those personal data for one or more specified purposes, except where Union or Member State law provide that the prohibition referred to in paragraph 1 may not be lifted by the data subject.",
+    "source": "doc_002_gdpr_art9_para2_a.txt",
+    "chunk_index": 0
+  },
+  "2": {
+    "text": "GDPR Article 9(2)(h) - Medical diagnosis and health treatment exceptions: Processing is necessary for the purposes of preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional.",
+    "source": "doc_003_gdpr_art9_para2_h.txt",
+    "chunk_index": 0
+  },
+  "3": {
+    "text": "GDPR Article 9(2)(i) - Public health interest exception: Processing is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health or ensuring high standards of quality and safety of health care and of medicinal products or medical devices, on the basis of Union or Member State law which provides for suitable and specific measures to safeguard the rights and freedoms of the data subject, in particular professional secrecy.",
+    "source": "doc_004_gdpr_art9_para2_i.txt",
+    "chunk_index": 0
+  },
+  "4": {
+    "text": "GDPR Article 9(2)(j) - Scientific, statistical, and historical research exception: Processing is necessary for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes in accordance with Article 89(1) based on Union or Member State law which shall be proportionate to the aim pursued, respect the essence of the right to data protection and provide for suitable and specific measures to safeguard the fundamental rights and the interests of the data subject.",
+    "source": "doc_005_gdpr_art9_para2_j.txt",
+    "chunk_index": 0
+  },
+  "5": {
+    "text": "GDPR Article 89(1) - Safeguards and derogations for research: Processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, shall be subject to appropriate safeguards, in accordance with this Regulation, for the rights and freedoms of the data subject. Those safeguards shall ensure that technical and organisational measures are in place in particular in order to ensure respect for the principle of data minimization. Those measures may include pseudonymisation, provided that those purposes can be fulfilled in that manner.",
+    "source": "doc_006_gdpr_art89_para1.txt",
+    "chunk_index": 0
+  },
+  "6": {
+    "text": "GDPR Article 89(2) - Research derogations: Where personal data are processed for scientific or historical research purposes or statistical purposes, Union or Member State law may provide for derogations from the rights referred to in Articles 15 (access), 16 (rectification), 18 (restriction of processing) and 21 (objection) subject to the conditions and safeguards referred to in paragraph 1 of this Article in so far as such rights are likely to render impossible or seriously impair the achievement of the specific purposes, and such derogations are necessary for the fulfilment of those purposes.",
+    "source": "doc_007_gdpr_art89_para2.txt",
+    "chunk_index": 0
+  },
+  "7": {
+    "text": "EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format. They shall have the right to retrieve an electronic copy of at least their electronic health data in the European electronic health record exchange format.",
+    "source": "doc_008_ehds_ch2_art3_natural_persons.txt",
+    "chunk_index": 0
+  },
+  "8": {
+    "text": "EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment. The access shall be limited to the data relevant for the treatment provision and shall comply with the principles of authorization, authentication, and data protection safeguards.",
+    "source": "doc_009_ehds_ch2_art4_access_by_health_professionals.txt",
+    "chunk_index": 0
+  },
+  "9": {
+    "text": "EHDS Chapter II Article 5 - MyHealth@EU infrastructure: The Commission shall establish a central platform for digital health (MyHealth@EU) to facilitate and support the exchange of electronic health data between national contact points for digital health of the Member States. The infrastructure shall enable cross-border transmission of patient summaries, e-prescriptions, e-dispensations, medical images, laboratory results, and discharge reports.",
+    "source": "doc_010_ehds_ch2_art5_myhealth_eu.txt",
+    "chunk_index": 0
+  },
+  "10": {
+    "text": "EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: Natural persons shall have the right to restrict access of health professionals to all or parts of their electronic health data. Member States shall establish the rules and technical mechanisms for such restrictions, ensuring that the restriction of access does not prevent emergency access where the life or vital interests of the natural person or another person are threatened.",
+    "source": "doc_011_ehds_ch2_art7_right_to_restrict_access.txt",
+    "chunk_index": 0
+  },
+  "11": {
+    "text": "EHDS Chapter IV Article 33 - Categories of electronic health data for secondary use: Data holders shall make available for secondary use the following categories of electronic health data: (a) EHRs; (b) data factors influencing health, including socio-economic, environmental and lifestyle factors; (c) genetic, genomic and proteomic data; (d) person-generated electronic health data; (e) data from clinical trials; (f) register data of medicinal products and devices.",
+    "source": "doc_012_ehds_ch4_art33_secondary_data_use.txt",
+    "chunk_index": 0
+  },
+  "12": {
+    "text": "EHDS Chapter IV Article 34 - Permitted purposes for secondary use: Secondary use of electronic health data shall be permitted only for the following purposes: (a) activities for reasons of public interest in the area of public health; (b) support of public health tasks of healthcare public bodies; (c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products or medical devices; (e) training, testing and evaluating of algorithms, including in medical devices and AI systems.",
+    "source": "doc_013_ehds_ch4_art34_purposes_secondary_use.txt",
+    "chunk_index": 0
+  },
+  "13": {
+    "text": "EHDS Chapter IV Article 35 - Prohibited secondary uses of health data: The following secondary uses of electronic health data shall be prohibited: (a) taking decisions detrimental to a natural person based on their electronic health data, including increasing insurance premiums or refusing insurance contracts; (b) advertising or marketing activities directed at health professionals or natural persons; (c) providing access to data to third parties not authorized under a data permit; (d) developing products or services that may harm public health or undermine safety.",
+    "source": "doc_014_ehds_ch4_art35_prohibited_purposes.txt",
+    "chunk_index": 0
+  },
+  "14": {
+    "text": "EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): Each Member State shall designate one or more Health Data Access Bodies responsible for granting access to electronic health data for secondary use. HDABs shall receive data applications, evaluate requests, issue data permits under strict safety requirements, pseudonymize or anonymize the datasets, and make them available to authorized data users in a secure processing environment.",
+    "source": "doc_015_ehds_ch4_art36_data_access_bodies.txt",
+    "chunk_index": 0
+  },
+  "15": {
+    "text": "EHDS Chapter IV Article 38 - Right to opt-out from secondary data use: Natural persons shall have the right to opt-out from the processing of their electronic health data for secondary use. The opt-out mechanism shall be simple, user-friendly, and accessible. However, opting out shall not affect processing necessary for public health monitoring, official statistics, or responding to public health emergencies.",
+    "source": "doc_016_ehds_ch4_art38_opt_out_mechanism.txt",
+    "chunk_index": 0
+  },
+  "16": {
+    "text": "EHDS Chapter IV Article 39 - Secure processing environments: The health data access bodies shall provide access to electronic health data only in a secure processing environment. This environment shall comply with high technical and organizational security standards, ensuring that data users can only query the data, copy results, and cannot download individual level micro-data or re-identify individuals.",
+    "source": "doc_017_ehds_ch4_art39_secure_processing_environment.txt",
+    "chunk_index": 0
+  },
+  "17": {
+    "text": "EHDS Chapter IV Article 40 - Data altruism in healthcare: Natural persons may consent and authorize health data access bodies to process their electronic health data for altruistic purposes, such as scientific medical research to find cures for rare diseases or improve treatment guidelines. Health data access bodies shall facilitate registry of data altruism options and link them to secure environments.",
+    "source": "doc_018_ehds_ch4_art40_data_altruism.txt",
+    "chunk_index": 0
+  },
+  "18": {
+    "text": "FHIR Patient Resource Definition: The Patient resource covers data about patients. It represents demographic and administrative information about a person or animal receiving care or other health-related services. Key attributes include: identifier (unique identifiers like SSN), active (boolean to mark record state), name (HumanName structure for family and given names), telecom (contact details), gender (administrative gender values: male, female, other, unknown), birthDate (patient Date of Birth), and address (physical addresses).",
+    "source": "doc_019_fhir_patient_resource.txt",
+    "chunk_index": 0
+  },
+  "19": {
+    "text": "FHIR Observation Resource Definition: Observations are a central element in healthcare, used to support diagnosis, monitor progress, and determine baseline characteristics. Key elements of the Observation resource include: identifier, status (registered, preliminary, final, amended), category (vital-signs, laboratory, imaging), code (LOINC/SNOMED codes indicating what was observed), subject (Reference to Patient), effectiveDateTime (when observation occurred), and valueQuantity (numeric vital value with unit) or valueCodeableConcept (coded results).",
+    "source": "doc_020_fhir_observation_resource.txt",
+    "chunk_index": 0
+  },
+  "20": {
+    "text": "FHIR Bundle Resource: A Bundle is a container resource that acts as a wrapper for a collection of other resources. It is frequently used in API responses, transactions, batch operations, and document-style payloads. A Bundle contains metadata and entries (a list of resource objects), and must specify a type attribute such as transaction, batch, history, searchset, or document.",
+    "source": "doc_021_fhir_bundle_resource.txt",
+    "chunk_index": 0
+  },
+  "21": {
+    "text": "FHIR Consent Resource: The Consent resource is used to record a healthcare consumer's choice to permit or deny the collection, use, or disclosure of their personal health data. It specifies the scope of the consent, the actors involved (e.g., specific practitioners or organizations), the data categories covered, the validity period, and the explicit action (permit or deny).",
+    "source": "doc_022_fhir_consent_resource.txt",
+    "chunk_index": 0
+  },
+  "22": {
+    "text": "Fast Healthcare Interoperability Resources (FHIR) Overview: FHIR (pronounced 'fire') is a next-generation standards framework created by Health Level Seven International (HL7). It defines how healthcare information can be exchanged between different computer systems regardless of how it is stored locally. FHIR combines the best features of HL7 Version 2, HL7 Version 3, and CDA, while leveraging modern web standards such as RESTful HTTP APIs, JSON, XML, OAuth2, and OpenID Connect.",
+    "source": "doc_023_fhir_overview_intro.txt",
+    "chunk_index": 0
+  },
+  "23": {
+    "text": "International Patient Summary (IPS) Profile: The IPS is an electronic health record summary containing a minimized, specialty-agnostic list of essential clinical details. It is designed to support cross-border unscheduled patient care. The IPS profile mandatorily requires three sections: Medication Summary (active medications), Allergies and Intolerances (substances and reaction types), and Active Problems (list of current conditions).",
+    "source": "doc_023_ips_profile_summary.txt",
+    "chunk_index": 0
+  },
+  "24": {
+    "text": "FHIR Architecture and Core Principles: The fundamental building blocks of FHIR are modular data components called 'Resources'. Each resource represents a discrete clinical or administrative concept (e.g., Patient, Observation, Medication, Encounter). Key architectural principles of FHIR include: (1) Focus on the 80% consensus rule\u2014modeling concepts common to 80% of health systems while using Extension elements for the rest; (2) Human readability\u2014every resource includes a human-readable XHTML narrative summary; (3) Modern RESTful architecture\u2014exposing resources via standard HTTP methods (GET, POST, PUT, DELETE) with predictable URIs.",
+    "source": "doc_024_fhir_architecture_principles.txt",
+    "chunk_index": 0
+  },
+  "25": {
+    "text": "IPS Diagnostic Results Section: The IPS profile contains optional but recommended sections. The Diagnostic Results section includes links to laboratory reports, pathology findings, and diagnostic imaging statements. It uses standardized coding systems such as LOINC for lab test categories and UCUM for measurement units to ensure international semantic interoperability.",
+    "source": "doc_024_ips_diagnostic_results.txt",
+    "chunk_index": 0
+  },
+  "26": {
+    "text": "IPS History of Procedures Section: This section of the IPS details clinical procedures completed in the past that are relevant to clinical decision making. Procedures should be coded using SNOMED CT terms to maintain cross-border semantic alignment, ensuring practitioners in other countries can understand the clinical history.",
+    "source": "doc_025_ips_procedures_history.txt",
+    "chunk_index": 0
+  },
+  "27": {
+    "text": "International Patient Summary (IPS) Profile: The IPS is an electronic health record summary containing a minimized, specialty-agnostic list of essential clinical details. It is designed to support cross-border unscheduled patient care. The IPS profile mandatorily requires three sections: Medication Summary (active medications), Allergies and Intolerances (substances and reaction types), and Active Problems (list of current conditions).",
+    "source": "doc_025_ips_profile_summary.txt",
+    "chunk_index": 0
+  },
+  "28": {
+    "text": "IPS Diagnostic Results Section: The IPS profile contains optional but recommended sections. The Diagnostic Results section includes links to laboratory reports, pathology findings, and diagnostic imaging statements. It uses standardized coding systems such as LOINC for lab test categories and UCUM for measurement units to ensure international semantic interoperability.",
+    "source": "doc_026_ips_diagnostic_results.txt",
+    "chunk_index": 0
+  },
+  "29": {
+    "text": "Academic Paper - Decentralized Consent Management for Cross-Border Patient Summary Exchange: This study proposes a decentralized architecture for patient consent infrastructure in cross-border exchanges using Ethereum smart contracts. Consent records are stored immutably on-chain as cryptographic hashes, while raw files are maintained off-chain. Evaluated within the context of MyHealth@EU, the system demonstrated high integrity, secure audit logs, and compliance with GDPR patient control rights.",
+    "source": "doc_026_paper_blockchain_consent.txt",
+    "chunk_index": 0
+  },
+  "30": {
+    "text": "IPS History of Procedures Section: This section of the IPS details clinical procedures completed in the past that are relevant to clinical decision making. Procedures should be coded using SNOMED CT terms to maintain cross-border semantic alignment, ensuring practitioners in other countries can understand the clinical history.",
+    "source": "doc_027_ips_procedures_history.txt",
+    "chunk_index": 0
+  },
+  "31": {
+    "text": "Academic Paper - Evaluating FHIR-over-OAuth2/smart-on-fhir for Regional EHR Interoperability: This paper evaluates the performance and security of SMART on FHIR specifications using OAuth 2.0 and OpenID Connect protocols to authenticate regional exchange clients. It presents benchmarks for token exchange latency and scope-based authorization filters. Results show that scope filtering (e.g., patient/Observation.read) minimizes data leakage but incurs a 15% latency overhead.",
+    "source": "doc_027_paper_fhir_oauth2_interop.txt",
+    "chunk_index": 0
+  },
+  "32": {
+    "text": "Academic Paper - Decentralized Consent Management for Cross-Border Patient Summary Exchange: This study proposes a decentralized architecture for patient consent infrastructure in cross-border exchanges using Ethereum smart contracts. Consent records are stored immutably on-chain as cryptographic hashes, while raw files are maintained off-chain. Evaluated within the context of MyHealth@EU, the system demonstrated high integrity, secure audit logs, and compliance with GDPR patient control rights.",
+    "source": "doc_028_paper_blockchain_consent.txt",
+    "chunk_index": 0
+  },
+  "33": {
+    "text": "Academic Paper - Zero-Knowledge Proofs (ZKP) for Privacy-Preserving Health Data Reuse in the EHDS: The researchers propose a system based on zk-SNARKs that allows health researchers to run statistical algorithms on clinical data in Health Data Access Bodies (HDABs) without ever decrypting or accessing raw patient records. Data users receive mathematical proof that the calculation was performed correctly over valid patient data, meeting EHDS Chapter IV security standards and minimizing re-identification risks.",
+    "source": "doc_028_paper_zkp_ehds_privacy.txt",
+    "chunk_index": 0
+  },
+  "34": {
+    "text": "Academic Paper - Evaluating FHIR-over-OAuth2/smart-on-fhir for Regional EHR Interoperability: This paper evaluates the performance and security of SMART on FHIR specifications using OAuth 2.0 and OpenID Connect protocols to authenticate regional exchange clients. It presents benchmarks for token exchange latency and scope-based authorization filters. Results show that scope filtering (e.g., patient/Observation.read) minimizes data leakage but incurs a 15% latency overhead.",
+    "source": "doc_029_paper_fhir_oauth2_interop.txt",
+    "chunk_index": 0
+  },
+  "35": {
+    "text": "Academic Paper - Security Audit of MyHealth@EU Gateways and International Patient Summary Exchange: A comprehensive security review of national contact points (NCPHs) executing IPS transformation. The audit identified potential vulnerability areas, specifically XML external entity (XXE) injection attacks during CDA-to-FHIR payload transformations and TLS configuration weaknesses. Recommendations include mandatory message schema validation and strict mutual TLS (mTLS) enforcement.",
+    "source": "doc_029_paper_myhealth_gateway_audit.txt",
+    "chunk_index": 0
+  },
+  "36": {
+    "text": "Academic Paper - Scalable Consent Infraction Auditing on Hyperledger Fabric: An investigation into ledger performance for auditing digital health access networks. By hosting a consent state engine on Hyperledger Fabric smart contracts, the system records every access query and cross-checks it against active patient consent rules. It maintains audit records capable of processing up to 3000 queries per second, showing viability for national-scale deployment.",
+    "source": "doc_030_paper_consent_infraction_auditing.txt",
+    "chunk_index": 0
+  },
+  "37": {
+    "text": "Academic Paper - Zero-Knowledge Proofs (ZKP) for Privacy-Preserving Health Data Reuse in the EHDS: The researchers propose a system based on zk-SNARKs that allows health researchers to run statistical algorithms on clinical data in Health Data Access Bodies (HDABs) without ever decrypting or accessing raw patient records. Data users receive mathematical proof that the calculation was performed correctly over valid patient data, meeting EHDS Chapter IV security standards and minimizing re-identification risks.",
+    "source": "doc_030_paper_zkp_ehds_privacy.txt",
+    "chunk_index": 0
+  },
+  "38": {
+    "text": "EU Health Regulatory Brief 1: EHDS Implementing Act on secondary use guidelines: Specifying the structure of data quality and utility labels for datasets.",
+    "source": "doc_031_ehds_sub_0.txt",
+    "chunk_index": 0
+  },
+  "39": {
+    "text": "Academic Paper - Security Audit of MyHealth@EU Gateways and International Patient Summary Exchange: A comprehensive security review of national contact points (NCPHs) executing IPS transformation. The audit identified potential vulnerability areas, specifically XML external entity (XXE) injection attacks during CDA-to-FHIR payload transformations and TLS configuration weaknesses. Recommendations include mandatory message schema validation and strict mutual TLS (mTLS) enforcement.",
+    "source": "doc_031_paper_myhealth_gateway_audit.txt",
+    "chunk_index": 0
+  },
+  "40": {
+    "text": "EU Health Regulatory Brief 2: EHDS Article 46: Fees charged by health data access bodies to cover administration and infrastructure costs.",
+    "source": "doc_032_ehds_sub_1.txt",
+    "chunk_index": 0
+  },
+  "41": {
+    "text": "Academic Paper - Scalable Consent Infraction Auditing on Hyperledger Fabric: An investigation into ledger performance for auditing digital health access networks. By hosting a consent state engine on Hyperledger Fabric smart contracts, the system records every access query and cross-checks it against active patient consent rules. It maintains audit records capable of processing up to 3000 queries per second, showing viability for national-scale deployment.",
+    "source": "doc_032_paper_consent_infraction_auditing.txt",
+    "chunk_index": 0
+  },
+  "42": {
+    "text": "EU Health Regulatory Brief 1: EHDS Implementing Act on secondary use guidelines: Specifying the structure of data quality and utility labels for datasets.",
+    "source": "doc_033_ehds_sub_0.txt",
+    "chunk_index": 0
+  },
+  "43": {
+    "text": "EU Health Regulatory Brief 3: EHDS Annex I: Specification of groups of health data categories required to be made available for secondary research.",
+    "source": "doc_033_ehds_sub_2.txt",
+    "chunk_index": 0
+  },
+  "44": {
+    "text": "EU Health Regulatory Brief 2: EHDS Article 46: Fees charged by health data access bodies to cover administration and infrastructure costs.",
+    "source": "doc_034_ehds_sub_1.txt",
+    "chunk_index": 0
+  },
+  "45": {
+    "text": "EU Health Regulatory Brief 4: EHDS Section 3: Joint controllership of the secure processing environments for multi-country health data access permits.",
+    "source": "doc_034_ehds_sub_3.txt",
+    "chunk_index": 0
+  },
+  "46": {
+    "text": "EU Health Regulatory Brief 3: EHDS Annex I: Specification of groups of health data categories required to be made available for secondary research.",
+    "source": "doc_035_ehds_sub_2.txt",
+    "chunk_index": 0
+  },
+  "47": {
+    "text": "EU Health Regulatory Brief 5: EHDS Chapter IV Article 41: Data quality and utility label requirements for data holders before indexing data.",
+    "source": "doc_035_ehds_sub_4.txt",
+    "chunk_index": 0
+  },
+  "48": {
+    "text": "EU Health Regulatory Brief 4: EHDS Section 3: Joint controllership of the secure processing environments for multi-country health data access permits.",
+    "source": "doc_036_ehds_sub_3.txt",
+    "chunk_index": 0
+  },
+  "49": {
+    "text": "EU Health Regulatory Brief 6: EHDS Article 42: Mutual recognition of data permits across European health data access bodies (HDAB).",
+    "source": "doc_036_ehds_sub_5.txt",
+    "chunk_index": 0
+  },
+  "50": {
+    "text": "EU Health Regulatory Brief 5: EHDS Chapter IV Article 41: Data quality and utility label requirements for data holders before indexing data.",
+    "source": "doc_037_ehds_sub_4.txt",
+    "chunk_index": 0
+  },
+  "51": {
+    "text": "EU Health Regulatory Brief 7: EHDS Guidance: Penalties and administrative fines for non-compliance with secure environment guidelines.",
+    "source": "doc_037_ehds_sub_6.txt",
+    "chunk_index": 0
+  },
+  "52": {
+    "text": "EU Health Regulatory Brief 6: EHDS Article 42: Mutual recognition of data permits across European health data access bodies (HDAB).",
+    "source": "doc_038_ehds_sub_5.txt",
+    "chunk_index": 0
+  },
+  "53": {
+    "text": "EU Health Regulatory Brief 8: EHDS Provision: Member State policies for data access body cooperation with national medicine regulatory agencies.",
+    "source": "doc_038_ehds_sub_7.txt",
+    "chunk_index": 0
+  },
+  "54": {
+    "text": "EU Health Regulatory Brief 7: EHDS Guidance: Penalties and administrative fines for non-compliance with secure environment guidelines.",
+    "source": "doc_039_ehds_sub_6.txt",
+    "chunk_index": 0
+  },
+  "55": {
+    "text": "Regional Interoperability Document: Cross-Border Interoperability memo: Connecting Italian NCPH to German NCPH for e-prescription sharing.",
+    "source": "doc_039_interop_memo_0.txt",
+    "chunk_index": 0
+  },
+  "56": {
+    "text": "EU Health Regulatory Brief 8: EHDS Provision: Member State policies for data access body cooperation with national medicine regulatory agencies.",
+    "source": "doc_040_ehds_sub_7.txt",
+    "chunk_index": 0
+  },
+  "57": {
+    "text": "Regional Interoperability Document: Health Information Exchange (HIE) standard operating procedures: Validating Patient resource naming conventions.",
+    "source": "doc_040_interop_memo_1.txt",
+    "chunk_index": 0
+  },
+  "58": {
+    "text": "Regional Interoperability Document: Cross-Border Interoperability memo: Connecting Italian NCPH to German NCPH for e-prescription sharing.",
+    "source": "doc_041_interop_memo_0.txt",
+    "chunk_index": 0
+  },
+  "59": {
+    "text": "Regional Interoperability Document: IPS deployment guidelines in Sweden: Mapping local EHR schema values to SNOMED-CT equivalents.",
+    "source": "doc_041_interop_memo_2.txt",
+    "chunk_index": 0
+  },
+  "60": {
+    "text": "Regional Interoperability Document: Health Information Exchange (HIE) standard operating procedures: Validating Patient resource naming conventions.",
+    "source": "doc_042_interop_memo_1.txt",
+    "chunk_index": 0
+  },
+  "61": {
+    "text": "Regional Interoperability Document: EHR Audit log requirements: Logging practitioner ID and timestamp for every access request to IPS.",
+    "source": "doc_042_interop_memo_3.txt",
+    "chunk_index": 0
+  },
+  "62": {
+    "text": "Regional Interoperability Document: IPS deployment guidelines in Sweden: Mapping local EHR schema values to SNOMED-CT equivalents.",
+    "source": "doc_043_interop_memo_2.txt",
+    "chunk_index": 0
+  },
+  "63": {
+    "text": "Regional Interoperability Document: FHIR resource bundle serialization: JSON representation requirements for clinical diagnostic files.",
+    "source": "doc_043_interop_memo_4.txt",
+    "chunk_index": 0
+  },
+  "64": {
+    "text": "Regional Interoperability Document: EHR Audit log requirements: Logging practitioner ID and timestamp for every access request to IPS.",
+    "source": "doc_044_interop_memo_3.txt",
+    "chunk_index": 0
+  },
+  "65": {
+    "text": "Regional Interoperability Document: Interoperability framework update: Supporting French NCPH discharge summary transformations to FHIR.",
+    "source": "doc_044_interop_memo_5.txt",
+    "chunk_index": 0
+  },
+  "66": {
+    "text": "Regional Interoperability Document: FHIR resource bundle serialization: JSON representation requirements for clinical diagnostic files.",
+    "source": "doc_045_interop_memo_4.txt",
+    "chunk_index": 0
+  },
+  "67": {
+    "text": "Regional Interoperability Document: Clinical coding best practices: Restricting local mapping tables to avoid semantic drift in cross-border transfers.",
+    "source": "doc_045_interop_memo_6.txt",
+    "chunk_index": 0
+  },
+  "68": {
+    "text": "Regional Interoperability Document: Interoperability framework update: Supporting French NCPH discharge summary transformations to FHIR.",
+    "source": "doc_046_interop_memo_5.txt",
+    "chunk_index": 0
+  },
+  "69": {
+    "text": "Regional Interoperability Document: EU-US health data agreement: Compliance checks for sharing anonymized research datasets under GDPR safeguards.",
+    "source": "doc_046_interop_memo_7.txt",
+    "chunk_index": 0
+  },
+  "70": {
+    "text": "Regional Interoperability Document: Clinical coding best practices: Restricting local mapping tables to avoid semantic drift in cross-border transfers.",
+    "source": "doc_047_interop_memo_6.txt",
+    "chunk_index": 0
+  },
+  "71": {
+    "text": "Regional Interoperability Document: National Contact Point for Health (NCPH) registry: Keeping public keys active for mTLS handshake configurations.",
+    "source": "doc_047_interop_memo_8.txt",
+    "chunk_index": 0
+  },
+  "72": {
+    "text": "Regional Interoperability Document: EU-US health data agreement: Compliance checks for sharing anonymized research datasets under GDPR safeguards.",
+    "source": "doc_048_interop_memo_7.txt",
+    "chunk_index": 0
+  },
+  "73": {
+    "text": "Regional Interoperability Document: Patient consent revocation process: Timeline constraints for propagating opt-out settings to regional EHRs.",
+    "source": "doc_048_interop_memo_9.txt",
+    "chunk_index": 0
+  },
+  "74": {
+    "text": "EHR FHIR Export for Patient ID PAT-0001. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 1, Gender: female, BirthDate: 1981-02-11. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 61 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 56 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-001 for active problem code PROB-001.",
+    "source": "doc_049_fhir_patient_1.txt",
+    "chunk_index": 0
+  },
+  "75": {
+    "text": "Regional Interoperability Document: National Contact Point for Health (NCPH) registry: Keeping public keys active for mTLS handshake configurations.",
+    "source": "doc_049_interop_memo_8.txt",
+    "chunk_index": 0
+  },
+  "76": {
+    "text": "EHR FHIR Export for Patient ID PAT-0002. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 2, Gender: male, BirthDate: 1982-03-12. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 62 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 57 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-002 for active problem code PROB-002.",
+    "source": "doc_050_fhir_patient_2.txt",
+    "chunk_index": 0
+  },
+  "77": {
+    "text": "Regional Interoperability Document: Patient consent revocation process: Timeline constraints for propagating opt-out settings to regional EHRs.",
+    "source": "doc_050_interop_memo_9.txt",
+    "chunk_index": 0
+  },
+  "78": {
+    "text": "EHR FHIR Export for Patient ID PAT-0001. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 1, Gender: female, BirthDate: 1981-02-11. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 61 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 56 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-001 for active problem code PROB-001.",
+    "source": "doc_051_fhir_patient_1.txt",
+    "chunk_index": 0
+  },
+  "79": {
+    "text": "EHR FHIR Export for Patient ID PAT-0003. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 3, Gender: female, BirthDate: 1983-04-13. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 63 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 58 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-003 for active problem code PROB-003.",
+    "source": "doc_051_fhir_patient_3.txt",
+    "chunk_index": 0
+  },
+  "80": {
+    "text": "EHR FHIR Export for Patient ID PAT-0002. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 2, Gender: male, BirthDate: 1982-03-12. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 62 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 57 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-002 for active problem code PROB-002.",
+    "source": "doc_052_fhir_patient_2.txt",
+    "chunk_index": 0
+  },
+  "81": {
+    "text": "EHR FHIR Export for Patient ID PAT-0004. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 4, Gender: male, BirthDate: 1984-05-14. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 64 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 59 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-004 for active problem code PROB-004.",
+    "source": "doc_052_fhir_patient_4.txt",
+    "chunk_index": 0
+  },
+  "82": {
+    "text": "EHR FHIR Export for Patient ID PAT-0003. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 3, Gender: female, BirthDate: 1983-04-13. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 63 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 58 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-003 for active problem code PROB-003.",
+    "source": "doc_053_fhir_patient_3.txt",
+    "chunk_index": 0
+  },
+  "83": {
+    "text": "EHR FHIR Export for Patient ID PAT-0005. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 5, Gender: female, BirthDate: 1985-06-15. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 65 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 60 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-005 for active problem code PROB-005.",
+    "source": "doc_053_fhir_patient_5.txt",
+    "chunk_index": 0
+  },
+  "84": {
+    "text": "EHR FHIR Export for Patient ID PAT-0004. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 4, Gender: male, BirthDate: 1984-05-14. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 64 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 59 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-004 for active problem code PROB-004.",
+    "source": "doc_054_fhir_patient_4.txt",
+    "chunk_index": 0
+  },
+  "85": {
+    "text": "EHR FHIR Export for Patient ID PAT-0006. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 6, Gender: male, BirthDate: 1986-07-16. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 66 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 61 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-006 for active problem code PROB-006.",
+    "source": "doc_054_fhir_patient_6.txt",
+    "chunk_index": 0
+  },
+  "86": {
+    "text": "EHR FHIR Export for Patient ID PAT-0005. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 5, Gender: female, BirthDate: 1985-06-15. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 65 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 60 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-005 for active problem code PROB-005.",
+    "source": "doc_055_fhir_patient_5.txt",
+    "chunk_index": 0
+  },
+  "87": {
+    "text": "EHR FHIR Export for Patient ID PAT-0007. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 7, Gender: female, BirthDate: 1987-08-17. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 67 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 62 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-007 for active problem code PROB-007.",
+    "source": "doc_055_fhir_patient_7.txt",
+    "chunk_index": 0
+  },
+  "88": {
+    "text": "EHR FHIR Export for Patient ID PAT-0006. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 6, Gender: male, BirthDate: 1986-07-16. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 66 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 61 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-006 for active problem code PROB-006.",
+    "source": "doc_056_fhir_patient_6.txt",
+    "chunk_index": 0
+  },
+  "89": {
+    "text": "EHR FHIR Export for Patient ID PAT-0008. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 8, Gender: male, BirthDate: 1988-09-18. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 68 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 63 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-008 for active problem code PROB-008.",
+    "source": "doc_056_fhir_patient_8.txt",
+    "chunk_index": 0
+  },
+  "90": {
+    "text": "EHR FHIR Export for Patient ID PAT-0007. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 7, Gender: female, BirthDate: 1987-08-17. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 67 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 62 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-007 for active problem code PROB-007.",
+    "source": "doc_057_fhir_patient_7.txt",
+    "chunk_index": 0
+  },
+  "91": {
+    "text": "EHR FHIR Export for Patient ID PAT-0009. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 9, Gender: female, BirthDate: 1989-01-19. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 69 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 64 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-009 for active problem code PROB-009.",
+    "source": "doc_057_fhir_patient_9.txt",
+    "chunk_index": 0
+  },
+  "92": {
+    "text": "EHR FHIR Export for Patient ID PAT-0010. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 10, Gender: male, BirthDate: 1980-02-20. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 70 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 65 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-010 for active problem code PROB-010.",
+    "source": "doc_058_fhir_patient_10.txt",
+    "chunk_index": 0
+  },
+  "93": {
+    "text": "EHR FHIR Export for Patient ID PAT-0008. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 8, Gender: male, BirthDate: 1988-09-18. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 68 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 63 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-008 for active problem code PROB-008.",
+    "source": "doc_058_fhir_patient_8.txt",
+    "chunk_index": 0
+  },
+  "94": {
+    "text": "EHR FHIR Export for Patient ID PAT-0011. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 11, Gender: female, BirthDate: 1981-03-21. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 71 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 66 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-011 for active problem code PROB-011.",
+    "source": "doc_059_fhir_patient_11.txt",
+    "chunk_index": 0
+  },
+  "95": {
+    "text": "EHR FHIR Export for Patient ID PAT-0009. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 9, Gender: female, BirthDate: 1989-01-19. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 69 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 64 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-009 for active problem code PROB-009.",
+    "source": "doc_059_fhir_patient_9.txt",
+    "chunk_index": 0
+  },
+  "96": {
+    "text": "EHR FHIR Export for Patient ID PAT-0010. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 10, Gender: male, BirthDate: 1980-02-20. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 70 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 65 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-010 for active problem code PROB-010.",
+    "source": "doc_060_fhir_patient_10.txt",
+    "chunk_index": 0
+  },
+  "97": {
+    "text": "EHR FHIR Export for Patient ID PAT-0012. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 12, Gender: male, BirthDate: 1982-04-22. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 72 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 67 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-012 for active problem code PROB-012.",
+    "source": "doc_060_fhir_patient_12.txt",
+    "chunk_index": 0
+  },
+  "98": {
+    "text": "EHR FHIR Export for Patient ID PAT-0011. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 11, Gender: female, BirthDate: 1981-03-21. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 71 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 66 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-011 for active problem code PROB-011.",
+    "source": "doc_061_fhir_patient_11.txt",
+    "chunk_index": 0
+  },
+  "99": {
+    "text": "EHR FHIR Export for Patient ID PAT-0013. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 13, Gender: female, BirthDate: 1983-05-23. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 73 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 68 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-013 for active problem code PROB-013.",
+    "source": "doc_061_fhir_patient_13.txt",
+    "chunk_index": 0
+  },
+  "100": {
+    "text": "EHR FHIR Export for Patient ID PAT-0012. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 12, Gender: male, BirthDate: 1982-04-22. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 72 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 67 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-012 for active problem code PROB-012.",
+    "source": "doc_062_fhir_patient_12.txt",
+    "chunk_index": 0
+  },
+  "101": {
+    "text": "EHR FHIR Export for Patient ID PAT-0014. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 14, Gender: male, BirthDate: 1984-06-24. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 74 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 69 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-014 for active problem code PROB-014.",
+    "source": "doc_062_fhir_patient_14.txt",
+    "chunk_index": 0
+  },
+  "102": {
+    "text": "EHR FHIR Export for Patient ID PAT-0013. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 13, Gender: female, BirthDate: 1983-05-23. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 73 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 68 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-013 for active problem code PROB-013.",
+    "source": "doc_063_fhir_patient_13.txt",
+    "chunk_index": 0
+  },
+  "103": {
+    "text": "EHR FHIR Export for Patient ID PAT-0015. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 15, Gender: female, BirthDate: 1985-07-25. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 75 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 70 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-015 for active problem code PROB-015.",
+    "source": "doc_063_fhir_patient_15.txt",
+    "chunk_index": 0
+  },
+  "104": {
+    "text": "EHR FHIR Export for Patient ID PAT-0014. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 14, Gender: male, BirthDate: 1984-06-24. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 74 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 69 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-014 for active problem code PROB-014.",
+    "source": "doc_064_fhir_patient_14.txt",
+    "chunk_index": 0
+  },
+  "105": {
+    "text": "EHR FHIR Export for Patient ID PAT-0016. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 16, Gender: male, BirthDate: 1986-08-26. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 76 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 71 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-016 for active problem code PROB-016.",
+    "source": "doc_064_fhir_patient_16.txt",
+    "chunk_index": 0
+  },
+  "106": {
+    "text": "EHR FHIR Export for Patient ID PAT-0015. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 15, Gender: female, BirthDate: 1985-07-25. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 75 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 70 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-015 for active problem code PROB-015.",
+    "source": "doc_065_fhir_patient_15.txt",
+    "chunk_index": 0
+  },
+  "107": {
+    "text": "EHR FHIR Export for Patient ID PAT-0017. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 17, Gender: female, BirthDate: 1987-09-27. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 77 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 72 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-017 for active problem code PROB-017.",
+    "source": "doc_065_fhir_patient_17.txt",
+    "chunk_index": 0
+  },
+  "108": {
+    "text": "EHR FHIR Export for Patient ID PAT-0016. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 16, Gender: male, BirthDate: 1986-08-26. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 76 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 71 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-016 for active problem code PROB-016.",
+    "source": "doc_066_fhir_patient_16.txt",
+    "chunk_index": 0
+  },
+  "109": {
+    "text": "EHR FHIR Export for Patient ID PAT-0018. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 18, Gender: male, BirthDate: 1988-01-10. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 78 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 73 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-018 for active problem code PROB-018.",
+    "source": "doc_066_fhir_patient_18.txt",
+    "chunk_index": 0
+  },
+  "110": {
+    "text": "EHR FHIR Export for Patient ID PAT-0017. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 17, Gender: female, BirthDate: 1987-09-27. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 77 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 72 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-017 for active problem code PROB-017.",
+    "source": "doc_067_fhir_patient_17.txt",
+    "chunk_index": 0
+  },
+  "111": {
+    "text": "EHR FHIR Export for Patient ID PAT-0019. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 19, Gender: female, BirthDate: 1989-02-11. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 79 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 74 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-019 for active problem code PROB-019.",
+    "source": "doc_067_fhir_patient_19.txt",
+    "chunk_index": 0
+  },
+  "112": {
+    "text": "EHR FHIR Export for Patient ID PAT-0018. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 18, Gender: male, BirthDate: 1988-01-10. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 78 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 73 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-018 for active problem code PROB-018.",
+    "source": "doc_068_fhir_patient_18.txt",
+    "chunk_index": 0
+  },
+  "113": {
+    "text": "EHR FHIR Export for Patient ID PAT-0020. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 20, Gender: male, BirthDate: 1980-03-12. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 80 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 75 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-020 for active problem code PROB-020.",
+    "source": "doc_068_fhir_patient_20.txt",
+    "chunk_index": 0
+  },
+  "114": {
+    "text": "EHR FHIR Export for Patient ID PAT-0019. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 19, Gender: female, BirthDate: 1989-02-11. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 79 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 74 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-019 for active problem code PROB-019.",
+    "source": "doc_069_fhir_patient_19.txt",
+    "chunk_index": 0
+  },
+  "115": {
+    "text": "EHR FHIR Export for Patient ID PAT-0021. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 21, Gender: female, BirthDate: 1981-04-13. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 81 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 76 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-021 for active problem code PROB-021.",
+    "source": "doc_069_fhir_patient_21.txt",
+    "chunk_index": 0
+  },
+  "116": {
+    "text": "EHR FHIR Export for Patient ID PAT-0020. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 20, Gender: male, BirthDate: 1980-03-12. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 80 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 75 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-020 for active problem code PROB-020.",
+    "source": "doc_070_fhir_patient_20.txt",
+    "chunk_index": 0
+  },
+  "117": {
+    "text": "EHR FHIR Export for Patient ID PAT-0022. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 22, Gender: male, BirthDate: 1982-05-14. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 82 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 77 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-022 for active problem code PROB-022.",
+    "source": "doc_070_fhir_patient_22.txt",
+    "chunk_index": 0
+  },
+  "118": {
+    "text": "EHR FHIR Export for Patient ID PAT-0021. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 21, Gender: female, BirthDate: 1981-04-13. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 81 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 76 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-021 for active problem code PROB-021.",
+    "source": "doc_071_fhir_patient_21.txt",
+    "chunk_index": 0
+  },
+  "119": {
+    "text": "EHR FHIR Export for Patient ID PAT-0023. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 23, Gender: female, BirthDate: 1983-06-15. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 83 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 78 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-023 for active problem code PROB-023.",
+    "source": "doc_071_fhir_patient_23.txt",
+    "chunk_index": 0
+  },
+  "120": {
+    "text": "EHR FHIR Export for Patient ID PAT-0022. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 22, Gender: male, BirthDate: 1982-05-14. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 82 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 77 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-022 for active problem code PROB-022.",
+    "source": "doc_072_fhir_patient_22.txt",
+    "chunk_index": 0
+  },
+  "121": {
+    "text": "EHR FHIR Export for Patient ID PAT-0024. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 24, Gender: male, BirthDate: 1984-07-16. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 84 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 79 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-024 for active problem code PROB-024.",
+    "source": "doc_072_fhir_patient_24.txt",
+    "chunk_index": 0
+  },
+  "122": {
+    "text": "EHR FHIR Export for Patient ID PAT-0023. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 23, Gender: female, BirthDate: 1983-06-15. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 83 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 78 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-023 for active problem code PROB-023.",
+    "source": "doc_073_fhir_patient_23.txt",
+    "chunk_index": 0
+  },
+  "123": {
+    "text": "EHR FHIR Export for Patient ID PAT-0025. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 25, Gender: female, BirthDate: 1985-08-17. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 85 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 80 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-025 for active problem code PROB-025.",
+    "source": "doc_073_fhir_patient_25.txt",
+    "chunk_index": 0
+  },
+  "124": {
+    "text": "EHR FHIR Export for Patient ID PAT-0024. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 24, Gender: male, BirthDate: 1984-07-16. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 84 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 79 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-024 for active problem code PROB-024.",
+    "source": "doc_074_fhir_patient_24.txt",
+    "chunk_index": 0
+  },
+  "125": {
+    "text": "EHR FHIR Export for Patient ID PAT-0026. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 26, Gender: male, BirthDate: 1986-09-18. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 86 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 81 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-026 for active problem code PROB-026.",
+    "source": "doc_074_fhir_patient_26.txt",
+    "chunk_index": 0
+  },
+  "126": {
+    "text": "EHR FHIR Export for Patient ID PAT-0025. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 25, Gender: female, BirthDate: 1985-08-17. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 85 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 80 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-025 for active problem code PROB-025.",
+    "source": "doc_075_fhir_patient_25.txt",
+    "chunk_index": 0
+  },
+  "127": {
+    "text": "EHR FHIR Export for Patient ID PAT-0027. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 27, Gender: female, BirthDate: 1987-01-19. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 87 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 82 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-027 for active problem code PROB-027.",
+    "source": "doc_075_fhir_patient_27.txt",
+    "chunk_index": 0
+  },
+  "128": {
+    "text": "EHR FHIR Export for Patient ID PAT-0026. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 26, Gender: male, BirthDate: 1986-09-18. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 86 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 81 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-026 for active problem code PROB-026.",
+    "source": "doc_076_fhir_patient_26.txt",
+    "chunk_index": 0
+  },
+  "129": {
+    "text": "EHR FHIR Export for Patient ID PAT-0028. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 28, Gender: male, BirthDate: 1988-02-20. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 88 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 83 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-028 for active problem code PROB-028.",
+    "source": "doc_076_fhir_patient_28.txt",
+    "chunk_index": 0
+  },
+  "130": {
+    "text": "EHR FHIR Export for Patient ID PAT-0027. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 27, Gender: female, BirthDate: 1987-01-19. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 87 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 82 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-027 for active problem code PROB-027.",
+    "source": "doc_077_fhir_patient_27.txt",
+    "chunk_index": 0
+  },
+  "131": {
+    "text": "EHR FHIR Export for Patient ID PAT-0029. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 29, Gender: female, BirthDate: 1989-03-21. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 89 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 84 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-029 for active problem code PROB-029.",
+    "source": "doc_077_fhir_patient_29.txt",
+    "chunk_index": 0
+  },
+  "132": {
+    "text": "EHR FHIR Export for Patient ID PAT-0028. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 28, Gender: male, BirthDate: 1988-02-20. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 88 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 83 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-028 for active problem code PROB-028.",
+    "source": "doc_078_fhir_patient_28.txt",
+    "chunk_index": 0
+  },
+  "133": {
+    "text": "EHR FHIR Export for Patient ID PAT-0030. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 30, Gender: male, BirthDate: 1980-04-22. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 90 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 85 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-030 for active problem code PROB-030.",
+    "source": "doc_078_fhir_patient_30.txt",
+    "chunk_index": 0
+  },
+  "134": {
+    "text": "EHR FHIR Export for Patient ID PAT-0029. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 29, Gender: female, BirthDate: 1989-03-21. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 89 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 84 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-029 for active problem code PROB-029.",
+    "source": "doc_079_fhir_patient_29.txt",
+    "chunk_index": 0
+  },
+  "135": {
+    "text": "EHR FHIR Export for Patient ID PAT-0031. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 31, Gender: female, BirthDate: 1981-05-23. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 91 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 86 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-031 for active problem code PROB-031.",
+    "source": "doc_079_fhir_patient_31.txt",
+    "chunk_index": 0
+  },
+  "136": {
+    "text": "EHR FHIR Export for Patient ID PAT-0030. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 30, Gender: male, BirthDate: 1980-04-22. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 90 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 85 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-030 for active problem code PROB-030.",
+    "source": "doc_080_fhir_patient_30.txt",
+    "chunk_index": 0
+  },
+  "137": {
+    "text": "EHR FHIR Export for Patient ID PAT-0032. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 32, Gender: male, BirthDate: 1982-06-24. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 92 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 87 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-032 for active problem code PROB-032.",
+    "source": "doc_080_fhir_patient_32.txt",
+    "chunk_index": 0
+  },
+  "138": {
+    "text": "EHR FHIR Export for Patient ID PAT-0031. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 31, Gender: female, BirthDate: 1981-05-23. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 91 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 86 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-031 for active problem code PROB-031.",
+    "source": "doc_081_fhir_patient_31.txt",
+    "chunk_index": 0
+  },
+  "139": {
+    "text": "EHR FHIR Export for Patient ID PAT-0033. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 33, Gender: female, BirthDate: 1983-07-25. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 93 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 88 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-033 for active problem code PROB-033.",
+    "source": "doc_081_fhir_patient_33.txt",
+    "chunk_index": 0
+  },
+  "140": {
+    "text": "EHR FHIR Export for Patient ID PAT-0032. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 32, Gender: male, BirthDate: 1982-06-24. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 92 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 87 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-032 for active problem code PROB-032.",
+    "source": "doc_082_fhir_patient_32.txt",
+    "chunk_index": 0
+  },
+  "141": {
+    "text": "EHR FHIR Export for Patient ID PAT-0034. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 34, Gender: male, BirthDate: 1984-08-26. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 94 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 89 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-034 for active problem code PROB-034.",
+    "source": "doc_082_fhir_patient_34.txt",
+    "chunk_index": 0
+  },
+  "142": {
+    "text": "EHR FHIR Export for Patient ID PAT-0033. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 33, Gender: female, BirthDate: 1983-07-25. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 93 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 88 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-033 for active problem code PROB-033.",
+    "source": "doc_083_fhir_patient_33.txt",
+    "chunk_index": 0
+  },
+  "143": {
+    "text": "EHR FHIR Export for Patient ID PAT-0035. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 35, Gender: female, BirthDate: 1985-09-27. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 95 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 90 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-035 for active problem code PROB-035.",
+    "source": "doc_083_fhir_patient_35.txt",
+    "chunk_index": 0
+  },
+  "144": {
+    "text": "EHR FHIR Export for Patient ID PAT-0034. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 34, Gender: male, BirthDate: 1984-08-26. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 94 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 89 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-034 for active problem code PROB-034.",
+    "source": "doc_084_fhir_patient_34.txt",
+    "chunk_index": 0
+  },
+  "145": {
+    "text": "EHR FHIR Export for Patient ID PAT-0036. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 36, Gender: male, BirthDate: 1986-01-10. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 96 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 91 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-036 for active problem code PROB-036.",
+    "source": "doc_084_fhir_patient_36.txt",
+    "chunk_index": 0
+  },
+  "146": {
+    "text": "EHR FHIR Export for Patient ID PAT-0035. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 35, Gender: female, BirthDate: 1985-09-27. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 95 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 90 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-035 for active problem code PROB-035.",
+    "source": "doc_085_fhir_patient_35.txt",
+    "chunk_index": 0
+  },
+  "147": {
+    "text": "EHR FHIR Export for Patient ID PAT-0037. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 37, Gender: female, BirthDate: 1987-02-11. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 97 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 92 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-037 for active problem code PROB-037.",
+    "source": "doc_085_fhir_patient_37.txt",
+    "chunk_index": 0
+  },
+  "148": {
+    "text": "EHR FHIR Export for Patient ID PAT-0036. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 36, Gender: male, BirthDate: 1986-01-10. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 96 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 91 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-036 for active problem code PROB-036.",
+    "source": "doc_086_fhir_patient_36.txt",
+    "chunk_index": 0
+  },
+  "149": {
+    "text": "EHR FHIR Export for Patient ID PAT-0038. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 38, Gender: male, BirthDate: 1988-03-12. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 98 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 93 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-038 for active problem code PROB-038.",
+    "source": "doc_086_fhir_patient_38.txt",
+    "chunk_index": 0
+  },
+  "150": {
+    "text": "EHR FHIR Export for Patient ID PAT-0037. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 37, Gender: female, BirthDate: 1987-02-11. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 97 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 92 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-037 for active problem code PROB-037.",
+    "source": "doc_087_fhir_patient_37.txt",
+    "chunk_index": 0
+  },
+  "151": {
+    "text": "EHR FHIR Export for Patient ID PAT-0039. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 39, Gender: female, BirthDate: 1989-04-13. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 99 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 94 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-039 for active problem code PROB-039.",
+    "source": "doc_087_fhir_patient_39.txt",
+    "chunk_index": 0
+  },
+  "152": {
+    "text": "EHR FHIR Export for Patient ID PAT-0038. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 38, Gender: male, BirthDate: 1988-03-12. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 98 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 93 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-038 for active problem code PROB-038.",
+    "source": "doc_088_fhir_patient_38.txt",
+    "chunk_index": 0
+  },
+  "153": {
+    "text": "EHR FHIR Export for Patient ID PAT-0040. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 40, Gender: male, BirthDate: 1980-05-14. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 60 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 95 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-040 for active problem code PROB-040.",
+    "source": "doc_088_fhir_patient_40.txt",
+    "chunk_index": 0
+  },
+  "154": {
+    "text": "EHR FHIR Export for Patient ID PAT-0039. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 39, Gender: female, BirthDate: 1989-04-13. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 99 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 94 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-039 for active problem code PROB-039.",
+    "source": "doc_089_fhir_patient_39.txt",
+    "chunk_index": 0
+  },
+  "155": {
+    "text": "EHR FHIR Export for Patient ID PAT-0041. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 41, Gender: female, BirthDate: 1981-06-15. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 61 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 96 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-041 for active problem code PROB-041.",
+    "source": "doc_089_fhir_patient_41.txt",
+    "chunk_index": 0
+  },
+  "156": {
+    "text": "EHR FHIR Export for Patient ID PAT-0040. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 40, Gender: male, BirthDate: 1980-05-14. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 60 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 95 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-040 for active problem code PROB-040.",
+    "source": "doc_090_fhir_patient_40.txt",
+    "chunk_index": 0
+  },
+  "157": {
+    "text": "EHR FHIR Export for Patient ID PAT-0042. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 42, Gender: male, BirthDate: 1982-07-16. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 62 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 97 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-042 for active problem code PROB-042.",
+    "source": "doc_090_fhir_patient_42.txt",
+    "chunk_index": 0
+  },
+  "158": {
+    "text": "EHR FHIR Export for Patient ID PAT-0041. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 41, Gender: female, BirthDate: 1981-06-15. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 61 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 96 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-041 for active problem code PROB-041.",
+    "source": "doc_091_fhir_patient_41.txt",
+    "chunk_index": 0
+  },
+  "159": {
+    "text": "EHR FHIR Export for Patient ID PAT-0043. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 43, Gender: female, BirthDate: 1983-08-17. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 63 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 98 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-043 for active problem code PROB-043.",
+    "source": "doc_091_fhir_patient_43.txt",
+    "chunk_index": 0
+  },
+  "160": {
+    "text": "EHR FHIR Export for Patient ID PAT-0042. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 42, Gender: male, BirthDate: 1982-07-16. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 62 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 97 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-042 for active problem code PROB-042.",
+    "source": "doc_092_fhir_patient_42.txt",
+    "chunk_index": 0
+  },
+  "161": {
+    "text": "EHR FHIR Export for Patient ID PAT-0044. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 44, Gender: male, BirthDate: 1984-09-18. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 64 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 99 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-044 for active problem code PROB-044.",
+    "source": "doc_092_fhir_patient_44.txt",
+    "chunk_index": 0
+  },
+  "162": {
+    "text": "EHR FHIR Export for Patient ID PAT-0043. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 43, Gender: female, BirthDate: 1983-08-17. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 63 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 98 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-043 for active problem code PROB-043.",
+    "source": "doc_093_fhir_patient_43.txt",
+    "chunk_index": 0
+  },
+  "163": {
+    "text": "EHR FHIR Export for Patient ID PAT-0045. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 45, Gender: female, BirthDate: 1985-01-19. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 65 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 100 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-045 for active problem code PROB-045.",
+    "source": "doc_093_fhir_patient_45.txt",
+    "chunk_index": 0
+  },
+  "164": {
+    "text": "EHR FHIR Export for Patient ID PAT-0044. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 44, Gender: male, BirthDate: 1984-09-18. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 64 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 99 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-044 for active problem code PROB-044.",
+    "source": "doc_094_fhir_patient_44.txt",
+    "chunk_index": 0
+  },
+  "165": {
+    "text": "EHR FHIR Export for Patient ID PAT-0046. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 46, Gender: male, BirthDate: 1986-02-20. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 66 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 101 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-046 for active problem code PROB-046.",
+    "source": "doc_094_fhir_patient_46.txt",
+    "chunk_index": 0
+  },
+  "166": {
+    "text": "EHR FHIR Export for Patient ID PAT-0045. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 45, Gender: female, BirthDate: 1985-01-19. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 65 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 100 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-045 for active problem code PROB-045.",
+    "source": "doc_095_fhir_patient_45.txt",
+    "chunk_index": 0
+  },
+  "167": {
+    "text": "EHR FHIR Export for Patient ID PAT-0047. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 47, Gender: female, BirthDate: 1987-03-21. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 67 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 102 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-047 for active problem code PROB-047.",
+    "source": "doc_095_fhir_patient_47.txt",
+    "chunk_index": 0
+  },
+  "168": {
+    "text": "EHR FHIR Export for Patient ID PAT-0046. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 46, Gender: male, BirthDate: 1986-02-20. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 66 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 101 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-046 for active problem code PROB-046.",
+    "source": "doc_096_fhir_patient_46.txt",
+    "chunk_index": 0
+  },
+  "169": {
+    "text": "EHR FHIR Export for Patient ID PAT-0048. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 48, Gender: male, BirthDate: 1988-04-22. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 68 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 103 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-048 for active problem code PROB-048.",
+    "source": "doc_096_fhir_patient_48.txt",
+    "chunk_index": 0
+  },
+  "170": {
+    "text": "EHR FHIR Export for Patient ID PAT-0047. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 47, Gender: female, BirthDate: 1987-03-21. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 67 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 102 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-047 for active problem code PROB-047.",
+    "source": "doc_097_fhir_patient_47.txt",
+    "chunk_index": 0
+  },
+  "171": {
+    "text": "EHR FHIR Export for Patient ID PAT-0049. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 49, Gender: female, BirthDate: 1989-05-23. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 69 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 104 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-049 for active problem code PROB-049.",
+    "source": "doc_097_fhir_patient_49.txt",
+    "chunk_index": 0
+  },
+  "172": {
+    "text": "EHR FHIR Export for Patient ID PAT-0048. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 48, Gender: male, BirthDate: 1988-04-22. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 68 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 103 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-048 for active problem code PROB-048.",
+    "source": "doc_098_fhir_patient_48.txt",
+    "chunk_index": 0
+  },
+  "173": {
+    "text": "EHR FHIR Export for Patient ID PAT-0050. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 50, Gender: male, BirthDate: 1980-06-24. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 70 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 55 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-050 for active problem code PROB-050.",
+    "source": "doc_098_fhir_patient_50.txt",
+    "chunk_index": 0
+  },
+  "174": {
+    "text": "EHR FHIR Export for Patient ID PAT-0049. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 49, Gender: female, BirthDate: 1989-05-23. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 69 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 104 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-049 for active problem code PROB-049.",
+    "source": "doc_099_fhir_patient_49.txt",
+    "chunk_index": 0
+  },
+  "175": {
+    "text": "EHR FHIR Export for Patient ID PAT-0051. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 51, Gender: female, BirthDate: 1981-07-25. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 71 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 56 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-051 for active problem code PROB-051.",
+    "source": "doc_099_fhir_patient_51.txt",
+    "chunk_index": 0
+  },
+  "176": {
+    "text": "EHR FHIR Export for Patient ID PAT-0050. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 50, Gender: male, BirthDate: 1980-06-24. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 70 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 55 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-050 for active problem code PROB-050.",
+    "source": "doc_100_fhir_patient_50.txt",
+    "chunk_index": 0
+  },
+  "177": {
+    "text": "EHR FHIR Export for Patient ID PAT-0052. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 52, Gender: male, BirthDate: 1982-08-26. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 72 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 57 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-052 for active problem code PROB-052.",
+    "source": "doc_100_fhir_patient_52.txt",
+    "chunk_index": 0
+  },
+  "178": {
+    "text": "EHR FHIR Export for Patient ID PAT-0051. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 51, Gender: female, BirthDate: 1981-07-25. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 71 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 56 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-051 for active problem code PROB-051.",
+    "source": "doc_101_fhir_patient_51.txt",
+    "chunk_index": 0
+  },
+  "179": {
+    "text": "EHR FHIR Export for Patient ID PAT-0053. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 53, Gender: female, BirthDate: 1983-09-27. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 73 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 58 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-053 for active problem code PROB-053.",
+    "source": "doc_101_fhir_patient_53.txt",
+    "chunk_index": 0
+  },
+  "180": {
+    "text": "EHR FHIR Export for Patient ID PAT-0052. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 52, Gender: male, BirthDate: 1982-08-26. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 72 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 57 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-052 for active problem code PROB-052.",
+    "source": "doc_102_fhir_patient_52.txt",
+    "chunk_index": 0
+  },
+  "181": {
+    "text": "EHR FHIR Export for Patient ID PAT-0054. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 54, Gender: male, BirthDate: 1984-01-10. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 74 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 59 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-054 for active problem code PROB-054.",
+    "source": "doc_102_fhir_patient_54.txt",
+    "chunk_index": 0
+  },
+  "182": {
+    "text": "EHR FHIR Export for Patient ID PAT-0053. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 53, Gender: female, BirthDate: 1983-09-27. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 73 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 58 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-053 for active problem code PROB-053.",
+    "source": "doc_103_fhir_patient_53.txt",
+    "chunk_index": 0
+  },
+  "183": {
+    "text": "EHR FHIR Export for Patient ID PAT-0055. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 55, Gender: female, BirthDate: 1985-02-11. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 75 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 60 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-055 for active problem code PROB-055.",
+    "source": "doc_103_fhir_patient_55.txt",
+    "chunk_index": 0
+  },
+  "184": {
+    "text": "EHR FHIR Export for Patient ID PAT-0054. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 54, Gender: male, BirthDate: 1984-01-10. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 74 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 59 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-054 for active problem code PROB-054.",
+    "source": "doc_104_fhir_patient_54.txt",
+    "chunk_index": 0
+  },
+  "185": {
+    "text": "EHR FHIR Export for Patient ID PAT-0056. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 56, Gender: male, BirthDate: 1986-03-12. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 76 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 61 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-056 for active problem code PROB-056.",
+    "source": "doc_104_fhir_patient_56.txt",
+    "chunk_index": 0
+  },
+  "186": {
+    "text": "EHR FHIR Export for Patient ID PAT-0055. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 55, Gender: female, BirthDate: 1985-02-11. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 75 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 60 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-055 for active problem code PROB-055.",
+    "source": "doc_105_fhir_patient_55.txt",
+    "chunk_index": 0
+  },
+  "187": {
+    "text": "EHR FHIR Export for Patient ID PAT-0057. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 57, Gender: female, BirthDate: 1987-04-13. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 77 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 62 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-057 for active problem code PROB-057.",
+    "source": "doc_105_fhir_patient_57.txt",
+    "chunk_index": 0
+  },
+  "188": {
+    "text": "EHR FHIR Export for Patient ID PAT-0056. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 56, Gender: male, BirthDate: 1986-03-12. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 76 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 61 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-056 for active problem code PROB-056.",
+    "source": "doc_106_fhir_patient_56.txt",
+    "chunk_index": 0
+  },
+  "189": {
+    "text": "EHR FHIR Export for Patient ID PAT-0058. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 58, Gender: male, BirthDate: 1988-05-14. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 78 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 63 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-058 for active problem code PROB-058.",
+    "source": "doc_106_fhir_patient_58.txt",
+    "chunk_index": 0
+  },
+  "190": {
+    "text": "EHR FHIR Export for Patient ID PAT-0057. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 57, Gender: female, BirthDate: 1987-04-13. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 77 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 62 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-057 for active problem code PROB-057.",
+    "source": "doc_107_fhir_patient_57.txt",
+    "chunk_index": 0
+  },
+  "191": {
+    "text": "EHR FHIR Export for Patient ID PAT-0059. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 59, Gender: female, BirthDate: 1989-06-15. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 79 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 64 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-059 for active problem code PROB-059.",
+    "source": "doc_107_fhir_patient_59.txt",
+    "chunk_index": 0
+  },
+  "192": {
+    "text": "EHR FHIR Export for Patient ID PAT-0058. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 58, Gender: male, BirthDate: 1988-05-14. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 78 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 63 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-058 for active problem code PROB-058.",
+    "source": "doc_108_fhir_patient_58.txt",
+    "chunk_index": 0
+  },
+  "193": {
+    "text": "EHR FHIR Export for Patient ID PAT-0060. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 60, Gender: male, BirthDate: 1980-07-16. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 80 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 65 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-060 for active problem code PROB-060.",
+    "source": "doc_108_fhir_patient_60.txt",
+    "chunk_index": 0
+  },
+  "194": {
+    "text": "EHR FHIR Export for Patient ID PAT-0059. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 59, Gender: female, BirthDate: 1989-06-15. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 79 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 64 kg. Consent status: Permit secondary use. IPS medications summary: Patient is taking medicine MED-059 for active problem code PROB-059.",
+    "source": "doc_109_fhir_patient_59.txt",
+    "chunk_index": 0
+  },
+  "195": {
+    "text": "EHR FHIR Export for Patient ID PAT-0060. Active: true. Resource Type: Patient, Observation, Bundle. Patient Demographics: Name: Patient 60, Gender: male, BirthDate: 1980-07-16. Observation Category: vital-signs, laboratory. Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 80 beats/min, status: final. Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 65 kg. Consent status: Deny secondary use / Opt-out active. IPS medications summary: Patient is taking medicine MED-060 for active problem code PROB-060.",
+    "source": "doc_110_fhir_patient_60.txt",
+    "chunk_index": 0
+  },
+  "196": {
+    "text": "UK NHS Caldicott Principles and Data Protection: The 8 Caldicott Principles govern the handling of patient-identifiable information within the UK National Health Service (NHS). Principle 1: Justify the purpose(s) for using confidential information. Principle 2: Use confidential information only when absolutely necessary. Principle 3: Use the minimum necessary confidential information. Principle 4: Access to confidential information should be on a strict need-to-know basis. Principle 5: Everyone with access to confidential information should be aware of their responsibilities. Principle 6: Comply with the law (Data Protection Act 2018 / UK GDPR). Principle 7: The duty to share information for direct patient care can be as important as the duty to protect patient confidentiality. Principle 8: Inform patients and service users about how their confidential information is used. Caldicott Guardians are senior health or social care professionals appointed in NHS organizations to ensure these principles are respected.",
+    "source": "doc_111_nhs_caldicott_principles.txt",
+    "chunk_index": 0
+  },
+  "197": {
+    "text": "NHS Data Security and Protection Toolkit (DSPT): The Data Security and Protection Toolkit (DSPT) is an online self-assessment tool that allows NHS organizations and third-party healthcare vendors to measure their performance against the UK National Data Guardian's 10 Data Security Standards. Key Compliance Requirements: 1. Personal Confidential Data: All staff ensure PCD is handled legally and securely. 2. Staff Training: 95% of staff must complete annual data security training. 3. Managing Data Access: Access permissions are reviewed regularly and revoked upon termination. 4. Process Reviews: Processes involving PCD are reviewed at least annually. 5. Responding to Incidents: Cyber security incidents must be reported to the NHS Digital Cyber Operations team within 24 hours. 6. Continuity Planning: Business continuity plans for cyber attacks and system outages are tested annually. 7. System Security: Unsupported operating systems, software, and unpatched vulnerabilities are prohibited on NHS networks. 8. Accountable Officers: Named senior roles (SIRO and Caldicott Guardian) oversee data risk.",
+    "source": "doc_112_nhs_dspt_framework.txt",
+    "chunk_index": 0
+  },
+  "198": {
+    "text": "NHS UK Core FHIR Implementation Guide: NHS England and NHS Digital publish the UK Core FHIR specifications for interoperability across UK health and social care systems. Key UK Core Resources & Extensions: 1. UKCore-Patient: Includes NHS Number extension (URL: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumber) with mandatory verification status coding. 2. UKCore-Practitioner: Captures Professional Registration Details (GMC code for doctors, NMC code for nurses). 3. UKCore-Organization: Maps to ODS Codes (Organisation Data Service codes managed by NHS Digital). 4. UKCore-Consent: Captures National Data Opt-out preferences where patients choose to opt out of their confidential patient information being used for research and planning.",
+    "source": "doc_113_nhs_fhir_uk_core.txt",
+    "chunk_index": 0
+  },
+  "199": {
+    "text": "NHS National Data Opt-out Policy: The NHS National Data Opt-out is a service that allows patients in England to opt out of their confidential patient information being used for research and planning purposes. Scope & Exceptions: - Applies to: Secondary processing of confidential patient information across NHS England, UK Health Security Agency (UKHSA), and local authorities. - Exemptions: Direct care (opt-out does not apply when sharing data for direct treatment), mandatory legal disclosures (court orders), and public health emergency directions under Regulation 3 of the Health Service Control of Patient Information Regulations 2002 (COPI). - Enforcement: All health and care organizations handling NHS patient data must adhere to the National Data Opt-out policy and filter data disclosures against the NHS Digital central opt-out repository.",
+    "source": "doc_114_nhs_national_data_opt_out.txt",
+    "chunk_index": 0
+  }
+}

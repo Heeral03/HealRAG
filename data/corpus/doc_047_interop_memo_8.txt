@@ -1,0 +1,1 @@
+Regional Interoperability Document: National Contact Point for Health (NCPH) registry: Keeping public keys active for mTLS handshake configurations.

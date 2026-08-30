@@ -1,0 +1,1 @@
+Regional Interoperability Document: FHIR resource bundle serialization: JSON representation requirements for clinical diagnostic files.

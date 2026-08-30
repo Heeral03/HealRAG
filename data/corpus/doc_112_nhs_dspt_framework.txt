@@ -1,0 +1,11 @@
+NHS Data Security and Protection Toolkit (DSPT):
+The Data Security and Protection Toolkit (DSPT) is an online self-assessment tool that allows NHS organizations and third-party healthcare vendors to measure their performance against the UK National Data Guardian's 10 Data Security Standards.
+Key Compliance Requirements:
+1. Personal Confidential Data: All staff ensure PCD is handled legally and securely.
+2. Staff Training: 95% of staff must complete annual data security training.
+3. Managing Data Access: Access permissions are reviewed regularly and revoked upon termination.
+4. Process Reviews: Processes involving PCD are reviewed at least annually.
+5. Responding to Incidents: Cyber security incidents must be reported to the NHS Digital Cyber Operations team within 24 hours.
+6. Continuity Planning: Business continuity plans for cyber attacks and system outages are tested annually.
+7. System Security: Unsupported operating systems, software, and unpatched vulnerabilities are prohibited on NHS networks.
+8. Accountable Officers: Named senior roles (SIRO and Caldicott Guardian) oversee data risk.

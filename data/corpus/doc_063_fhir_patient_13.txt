@@ -1,0 +1,8 @@
+EHR FHIR Export for Patient ID PAT-0013.
+Active: true. Resource Type: Patient, Observation, Bundle.
+Patient Demographics: Name: Patient 13, Gender: female, BirthDate: 1983-05-23.
+Observation Category: vital-signs, laboratory.
+Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 73 beats/min, status: final.
+Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 68 kg.
+Consent status: Permit secondary use.
+IPS medications summary: Patient is taking medicine MED-013 for active problem code PROB-013.

@@ -1,0 +1,1 @@
+Regional Interoperability Document: Patient consent revocation process: Timeline constraints for propagating opt-out settings to regional EHRs.

@@ -1,0 +1,7 @@
+NHS UK Core FHIR Implementation Guide:
+NHS England and NHS Digital publish the UK Core FHIR specifications for interoperability across UK health and social care systems.
+Key UK Core Resources & Extensions:
+1. UKCore-Patient: Includes NHS Number extension (URL: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumber) with mandatory verification status coding.
+2. UKCore-Practitioner: Captures Professional Registration Details (GMC code for doctors, NMC code for nurses).
+3. UKCore-Organization: Maps to ODS Codes (Organisation Data Service codes managed by NHS Digital).
+4. UKCore-Consent: Captures National Data Opt-out preferences where patients choose to opt out of their confidential patient information being used for research and planning.

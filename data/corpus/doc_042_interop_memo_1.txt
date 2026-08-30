@@ -1,0 +1,1 @@
+Regional Interoperability Document: Health Information Exchange (HIE) standard operating procedures: Validating Patient resource naming conventions.

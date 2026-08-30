@@ -1,0 +1,1 @@
+FHIR Bundle Resource: A Bundle is a container resource that acts as a wrapper for a collection of other resources. It is frequently used in API responses, transactions, batch operations, and document-style payloads. A Bundle contains metadata and entries (a list of resource objects), and must specify a type attribute such as transaction, batch, history, searchset, or document.

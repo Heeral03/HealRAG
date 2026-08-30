@@ -6,6 +6,3 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .DS_Store
-db/*.faiss
-db/*.json
-data/

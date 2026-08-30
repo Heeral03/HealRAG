@@ -1,0 +1,1 @@
+IPS History of Procedures Section: This section of the IPS details clinical procedures completed in the past that are relevant to clinical decision making. Procedures should be coded using SNOMED CT terms to maintain cross-border semantic alignment, ensuring practitioners in other countries can understand the clinical history.

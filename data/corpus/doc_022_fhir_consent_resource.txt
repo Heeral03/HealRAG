@@ -1,0 +1,1 @@
+FHIR Consent Resource: The Consent resource is used to record a healthcare consumer's choice to permit or deny the collection, use, or disclosure of their personal health data. It specifies the scope of the consent, the actors involved (e.g., specific practitioners or organizations), the data categories covered, the validity period, and the explicit action (permit or deny).

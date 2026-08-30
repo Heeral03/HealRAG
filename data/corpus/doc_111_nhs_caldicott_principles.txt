@@ -1,0 +1,11 @@
+UK NHS Caldicott Principles and Data Protection:
+The 8 Caldicott Principles govern the handling of patient-identifiable information within the UK National Health Service (NHS).
+Principle 1: Justify the purpose(s) for using confidential information.
+Principle 2: Use confidential information only when absolutely necessary.
+Principle 3: Use the minimum necessary confidential information.
+Principle 4: Access to confidential information should be on a strict need-to-know basis.
+Principle 5: Everyone with access to confidential information should be aware of their responsibilities.
+Principle 6: Comply with the law (Data Protection Act 2018 / UK GDPR).
+Principle 7: The duty to share information for direct patient care can be as important as the duty to protect patient confidentiality.
+Principle 8: Inform patients and service users about how their confidential information is used.
+Caldicott Guardians are senior health or social care professionals appointed in NHS organizations to ensure these principles are respected.

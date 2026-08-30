@@ -1,0 +1,8 @@
+EHR FHIR Export for Patient ID PAT-0036.
+Active: true. Resource Type: Patient, Observation, Bundle.
+Patient Demographics: Name: Patient 36, Gender: male, BirthDate: 1986-01-10.
+Observation Category: vital-signs, laboratory.
+Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: 96 beats/min, status: final.
+Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: 91 kg.
+Consent status: Deny secondary use / Opt-out active.
+IPS medications summary: Patient is taking medicine MED-036 for active problem code PROB-036.
