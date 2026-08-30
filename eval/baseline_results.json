@@ -1,0 +1,365 @@
+{
+  "total_questions": 18,
+  "overall_accuracy": 0.9444444444444444,
+  "category_breakdown": {
+    "Easy": {
+      "total": 6,
+      "passed": 6,
+      "accuracy": 1.0
+    },
+    "Hard": {
+      "total": 6,
+      "passed": 5,
+      "accuracy": 0.8333333333333334
+    },
+    "Adversarial": {
+      "total": 6,
+      "passed": 6,
+      "accuracy": 1.0
+    }
+  },
+  "results": [
+    {
+      "id": "easy_01",
+      "category": "Easy",
+      "question": "What special categories of personal data are prohibited from processing under GDPR Article 9(1)?",
+      "top_similarity_score": 0.7711907625198364,
+      "retrieved_sources": [
+        "doc_001_gdpr_art9_para1.txt",
+        "doc_002_gdpr_art9_para2_a.txt",
+        "doc_005_gdpr_art9_para2_j.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (6/7 keywords matched)",
+      "response_preview": "**GDPR Article\u202f9(1) \u2013 Prohibited Special\u2011Category Data**  Under Article\u202f9(1) of the GDPR, the following categories of personal data are expressly prohibited from being processed (unless an exception in Article\u202f9(2) applies):  - **Racial or ethnic origin**   - **Political opinions**   - **Religious o",
+      "full_response": "**GDPR Article\u202f9(1) \u2013 Prohibited Special\u2011Category Data**\n\nUnder Article\u202f9(1) of the GDPR, the following categories of personal data are expressly prohibited from being processed (unless an exception in Article\u202f9(2) applies):\n\n- **Racial or ethnic origin**  \n- **Political opinions**  \n- **Religious or philosophical beliefs**  \n- **Trade\u2011union membership**  \n- **Genetic data**  \n- **Biometric data** used for the purpose of uniquely identifying a natural person  \n- **Health data** (data concerning a person\u2019s physical or mental health)  \n- **Data concerning a natural person\u2019s sex life or sexual orientation**  \n\nThese categories are identified as \u201cspecial categories of personal data\u201d and are subject to a general prohibition on processing, subject to the limited exceptions provided in Article\u202f9(2)\u3010Source: doc_001_gdpr_art9_para1.txt\u3011.",
+      "timing_sec": {
+        "retrieval": 0.049,
+        "generation": 1.194
+      }
+    },
+    {
+      "id": "easy_02",
+      "category": "Easy",
+      "question": "What three clinical sections are mandatory in the International Patient Summary (IPS) profile?",
+      "top_similarity_score": 0.7900451421737671,
+      "retrieved_sources": [
+        "doc_025_ips_profile_summary.txt",
+        "doc_023_ips_profile_summary.txt",
+        "doc_024_ips_diagnostic_results.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (3/3 keywords matched)",
+      "response_preview": "**Mandatory Clinical Sections in the International Patient Summary (IPS) Profile**  | Mandatory Section | Description | |-------------------|-------------| | **Medication Summary** | Lists the patient\u2019s **active medications**. | | **Allergies and Intolerances** | Records **substances** and the assoc",
+      "full_response": "**Mandatory Clinical Sections in the International Patient Summary (IPS) Profile**\n\n| Mandatory Section | Description |\n|-------------------|-------------|\n| **Medication Summary** | Lists the patient\u2019s **active medications**. |\n| **Allergies and Intolerances** | Records **substances** and the associated **reaction types**. |\n| **Active Problems** | Provides a list of the patient\u2019s **current conditions**. |\n\n**Sources**  \n- The IPS profile explicitly requires these three sections: Medication Summary, Allergies and Intolerances, and Active Problems\u202f[Source: doc_025_ips_profile_summary.txt]  \n- The same requirement is reiterated in a duplicate summary document\u202f[Source: doc_023_ips_profile_summary.txt].",
+      "timing_sec": {
+        "retrieval": 0.015,
+        "generation": 1.301
+      }
+    },
+    {
+      "id": "easy_03",
+      "category": "Easy",
+      "question": "What is the primary role of Health Data Access Bodies (HDABs) under EHDS Chapter IV Article 36?",
+      "top_similarity_score": 0.8907382488250732,
+      "retrieved_sources": [
+        "doc_015_ehds_ch4_art36_data_access_bodies.txt",
+        "doc_038_ehds_sub_5.txt",
+        "doc_036_ehds_sub_5.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (4/5 keywords matched)",
+      "response_preview": "**Primary Role of Health Data Access Bodies (HDABs) \u2013 EHDS Chapter\u202fIV Article\u202f36**  - **Designation and Responsibility**     - Each Member State must designate one or more HDABs.     - These bodies are the official entities responsible for managing secondary use of electronic health data.  - **Core ",
+      "full_response": "**Primary Role of Health Data Access Bodies (HDABs) \u2013 EHDS Chapter\u202fIV Article\u202f36**\n\n- **Designation and Responsibility**  \n  - Each Member State must designate one or more HDABs.  \n  - These bodies are the official entities responsible for managing secondary use of electronic health data.\n\n- **Core Functions**  \n  1. **Receive Data Applications** \u2013 HDABs act as the first point of contact for entities requesting access to health data.  \n  2. **Evaluate Requests** \u2013 They assess each application against the legal and safety criteria set out in the EHDS.  \n  3. **Issue Data Permits** \u2013 Upon satisfactory evaluation, HDABs grant data permits that authorize the secondary use of the data.  \n  4. **Data Preparation** \u2013 They ensure that the datasets are **pseudonymized or anonymized** before release, in line with strict safety requirements.  \n  5. **Secure Provision** \u2013 The prepared data are made available to authorized users within a **secure processing environment**.\n\n> **Citation:** EHDS Chapter\u202fIV Article\u202f36 \u2013 Health Data Access Bodies (HDABs) responsibilities as described in the provided document (doc_015_ehds_ch4_art36_data_access_bodies.txt).",
+      "timing_sec": {
+        "retrieval": 0.028,
+        "generation": 1.208
+      }
+    },
+    {
+      "id": "easy_04",
+      "category": "Easy",
+      "question": "What are the required core attributes of a FHIR Patient Resource?",
+      "top_similarity_score": 0.7816246747970581,
+      "retrieved_sources": [
+        "doc_019_fhir_patient_resource.txt",
+        "doc_024_fhir_architecture_principles.txt",
+        "doc_020_fhir_observation_resource.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (7/7 keywords matched)",
+      "response_preview": "**Core Attributes of a FHIR\u202fPatient Resource (as described in the provided corpus)**    | Attribute | Description (from the corpus) | |-----------|--------------------------------| | **identifier** | Unique identifiers for the patient (e.g., SSN, medical record number). | | **active** | Boolean flag",
+      "full_response": "**Core Attributes of a FHIR\u202fPatient Resource (as described in the provided corpus)**  \n\n| Attribute | Description (from the corpus) |\n|-----------|--------------------------------|\n| **identifier** | Unique identifiers for the patient (e.g., SSN, medical record number). |\n| **active** | Boolean flag indicating whether the patient record is currently active. |\n| **name** | `HumanName` structure containing family and given names. |\n| **telecom** | Contact details such as phone numbers or email addresses. |\n| **gender** | Administrative gender values: *male*, *female*, *other*, *unknown*. |\n| **birthDate** | Patient\u2019s date of birth. |\n| **address** | Physical address(es) of the patient. |\n\n**Source**: Document\u202fChunk\u202f1 \u2013 *FHIR Patient Resource Definition* (doc_019_fhir_patient_resource.txt)\u3010doc_019_fhir_patient_resource.txt\u3011.\n\n---\n\n### Note on \u201crequired\u201d vs. \u201coptional\u201d\n\nThe excerpt provided lists **key attributes** but does **not** specify which of these are *mandatory* (required) by the FHIR specification and which are optional. The official FHIR standard defines required elements (e.g., `resourceType`, `id`) and may mark some of the above as optional depending on implementation needs.  \n\n**Missing Information**: The corpus does not contain the exact FHIR normative statements (e.g., \u201cmust\u2011have\u201d or cardinality definitions) that delineate required versus optional attributes for the Patient resource. To obtain a definitive list of required elements, consult the official FHIR Patient resource definition (e.g., FHIR Release\u202fR4, Section\u202fPatient).",
+      "timing_sec": {
+        "retrieval": 0.028,
+        "generation": 1.691
+      }
+    },
+    {
+      "id": "easy_05",
+      "category": "Easy",
+      "question": "What platform does the EU Commission establish under EHDS Chapter II Article 5 for cross-border health data exchange?",
+      "top_similarity_score": 0.8363668322563171,
+      "retrieved_sources": [
+        "doc_010_ehds_ch2_art5_myhealth_eu.txt",
+        "doc_040_ehds_sub_7.txt",
+        "doc_038_ehds_sub_7.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (1/1 keywords matched)",
+      "response_preview": "**Platform Established under EHDS Chapter\u202fII\u202fArticle\u202f5**  - **Name of the platform:** **MyHealth@EU**   - **Nature of the platform:** A **central digital\u2011health platform** created by the European Commission.   - **Purpose:** To facilitate and support the **cross\u2011border exchange of electronic health ",
+      "full_response": "**Platform Established under EHDS Chapter\u202fII\u202fArticle\u202f5**\n\n- **Name of the platform:** **MyHealth@EU**  \n- **Nature of the platform:** A **central digital\u2011health platform** created by the European Commission.  \n- **Purpose:** To facilitate and support the **cross\u2011border exchange of electronic health data** (patient summaries, e\u2011prescriptions, e\u2011dispensations, medical images, laboratory results, discharge reports) between the national contact points for digital health of the Member States.  \n\n**Citation**  \n- EHDS Chapter\u202fII Article\u202f5 \u2013 MyHealth@EU infrastructure\u202f[Source: doc_010_ehds_ch2_art5_myhealth_eu.txt]",
+      "timing_sec": {
+        "retrieval": 0.023,
+        "generation": 1.213
+      }
+    },
+    {
+      "id": "easy_06",
+      "category": "Easy",
+      "question": "What architectural principles define Fast Healthcare Interoperability Resources (FHIR)?",
+      "top_similarity_score": 0.7432988286018372,
+      "retrieved_sources": [
+        "doc_023_fhir_overview_intro.txt",
+        "doc_024_fhir_architecture_principles.txt",
+        "doc_019_fhir_patient_resource.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (3/5 keywords matched)",
+      "response_preview": "**FHIR Architectural Principles**  Fast Healthcare Interoperability Resources (FHIR) is built on a set of core architectural principles that guide how health data is modeled, exchanged, and presented:  | Principle | Description | |-----------|-------------| | **80\u202f% Consensus Rule** | FHIR models th",
+      "full_response": "**FHIR Architectural Principles**\n\nFast Healthcare Interoperability Resources (FHIR) is built on a set of core architectural principles that guide how health data is modeled, exchanged, and presented:\n\n| Principle | Description |\n|-----------|-------------|\n| **80\u202f% Consensus Rule** | FHIR models the concepts that are common to roughly 80\u202f% of health\u2011care systems. Anything outside this core is handled through **Extension** elements, allowing flexibility without breaking the base model. <br> *[Source: doc_024_fhir_architecture_principles.txt]* |\n| **Human Readability** | Every resource includes a human\u2011readable XHTML narrative summary, ensuring that data can be understood directly by clinicians and patients without requiring specialized tooling. <br> *[Source: doc_024_fhir_architecture_principles.txt]* |\n| **Modern RESTful Architecture** | Resources are exposed via standard HTTP methods (GET, POST, PUT, DELETE) with predictable URIs, leveraging web\u2011scale technologies (REST, JSON, XML) for easy integration. <br> *[Source: doc_024_fhir_architecture_principles.txt]* |\n| **Modular Resource\u2011Based Design** | The fundamental building blocks are **Resources**\u2014self\u2011contained, discrete clinical or administrative concepts (e.g., Patient, Observation, Medication, Encounter). <br> *[Source: doc_024_fhir_architecture_principles.txt]* |\n\nThese principles collectively ensure that FHIR is **interoperable**, **extensible**, and **accessible** across diverse health\u2011IT environments.",
+      "timing_sec": {
+        "retrieval": 0.024,
+        "generation": 1.419
+      }
+    },
+    {
+      "id": "hard_01",
+      "category": "Hard",
+      "question": "How does EHDS secondary data use under Article 34 interact with GDPR Article 89 safeguards for scientific research?",
+      "top_similarity_score": 0.6585076451301575,
+      "retrieved_sources": [
+        "doc_012_ehds_ch4_art33_secondary_data_use.txt",
+        "doc_014_ehds_ch4_art35_prohibited_purposes.txt",
+        "doc_013_ehds_ch4_art34_purposes_secondary_use.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (3/6 keywords matched)",
+      "response_preview": "**1.\u202fEHDS \u2013 Permitted purposes for secondary use (Article\u202f34)**    | Provision | Content (as per the EHDS text) | |-----------|--------------------------------| | **Article\u202f34(a)** | Activities for reasons of public interest in the area of public health. | | **Article\u202f34(b)** | Support of public\u2011hea",
+      "full_response": "**1.\u202fEHDS \u2013 Permitted purposes for secondary use (Article\u202f34)**  \n\n| Provision | Content (as per the EHDS text) |\n|-----------|--------------------------------|\n| **Article\u202f34(a)** | Activities for reasons of public interest in the area of public health. |\n| **Article\u202f34(b)** | Support of public\u2011health tasks of healthcare public bodies. |\n| **Article\u202f34(c)** | Scientific research related to health or care sectors. |\n| **Article\u202f34(d)** | Development and evaluation of medicinal products or medical devices. |\n| **Article\u202f34(e)** | Training, testing and evaluating of algorithms, including in medical devices and AI systems. |\n\n*Source: doc_013_ehds_ch4_art34_purposes_secondary_use.txt*  \n\nThese clauses define the **only** purposes for which electronic health data may be reused under the European Health Data Space (EHDS).\n\n---\n\n**2.\u202fGDPR\u202fArticle\u202f89 \u2013 Safeguards for scientific research**  \n\nThe provided document corpus does **not** contain any excerpt or description of GDPR\u202fArticle\u202f89 or its specific safeguards (e.g., data minimisation, pseudonymisation, ethical review, or the possibility of derogations under national law).\n\n*Missing information:* The text needed to explain the exact GDPR\u201189 requirements and how they are intended to be applied to scientific research is absent.\n\n---\n\n**3.\u202fInteraction between EHDS\u202fArticle\u202f34 and GDPR\u202fArticle\u202f89 (as far as the corpus allows)**  \n\n| Aspect | What the corpus tells us | What remains unanswered |\n|--------|--------------------------|--------------------------|\n| **Legal basis for secondary use** | EHDS permits secondary use only for the purposes listed in Article\u202f34. | How GDPR\u202fArticle\u202f89 safeguards must be implemented for those purposes is not described. |\n| **Scope of scientific research** | EHDS explicitly includes \u201cscientific research related to health or care sectors\u201d as a permitted purpose. | Whether GDPR\u202fArticle\u202f89\u2019s safeguards (e.g., pseudonymisation, data\u2011subject rights limitations) are mandatory, optional, or can be modified by EHDS provisions is not addressed. |\n| **Potential conflicts or harmonisation** | No text is provided that links EHDS Article\u202f34 to GDPR\u202fArticle\u202f89. | Any interpretative guidance, hierarchy, or coordination mechanism between the two legal regimes is missing. |\n\n**Conclusion**  \nThe corpus clearly outlines the **permitted secondary\u2011use purposes** under EHDS Article\u202f34, including scientific research. However, it does **not** contain any information on GDPR Article\u202f89 or its safeguards, so a precise analysis of how the EHDS provisions interact with GDPR\u202fArticle\u202f89 cannot be completed based on the supplied documents. Additional sources covering GDPR\u202fArticle\u202f89 would be required to answer that part of the question.",
+      "timing_sec": {
+        "retrieval": 0.015,
+        "generation": 2.031
+      }
+    },
+    {
+      "id": "hard_02",
+      "category": "Hard",
+      "question": "Compare the opt-out mechanism rights for natural persons under EHDS Chapter IV Article 38 against the restriction rights under Chapter II Article 7.",
+      "top_similarity_score": 0.6842377185821533,
+      "retrieved_sources": [
+        "doc_011_ehds_ch2_art7_right_to_restrict_access.txt",
+        "doc_016_ehds_ch4_art38_opt_out_mechanism.txt",
+        "doc_009_ehds_ch2_art4_access_by_health_professionals.txt"
+      ],
+      "passed": false,
+      "evaluation_note": "FAILURE: Incomplete or Missing Synthesis (0/5 keywords matched)",
+      "response_preview": "**Comparison of Natural\u2011Person Rights under EHDS**  | Aspect | **Chapter\u202fII\u202fArticle\u202f7 \u2013 Right to Restrict Access** | **Chapter\u202fIV\u202fArticle\u202f38 \u2013 Right to Opt\u2011out from Secondary Use** | |--------|---------------------------------------------------|-------------------------------------------------------",
+      "full_response": "**Comparison of Natural\u2011Person Rights under EHDS**\n\n| Aspect | **Chapter\u202fII\u202fArticle\u202f7 \u2013 Right to Restrict Access** | **Chapter\u202fIV\u202fArticle\u202f38 \u2013 Right to Opt\u2011out from Secondary Use** |\n|--------|---------------------------------------------------|---------------------------------------------------------------|\n| **Purpose of the Right** | Allows the data subject to limit **health\u2011professional access** to *all or parts* of their electronic health data. | Allows the data subject to refuse **secondary\u2011use processing** of their electronic health data. |\n| **Scope of Data Affected** | Direct clinical data that health professionals may need for treatment. | Any processing that is *not* necessary for primary care \u2013 e.g., research, commercial analytics, etc. |\n| **Mechanism Required** | Member States must create **rules and technical mechanisms** that enforce the restriction. | The opt\u2011out mechanism must be **simple, user\u2011friendly and accessible**. |\n| **Exceptions / Limitations** | Restrictions **must not prevent emergency access** when the life or vital interests of the data subject (or another person) are threatened. | Opt\u2011out **does not affect** processing that is necessary for **public\u2011health monitoring, official statistics, or response to public\u2011health emergencies**. |\n| **Legal Reference** | EHDS Chapter\u202fII Art.\u202f7 \u2013 \u201cRight of natural persons to restrict access of health professionals\u201d\u3010doc_011_ehds_ch2_art7_right_to_restrict_access.txt\u3011 | EHDS Chapter\u202fIV Art.\u202f38 \u2013 \u201cRight to opt\u2011out from secondary data use\u201d\u3010doc_016_ehds_ch4_art38_opt_out_mechanism.txt\u3011 |\n| **Implementation Focus** | Technical controls on **who can view** specific health record sections (e.g., access\u2011control lists, consent flags). | Administrative/portal\u2011based process for the data subject to **declare opt\u2011out**, with downstream systems respecting that flag for secondary\u2011use pipelines. |\n| **Impact on Health\u2011Professional Access** | Directly limits **clinical access**; health professionals may still be granted limited view if needed for treatment (see Art.\u202f4). | Does **not limit** health\u2011professional access for treatment; only limits **non\u2011treatment** processing. |\n| **Relation to Other Rights** | Must coexist with the **right of health professionals to access** relevant treatment data (Art.\u202f4)\u3010doc_009_ehds_ch2_art4_access_by_health_professionals.txt\u3011. | Must coexist with the **right to public\u2011health processing** which is exempt from opt\u2011out. |\n\n### Key Take\u2011aways\n- **Both rights empower the data subject**, but they operate in different domains:  \n  - **Article\u202f7** controls *clinical access* by health professionals.  \n  - **Article\u202f38** controls *secondary\u2011use* processing beyond direct care.\n- **Emergency safeguards** are built into both:  \n  - Article\u202f7 explicitly preserves emergency clinical access.  \n  - Article\u202f38 preserves processing needed for public\u2011health emergencies.\n- **Implementation requirements differ**:  \n  - Article\u202f7 mandates Member\u2011State\u2011level technical mechanisms.  \n  - Article\u202f38 mandates a user\u2011centric, simple opt\u2011out interface.",
+      "timing_sec": {
+        "retrieval": 0.038,
+        "generation": 2.427
+      }
+    },
+    {
+      "id": "hard_03",
+      "category": "Hard",
+      "question": "In a cross-border IPS exchange, what coding standards are recommended for diagnostic results versus clinical procedure histories?",
+      "top_similarity_score": 0.6359320878982544,
+      "retrieved_sources": [
+        "doc_027_ips_procedures_history.txt",
+        "doc_025_ips_procedures_history.txt",
+        "doc_045_interop_memo_6.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (3/4 keywords matched)",
+      "response_preview": "**Cross\u2011border IPS (International Patient Summary) \u2013 Recommended Coding Standards**  | IPS Content | Recommended Coding Standard | Supporting Source | |-------------|-----------------------------|-------------------| | **Clinical Procedure History** | **SNOMED\u202fCT** \u2013 use SNOMED\u202fCT concept codes for ",
+      "full_response": "**Cross\u2011border IPS (International Patient Summary) \u2013 Recommended Coding Standards**\n\n| IPS Content | Recommended Coding Standard | Supporting Source |\n|-------------|-----------------------------|-------------------|\n| **Clinical Procedure History** | **SNOMED\u202fCT** \u2013 use SNOMED\u202fCT concept codes for all recorded procedures to ensure semantic alignment across borders. | \u3010doc_027_ips_procedures_history.txt\u3011, \u3010doc_025_ips_procedures_history.txt\u3011 |\n| **Diagnostic Results** | *No coding standard is specified in the supplied documents.* | \u2014 |\n\n### Explanation  \n\n1. **Procedures** \u2013 Both IPS procedure\u2011history sections explicitly state that \u201cProcedures should be coded using **SNOMED\u202fCT** terms to maintain cross\u2011border semantic alignment\u201d\u3010doc_027_ips_procedures_history.txt\u3011. This recommendation is reinforced by the identical wording in the second procedure\u2011history document\u3010doc_025_ips_procedures_history.txt\u3011.  \n\n2. **Diagnostic Results** \u2013 The provided corpus contains no reference to a coding system (e.g., LOINC, SNOMED\u202fCT, or others) for laboratory or imaging results. Consequently, the answer cannot specify a recommended standard for diagnostic results based on the given material.  \n\n3. **General Coding Guidance** \u2013 The interoperability memo advises \u201crestricting local mapping tables to avoid semantic drift in cross\u2011border transfers,\u201d which underscores the importance of using internationally recognized, stable code systems (such as SNOMED\u202fCT for procedures) rather than ad\u2011hoc local mappings\u3010doc_045_interop_memo_6.txt\u3011. This principle would also apply to any future recommendation for diagnostic results, but the specific standard is not identified in the supplied texts.  \n\n---\n\n**What is missing from the corpus?**  \n- An explicit recommendation for the coding system to be used for **diagnostic results** (e.g., LOINC, SNOMED\u202fCT, or other).  \n\nIf you need guidance on standard practices for diagnostic result coding (commonly LOINC for lab tests and imaging), additional source material would be required.",
+      "timing_sec": {
+        "retrieval": 0.025,
+        "generation": 1.709
+      }
+    },
+    {
+      "id": "hard_04",
+      "category": "Hard",
+      "question": "How do academic evaluations of SMART on FHIR OAuth2 scope-based filters impact API performance and data leakage?",
+      "top_similarity_score": 0.7291749715805054,
+      "retrieved_sources": [
+        "doc_029_paper_fhir_oauth2_interop.txt",
+        "doc_027_paper_fhir_oauth2_interop.txt",
+        "doc_023_fhir_overview_intro.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (3/4 keywords matched)",
+      "response_preview": "**Impact of SMART\u202fon\u202fFHIR OAuth\u202f2.0 Scope\u2011Based Filters (as reported in the academic evaluations)**    | Aspect | Findings from the evaluations | Source | |--------|------------------------------|--------| | **Data leakage** | Scope filtering (e.g., `patient/Observation.read`) **significantly reduce",
+      "full_response": "**Impact of SMART\u202fon\u202fFHIR OAuth\u202f2.0 Scope\u2011Based Filters (as reported in the academic evaluations)**  \n\n| Aspect | Findings from the evaluations | Source |\n|--------|------------------------------|--------|\n| **Data leakage** | Scope filtering (e.g., `patient/Observation.read`) **significantly reduces the amount of data exposed** to a client, limiting access to only the resources that match the granted scope. | \u3010doc_029_paper_fhir_oauth2_interop.txt\u3011, \u3010doc_027_paper_fhir_oauth2_interop.txt\u3011 |\n| **API performance (latency)** | The same scope\u2011based filters introduce an **average latency overhead of ~15\u202f%** compared with token exchanges that do not enforce fine\u2011grained scopes. | \u3010doc_029_paper_fhir_oauth2_interop.txt\u3011, \u3010doc_027_paper_fhir_oauth2_interop.txt\u3011 |\n| **Overall trade\u2011off** | The evaluations conclude that the security benefit (reduced data leakage) comes at a modest performance cost, which may be acceptable for many regional EHR interoperability scenarios, especially when the alternative is broader data exposure. | \u3010doc_029_paper_fhir_oauth2_interop.txt\u3011, \u3010doc_027_paper_fhir_oauth2_interop.txt\u3011 |\n\n### Key Take\u2011aways\n- **Security gain:** Fine\u2011grained OAuth\u202f2.0 scopes (e.g., `patient/Observation.read`) enforce \u201cleast\u2011privilege\u201d access, thereby **minimizing unintended data disclosure**.\n- **Performance impact:** Implementing these scopes adds **\u224815\u202f% extra latency** during token exchange and request authorization, as measured in the benchmark studies.\n- **Design implication:** System architects should weigh the modest latency penalty against the strong privacy protection when deciding whether to enable scope\u2011based filtering in SMART\u202fon\u202fFHIR deployments.",
+      "timing_sec": {
+        "retrieval": 0.022,
+        "generation": 9.408
+      }
+    },
+    {
+      "id": "hard_05",
+      "category": "Hard",
+      "question": "What prohibited secondary uses under EHDS Article 35 safeguard individuals against financial discrimination?",
+      "top_similarity_score": 0.5578431487083435,
+      "retrieved_sources": [
+        "doc_011_ehds_ch2_art7_right_to_restrict_access.txt",
+        "doc_014_ehds_ch4_art35_prohibited_purposes.txt",
+        "doc_008_ehds_ch2_art3_natural_persons.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (2/3 keywords matched)",
+      "response_preview": "**Prohibited secondary use that protects against financial discrimination**  - **Article\u202f35\u202f(a)** \u2013 *\u201ctaking decisions detrimental to a natural person based on their electronic health data, **including increasing insurance premiums or refusing insurance contracts**;\u201d*\u3010Source: doc_014_ehds_ch4_art35_",
+      "full_response": "**Prohibited secondary use that protects against financial discrimination**\n\n- **Article\u202f35\u202f(a)** \u2013 *\u201ctaking decisions detrimental to a natural person based on their electronic health data, **including increasing insurance premiums or refusing insurance contracts**;\u201d*\u3010Source: doc_014_ehds_ch4_art35_prohibited_purposes.txt\u3011  \n\n  This clause explicitly bars any secondary\u2011use activity that would allow insurers (or other financial actors) to raise premiums, deny coverage, or otherwise treat a person less favorably because of information contained in their electronic health records. By prohibiting such decisions, the EHDS safeguards individuals from **financial discrimination** linked to their health data.  \n\n**Other prohibited uses listed in Article\u202f35** (items\u202fb\u2011d) address advertising, unauthorized third\u2011party access, and harmful product development, but they do not directly relate to financial discrimination. The safeguard against financial discrimination is therefore confined to the provision in sub\u2011paragraph\u202f(a).",
+      "timing_sec": {
+        "retrieval": 0.018,
+        "generation": 6.544
+      }
+    },
+    {
+      "id": "hard_06",
+      "category": "Hard",
+      "question": "How can Zero-Knowledge Proofs (ZKPs) be integrated into EHDS Health Data Access Bodies (HDABs) to satisfy Chapter IV security guidelines?",
+      "top_similarity_score": 0.7776050567626953,
+      "retrieved_sources": [
+        "doc_030_paper_zkp_ehds_privacy.txt",
+        "doc_028_paper_zkp_ehds_privacy.txt",
+        "doc_015_ehds_ch4_art36_data_access_bodies.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Success (2/4 keywords matched)",
+      "response_preview": "**Integrating Zero\u2011Knowledge Proofs (ZKPs) into Health Data Access Bodies (HDABs) to Meet EHDS Chapter\u202fIV Security Guidelines**  ---  ### 1.  Context Overview    | Source | Key Points | |--------|------------| | **doc_030_paper_zkp_ehds_privacy.txt** (and duplicate **doc_028**) | Proposes a zk\u2011SNARK",
+      "full_response": "**Integrating Zero\u2011Knowledge Proofs (ZKPs) into Health Data Access Bodies (HDABs) to Meet EHDS Chapter\u202fIV Security Guidelines**\n\n---\n\n### 1.  Context Overview  \n\n| Source | Key Points |\n|--------|------------|\n| **doc_030_paper_zkp_ehds_privacy.txt** (and duplicate **doc_028**) | Proposes a zk\u2011SNARK\u2011based system that lets researchers run statistical algorithms on clinical data **inside HDABs** without ever decrypting or accessing raw patient records. The data user receives a **mathematical proof** that the computation was performed correctly on valid patient data, thereby satisfying **EHDS Chapter\u202fIV security standards** and reducing re\u2011identification risk. |\n| **doc_015_ehds_ch4_art36_data_access_bodies.txt** | Defines HDAB duties under **Article\u202f36**: receive data\u2011access applications, evaluate requests, issue permits, **pseudonymize or anonymize** datasets, and provide them to authorized users **in a secure processing environment**. |\n\n---\n\n### 2.  Alignment of ZKP\u2011Based Workflow with Article\u202f36 Requirements  \n\n| EHDS Chapter\u202fIV Requirement (Article\u202f36) | How ZKPs fulfil the requirement |\n|------------------------------------------|----------------------------------|\n| **Secure processing environment** \u2013 data must be processed without exposing raw identifiers. | ZKPs allow the algorithm to run on **encrypted or pseudonymised data** inside the HDAB; the researcher never sees raw records. |\n| **Pseudonymisation / Anonymisation** \u2013 datasets must be de\u2011identified before release. | The HDAB can **pseudonymise** the input data, then feed it to the zk\u2011SNARK circuit. The proof guarantees that the computation used only the de\u2011identified data. |\n| **Strict safety requirements** \u2013 minimise re\u2011identification risk. | Because the researcher receives only a **zero\u2011knowledge proof** (not the data itself), the risk of re\u2011identification is dramatically reduced. |\n| **Granting access for secondary use** \u2013 only authorised users may obtain results. | Access control is enforced at the HDAB front\u2011end; authorised users receive the **proof and aggregate output** but no raw data. |\n\n---\n\n### 3.  Step\u2011by\u2011Step Integration Blueprint  \n\n1. **Application & Evaluation (Existing HDAB Process)**  \n   - Data user submits a secondary\u2011use request \u2192 HDAB evaluates per Article\u202f36.  \n\n2. **Dataset Preparation**  \n   - HDAB **pseudonymises / anonymises** the selected electronic health records (EHRs) as required.  \n\n3. **Secure Computation Setup**  \n   - The HDAB loads the pseudonymised dataset into a **trusted execution environment (TEE)** or a dedicated secure server.  \n\n4. **zk\u2011SNARK Circuit Execution**  \n   - The statistical algorithm is expressed as a **zk\u2011SNARK circuit**.  \n   - The circuit processes the dataset **without decrypting** the underlying patient identifiers.  \n\n5. **Proof Generation**  \n   - Upon successful execution, the system generates a **zero\u2011knowledge proof** that:  \n     * the algorithm was executed correctly,  \n     * only the authorised, pseudonymised records were used, and  \n     * the output satisfies the requested statistical properties.  \n\n6. **Result & Proof Delivery**  \n   - The HDAB returns the **aggregate result** (e.g., summary statistics) **and** the accompanying **ZKP** to the data user.  \n   - The user can verify the proof locally, confirming compliance without ever seeing raw data.  \n\n7. **Audit & Logging**  \n   - All proof\u2011generation events are logged for regulatory audit, demonstrating adherence to **EHDS Chapter\u202fIV safety standards**.  \n\n---\n\n### 4.  Benefits Specific to EHDS Chapter\u202fIV  \n\n- **Compliance\u2011by\u2011Design**: ZKPs provide cryptographic evidence that the HDAB\u2019s processing meets the security and privacy mandates of Chapter\u202fIV.  \n- **Reduced Re\u2011identification Risk**: No raw patient data leaves the HDAB; only a proof and aggregated output are shared.  \n- **Transparency for Regulators**: Proofs are verifiable by any authorised party, supporting oversight without exposing sensitive data.  \n- **Scalability**: Researchers can request multiple analyses; each run yields its own proof, enabling repeatable, auditable secondary use.  \n\n---\n\n### 5.  Practical Considerations & Gaps  \n\n| Aspect | Covered by Provided Corpus | Missing / Needs Further Detail |\n|--------|---------------------------|--------------------------------|\n| **Technical specification of zk\u2011SNARK circuit design for health data** | General concept of zk\u2011SNARK\u2011based system (doc_030) | Detailed circuit architecture, performance benchmarks, and integration APIs are not provided. |\n| **Governance framework for proof verification** | Implicit compliance with Chapter\u202fIV (doc_030) | Specific procedures for regulator\u2011level verification, standards for proof formats, and cross\u2011border acceptance are not described. |\n| **Implementation within existing HDAB IT stacks** | High\u2011level workflow alignment (doc_015) | Concrete steps for embedding ZKP modules into current HDAB platforms (e.g., HL7\u202fFHIR servers) are absent. |\n\n---\n\n### 6.  Summary  \n\nBy embedding a **zk\u2011SNARK\u2011based computation layer** inside the HDAB\u2019s secure processing environment, the HDAB can:\n\n1. **Pseudonymise/anonymise** data as mandated by **Article\u202f36**.  \n2. Run statistical analyses **without exposing raw records**.  \n3. Produce a **zero\u2011knowledge proof** that the analysis was performed correctly on the authorised dataset.  \n\nThis workflow directly satisfies the **EHDS Chapter\u202fIV security standards**\u2014ensuring data minimisation, strong safety controls, and verifiable compliance\u2014while enabling valuable secondary use of health data.  \n\n*Sources: ZKP system description \u2013 doc_030_paper_zkp_ehds_privacy.txt; HDAB responsibilities \u2013 doc_015_ehds_ch4_art36_data_access_bodies.txt.*",
+      "timing_sec": {
+        "retrieval": 0.028,
+        "generation": 9.972
+      }
+    },
+    {
+      "id": "adv_01",
+      "category": "Adversarial",
+      "question": "What are the penalty fine tiers under US HIPAA Privacy Rule for patient data breaches?",
+      "top_similarity_score": 0.5103223919868469,
+      "retrieved_sources": [
+        "doc_002_gdpr_art9_para2_a.txt",
+        "doc_039_ehds_sub_6.txt",
+        "doc_037_ehds_sub_6.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Correct Refusal (No Hallucination)",
+      "response_preview": "The provided document corpus does not contain information to answer this question.",
+      "full_response": "The provided document corpus does not contain information to answer this question.",
+      "timing_sec": {
+        "retrieval": 0.027,
+        "generation": 10.952
+      }
+    },
+    {
+      "id": "adv_02",
+      "category": "Adversarial",
+      "question": "What specific breaking changes were introduced in FHIR Release 4B (R4B) compared to Release 5 (R5)?",
+      "top_similarity_score": 0.3912821114063263,
+      "retrieved_sources": [
+        "doc_023_fhir_overview_intro.txt",
+        "doc_024_fhir_architecture_principles.txt",
+        "doc_027_paper_fhir_oauth2_interop.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Correct Refusal (No Hallucination)",
+      "response_preview": "The provided document corpus does not contain information to answer this question.",
+      "full_response": "The provided document corpus does not contain information to answer this question.",
+      "timing_sec": {
+        "retrieval": 0.02,
+        "generation": 11.957
+      }
+    },
+    {
+      "id": "adv_03",
+      "category": "Adversarial",
+      "question": "What is the maximum CPU memory limit allowed for Docker containers hosting a MyHealth@EU gateway?",
+      "top_similarity_score": 0.23563548922538757,
+      "retrieved_sources": [
+        "doc_039_ehds_sub_6.txt",
+        "doc_037_ehds_sub_6.txt",
+        "doc_034_ehds_sub_1.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Correct Refusal (No Hallucination)",
+      "response_preview": "The provided document corpus does not contain information to answer this question.",
+      "full_response": "The provided document corpus does not contain information to answer this question.",
+      "timing_sec": {
+        "retrieval": 0.026,
+        "generation": 0.73
+      }
+    },
+    {
+      "id": "adv_04",
+      "category": "Adversarial",
+      "question": "Does the EHDS regulation mandate that all EU citizens install a mobile app called EuroHealthWallet by 2026?",
+      "top_similarity_score": 0.648687481880188,
+      "retrieved_sources": [
+        "doc_010_ehds_ch2_art5_myhealth_eu.txt",
+        "doc_040_ehds_sub_7.txt",
+        "doc_038_ehds_sub_7.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Correct Refusal (No Hallucination)",
+      "response_preview": "The provided document corpus does not contain information to answer this question.",
+      "full_response": "The provided document corpus does not contain information to answer this question.",
+      "timing_sec": {
+        "retrieval": 0.03,
+        "generation": 0.749
+      }
+    },
+    {
+      "id": "adv_05",
+      "category": "Adversarial",
+      "question": "What are the exact LOINC codes used for measuring blood glucose levels in FHIR Observation resources according to our corpus?",
+      "top_similarity_score": 0.5463654398918152,
+      "retrieved_sources": [
+        "doc_099_fhir_patient_49.txt",
+        "doc_097_fhir_patient_49.txt",
+        "doc_079_fhir_patient_29.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Correct Refusal (No Hallucination)",
+      "response_preview": "The provided document corpus does not contain information to answer this question.",
+      "full_response": "The provided document corpus does not contain information to answer this question.",
+      "timing_sec": {
+        "retrieval": 0.029,
+        "generation": 5.892
+      }
+    },
+    {
+      "id": "adv_06",
+      "category": "Adversarial",
+      "question": "How does Article 17 of GDPR (Right to be Forgotten) apply to immutable blockchain smart contracts in healthcare?",
+      "top_similarity_score": 0.5336193442344666,
+      "retrieved_sources": [
+        "doc_004_gdpr_art9_para2_i.txt",
+        "doc_003_gdpr_art9_para2_h.txt",
+        "doc_002_gdpr_art9_para2_a.txt"
+      ],
+      "passed": true,
+      "evaluation_note": "Correct Refusal (No Hallucination)",
+      "response_preview": "The provided document corpus does not contain information to answer this question.",
+      "full_response": "The provided document corpus does not contain information to answer this question.",
+      "timing_sec": {
+        "retrieval": 0.025,
+        "generation": 10.952
+      }
+    }
+  ]
+}

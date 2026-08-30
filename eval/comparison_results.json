@@ -1,0 +1,90 @@
+[
+  {
+    "test_title": "High Confidence / Single Chunk Lookup",
+    "query": "What is GDPR Article 9?",
+    "vanilla_rag": {
+      "top_score": 0.7383,
+      "retrieved_sources": [
+        "doc_001_gdpr_art9_para1.txt",
+        "doc_005_gdpr_art9_para2_j.txt",
+        "doc_004_gdpr_art9_para2_i.txt"
+      ],
+      "response": "**GDPR Article\u202f9 \u2013 Processing of Special Categories of Personal Data**\n\n| Sub\u2011article | Core Requirement | Key Points (as provided) | Source |\n|-------------|------------------|--------------------------|--------|\n| **9(1)** | General prohibition | \u2022 Processing of data that reveals racial or ethnic origin, political opinions, religious or philosophical beliefs, trade\u2011union membership, **genetic data**, **biometric data** used for unique identification, **health data**, or data concerning a person\u2019s sex life or sexual orientation is **prohibited**. | \u3010doc_001_gdpr_art9_para1.txt\u3011 |\n| **9(2)(i)** | Public\u2011health\u2011interest exception | \u2022 Allows processing when it is **necessary for reasons of public interest in the area of public health** (e.g., protecting against serious cross\u2011border health threats, ensuring high standards of quality and safety of health care, medicinal products, or medical devices). <br>\u2022 Must be based on Union or Member\u2011State law that provides **suitable and specific measures** to safeguard the data subject\u2019s rights and freedoms, especially professional secrecy. | \u3010doc_004_gdpr_art9_para2_i.txt\u3011 |\n| **9(2)(j)** | Scientific, statistical, and historical\u2011research exception | \u2022 Allows processing when it is **necessary for archiving in the public interest, scientific or historical research, or statistical purposes** in line with Article\u202f89(1). <br>\u2022 The processing must be **proportionate**, respect the essence of the right to data protection, and include **suitable and specific safeguards** for the data subject\u2019s fundamental rights and interests. | \u3010doc_005_gdpr_art9_para2_j.txt\u3011 |\n\n### Summary\n- **Article\u202f9** sets a **baseline prohibition** on the processing of \u201cspecial categories\u201d of personal data (racial/ethnic origin, political opinions, religious/philosophical beliefs, trade\u2011union membership, genetic, biometric, health, and sex\u2011life data).  \n- **Exceptions** are narrowly defined and must be grounded in **Union or Member\u2011State law** that includes **specific safeguards**:  \n  - **Public\u2011health interest** (Art\u202f9(2)(i)) \u2013 e.g., managing cross\u2011border health threats or ensuring safety of health\u2011care products.  \n  - **Scientific, statistical, or historical research** (Art\u202f9(2)(j)) \u2013 e.g., archival, research, or statistical activities that are proportionate and protective of data\u2011subject rights.  \n\nThese provisions together define the scope, limitations, and permissible contexts for handling the most sensitive personal data under the GDPR."
+    },
+    "crag": {
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7168,
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7168)",
+        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+      ],
+      "response": "**GDPR Article\u202f9 \u2013 Processing of Special Categories of Personal Data**\n\n| Section | Core Content (as provided) | Source |\n|---------|----------------------------|--------|\n| **9(1) \u2013 General prohibition** | \u2022 Processing is **prohibited** for personal data that reveal: <br>\u202f\u2011 Racial or ethnic origin <br>\u202f\u2011 Political opinions <br>\u202f\u2011 Religious or philosophical beliefs <br>\u202f\u2011 Trade\u2011union membership <br>\u202f\u2011 Genetic data <br>\u202f\u2011 Biometric data used for uniquely identifying a natural person <br>\u202f\u2011 Data concerning health <br>\u202f\u2011 Data concerning a natural person\u2019s sex life or sexual orientation | [doc_001_gdpr_art9_para1.txt] |\n| **9(2) \u2013 Exceptions** | The blanket prohibition can be lifted when **specific conditions** are met, as outlined in the sub\u2011paragraphs of 9(2). Two relevant exceptions are:** |\n| **9(2)(i) \u2013 Public\u2011health interest** | \u2022 Processing is allowed when it is **necessary for reasons of public interest in the area of public health** (e.g., protecting against serious cross\u2011border health threats, ensuring high standards of quality and safety of health care, medicinal products, or medical devices). <br>\u2022 Must be based on Union or Member\u2011State law that provides **suitable and specific measures** to safeguard the data subject\u2019s rights and freedoms, especially professional secrecy. | [doc_004_gdpr_art9_para2_i.txt] |\n| **9(2)(j) \u2013 Scientific, statistical, historical research** | \u2022 Processing is allowed when it is **necessary for archiving in the public interest, scientific or historical research, or statistical purposes** in line with Article\u202f89(1). <br>\u2022 Must be proportionate to the aim, respect the essence of the right to data protection, and include **suitable and specific safeguards** for the data subject\u2019s fundamental rights and interests. | [doc_005_gdpr_art9_para2_j.txt] |\n\n### Summary\n- **Article\u202f9** sets a **general ban** on processing \u201cspecial categories\u201d of personal data (health, genetic, biometric, etc.).\n- **Exceptions** (e.g., public\u2011health needs, scientific research) are permitted **only** when:\n  1. The processing is **necessary** for the specified purpose,\n  2. It is grounded in **Union or Member\u2011State law**, and\n  3. **Specific safeguards** are in place to protect the data subject\u2019s rights (e.g., professional secrecy, proportionality, data\u2011protection safeguards).\n\n### What the Corpus Does **Not** Cover\n- The full list of all sub\u2011paragraphs of Article\u202f9(2) beyond (i) and (j).\n- Detailed procedural requirements (e.g., data\u2011subject consent, impact assessments) that may appear in other parts of the GDPR."
+    }
+  },
+  {
+    "test_title": "Industry Jargon / Terminology Drift",
+    "query": "What is break-glass emergency?",
+    "vanilla_rag": {
+      "top_score": 0.1961,
+      "retrieved_sources": [
+        "doc_023_fhir_overview_intro.txt",
+        "doc_042_interop_memo_1.txt",
+        "doc_040_interop_memo_1.txt"
+      ],
+      "response": "The provided document corpus does not contain information to answer this question."
+    },
+    "crag": {
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.1372,
+      "pipeline_log": [
+        "Evaluator Action: INCORRECT (Confidence Score: 0.1372)",
+        "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+      ],
+      "response": "**Break\u2011Glass Emergency (EHDS)**  \n\n- **Definition** \u2013\u202fA \u201cbreak\u2011glass\u201d emergency access mechanism is defined in **EHDS Chapter\u202fII, Article\u202f7**.  \n- **Purpose** \u2013\u202fIt permits a clinician to **override a patient\u2019s data\u2011access restrictions** when the patient\u2019s **vital interests or life are threatened**.  \n- **Scope** \u2013\u202fThe override is limited to the emergency context; it is intended solely to ensure timely access to necessary health information for life\u2011saving or critical care decisions.  \n\n**Citation**: [Source: WebSearch: Official Regulatory Registry \u2013 EHDS Chapter\u202fII Article\u202f7]"
+    }
+  },
+  {
+    "test_title": "Out-of-Corpus Query (Missing Local Data)",
+    "query": "What are the penalty fine tiers under US HIPAA Privacy Rule?",
+    "vanilla_rag": {
+      "top_score": 0.5015,
+      "retrieved_sources": [
+        "doc_039_ehds_sub_6.txt",
+        "doc_037_ehds_sub_6.txt",
+        "doc_002_gdpr_art9_para2_a.txt"
+      ],
+      "response": "The provided document corpus does not contain information to answer this question."
+    },
+    "crag": {
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.3885,
+      "pipeline_log": [
+        "Evaluator Action: INCORRECT (Confidence Score: 0.3885)",
+        "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+      ],
+      "response": "**Penalty Fine Tiers (as described in the provided source)**  \n\n- The U.S.\u202fHIPAA Privacy Rule establishes national standards for protecting individuals\u2019 medical records and includes **penalty tiers that can reach up to\u202f$1.5\u202fmillion per year**\u3010WebSearch: Official Regulatory Registry\u3011.  \n\n**Missing Detail**  \n- The specific breakdown of the individual penalty tiers (e.g., the amounts for each tier or the criteria that trigger each tier) is **not included** in the supplied document. Additional sources would be needed to provide the complete tier structure."
+    }
+  },
+  {
+    "test_title": "Noisy Document / Feature Filtering",
+    "query": "In EHR FHIR Export for Patient PAT-0015, what was the exact LOINC code and numerical value recorded for body weight?",
+    "vanilla_rag": {
+      "top_score": 0.7815,
+      "retrieved_sources": [
+        "doc_100_fhir_patient_50.txt",
+        "doc_098_fhir_patient_50.txt",
+        "doc_069_fhir_patient_19.txt"
+      ],
+      "response": "The provided document corpus does not contain information to answer this question."
+    },
+    "crag": {
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7316,
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7316)",
+        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+      ],
+      "response": "The provided document corpus does not contain information to answer this question."
+    }
+  }
+]

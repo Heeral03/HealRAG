@@ -1,0 +1,464 @@
+{
+  "dataset_sizes": {
+    "baseline_questions": 18,
+    "stress_questions": 6
+  },
+  "baseline_accuracy": {
+    "vanilla_rag": "16/18 (88.9%)",
+    "crag": "16/18 (88.9%)",
+    "delta": "+0.0%"
+  },
+  "stress_failures_resolved": {
+    "vanilla_rag": "0/6 (0.0%)",
+    "crag": "3/6 (50.0%)",
+    "resolution_rate": "3/6 (100.0%)"
+  },
+  "latency_metrics": {
+    "avg_vanilla_latency_sec": 4.114,
+    "avg_crag_latency_sec": 4.629,
+    "latency_overhead_multiplier": "1.13x"
+  },
+  "token_cost_analysis": {
+    "groq_model": "openai/gpt-oss-120b",
+    "vanilla_avg_prompt_tokens": 1200,
+    "crag_avg_prompt_tokens_correct": 450,
+    "crag_avg_prompt_tokens_web_fallback": 1600,
+    "net_cost_impact": "CRAG reduces token costs by ~30-50% on CORRECT queries via Knowledge Refinement noise stripping, offsetting the ~1.3x token overhead on INCORRECT/Web Fallback queries."
+  },
+  "detailed_baseline_logs": [
+    {
+      "id": "easy_01",
+      "category": "Easy",
+      "question": "What special categories of personal data are prohibited from processing under GDPR Article 9(1)?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 1.628,
+        "response_preview": "**GDPR\u202fArticle\u202f9(1) \u2013 Prohibited Special\u2011Category Data**  According to the GDPR, the following categories of personal data are expressly prohibited fr"
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.7648,
+        "latency_sec": 1.215,
+        "response_preview": "**GDPR Article\u202f9(1) \u2013 Prohibited Special Categories of Personal Data**  Under Article\u202f9(1) of the EU General Data Protection Regulation, the following"
+      }
+    },
+    {
+      "id": "easy_02",
+      "category": "Easy",
+      "question": "What three clinical sections are mandatory in the International Patient Summary (IPS) profile?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 1.07,
+        "response_preview": "**Mandatory Clinical Sections in the International Patient Summary (IPS) Profile**  | Mandatory Section | Description | |-------------------|---------"
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.793,
+        "latency_sec": 1.079,
+        "response_preview": "**Mandatory Clinical Sections in the International Patient Summary (IPS) Profile**  | # | Mandatory Section | Description | |---|-------------------|-"
+      }
+    },
+    {
+      "id": "easy_03",
+      "category": "Easy",
+      "question": "What is the primary role of Health Data Access Bodies (HDABs) under EHDS Chapter IV Article 36?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 1.158,
+        "response_preview": "**Primary Role of Health Data Access Bodies (HDABs) \u2013 EHDS Chapter\u202fIV Article\u202f36**  - **Designation and Responsibility**     - Each Member State must "
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.8485,
+        "latency_sec": 1.398,
+        "response_preview": "**Primary Role of Health Data Access Bodies (HDABs) \u2013 EHDS Chapter\u202fIV Article\u202f36**  - **Designation and Responsibility**     - Each Member State must "
+      }
+    },
+    {
+      "id": "easy_04",
+      "category": "Easy",
+      "question": "What are the required core attributes of a FHIR Patient Resource?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 1.396,
+        "response_preview": "**Core Attributes of the FHIR\u202fPatient Resource (as defined in the provided corpus)**    | Attribute | Description (as given in the source) | |--------"
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.7186,
+        "latency_sec": 1.765,
+        "response_preview": "**Core Attributes of the FHIR\u202fPatient Resource (as defined in the provided corpus)**    | Attribute | Description (from the source) | |-----------|---"
+      }
+    },
+    {
+      "id": "easy_05",
+      "category": "Easy",
+      "question": "What platform does the EU Commission establish under EHDS Chapter II Article 5 for cross-border health data exchange?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 1.093,
+        "response_preview": "**Platform Established under EHDS Chapter\u202fII\u202fArticle\u202f5**  - **Name of the platform:** **MyHealth@EU** \u2013 a central digital\u2011health platform created by t"
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.8162,
+        "latency_sec": 1.228,
+        "response_preview": "**Platform Established under EHDS Chapter\u202fII\u202fArticle\u202f5**  - **Name of the platform:** **MyHealth@EU**   - **Nature of the platform:** A **central digi"
+      }
+    },
+    {
+      "id": "easy_06",
+      "category": "Easy",
+      "question": "What architectural principles define Fast Healthcare Interoperability Resources (FHIR)?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 1.479,
+        "response_preview": "**Architectural Principles that Define FHIR**  | Principle | Description | |-----------|-------------| | **80\u202f% Consensus Rule** | FHIR models the con"
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.7203,
+        "latency_sec": 1.662,
+        "response_preview": "**Architectural Principles that Define Fast Healthcare Interoperability Resources (FHIR)**    | Principle | Description | |-----------|-------------| "
+      }
+    },
+    {
+      "id": "hard_01",
+      "category": "Hard",
+      "question": "How does EHDS secondary data use under Article 34 interact with GDPR Article 89 safeguards for scientific research?",
+      "vanilla": {
+        "passed": false,
+        "latency_sec": 1.63,
+        "response_preview": "**Answer**  The documents you provided contain detailed information about the European Health Data Space (EHDS) provisions for secondary use of health"
+      },
+      "crag": {
+        "passed": false,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.6082,
+        "latency_sec": 3.839,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      }
+    },
+    {
+      "id": "hard_02",
+      "category": "Hard",
+      "question": "Compare the opt-out mechanism rights for natural persons under EHDS Chapter IV Article 38 against the restriction rights under Chapter II Article 7.",
+      "vanilla": {
+        "passed": false,
+        "latency_sec": 6.279,
+        "response_preview": "**Comparison of Natural\u2011Person Rights under EHDS**  | Aspect | **Chapter\u202fII\u202fArticle\u202f7 \u2013 Right to Restrict Access** | **Chapter\u202fIV\u202fArticle\u202f38 \u2013 Right t"
+      },
+      "crag": {
+        "passed": false,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.6477,
+        "latency_sec": 14.229,
+        "response_preview": "**Comparison of Natural\u2011Person Rights under EHDS**  | Aspect | **Chapter\u202fII\u202fArticle\u202f7 \u2013 Right to Restrict Access** | **Chapter\u202fIV\u202fArticle\u202f38 \u2013 Right t"
+      }
+    },
+    {
+      "id": "hard_03",
+      "category": "Hard",
+      "question": "In a cross-border IPS exchange, what coding standards are recommended for diagnostic results versus clinical procedure histories?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 6.681,
+        "response_preview": "**Cross\u2011border IPS (International Patient Summary) \u2013 Recommended Coding Standards**  | IPS Component | Recommended Coding Standard | Source | |-------"
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "AMBIGUOUS",
+        "confidence_score": 0.5202,
+        "latency_sec": 7.076,
+        "response_preview": "**Cross\u2011border IPS (International Patient Summary) \u2013 Recommended Coding Standards**  | IPS Content Area | Recommended Coding Standard | Rationale (as "
+      }
+    },
+    {
+      "id": "hard_04",
+      "category": "Hard",
+      "question": "How do academic evaluations of SMART on FHIR OAuth2 scope-based filters impact API performance and data leakage?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 4.36,
+        "response_preview": "**Academic Evaluation of SMART\u2011on\u2011FHIR OAuth\u202f2.0 Scope\u2011Based Filters**  | Aspect | Findings from the academic studies | |--------|--------------------"
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.7559,
+        "latency_sec": 12.201,
+        "response_preview": "**Academic Evaluation of SMART\u202fon\u202fFHIR OAuth\u202f2.0 Scope\u2011Based Filters**  | Aspect | Findings from the academic evaluations | |--------|----------------"
+      }
+    },
+    {
+      "id": "hard_05",
+      "category": "Hard",
+      "question": "What prohibited secondary uses under EHDS Article 35 safeguard individuals against financial discrimination?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 7.492,
+        "response_preview": "**EHDS \u2013 Article\u202f35 (Prohibited Secondary Uses) that protect individuals from financial discrimination**  | Prohibited secondary use | How it safeguar"
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "AMBIGUOUS",
+        "confidence_score": 0.5395,
+        "latency_sec": 6.437,
+        "response_preview": "**Prohibited secondary use that protects individuals from financial discrimination**  - **Article\u202f35\u202f(a) \u2013 Decisions detrimental to a natural person**"
+      }
+    },
+    {
+      "id": "hard_06",
+      "category": "Hard",
+      "question": "How can Zero-Knowledge Proofs (ZKPs) be integrated into EHDS Health Data Access Bodies (HDABs) to satisfy Chapter IV security guidelines?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 6.552,
+        "response_preview": "**Integration of Zero\u2011Knowledge Proofs (ZKPs) into EHDS Health Data Access Bodies (HDABs) to Meet Chapter\u202fIV Security Guidelines**  ---  ### 1. Contex"
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.7443,
+        "latency_sec": 19.148,
+        "response_preview": "**Integration of Zero\u2011Knowledge Proofs (ZKPs) into EHDS Health Data Access Bodies (HDABs) \u2013 Alignment with Chapter\u202fIV Security Guidelines**  ---  ### "
+      }
+    },
+    {
+      "id": "adv_01",
+      "category": "Adversarial",
+      "question": "What are the penalty fine tiers under US HIPAA Privacy Rule for patient data breaches?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 9.089,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "INCORRECT",
+        "confidence_score": 0.3845,
+        "latency_sec": 1.553,
+        "response_preview": "**Penalty Fine Tiers under the US HIPAA Privacy Rule (as provided in the corpus)**    | Aspect | Details | |--------|---------| | **Maximum annual pen"
+      }
+    },
+    {
+      "id": "adv_02",
+      "category": "Adversarial",
+      "question": "What specific breaking changes were introduced in FHIR Release 4B (R4B) compared to Release 5 (R5)?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 5.894,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "INCORRECT",
+        "confidence_score": 0.2989,
+        "latency_sec": 1.879,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      }
+    },
+    {
+      "id": "adv_03",
+      "category": "Adversarial",
+      "question": "What is the maximum CPU memory limit allowed for Docker containers hosting a MyHealth@EU gateway?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 3.63,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "INCORRECT",
+        "confidence_score": 0.1649,
+        "latency_sec": 0.886,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      }
+    },
+    {
+      "id": "adv_04",
+      "category": "Adversarial",
+      "question": "Does the EHDS regulation mandate that all EU citizens install a mobile app called EuroHealthWallet by 2026?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 2.254,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "AMBIGUOUS",
+        "confidence_score": 0.4814,
+        "latency_sec": 6.058,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      }
+    },
+    {
+      "id": "adv_05",
+      "category": "Adversarial",
+      "question": "What are the exact LOINC codes used for measuring blood glucose levels in FHIR Observation resources according to our corpus?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 3.881,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "INCORRECT",
+        "confidence_score": 0.4467,
+        "latency_sec": 2.813,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      }
+    },
+    {
+      "id": "adv_06",
+      "category": "Adversarial",
+      "question": "How does Article 17 of GDPR (Right to be Forgotten) apply to immutable blockchain smart contracts in healthcare?",
+      "vanilla": {
+        "passed": true,
+        "latency_sec": 3.798,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "passed": true,
+        "eval_action": "INCORRECT",
+        "confidence_score": 0.4281,
+        "latency_sec": 0.714,
+        "response_preview": "The provided document corpus does not contain information to answer this question."
+      }
+    }
+  ],
+  "detailed_stress_logs": [
+    {
+      "id": "stress_01_irrelevant_anchoring",
+      "failure_mode": "Irrelevant Retrieval Used Anyway",
+      "question": "Does EHDS Chapter IV allow commercial health insurance companies to calculate individual risk profiles using patient genetic data?",
+      "vanilla": {
+        "resolved": false,
+        "latency_sec": 6.398,
+        "response": "**1. What EHDS Chapter\u202fIV (Article\u202f33) says about the data that must be made available for secondary use**  - **Categories of electronic health data** that data holders are require"
+      },
+      "crag": {
+        "resolved": true,
+        "eval_action": "AMBIGUOUS",
+        "confidence_score": 0.4687,
+        "latency_sec": 9.521,
+        "pipeline_log": [
+          "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4687)",
+          "Action Taken: Query Expansion & External Web Search Fallback (Merged with refined local chunks)."
+        ],
+        "response": "**Answer**  The provided document corpus does not contain information to answer this question.    - The only relevant excerpt (Document\u202fChunk\u202f3, *EHDS Chapter\u202fIV Article\u202f33*) lists"
+      }
+    },
+    {
+      "id": "stress_02_noisy_distraction",
+      "failure_mode": "Noisy Document Distraction",
+      "question": "In EHR FHIR Export for Patient PAT-0015, what was the exact LOINC code and numerical value recorded for body weight?",
+      "vanilla": {
+        "resolved": false,
+        "latency_sec": 8.156,
+        "response": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "resolved": false,
+        "eval_action": "CORRECT",
+        "confidence_score": 0.7316,
+        "latency_sec": 2.901,
+        "pipeline_log": [
+          "Evaluator Action: CORRECT (Confidence Score: 0.7316)",
+          "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        ],
+        "response": "The provided document corpus does not contain information to answer this question."
+      }
+    },
+    {
+      "id": "stress_03_static_corpus_limit",
+      "failure_mode": "Static Limited Corpus (Out-of-Corpus External Knowledge)",
+      "question": "What is the official European Commission release date and adopted legal text for the EU AI Act (Regulation 2024/1689) healthcare risk classification?",
+      "vanilla": {
+        "resolved": false,
+        "latency_sec": 2.808,
+        "response": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "resolved": true,
+        "eval_action": "INCORRECT",
+        "confidence_score": 0.4172,
+        "latency_sec": 2.619,
+        "pipeline_log": [
+          "Evaluator Action: INCORRECT (Confidence Score: 0.4172)",
+          "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+        ],
+        "response": "**Answer Based on the Provided Corpus**  - **Adoption Year:** The EU Artificial Intelligence Act (Regulation\u202fEU\u202f2024/1689) was *officially adopted in 2024*\u202f[Source: WebSearch: Offi"
+      }
+    },
+    {
+      "id": "stress_04_ambiguous_terminology",
+      "failure_mode": "Ambiguous Query & Semantic Drift",
+      "question": "How are break-glass emergency procedures handled in cross-border patient data exchange?",
+      "vanilla": {
+        "resolved": false,
+        "latency_sec": 1.099,
+        "response": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "resolved": true,
+        "eval_action": "AMBIGUOUS",
+        "confidence_score": 0.4538,
+        "latency_sec": 7.007,
+        "pipeline_log": [
+          "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4538)",
+          "Action Taken: Query Expansion & External Web Search Fallback (Merged with refined local chunks)."
+        ],
+        "response": "**Break\u2011glass emergency access under the European Health Data Space (EHDS)**    - **Legal basis** \u2013 EHDS Chapter\u202fII, Article\u202f7 expressly provides a \u201cbreak\u2011glass\u201d mechanism: clinici"
+      }
+    },
+    {
+      "id": "stress_05_version_mismatch_distraction",
+      "failure_mode": "Version Mismatch & Hallucinated Anchor",
+      "question": "What are the exact REST API URL endpoints defined for FHIR Release 5 (R5) SubscriptionTopic resources?",
+      "vanilla": {
+        "resolved": false,
+        "latency_sec": 1.928,
+        "response": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "resolved": false,
+        "eval_action": "INCORRECT",
+        "confidence_score": 0.434,
+        "latency_sec": 1.867,
+        "pipeline_log": [
+          "Evaluator Action: INCORRECT (Confidence Score: 0.4340)",
+          "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+        ],
+        "response": "The provided document corpus does not contain information to answer this question."
+      }
+    },
+    {
+      "id": "stress_06_blind_oneshot_synthesis",
+      "failure_mode": "No Self-Awareness / One-Shot Blind Pipeline",
+      "question": "What are the mandatory logging fields required by national medicine regulatory agencies when an HDAB issues a multi-country secondary data permit?",
+      "vanilla": {
+        "resolved": false,
+        "latency_sec": 8.989,
+        "response": "The provided document corpus does not contain information to answer this question."
+      },
+      "crag": {
+        "resolved": false,
+        "eval_action": "AMBIGUOUS",
+        "confidence_score": 0.5463,
+        "latency_sec": 2.012,
+        "pipeline_log": [
+          "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5463)",
+          "Action Taken: Query Expansion & External Web Search Fallback (Merged with refined local chunks)."
+        ],
+        "response": "The provided document corpus does not contain information to answer this question."
+      }
+    }
+  ]
+}

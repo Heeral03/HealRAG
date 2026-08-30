@@ -1,0 +1,50 @@
+[
+  {
+    "id": "stress_01_irrelevant_anchoring",
+    "category": "Stress_Irrelevant_Anchoring",
+    "failure_mode": "Irrelevant Retrieval Used Anyway",
+    "question": "Does EHDS Chapter IV allow commercial health insurance companies to calculate individual risk profiles using patient genetic data?",
+    "description": "Query asks about a specific prohibited commercial use. Weak embedding match will pull general Chapter IV secondary use chunks. Vanilla RAG will attempt to answer using those chunks, potentially anchoring to general research rules instead of recognizing the specific prohibition or missing prohibition details.",
+    "expected_behavior_crag": "Evaluator tags retrieval as Ambiguous/Incorrect -> Triggers Web Search / Knowledge Refinement to confirm explicit prohibition under Article 35."
+  },
+  {
+    "id": "stress_02_noisy_distraction",
+    "category": "Stress_Noisy_Distraction",
+    "failure_mode": "Noisy Document Distraction",
+    "question": "In EHR FHIR Export for Patient PAT-0015, what was the exact LOINC code and numerical value recorded for body weight?",
+    "description": "Retrieves dense patient dump containing 10+ LOINC codes, vital signs, consent tags, and medication IDs. Vanilla RAG's LLM must filter out noise without hallucinating or confusing Heart Rate with Body Weight.",
+    "expected_behavior_crag": "CRAG Knowledge Stripping / Key Sentence Extractor distills noisy document down to the exact relevant sentence before prompt stuffing."
+  },
+  {
+    "id": "stress_03_static_corpus_limit",
+    "category": "Stress_Static_Corpus_Limit",
+    "failure_mode": "Static Limited Corpus (Out-of-Corpus External Knowledge)",
+    "question": "What is the official European Commission release date and adopted legal text for the EU AI Act (Regulation 2024/1689) healthcare risk classification?",
+    "description": "Topic is highly relevant to digital health regulation, but EU AI Act 2024/1689 is NOT present in our local EHDS/GDPR corpus. Vanilla RAG either hallucinates or fails completely with zero external fallback.",
+    "expected_behavior_crag": "Evaluator rates retrieval confidence as INCORRECT -> Triggers External Web Search Fallback to fetch live EU AI Act regulation info."
+  },
+  {
+    "id": "stress_04_ambiguous_terminology",
+    "category": "Stress_Ambiguous_Terminology",
+    "failure_mode": "Ambiguous Query & Semantic Drift",
+    "question": "How are break-glass emergency procedures handled in cross-border patient data exchange?",
+    "description": "'Break-glass' is common industry terminology, but our corpus uses legal phrasing ('emergency access where life or vital interests are threatened'). Vector search may retrieve low-scoring generic security audit chunks.",
+    "expected_behavior_crag": "Evaluator flags retrieval as AMBIGUOUS -> Triggers Query Expansion ('EHDS Article 7 emergency access vital interests') for high-precision retrieval."
+  },
+  {
+    "id": "stress_05_version_mismatch_distraction",
+    "category": "Stress_Version_Mismatch",
+    "failure_mode": "Version Mismatch & Hallucinated Anchor",
+    "question": "What are the exact REST API URL endpoints defined for FHIR Release 5 (R5) SubscriptionTopic resources?",
+    "description": "Our corpus contains general FHIR intro and resource definitions, but NOT FHIR R5 SubscriptionTopic endpoints. Vanilla RAG will retrieve general FHIR REST intro and try to improvise URL structures.",
+    "expected_behavior_crag": "Evaluator catches partial mismatch -> Fallback query expansion to external web search."
+  },
+  {
+    "id": "stress_06_blind_oneshot_synthesis",
+    "category": "Stress_Blind_OneShot",
+    "failure_mode": "No Self-Awareness / One-Shot Blind Pipeline",
+    "question": "What are the mandatory logging fields required by national medicine regulatory agencies when an HDAB issues a multi-country secondary data permit?",
+    "description": "Corpus mentions HDAB permits and audit logs in separate memos, but lacks the specific combined national medicine agency logging requirements. Vanilla RAG blindly stuffs whatever top-3 chunks it gets without checking if they actually answer the specific question.",
+    "expected_behavior_crag": "Evaluator assesses low relevance score -> Flags missing information and refines search."
+  }
+]

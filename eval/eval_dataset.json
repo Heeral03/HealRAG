@@ -1,0 +1,128 @@
+[
+  {
+    "id": "easy_01",
+    "category": "Easy",
+    "question": "What special categories of personal data are prohibited from processing under GDPR Article 9(1)?",
+    "expected_answer_keywords": ["racial or ethnic origin", "political opinions", "religious", "trade union", "genetic data", "biometric data", "health"],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_02",
+    "category": "Easy",
+    "question": "What three clinical sections are mandatory in the International Patient Summary (IPS) profile?",
+    "expected_answer_keywords": ["Medication Summary", "Allergies and Intolerances", "Active Problems"],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_03",
+    "category": "Easy",
+    "question": "What is the primary role of Health Data Access Bodies (HDABs) under EHDS Chapter IV Article 36?",
+    "expected_answer_keywords": ["granting access", "secondary use", "data permits", "pseudonymize", "secure processing environment"],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_04",
+    "category": "Easy",
+    "question": "What are the required core attributes of a FHIR Patient Resource?",
+    "expected_answer_keywords": ["identifier", "active", "name", "telecom", "gender", "birthDate", "address"],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_05",
+    "category": "Easy",
+    "question": "What platform does the EU Commission establish under EHDS Chapter II Article 5 for cross-border health data exchange?",
+    "expected_answer_keywords": ["MyHealth@EU"],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_06",
+    "category": "Easy",
+    "question": "What architectural principles define Fast Healthcare Interoperability Resources (FHIR)?",
+    "expected_answer_keywords": ["modular data components", "Resources", "80% consensus rule", "human readability", "RESTful"],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_01",
+    "category": "Hard",
+    "question": "How does EHDS secondary data use under Article 34 interact with GDPR Article 89 safeguards for scientific research?",
+    "expected_answer_keywords": ["secondary use", "Article 89", "safeguards", "pseudonymisation", "data minimization", "HDAB"],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_02",
+    "category": "Hard",
+    "question": "Compare the opt-out mechanism rights for natural persons under EHDS Chapter IV Article 38 against the restriction rights under Chapter II Article 7.",
+    "expected_answer_keywords": ["secondary use opt-out", "Article 38", "restrict health professional access", "Article 7", "emergency access exception"],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_03",
+    "category": "Hard",
+    "question": "In a cross-border IPS exchange, what coding standards are recommended for diagnostic results versus clinical procedure histories?",
+    "expected_answer_keywords": ["LOINC", "lab tests", "SNOMED CT", "procedures"],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_04",
+    "category": "Hard",
+    "question": "How do academic evaluations of SMART on FHIR OAuth2 scope-based filters impact API performance and data leakage?",
+    "expected_answer_keywords": ["scope-based authorization", "patient/Observation.read", "latency overhead", "data leakage"],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_05",
+    "category": "Hard",
+    "question": "What prohibited secondary uses under EHDS Article 35 safeguard individuals against financial discrimination?",
+    "expected_answer_keywords": ["insurance premiums", "refusing insurance contracts", "detrimental decisions"],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_06",
+    "category": "Hard",
+    "question": "How can Zero-Knowledge Proofs (ZKPs) be integrated into EHDS Health Data Access Bodies (HDABs) to satisfy Chapter IV security guidelines?",
+    "expected_answer_keywords": ["zk-SNARKs", "without decrypting", "re-identification risks", "mathematical proof"],
+    "out_of_scope": false
+  },
+  {
+    "id": "adv_01",
+    "category": "Adversarial",
+    "question": "What are the penalty fine tiers under US HIPAA Privacy Rule for patient data breaches?",
+    "expected_answer_keywords": ["not present", "does not contain"],
+    "out_of_scope": true
+  },
+  {
+    "id": "adv_02",
+    "category": "Adversarial",
+    "question": "What specific breaking changes were introduced in FHIR Release 4B (R4B) compared to Release 5 (R5)?",
+    "expected_answer_keywords": ["not present", "does not contain"],
+    "out_of_scope": true
+  },
+  {
+    "id": "adv_03",
+    "category": "Adversarial",
+    "question": "What is the maximum CPU memory limit allowed for Docker containers hosting a MyHealth@EU gateway?",
+    "expected_answer_keywords": ["not present", "does not contain"],
+    "out_of_scope": true
+  },
+  {
+    "id": "adv_04",
+    "category": "Adversarial",
+    "question": "Does the EHDS regulation mandate that all EU citizens install a mobile app called EuroHealthWallet by 2026?",
+    "expected_answer_keywords": ["not present", "does not contain"],
+    "out_of_scope": true
+  },
+  {
+    "id": "adv_05",
+    "category": "Adversarial",
+    "question": "What are the exact LOINC codes used for measuring blood glucose levels in FHIR Observation resources according to our corpus?",
+    "expected_answer_keywords": ["not present", "does not contain"],
+    "out_of_scope": true
+  },
+  {
+    "id": "adv_06",
+    "category": "Adversarial",
+    "question": "How does Article 17 of GDPR (Right to be Forgotten) apply to immutable blockchain smart contracts in healthcare?",
+    "expected_answer_keywords": ["not present", "does not contain"],
+    "out_of_scope": true
+  }
+]

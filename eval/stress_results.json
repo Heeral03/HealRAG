@@ -1,0 +1,134 @@
+[
+  {
+    "id": "stress_01_irrelevant_anchoring",
+    "failure_mode": "Irrelevant Retrieval Used Anyway",
+    "question": "Does EHDS Chapter IV allow commercial health insurance companies to calculate individual risk profiles using patient genetic data?",
+    "description": "Query asks about a specific prohibited commercial use. Weak embedding match will pull general Chapter IV secondary use chunks. Vanilla RAG will attempt to answer using those chunks, potentially anchoring to general research rules instead of recognizing the specific prohibition or missing prohibition details.",
+    "expected_behavior_crag": "Evaluator tags retrieval as Ambiguous/Incorrect -> Triggers Web Search / Knowledge Refinement to confirm explicit prohibition under Article 35.",
+    "top_retrieved_sources": [
+      "doc_035_ehds_sub_2.txt",
+      "doc_033_ehds_sub_2.txt",
+      "doc_012_ehds_ch4_art33_secondary_data_use.txt"
+    ],
+    "top_similarity_scores": [
+      0.5807,
+      0.5807,
+      0.5357
+    ],
+    "llm_response": "**1. Relevant provision in the EHDS (Chapter\u202fIV, Article\u202f33)**  \n\n- **Article\u202f33 \u2013 Categories of electronic health data for secondary use**  \n  - Data holders must make available for secondary use the following categories, **including**:  \n    - *(c) genetic, genomic and proteomic data*\u3010Source: doc_012_ehds_ch4_art33_secondary_data_use.txt\u3011  \n\n**2. What the provision tells us**  \n\n| Aspect | Statement from the source |\n|--------|---------------------------|\n| **Data type** | Genetic, genomic and proteomic data are explicitly listed as a category that must be made available for secondary use. |\n| **Obligation** | Data holders (e.g., health\u2011care providers, registries) are required to provide these data to any entity that qualifies for \u201csecondary use.\u201d |\n\n**3. What the provision does **not** specify**  \n\n- **Who may perform the secondary use** \u2013 The text does not define which organisations (e.g., public research institutes, commercial insurers, pharma companies) are permitted or prohibited from accessing the data.  \n- **Purpose limitations** \u2013 The excerpt does not state whether secondary use may include activities such as \u201ccalculating individual risk profiles\u201d or any commercial risk\u2011assessment activities.  \n- **Safeguards or consent requirements** \u2013 No information is given about whether additional safeguards, patient consent, or data\u2011subject rights apply specifically to commercial use of genetic data.\n\n**4. Answer to the user\u2019s question**\n\n- **Yes,** EHDS Chapter\u202fIV (Article\u202f33) mandates that **genetic, genomic and proteomic data** be made available for secondary use.  \n- **However,** the provided documents do **not** contain any clause that explicitly authorises or restricts commercial health\u2011insurance companies from using those data to calculate individual risk profiles. Consequently, based solely on the supplied corpus, we cannot confirm that such commercial risk\u2011profiling is permitted under EHDS Chapter\u202fIV.\n\n**5. Missing information**\n\nTo determine definitively whether commercial health\u2011insurance companies may use patient genetic data for individual risk profiling, the following would be needed from the EHDS corpus (or related regulatory texts):\n\n- Provisions on **eligible secondary\u2011use actors** (e.g., public vs. private entities).  \n- **Purpose\u2011specific allowances or prohibitions** (e.g., whether risk\u2011assessment for insurance is a permitted secondary purpose).  \n- Any **data\u2011subject consent or opt\u2011out mechanisms** required for commercial use of genetic data.  \n\n**Conclusion**  \nThe EHDS does require that genetic data be made available for secondary use, but the excerpt provided does not address whether commercial insurers can legally employ that data for individual risk profiling. Additional sections of the EHDS regulation would be needed to answer that aspect definitively.",
+    "timing_sec": {
+      "retrieval": 0.037,
+      "generation": 2.369
+    }
+  },
+  {
+    "id": "stress_02_noisy_distraction",
+    "failure_mode": "Noisy Document Distraction",
+    "question": "In EHR FHIR Export for Patient PAT-0015, what was the exact LOINC code and numerical value recorded for body weight?",
+    "description": "Retrieves dense patient dump containing 10+ LOINC codes, vital signs, consent tags, and medication IDs. Vanilla RAG's LLM must filter out noise without hallucinating or confusing Heart Rate with Body Weight.",
+    "expected_behavior_crag": "CRAG Knowledge Stripping / Key Sentence Extractor distills noisy document down to the exact relevant sentence before prompt stuffing.",
+    "top_retrieved_sources": [
+      "doc_100_fhir_patient_50.txt",
+      "doc_098_fhir_patient_50.txt",
+      "doc_069_fhir_patient_19.txt"
+    ],
+    "top_similarity_scores": [
+      0.7815,
+      0.7815,
+      0.7783
+    ],
+    "llm_response": "The provided document corpus does not contain information to answer this question.",
+    "timing_sec": {
+      "retrieval": 0.03,
+      "generation": 0.574
+    }
+  },
+  {
+    "id": "stress_03_static_corpus_limit",
+    "failure_mode": "Static Limited Corpus (Out-of-Corpus External Knowledge)",
+    "question": "What is the official European Commission release date and adopted legal text for the EU AI Act (Regulation 2024/1689) healthcare risk classification?",
+    "description": "Topic is highly relevant to digital health regulation, but EU AI Act 2024/1689 is NOT present in our local EHDS/GDPR corpus. Vanilla RAG either hallucinates or fails completely with zero external fallback.",
+    "expected_behavior_crag": "Evaluator rates retrieval confidence as INCORRECT -> Triggers External Web Search Fallback to fetch live EU AI Act regulation info.",
+    "top_retrieved_sources": [
+      "doc_040_ehds_sub_7.txt",
+      "doc_038_ehds_sub_7.txt",
+      "doc_035_ehds_sub_2.txt"
+    ],
+    "top_similarity_scores": [
+      0.5961,
+      0.5961,
+      0.5805
+    ],
+    "llm_response": "The provided document corpus does not contain information to answer this question.",
+    "timing_sec": {
+      "retrieval": 0.028,
+      "generation": 1.059
+    }
+  },
+  {
+    "id": "stress_04_ambiguous_terminology",
+    "failure_mode": "Ambiguous Query & Semantic Drift",
+    "question": "How are break-glass emergency procedures handled in cross-border patient data exchange?",
+    "description": "'Break-glass' is common industry terminology, but our corpus uses legal phrasing ('emergency access where life or vital interests are threatened'). Vector search may retrieve low-scoring generic security audit chunks.",
+    "expected_behavior_crag": "Evaluator flags retrieval as AMBIGUOUS -> Triggers Query Expansion ('EHDS Article 7 emergency access vital interests') for high-precision retrieval.",
+    "top_retrieved_sources": [
+      "doc_047_interop_memo_6.txt",
+      "doc_045_interop_memo_6.txt",
+      "doc_042_interop_memo_1.txt"
+    ],
+    "top_similarity_scores": [
+      0.4912,
+      0.4912,
+      0.4876
+    ],
+    "llm_response": "The provided document corpus does not contain information to answer this question.",
+    "timing_sec": {
+      "retrieval": 0.027,
+      "generation": 0.716
+    }
+  },
+  {
+    "id": "stress_05_version_mismatch_distraction",
+    "failure_mode": "Version Mismatch & Hallucinated Anchor",
+    "question": "What are the exact REST API URL endpoints defined for FHIR Release 5 (R5) SubscriptionTopic resources?",
+    "description": "Our corpus contains general FHIR intro and resource definitions, but NOT FHIR R5 SubscriptionTopic endpoints. Vanilla RAG will retrieve general FHIR REST intro and try to improvise URL structures.",
+    "expected_behavior_crag": "Evaluator catches partial mismatch -> Fallback query expansion to external web search.",
+    "top_retrieved_sources": [
+      "doc_024_fhir_architecture_principles.txt",
+      "doc_023_fhir_overview_intro.txt",
+      "doc_021_fhir_bundle_resource.txt"
+    ],
+    "top_similarity_scores": [
+      0.4914,
+      0.4864,
+      0.4287
+    ],
+    "llm_response": "The provided document corpus does not contain information to answer this question.",
+    "timing_sec": {
+      "retrieval": 0.029,
+      "generation": 0.754
+    }
+  },
+  {
+    "id": "stress_06_blind_oneshot_synthesis",
+    "failure_mode": "No Self-Awareness / One-Shot Blind Pipeline",
+    "question": "What are the mandatory logging fields required by national medicine regulatory agencies when an HDAB issues a multi-country secondary data permit?",
+    "description": "Corpus mentions HDAB permits and audit logs in separate memos, but lacks the specific combined national medicine agency logging requirements. Vanilla RAG blindly stuffs whatever top-3 chunks it gets without checking if they actually answer the specific question.",
+    "expected_behavior_crag": "Evaluator assesses low relevance score -> Flags missing information and refines search.",
+    "top_retrieved_sources": [
+      "doc_015_ehds_ch4_art36_data_access_bodies.txt",
+      "doc_038_ehds_sub_5.txt",
+      "doc_036_ehds_sub_5.txt"
+    ],
+    "top_similarity_scores": [
+      0.6733,
+      0.6727,
+      0.6727
+    ],
+    "llm_response": "The provided document corpus does not contain information to answer this question.",
+    "timing_sec": {
+      "retrieval": 0.152,
+      "generation": 1.012
+    }
+  }
+]
