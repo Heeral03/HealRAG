@@ -5,3 +5,7 @@ google-generativeai
 pytest
 requests
 python-dotenv
+groq
+duckduckgo-search
+fastapi
+uvicorn
