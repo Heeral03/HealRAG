@@ -20,24 +20,30 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# Global singleton pipeline instance
+import os
+import gc
+import torch
+
+# Optimize PyTorch CPU memory & thread footprint for low-memory containers (Render 512MB limit)
+torch.set_num_threads(1)
+torch.set_num_interop_threads(1)
+
+# Global singleton pipeline instance (Lazy-loaded on first /query)
 pipeline_instance: Optional[CRAGPipeline] = None
 
-from embedder import build_index
 from seeder import seed_corpus
 from chunker import chunk_directory
 
 @app.on_event("startup")
 def startup_event():
-    global pipeline_instance
-    print("[HealRAG API] Initializing Vector DB and CRAG Pipeline on startup...")
+    print("[HealRAG API] Container started. Checking FAISS vector database...")
     if not config.FAISS_INDEX_PATH.exists() or not config.METADATA_PATH.exists():
         print("[HealRAG API] FAISS index missing. Seeding corpus and building FAISS index...")
         seed_corpus()
         chunks = chunk_directory(config.CORPUS_DIR, config.CHUNK_SIZE_WORDS, config.CHUNK_OVERLAP_WORDS)
         build_index(chunks)
-    pipeline_instance = CRAGPipeline()
-    print("[HealRAG API] CRAG Service initialized successfully.")
+        gc.collect()
+    print("[HealRAG API] Service startup complete. CRAG Pipeline ready for lazy initialization.")
 
 # Pydantic Schemas
 class QueryRequest(BaseModel):
