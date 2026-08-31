@@ -93,10 +93,25 @@ def health_check():
         "llm_model": config.GROQ_MODEL
     }
 
+from rate_limiter import DualLayerRateLimiter
+from fastapi import Request
+
+# Instantiate global 2-Layer Rate Limiter
+# Layer 1: Max 10 requests/min. Layer 2: 50,000 token capacity, 5,000 refill/min
+rate_limiter = DualLayerRateLimiter(max_req_per_min=10, bucket_capacity=50000, refill_rate_per_min=5000)
+
 @app.post("/query", response_model=QueryResponse, tags=["CRAG Pipeline"])
-def execute_query(req: QueryRequest):
+def execute_query(req: QueryRequest, request: Request):
     if not req.query.strip():
         raise HTTPException(status_code=400, detail="Query string cannot be empty.")
+
+    # Identify client by IP or session header
+    client_id = request.headers.get("X-Session-ID") or request.client.host or "127.0.0.1"
+
+    # Pre-check Dual Layer Rate Limiting
+    allowed, msg, details = rate_limiter.check_pre_request(client_id, min_token_estimate=500)
+    if not allowed:
+        raise HTTPException(status_code=429, detail=f"Rate Limit Exceeded: {msg}")
 
     t0 = time.time()
     try:
@@ -106,6 +121,9 @@ def execute_query(req: QueryRequest):
             chunks = retriever.retrieve(req.query, top_k=req.top_k)
             ans = generator.generate(req.query, chunks)
             latency = time.time() - t0
+
+            # Deduct tokens for Vanilla RAG (~1200 tokens)
+            rate_limiter.deduct_post_response(client_id, tokens_used=1200)
 
             formatted_chunks = [
                 ChunkResponse(
@@ -134,6 +152,12 @@ def execute_query(req: QueryRequest):
             res = pipeline_instance.run(req.query, top_k=req.top_k)
             latency = time.time() - t0
 
+            # Layer 2 Token Cost Deduction based on route taken
+            # CORRECT: ~450 tokens, AMBIGUOUS: ~1500 tokens, INCORRECT: ~2200 tokens
+            eval_act = res.get("eval_action", "CORRECT")
+            tokens_used = 450 if eval_act == "CORRECT" else (1500 if eval_act == "AMBIGUOUS" else 2200)
+            remaining_tokens = rate_limiter.deduct_post_response(client_id, tokens_used=tokens_used)
+
             formatted_chunks = [
                 ChunkResponse(
                     source=c.get("source", "Unknown"),
@@ -145,6 +169,13 @@ def execute_query(req: QueryRequest):
                 for c in res["final_chunks"]
             ]
 
+            # Attach rate limit info to observability breakdown
+            obs = res.get("observability", {})
+            obs["rate_limit_tokens"] = {
+                "deducted_tokens": tokens_used,
+                "remaining_bucket_tokens": remaining_tokens
+            }
+
             return QueryResponse(
                 query=req.query,
                 mode="Corrective RAG (CRAG)",
@@ -154,12 +185,24 @@ def execute_query(req: QueryRequest):
                 latency_sec=round(latency, 3),
                 final_chunks=formatted_chunks,
                 response=res["response"],
-                observability=res.get("observability")
+                observability=obs
             )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Pipeline execution error: {str(e)}")
-        
-@app.get("/analytics")
+
+@app.get("/rate-limit-status", tags=["Rate Limiting"])
+def get_rate_limit_status(request: Request):
+    client_id = request.headers.get("X-Session-ID") or request.client.host or "127.0.0.1"
+    bucket = rate_limiter.layer2._get_bucket(client_id)
+    return {
+        "client_id": client_id,
+        "layer_1_max_req_per_min": rate_limiter.layer1.max_requests,
+        "layer_2_bucket_capacity": rate_limiter.layer2.capacity,
+        "layer_2_remaining_tokens": round(bucket["tokens"], 1),
+        "layer_2_refill_rate_tokens_per_min": 5000
+    }
+
+@app.get("/analytics", tags=["Analytics"])
 def get_analytics():
     conn = sqlite3.connect("data/healrag_logs.db")
     conn.row_factory = sqlite3.Row

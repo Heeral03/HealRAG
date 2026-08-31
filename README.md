@@ -118,6 +118,27 @@ While the reference CRAG paper evaluates across broad Wikipedia/BioASQ dumps, He
 
 ---
 
+### Dual-Layer Cost-Aware Rate Limiting (`src/rate_limiter.py`)
+
+To prevent API flooding and financial quota exhaustion from expensive LLM calls, HealRAG incorporates a custom **2-Layer Rate Limiting System**:
+
+1. **Layer 1: General Abuse Protection (Sliding Window)**:
+   - Tracks request count per client IP/session over a 60-second sliding window.
+   - Enforces a hard cap of **10 requests / minute**. Returns `HTTP 429 Too Many Requests` on breach.
+
+2. **Layer 2: Financial Cost-Aware Protection (Dynamic Token Bucket)**:
+   - Implements a Token Bucket refilling at **5,000 tokens / minute** (capacity **50,000 tokens**).
+   - Deducts tokens dynamically post-generation based on the CRAG pipeline route taken:
+     - `CORRECT` (Fast Path, Noise Stripped): **~450 tokens** ($\sim 0.9\%$ of bucket).
+     - `AMBIGUOUS` (Hybrid Web Search): **~1,500 tokens** ($\sim 3.0\%$ of bucket).
+     - `INCORRECT` (Full Web Fallback): **~2,200 tokens** ($\sim 4.4\%$ of bucket).
+   
+> 💡 **Architectural Advantage**: Clients hammering fallback-triggering queries drain their token bucket **4-5x faster** than clients submitting clean, high-confidence queries!
+
+Check real-time rate limit status via `GET /rate-limit-status`.
+
+---
+
 ### Provenance Tracing & Trust-Grade Extension
 
 In high-stakes regulatory environments, answering a query correctly is not enough — the system must provide **provenance and explainability (XAI)**. Every execution of HealRAG generates a structured trust grade and provenance trace:
