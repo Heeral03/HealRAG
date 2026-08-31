@@ -38,10 +38,34 @@ pipeline_instance: Optional[CRAGPipeline] = None
 from seeder import seed_corpus
 from chunker import chunk_directory
 
+from fastapi.security import APIKeyHeader
+from fastapi import Security
+from auth import seed_default_dev_key, verify_api_key
+
+api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
+
+def authenticate_client(api_key: Optional[str] = Security(api_key_header), request: Optional[Request] = None) -> str:
+    """
+    Authenticates incoming request using X-API-Key header.
+    Hashes the raw key via SHA-256 and checks against SQLite api_keys table.
+    Falls back to client IP for unauthenticated public access if no header is provided.
+    """
+    if api_key:
+        client_id = verify_api_key(api_key)
+        if not client_id:
+            raise HTTPException(status_code=401, detail="Invalid or inactive API key.")
+        return client_id
+
+    # Fallback to dev key or client IP if header is missing
+    if request:
+        return request.client.host or "127.0.0.1"
+    return "anonymous_client"
+
 @app.on_event("startup")
 def startup_event():
     print("[HealRAG API] Container started. Initializing SQLite logging database...")
     init_db()
+    seed_default_dev_key()
     print("[HealRAG API] Checking FAISS vector database...")
     if not config.FAISS_INDEX_PATH.exists() or not config.METADATA_PATH.exists():
         print("[HealRAG API] FAISS index missing. Seeding corpus and building FAISS index...")
@@ -101,12 +125,12 @@ from fastapi import Request
 rate_limiter = DualLayerRateLimiter(max_req_per_min=10, bucket_capacity=50000, refill_rate_per_min=5000)
 
 @app.post("/query", response_model=QueryResponse, tags=["CRAG Pipeline"])
-def execute_query(req: QueryRequest, request: Request):
+def execute_query(req: QueryRequest, request: Request, api_key: Optional[str] = Security(api_key_header)):
     if not req.query.strip():
         raise HTTPException(status_code=400, detail="Query string cannot be empty.")
 
-    # Identify client by IP or session header
-    client_id = request.headers.get("X-Session-ID") or request.client.host or "127.0.0.1"
+    # Authenticate client via SHA-256 hashed API key lookup
+    client_id = authenticate_client(api_key, request)
 
     # Pre-check Dual Layer Rate Limiting
     allowed, msg, details = rate_limiter.check_pre_request(client_id, min_token_estimate=500)

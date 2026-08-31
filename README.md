@@ -118,6 +118,21 @@ While the reference CRAG paper evaluates across broad Wikipedia/BioASQ dumps, He
 
 ---
 
+### Cryptographically Hashed API Key Authentication (`src/auth.py`)
+
+HealRAG secures endpoints via **SHA-256 API Key Authentication**:
+
+- **Key Format**: `sk_live_<32-byte-urlsafe-token>` generated via `secrets.token_urlsafe(32)`.
+- **Zero-Raw-Storage Policy**: Raw API keys are **never stored** in SQLite or logs. Only `hashlib.sha256(raw_key.encode()).hexdigest()` is stored in the `api_keys` database table.
+- **Verification Logic**:
+  1. Incoming requests include `X-API-Key: sk_live_...`.
+  2. Server hashes the incoming key via SHA-256.
+  3. Server performs an $O(1)$ indexed lookup in SQLite `api_keys` table for the matching hash.
+  4. Returns `client_id` for rate limiting token bucket mapping or raises `HTTP 401 Unauthorized`.
+- **Dev/Demo Access**: Pre-seeds a dev key (`sk_live_healrag_demo_2026`) on startup for immediate out-of-the-box Swagger testing.
+
+---
+
 ### Dual-Layer Cost-Aware Rate Limiting (`src/rate_limiter.py`)
 
 To prevent API flooding and financial quota exhaustion from expensive LLM calls, HealRAG incorporates a custom **2-Layer Rate Limiting System**:
