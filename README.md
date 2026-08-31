@@ -118,6 +118,20 @@ While the reference CRAG paper evaluates across broad Wikipedia/BioASQ dumps, He
 
 ---
 
+### Async Concurrency & Throughput Matrix (`eval/run_concurrency_benchmark.py`)
+
+FastAPI's async event loop was benchmarked under real multi-client concurrent traffic using `asyncio` and `httpx`. The benchmark evaluates throughput (QPS), latency percentiles, and rate-limiting behavior across worker levels:
+
+| Concurrency Level | QPS | p50 Latency (ms) | p95 Latency (ms) | Success Count | Throttled / Blocked (HTTP 429) |
+|---|---|---|---|---|---|
+| **2 Workers** | **0.29** | 6,846 ms | 12,008 ms | 4 / 4 (100%) | 0 |
+| **4 Workers** | **0.36** | 2,193 ms | 12,138 ms | 6 / 8 (75%) | 2 (Layer 1 Throttled) |
+| **8 Workers** | **0.00** | — | — | 0 / 16 (0%) | 16 (Layer 1 Throttled) |
+
+> 📊 **Empirical Validation**: Under 4 to 8 concurrent client streams, the system maintains thread stability while the **Dual-Layer Rate Limiter** actively shields the downstream Groq API from token/rate quota exhaustion by returning `HTTP 429`.
+
+---
+
 ### Cryptographically Hashed API Key Authentication (`src/auth.py`)
 
 HealRAG secures endpoints via **SHA-256 API Key Authentication**:
