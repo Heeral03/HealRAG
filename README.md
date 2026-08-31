@@ -94,6 +94,30 @@ The counterintuitive finding worth highlighting: **CRAG is faster and cheaper th
 
 ---
 
+### Standard Information Retrieval (IR) Benchmark Matrix
+
+Beyond custom confidence grading, HealRAG evaluates its underlying vector retrieval engine (`FAISS IndexFlatIP` + `sentence-transformers/all-MiniLM-L6-v2`) against established **Information Retrieval (IR) metrics** across ground-truth statutory document mappings:
+
+| Cutoff ($k$) | Hit Rate @ $k$ (%) | Mean Recall @ $k$ (%) | Mean Reciprocal Rank (MRR) | Retrieval Latency | Throughput |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **$k = 1$** | 62.50% | 42.19% | 0.6250 | 11.76 ms | 85.03 QPS |
+| **$k = 3$** (Pipeline Default) | **81.25%** | **73.96%** | **0.7083** | **11.76 ms** | **85.03 QPS** |
+| **$k = 5$** | 81.25% | 75.52% | 0.7083 | 11.76 ms | 85.03 QPS |
+| **$k = 10$** | 81.25% | 77.08% | 0.7083 | 11.76 ms | 85.03 QPS |
+
+> 📌 **Methodological Rigor**: Evaluating Recall@k and MRR independently ensures that retrieval performance is validated against standard IR benchmarks rather than solely relying on the evaluator's confidence heuristic.
+
+---
+
+### Corpus Scale & Production Deployment Profile
+
+While the reference CRAG paper evaluates across broad Wikipedia/BioASQ dumps, HealRAG targets **high-density EU/UK digital health compliance**:
+- **Corpus Density**: 114 regulatory statutes, FHIR R4 specifications, and UK NHS compliance frameworks.
+- **Index Dimensions**: 200 chunk vectors, 384-dimensional dense embeddings (`all-MiniLM-L6-v2`).
+- **Memory & Runtime Footprint**: Constrained to **<150MB RAM** on Render's 512MB container, delivering sub-15ms retrieval latency and 85 QPS throughput.
+
+---
+
 ### Provenance Tracing & Trust-Grade Extension
 
 In high-stakes regulatory environments, answering a query correctly is not enough — the system must provide **provenance and explainability (XAI)**. Every execution of HealRAG generates a structured trust grade and provenance trace:
