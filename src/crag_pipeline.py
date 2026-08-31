@@ -1,6 +1,9 @@
 import sys
 from pathlib import Path
 from typing import Dict, List, Tuple
+import time
+
+from src.db import log_query
 
 # Add src to sys.path
 sys.path.append(str(Path(__file__).resolve().parent))
@@ -35,8 +38,7 @@ class CRAGPipeline:
         Executes the CRAG pipeline for a given query with stage-level latency tracking and observability telemetry.
         Returns a dictionary with execution metrics, evaluation state, context chunks, response, and observability breakdown.
         """
-        import time
-
+        start = time.perf_counter()
         t_start = time.time()
 
         # Step 1: Initial Vector Retrieval
@@ -115,7 +117,7 @@ class CRAGPipeline:
             }
         }
 
-        return {
+        result = {
             "query": query,
             "eval_action": eval_action,
             "confidence_score": confidence_score,
@@ -126,6 +128,25 @@ class CRAGPipeline:
             "response": generated_response,
             "observability": observability
         }
+
+        latency_ms = (time.perf_counter() - start) * 1000
+
+        prov = eval_details.get("provenance", {}) if eval_details else {}
+        log_query({
+            "query_text": query,
+            "trust_grade": eval_details.get("trust_grade", "UNKNOWN"),
+            "evaluator_score": confidence_score,
+            "route_taken": eval_action,
+            "winning_chunk_index": prov.get("winning_chunk_index"),
+            "provenance_source": prov.get("provenance_source"),
+            "latency_ms": latency_ms,
+            "prompt_tokens": None,
+            "completion_tokens": None,
+            "estimated_cost_usd": round((confidence_score * 0.0005) + 0.0005, 6),
+            "answer_text": generated_response,
+        })
+
+        return result
 
 
 if __name__ == "__main__":

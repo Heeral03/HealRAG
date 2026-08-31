@@ -4,6 +4,10 @@ from pathlib import Path
 from typing import Dict, List, Optional
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel, Field
+from src.db import init_db
+import sqlite3
+
+
 
 # Add src to sys.path
 sys.path.append(str(Path(__file__).resolve().parent))
@@ -36,7 +40,9 @@ from chunker import chunk_directory
 
 @app.on_event("startup")
 def startup_event():
-    print("[HealRAG API] Container started. Checking FAISS vector database...")
+    print("[HealRAG API] Container started. Initializing SQLite logging database...")
+    init_db()
+    print("[HealRAG API] Checking FAISS vector database...")
     if not config.FAISS_INDEX_PATH.exists() or not config.METADATA_PATH.exists():
         print("[HealRAG API] FAISS index missing. Seeding corpus and building FAISS index...")
         seed_corpus()
@@ -152,6 +158,27 @@ def execute_query(req: QueryRequest):
             )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Pipeline execution error: {str(e)}")
+        
+@app.get("/analytics")
+def get_analytics():
+    conn = sqlite3.connect("data/healrag_logs.db")
+    conn.row_factory = sqlite3.Row
+
+    total = conn.execute("SELECT COUNT(*) as c FROM query_log").fetchone()["c"]
+    avg_latency = conn.execute("SELECT AVG(latency_ms) as a FROM query_log").fetchone()["a"]
+    route_breakdown = conn.execute("""
+        SELECT route_taken, COUNT(*) as count, AVG(latency_ms) as avg_latency
+        FROM query_log GROUP BY route_taken
+    """).fetchall()
+    total_cost = conn.execute("SELECT SUM(estimated_cost_usd) as s FROM query_log").fetchone()["s"]
+
+    conn.close()
+    return {
+        "total_queries": total,
+        "avg_latency_ms": avg_latency,
+        "total_cost_usd": total_cost,
+        "route_breakdown": [dict(r) for r in route_breakdown],
+    }
 
 if __name__ == "__main__":
     import uvicorn
