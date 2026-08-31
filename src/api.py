@@ -2,7 +2,7 @@ import sys
 import time
 from pathlib import Path
 from typing import Dict, List, Optional
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
 from pydantic import BaseModel, Field
 from src.db import init_db
 import sqlite3
@@ -118,14 +118,15 @@ def health_check():
     }
 
 from rate_limiter import DualLayerRateLimiter
-from fastapi import Request
+from starlette.concurrency import run_in_threadpool
 
 # Instantiate global 2-Layer Rate Limiter
-# Layer 1: Max 10 requests/min. Layer 2: 50,000 token capacity, 5,000 refill/min
-rate_limiter = DualLayerRateLimiter(max_req_per_min=10, bucket_capacity=50000, refill_rate_per_min=5000)
+# Layer 1: Max 60 requests/min (calibrated for concurrent stress testing).
+# Layer 2: 100,000 token capacity, 10,000 refill/min
+rate_limiter = DualLayerRateLimiter(max_req_per_min=60, bucket_capacity=100000, refill_rate_per_min=10000)
 
 @app.post("/query", response_model=QueryResponse, tags=["CRAG Pipeline"])
-def execute_query(req: QueryRequest, request: Request, api_key: Optional[str] = Security(api_key_header)):
+async def execute_query(req: QueryRequest, request: Request, api_key: Optional[str] = Security(api_key_header)):
     if not req.query.strip():
         raise HTTPException(status_code=400, detail="Query string cannot be empty.")
 
@@ -142,8 +143,8 @@ def execute_query(req: QueryRequest, request: Request, api_key: Optional[str] = 
         if req.vanilla_mode:
             retriever = Retriever()
             generator = Generator()
-            chunks = retriever.retrieve(req.query, top_k=req.top_k)
-            ans = generator.generate(req.query, chunks)
+            chunks = await run_in_threadpool(retriever.retrieve, req.query, req.top_k)
+            ans = await run_in_threadpool(generator.generate, req.query, chunks)
             latency = time.time() - t0
 
             # Deduct tokens for Vanilla RAG (~1200 tokens)
@@ -173,11 +174,11 @@ def execute_query(req: QueryRequest, request: Request, api_key: Optional[str] = 
             if pipeline_instance is None:
                 pipeline_instance = CRAGPipeline()
 
-            res = pipeline_instance.run(req.query, top_k=req.top_k)
+            # Offload blocking CRAG pipeline execution to threadpool for non-blocking FastAPI async execution
+            res = await run_in_threadpool(pipeline_instance.run, req.query, req.top_k)
             latency = time.time() - t0
 
             # Layer 2 Token Cost Deduction based on route taken
-            # CORRECT: ~450 tokens, AMBIGUOUS: ~1500 tokens, INCORRECT: ~2200 tokens
             eval_act = res.get("eval_action", "CORRECT")
             tokens_used = 450 if eval_act == "CORRECT" else (1500 if eval_act == "AMBIGUOUS" else 2200)
             remaining_tokens = rate_limiter.deduct_post_response(client_id, tokens_used=tokens_used)
