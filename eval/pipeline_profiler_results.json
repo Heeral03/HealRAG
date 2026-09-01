@@ -1,0 +1,149 @@
+{
+  "config": {
+    "ddg_available": true,
+    "query_count": 10
+  },
+  "overall_avg_total_ms": 3684.19,
+  "per_route_summary": {
+    "CORRECT": {
+      "count": 7,
+      "retrieval": 10.16,
+      "evaluation": 0.06,
+      "refinement": 0.11,
+      "web_search": 0.0,
+      "generation": 1771.1,
+      "total": 1781.45,
+      "retrieval_pct": 0.6,
+      "evaluation_pct": 0.0,
+      "refinement_pct": 0.0,
+      "web_search_pct": 0.0,
+      "generation_pct": 99.4
+    },
+    "INCORRECT": {
+      "count": 3,
+      "retrieval": 10.65,
+      "evaluation": 0.05,
+      "refinement": 0.0,
+      "web_search": 1389.83,
+      "generation": 6723.35,
+      "total": 8123.9,
+      "retrieval_pct": 0.1,
+      "evaluation_pct": 0.0,
+      "refinement_pct": 0.0,
+      "web_search_pct": 17.1,
+      "generation_pct": 82.8
+    }
+  },
+  "per_query_breakdown": [
+    {
+      "query": "What is GDPR Article 9?",
+      "route": "CORRECT",
+      "web_search_fired": false,
+      "retrieval_ms": 11.29,
+      "evaluation_ms": 0.08,
+      "refinement_ms": 0.24,
+      "web_search_ms": 0.0,
+      "generation_ms": 1966.45,
+      "total_ms": 1978.07
+    },
+    {
+      "query": "What three clinical sections are mandatory in the International Patient Summary?",
+      "route": "CORRECT",
+      "web_search_fired": false,
+      "retrieval_ms": 5.95,
+      "evaluation_ms": 0.07,
+      "refinement_ms": 0.08,
+      "web_search_ms": 0.0,
+      "generation_ms": 1680.55,
+      "total_ms": 1686.66
+    },
+    {
+      "query": "What are the core Caldicott Principles governing NHS patient data confidentiality?",
+      "route": "CORRECT",
+      "web_search_fired": false,
+      "retrieval_ms": 11.21,
+      "evaluation_ms": 0.06,
+      "refinement_ms": 0.12,
+      "web_search_ms": 0.0,
+      "generation_ms": 1317.36,
+      "total_ms": 1328.76
+    },
+    {
+      "query": "What architectural principles define FHIR?",
+      "route": "CORRECT",
+      "web_search_fired": false,
+      "retrieval_ms": 12.41,
+      "evaluation_ms": 0.06,
+      "refinement_ms": 0.09,
+      "web_search_ms": 0.0,
+      "generation_ms": 1687.42,
+      "total_ms": 1700.0
+    },
+    {
+      "query": "What are the key obligations under the UK NHS Data Security and Protection Toolkit?",
+      "route": "CORRECT",
+      "web_search_fired": false,
+      "retrieval_ms": 11.31,
+      "evaluation_ms": 0.06,
+      "refinement_ms": 0.12,
+      "web_search_ms": 0.0,
+      "generation_ms": 2591.35,
+      "total_ms": 2602.85
+    },
+    {
+      "query": "What is break-glass emergency?",
+      "route": "INCORRECT",
+      "web_search_fired": true,
+      "retrieval_ms": 7.51,
+      "evaluation_ms": 0.05,
+      "refinement_ms": 0.0,
+      "web_search_ms": 1640.43,
+      "generation_ms": 1629.72,
+      "total_ms": 3277.72
+    },
+    {
+      "query": "What are LOINC codes used for in FHIR observations?",
+      "route": "CORRECT",
+      "web_search_fired": false,
+      "retrieval_ms": 8.13,
+      "evaluation_ms": 0.05,
+      "refinement_ms": 0.08,
+      "web_search_ms": 0.0,
+      "generation_ms": 1523.39,
+      "total_ms": 1531.67
+    },
+    {
+      "query": "How does SMART on FHIR OAuth2 scope filtering work?",
+      "route": "CORRECT",
+      "web_search_fired": false,
+      "retrieval_ms": 10.8,
+      "evaluation_ms": 0.05,
+      "refinement_ms": 0.07,
+      "web_search_ms": 0.0,
+      "generation_ms": 1631.21,
+      "total_ms": 1642.14
+    },
+    {
+      "query": "What are the penalty fine tiers under US HIPAA Privacy Rule?",
+      "route": "INCORRECT",
+      "web_search_fired": true,
+      "retrieval_ms": 12.18,
+      "evaluation_ms": 0.07,
+      "refinement_ms": 0.0,
+      "web_search_ms": 1314.78,
+      "generation_ms": 4821.45,
+      "total_ms": 6148.5
+    },
+    {
+      "query": "What are software medical device requirements under EU MDR 2017/745?",
+      "route": "INCORRECT",
+      "web_search_fired": true,
+      "retrieval_ms": 12.26,
+      "evaluation_ms": 0.04,
+      "refinement_ms": 0.0,
+      "web_search_ms": 1214.28,
+      "generation_ms": 13718.88,
+      "total_ms": 14945.48
+    }
+  ]
+}

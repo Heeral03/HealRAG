@@ -13,25 +13,28 @@ from evaluator import RetrievalEvaluator
 from refiner import KnowledgeRefiner
 from searcher import WebSearcher
 from generator import Generator
+from cache import SemanticCache
 
 class CRAGPipeline:
     """
     End-to-End Corrective Retrieval-Augmented Generation (CRAG) Pipeline.
     Orchestrates:
-      1. Vector Retrieval (FAISS)
-      2. Retrieval Evaluator (Confidence Classification: CORRECT, AMBIGUOUS, INCORRECT)
-      3. Action Routing:
+      1. Semantic Response Cache check (< 2ms hit latency)
+      2. Vector Retrieval (FAISS)
+      3. Retrieval Evaluator (Confidence Classification: CORRECT, AMBIGUOUS, INCORRECT)
+      4. Action Routing:
          - CORRECT: Apply Knowledge Refinement (strip noise) -> Generate
          - AMBIGUOUS: Apply Knowledge Refinement + External Web Search Fallback -> Merge & Generate
          - INCORRECT: Trigger External Web Search Fallback -> Generate
     """
 
-    def __init__(self):
+    def __init__(self, enable_cache: bool = True):
         self.retriever = Retriever()
         self.evaluator = RetrievalEvaluator()
         self.refiner = KnowledgeRefiner()
         self.searcher = WebSearcher()
         self.generator = Generator()
+        self.cache = SemanticCache(similarity_threshold=0.95) if enable_cache else None
 
     def run(self, query: str, top_k: int = 3) -> Dict:
         """
@@ -40,6 +43,14 @@ class CRAGPipeline:
         """
         start = time.perf_counter()
         t_start = time.time()
+
+        # Step 0: Semantic Response Cache Lookup
+        if self.cache:
+            cached_result, sim_score = self.cache.get(query)
+            if cached_result:
+                latency_ms = (time.perf_counter() - start) * 1000
+                cached_result["observability"]["latencies_ms"]["total"] = round(latency_ms, 2)
+                return cached_result
 
         # Step 1: Initial Vector Retrieval
         t0 = time.time()
@@ -128,6 +139,10 @@ class CRAGPipeline:
             "response": generated_response,
             "observability": observability
         }
+
+        # Store result in Semantic Response Cache
+        if self.cache:
+            self.cache.put(query, result)
 
         latency_ms = (time.perf_counter() - start) * 1000
 

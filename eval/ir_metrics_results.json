@@ -2,31 +2,54 @@
   "benchmark_metadata": {
     "query_count": 16,
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "vector_index_type": "FAISS IndexFlatIP (Cosine Similarity)",
-    "total_runtime_ms": 188.1,
-    "avg_latency_ms": 11.76,
-    "qps": 85.03
+    "vector_index_type": "FAISS IndexFlatIP + BM25 RRF"
   },
-  "metrics_summary": {
+  "dense_retrieval_summary": {
     "k=1": {
-      "Hit Rate (%)": "62.5%",
-      "Recall (%)": "42.19%",
-      "MRR": 0.625
+      "Hit Rate (%)": "81.25%",
+      "Recall (%)": "60.94%",
+      "MRR": 0.8125
     },
     "k=3": {
-      "Hit Rate (%)": "81.25%",
-      "Recall (%)": "73.96%",
-      "MRR": 0.7083
+      "Hit Rate (%)": "100.0%",
+      "Recall (%)": "92.71%",
+      "MRR": 0.8958
     },
     "k=5": {
-      "Hit Rate (%)": "81.25%",
-      "Recall (%)": "75.52%",
-      "MRR": 0.7083
+      "Hit Rate (%)": "100.0%",
+      "Recall (%)": "94.27%",
+      "MRR": 0.8958
     },
     "k=10": {
-      "Hit Rate (%)": "81.25%",
-      "Recall (%)": "77.08%",
-      "MRR": 0.7083
+      "Hit Rate (%)": "100.0%",
+      "Recall (%)": "95.83%",
+      "MRR": 0.8958
     }
+  },
+  "hybrid_retrieval_summary": {
+    "k=1": {
+      "Hit Rate (%)": "81.25%",
+      "Recall (%)": "61.46%",
+      "MRR": 0.8125
+    },
+    "k=3": {
+      "Hit Rate (%)": "100.0%",
+      "Recall (%)": "94.79%",
+      "MRR": 0.9062
+    },
+    "k=5": {
+      "Hit Rate (%)": "100.0%",
+      "Recall (%)": "96.35%",
+      "MRR": 0.9062
+    },
+    "k=10": {
+      "Hit Rate (%)": "100.0%",
+      "Recall (%)": "100.0%",
+      "MRR": 0.9062
+    }
+  },
+  "latency_ms": {
+    "dense": 10.2,
+    "hybrid": 10.48
   }
 }

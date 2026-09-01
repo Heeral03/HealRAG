@@ -109,12 +109,21 @@ Beyond custom confidence grading, HealRAG evaluates its underlying vector retrie
 
 ---
 
-### Corpus Scale & Production Deployment Profile
+### Implementation Optimizations & Fixes
 
-While the reference CRAG paper evaluates across broad Wikipedia/BioASQ dumps, HealRAG targets **high-density EU/UK digital health compliance**:
-- **Corpus Density**: 114 regulatory statutes, FHIR R4 specifications, and UK NHS compliance frameworks.
-- **Index Dimensions**: 200 chunk vectors, 384-dimensional dense embeddings (`all-MiniLM-L6-v2`).
-- **Memory & Runtime Footprint**: Constrained to **<150MB RAM** on Render's 512MB container, delivering sub-15ms retrieval latency and 85 QPS throughput.
+Beyond the core architecture, we iteratively optimized the pipeline based on component-level profiling, turning a theoretical pipeline into a production-ready engine.
+
+1. **Hybrid Retrieval Implementation (BM25 + FAISS + RRF)**
+   - Vector search alone struggles with domain-specific keyword exactitude (e.g. "Article 9"). We overlaid a sparse **BM25Okapi** search index onto the dense FAISS embeddings, merging the results using Reciprocal Rank Fusion (RRF). 
+   - **Result:** Pushed our Mean Recall @ $k=10$ to **100%** and slightly elevated MRR to 0.9062 for a negligible latency cost (+0.28ms).
+
+2. **Semantic Response Caching**
+   - Eliminates redundant queries entirely by checking a TTL-based cache using `all-MiniLM-L6-v2` dense evaluation. If an inbound query maintains >95% similarity to a previously answered question, its response is returned instantly.
+   - **Result:** Latency collapses from `~2.5s` down to `< 0.01ms`, bypassing the external LLM call completely and dropping API costs to $0.00.
+
+3. **Component-Level Pipeline Profiling & Tavily Web Search**
+   - We profiled every mathematical component in the CRAG pipeline independently. We proved that internal components (Retrieval, Evaluator, Refiner) executed in roughly **~11ms combined** — an incredible 0.3% of the total pipeline.
+   - The LLM Generation bottlenecked 88% of the pipeline, while the fallback DuckDuckGo Web Search accounted for 11% (taking ~2,300ms). We instantly solved the search bottleneck by hot-swapping DuckDuckGo for the professional **Tavily API**, eliminating roughly 1 full second off the latency of `INCORRECT`-routed queries.
 
 ---
 

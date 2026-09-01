@@ -34,6 +34,8 @@ torch.set_num_interop_threads(1)
 
 # Global singleton pipeline instance (Lazy-loaded on first /query)
 pipeline_instance: Optional[CRAGPipeline] = None
+retriever_instance: Optional[Retriever] = None
+generator_instance: Optional[Generator] = None
 
 from seeder import seed_corpus
 from chunker import chunk_directory
@@ -121,12 +123,15 @@ from rate_limiter import DualLayerRateLimiter
 from starlette.concurrency import run_in_threadpool
 
 # Instantiate global 2-Layer Rate Limiter
-# Layer 1: Max 60 requests/min (calibrated for concurrent stress testing).
-# Layer 2: 100,000 token capacity, 10,000 refill/min
-rate_limiter = DualLayerRateLimiter(max_req_per_min=60, bucket_capacity=100000, refill_rate_per_min=10000)
+# Layer 1: Max 300 requests/min (calibrated for high-concurrency multi-worker stress testing).
+# Layer 2: 500,000 token capacity, 50,000 refill/min
+rate_limiter = DualLayerRateLimiter(max_req_per_min=300, bucket_capacity=500000, refill_rate_per_min=50000)
+
+from fastapi import FastAPI, Security, HTTPException, Depends, Request, BackgroundTasks
+from db import log_query
 
 @app.post("/query", response_model=QueryResponse, tags=["CRAG Pipeline"])
-async def execute_query(req: QueryRequest, request: Request, api_key: Optional[str] = Security(api_key_header)):
+async def execute_query(req: QueryRequest, request: Request, background_tasks: BackgroundTasks, api_key: Optional[str] = Security(api_key_header)):
     if not req.query.strip():
         raise HTTPException(status_code=400, detail="Query string cannot be empty.")
 
@@ -141,10 +146,14 @@ async def execute_query(req: QueryRequest, request: Request, api_key: Optional[s
     t0 = time.time()
     try:
         if req.vanilla_mode:
-            retriever = Retriever()
-            generator = Generator()
-            chunks = await run_in_threadpool(retriever.retrieve, req.query, req.top_k)
-            ans = await run_in_threadpool(generator.generate, req.query, chunks)
+            global retriever_instance, generator_instance
+            if retriever_instance is None:
+                retriever_instance = Retriever()
+            if generator_instance is None:
+                generator_instance = Generator()
+
+            chunks = await run_in_threadpool(retriever_instance.retrieve, req.query, req.top_k)
+            ans = await run_in_threadpool(generator_instance.generate, req.query, chunks)
             latency = time.time() - t0
 
             # Deduct tokens for Vanilla RAG (~1200 tokens)

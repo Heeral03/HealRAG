@@ -8,3 +8,5 @@ groq
 duckduckgo-search
 fastapi
 uvicorn
+rank-bm25
+tavily-python

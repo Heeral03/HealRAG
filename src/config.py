@@ -33,3 +33,6 @@ GROQ_MODEL = "openai/gpt-oss-120b"
 EVALUATOR_UPPER_THRESHOLD = 0.60  # Confidence score >= 0.60 -> CORRECT
 EVALUATOR_LOWER_THRESHOLD = 0.45  # Confidence score < 0.45 -> INCORRECT (0.45-0.60 -> AMBIGUOUS)
 
+# Web Search backend (Tavily API key, optional — falls back to DuckDuckGo if absent)
+TAVILY_API_KEY = os.environ.get("TAVILY_API_KEY", "")
+
