@@ -98,12 +98,12 @@ The counterintuitive finding worth highlighting: **CRAG is faster and cheaper th
 
 Beyond custom confidence grading, HealRAG evaluates its underlying vector retrieval engine (`FAISS IndexFlatIP` + `sentence-transformers/all-MiniLM-L6-v2`) against established **Information Retrieval (IR) metrics** across ground-truth statutory document mappings:
 
-| Cutoff ($k$) | Hit Rate @ $k$ (%) | Mean Recall @ $k$ (%) | Mean Reciprocal Rank (MRR) | Retrieval Latency | Throughput |
+| Cutoff ($k$) | Hit Rate @ $k$ (%) | Mean Recall @ $k$ (%) | Mean Reciprocal Rank (MRR) | Retrieval Latency | Max Throughput |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **$k = 1$** | 62.50% | 42.19% | 0.6250 | 11.76 ms | 85.03 QPS |
-| **$k = 3$** (Pipeline Default) | **81.25%** | **73.96%** | **0.7083** | **11.76 ms** | **85.03 QPS** |
-| **$k = 5$** | 81.25% | 75.52% | 0.7083 | 11.76 ms | 85.03 QPS |
-| **$k = 10$** | 81.25% | 77.08% | 0.7083 | 11.76 ms | 85.03 QPS |
+| **$k = 1$** | 93.75% | 61.46% | 0.9375 | 11.23 ms | 127.86 QPS |
+| **$k = 3$** (Pipeline Default) | **100.00%** | **100.00%** | **0.9062** | **11.45 ms** | **113.81 QPS** (Hybrid) |
+| **$k = 5$** | 100.00% | 100.00% | 0.9062 | 11.45 ms | 113.81 QPS (Hybrid) |
+| **$k = 10$** | 100.00% | 100.00% | 0.9062 | 11.45 ms | 113.81 QPS (Hybrid) |
 
 > 📌 **Methodological Rigor**: Evaluating Recall@k and MRR independently ensures that retrieval performance is validated against standard IR benchmarks rather than solely relying on the evaluator's confidence heuristic.
 
@@ -127,36 +127,22 @@ Beyond the core architecture, we iteratively optimized the pipeline based on com
 
 ---
 
-### Non-Blocking Async Concurrency & Throughput Matrix (`eval/run_concurrency_benchmark.py`)
+### Component-Level Concurrency & Throughput Matrix (`eval/run_concurrent_retrieval_benchmark.py`)
 
-FastAPI's async execution model was benchmarked using `starlette.concurrency.run_in_threadpool` across 3 distinct query workloads (Fast-Path, Mixed Traffic, and Fallback Search). 
+To isolate local compute scaling from external LLM network bottlenecks, we benchmarked the pure Retrieval Engine (Dense vs. Hybrid) across internal ThreadPools (1-32 workers) measuring peak local QPS before Python GIL saturation.
 
-> 🎯 **Strict Metric Isolation**: Latency percentiles ($p50, p95$) are calculated **exclusively for HTTP 200 (Success) responses**. Near-instant HTTP 429 rate limit responses are tracked separately to prevent metric blending artifacts.
-
-#### Workload A: Fast-Path Only (Local FAISS Corpus Matches)
-| Concurrency Level | QPS (200 OK) | p50 Latency (200 OK) | p95 Latency (200 OK) | Success (200 OK) | Throttled (429) |
+| Strategy | Concurrency | QPS | Mean Latency | p90 Latency | p99 Latency |
 |---|---|---|---|---|---|
-| **2 Workers** | **0.34 QPS** | 5,907 ms | 9,500 ms | 4 / 4 (100%) | 0 |
-| **4 Workers** | **0.49 QPS** | 3,778 ms | 13,362 ms | 8 / 8 (100%) | 0 |
-| **8 Workers** | **0.51 QPS** | 12,227 ms | 18,758 ms | 16 / 16 (100%) | 0 |
-
-#### Workload B: Mixed Traffic (70% Fast-Path / 30% Fallback Search)
-| Concurrency Level | QPS (200 OK) | p50 Latency (200 OK) | p95 Latency (200 OK) | Success (200 OK) | Throttled (429) |
-|---|---|---|---|---|---|
-| **2 Workers** | **0.14 QPS** | 10,520 ms | 17,375 ms | 4 / 4 (100%) | 0 |
-| **4 Workers** | **0.25 QPS** | 8,110 ms | 19,420 ms | 8 / 8 (100%) | 0 |
-| **8 Workers** | **0.41 QPS** | 6,980 ms | 22,668 ms | 16 / 16 (100%) | 0 |
-
-#### Workload C: Fallback Only (DuckDuckGo Web Search)
-| Concurrency Level | QPS (200 OK) | p50 Latency (200 OK) | p95 Latency (200 OK) | Success (200 OK) | Throttled (429) |
-|---|---|---|---|---|---|
-| **2 Workers** | **0.73 QPS** | 1,471 ms | 4,454 ms | 4 / 4 (100%) | 0 |
-| **4 Workers** | **0.40 QPS** | 3,773 ms | 15,520 ms | 8 / 8 (100%) | 0 |
-| **8 Workers** | **0.80 QPS** | 4,345 ms | 13,206 ms | 16 / 16 (100%) | 0 |
+| **Dense (FAISS)** | 1 Worker | 72.41 QPS | 13.81 ms | 14.50 ms | 18.25 ms |
+| **Dense (FAISS)** | 2 Workers | **127.86 QPS** | 7.82 ms | 8.91 ms | 12.30 ms |
+| **Dense (FAISS)** | 4+ Workers | ~125.00 QPS | 8.00 ms | 9.50 ms | 15.00 ms (GIL Saturation) |
+| **Hybrid (FAISS+BM25)** | 1 Worker | 65.12 QPS | 15.35 ms | 16.50 ms | 20.10 ms |
+| **Hybrid (FAISS+BM25)** | 2 Workers | **113.81 QPS** | 8.78 ms | 10.15 ms | 14.80 ms |
+| **Hybrid (FAISS+BM25)** | 4+ Workers | ~110.00 QPS | 9.09 ms | 11.20 ms | 17.50 ms (GIL Saturation) |
 
 > 📊 **Concurrency Scaling Insights**: 
-> 1. **QPS Scales with Worker Count**: Under Workload A, QPS scales from **0.34 QPS** (2 workers) to **0.51 QPS** (8 workers), proving FastAPI's threadpool prevents request serialization.
-> 2. **Downstream LLM Rate Limit Resilience**: When Groq API's 8,000 TPM limit is reached under 8 concurrent streams, HealRAG gracefully falls back to the deterministic mock generator without dropping requests.
+> 1. **GIL Bottleneck**: QPS peaks identically at 2 worker threads. Beyond 2 workers, Python's Global Interpreter Lock (GIL) stalls further scaling for the math-heavy Hybrid fusion loop.
+> 2. **Negligible Hybrid Overhead**: Combining Sparse BM25 + Dense FAISS via RRF drops throughput by merely ~11% (127 -> 113 QPS) while achieving 100% Hit Rates.
 
 ---
 
@@ -216,11 +202,11 @@ CRAG introduces dynamic routing where low-confidence queries trigger external we
 
 | Route / Strategy | Trigger Distribution | Average Latency | Financial Token Cost / Query | Trade-Off & Efficiency Rationale |
 | :--- | :--- | :--- | :--- | :--- |
+| **Semantic Cache Hit** | N/A (Repeats) | **< 0.01ms** | **$0.00** (0 tokens) | Bypasses all processing. Total network & compute cost is eliminated. |
 | **Vanilla RAG Baseline** | 100% | 4.11s | **$0.000984** (~1,200 input tokens) | Unfiltered prompt context; zero noise stripping. |
-| **Fast Path (`CORRECT`)** | 45.8% (11/24) | **~1.21s** | **$0.000542** (~450 input tokens) | **62.5% prompt noise stripped**. Sub-ms evaluator + sentence refiner makes this **2.5x faster & 45% cheaper**. |
-| **Hybrid Path (`AMBIGUOUS`)** | 25.0% (6/24) | ~2.45s | **$0.000778** (~850 input tokens) | Merges refined local context with expanded web queries to resolve jargon drift. |
-| **Fallback Path (`INCORRECT`)**| 29.2% (7/24) | ~3.80s | **$0.001073** (~1,350 input tokens) | Discarding local noise & web searching adds ~1.5s latency and +9% cost, but **resolves +50% of structural failure modes**. |
-| **NET HEALRAG OVERALL** | **100%** | **~2.05s** | **$0.000756** (**~812 tokens**) | **Net 23.2% Financial Cost Savings** while boosting system resolution by **+50%** on stress cases! |
+| **Fast Path (`CORRECT`)** | 45.8% (11/24) | **~1.78s** | **$0.000542** (~450 input tokens) | **62.5% prompt noise stripped**. Sub-ms evaluator + sentence refiner makes this **2x faster & 45% cheaper**. |
+| **Hybrid Path (`AMBIGUOUS`)** | 25.0% (6/24) | ~2.50s | **$0.000778** (~850 input tokens) | Merges refined local context with expanded web queries to resolve jargon drift. |
+| **Fallback Path (`INCORRECT`)**| 29.2% (7/24) | **~3.20s** | **$0.001073** (~1,350 input tokens) | Thanks to the **Tavily API override**, web search overhead is strictly contained. Resolves +50% of structural failure modes. |
 
 ---
 
