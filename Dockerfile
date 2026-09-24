@@ -14,8 +14,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source code
 COPY . .
 
+ENV PYTHONPATH=/app/src
+ENV PORT=8000
+
 # Expose FastAPI default port
 EXPOSE 8000
 
 # Run FastAPI app with Uvicorn
-CMD ["python3", "-m", "uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "python3 -m uvicorn src.api:app --host 0.0.0.0 --port ${PORT:-8000}"]

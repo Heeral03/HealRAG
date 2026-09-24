@@ -2,7 +2,8 @@ torch>=2.5.0
 sentence-transformers
 transformers>=4.40.0,<5.0.0
 numpy>=1.26.4,<2.0.0
-faiss-cpu
+qdrant-client
+psycopg2-binary
 python-dotenv
 groq
 duckduckgo-search
