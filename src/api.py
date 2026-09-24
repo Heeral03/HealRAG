@@ -9,6 +9,7 @@ from fastapi import FastAPI, HTTPException, Query, Request, Security, Depends, B
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from starlette.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
 import torch
 

@@ -28,7 +28,7 @@ CHUNK_OVERLAP_WORDS = 50
 
 # LLM Generation configuration
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama3-8b-8192")
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-20b")
 
 # CRAG Evaluator thresholds
 EVALUATOR_UPPER_THRESHOLD = 0.60  # Confidence score >= 0.60 -> CORRECT

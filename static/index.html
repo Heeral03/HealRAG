@@ -925,8 +925,12 @@
                 });
 
                 if (!response.ok) {
-                    const errData = await response.json();
-                    throw new Error(errData.detail || 'Server error');
+                    let errMsg = `Server returned status ${response.status}`;
+                    try {
+                        const errData = await response.json();
+                        errMsg = errData.detail || errMsg;
+                    } catch (_) {}
+                    throw new Error(errMsg);
                 }
 
                 const data = await response.json();
