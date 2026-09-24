@@ -17,10 +17,10 @@ def initialize_system(rebuild: bool = False):
     Ensure the corpus is seeded, chunked, and index is loaded.
     If rebuild is True, recreate the vector database.
     """
-    db_exists = config.FAISS_INDEX_PATH.exists() and config.METADATA_PATH.exists()
+    db_exists = config.QDRANT_DIR.exists() and config.METADATA_PATH.exists()
     
     if rebuild or not db_exists:
-        print("\n=== Initializing Vector Database ===")
+        print("\n=== Initializing Vector Database (Qdrant) ===")
         # 1. Seed corpus
         # Check if corpus folder is empty or need to rebuild
         txt_files = list(config.CORPUS_DIR.glob("*.txt"))
@@ -33,8 +33,8 @@ def initialize_system(rebuild: bool = False):
         chunks = chunk_directory(config.CORPUS_DIR, config.CHUNK_SIZE_WORDS, config.CHUNK_OVERLAP_WORDS)
         print(f"Total chunks generated: {len(chunks)}")
         
-        # 3. Create FAISS index
-        print("Building FAISS index...")
+        # 3. Create Qdrant index
+        print("Building Qdrant vector index...")
         build_index(chunks)
         print("=== Database Initialization Complete ===\n")
     else:

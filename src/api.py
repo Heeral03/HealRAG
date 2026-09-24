@@ -7,6 +7,8 @@ from pathlib import Path
 from typing import Dict, List, Optional
 from fastapi import FastAPI, HTTPException, Query, Request, Security, Depends, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 import torch
 
@@ -87,22 +89,25 @@ def authenticate_client(
     if required_scope == "admin":
         raise HTTPException(status_code=401, detail="Admin authorization header (X-API-Key) required.")
 
-    if request:
+    if request and hasattr(request, "client") and request.client:
         return request.client.host or "127.0.0.1"
-    return "anonymous_client"
+    return "127.0.0.1"
 
 @app.on_event("startup")
 def startup_event():
     print("[HealRAG API] Container started. Initializing SQLite logging database...")
     init_db()
     seed_default_dev_key()
-    print("[HealRAG API] Checking FAISS vector database...")
-    if not config.FAISS_INDEX_PATH.exists() or not config.METADATA_PATH.exists():
-        print("[HealRAG API] FAISS index missing. Seeding corpus and building FAISS index...")
-        seed_corpus()
+    print("[HealRAG API] Checking Qdrant vector database...")
+    if not config.QDRANT_DIR.exists() or not config.METADATA_PATH.exists():
+        print("[HealRAG API] Qdrant index missing. Seeding corpus and building Qdrant index...")
+        from seeder import seed_corpus
+        from chunker import chunk_directory
+        from embedder import build_index
+        seed_corpus(config.CORPUS_DIR)
         chunks = chunk_directory(config.CORPUS_DIR, config.CHUNK_SIZE_WORDS, config.CHUNK_OVERLAP_WORDS)
         build_index(chunks)
-        gc.collect()
+        print("[HealRAG API] Qdrant index build complete.")
     print("[HealRAG API] Service startup complete. CRAG Pipeline ready for lazy initialization.")
 
 # Pydantic Schemas
@@ -147,8 +152,15 @@ class KeyOperationResponse(BaseModel):
 # Instantiate global 2-Layer Rate Limiter
 rate_limiter = DualLayerRateLimiter(max_req_per_min=300, bucket_capacity=500000, refill_rate_per_min=50000)
 
-@app.get("/", tags=["Health Check"])
+STATIC_DIR = config.BASE_DIR / "static"
+if STATIC_DIR.exists():
+    app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+
+@app.get("/", response_class=FileResponse, tags=["Web Interface"])
 def root():
+    index_path = config.BASE_DIR / "static" / "index.html"
+    if index_path.exists():
+        return FileResponse(index_path)
     return {
         "service": "HealRAG API",
         "status": "online",
@@ -158,10 +170,10 @@ def root():
 
 @app.get("/health", tags=["Health Check"])
 def health_check():
-    db_ready = config.FAISS_INDEX_PATH.exists()
+    db_ready = config.QDRANT_DIR.exists()
     return {
         "status": "healthy" if db_ready else "initializing",
-        "faiss_index_exists": db_ready,
+        "qdrant_index_exists": db_ready,
         "llm_model": config.GROQ_MODEL
     }
 

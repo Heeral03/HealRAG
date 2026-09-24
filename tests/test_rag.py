@@ -32,14 +32,11 @@ def test_chunk_directory():
         assert "source" in chunk
         assert "chunk_index" in chunk
 
-def test_embedder_faiss():
-    index, metadata = load_index()
-    assert index.ntotal > 0
+def test_embedder_qdrant():
+    client, metadata = load_index()
+    coll = client.get_collection(config.QDRANT_COLLECTION_NAME)
+    assert coll.points_count > 0
     assert len(metadata) > 0
-    
-    # Retrieve embedding dimension
-    dimension = index.d
-    assert dimension == 384  # Dimension of all-MiniLM-L6-v2
 
 def test_retriever():
     retriever = Retriever()

@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealRAG - EU & UK Digital Health Governance Intelligence</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Marked.js for Markdown Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --light-blue: #eff6ff;
+            --primary-green: #059669;
+            --accent-green: #10b981;
+            --light-green: #ecfdf5;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-600: #475569;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --font-main: 'Inter', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--slate-50);
+            color: var(--slate-800);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid var(--slate-200);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-green));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .brand-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--slate-900);
+        }
+
+        .brand-title span {
+            color: var(--primary-green);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--slate-600);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .status-badge {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem 4rem 1rem;
+            background: linear-gradient(180deg, #ffffff 0%, var(--slate-50) 100%);
+            border-bottom: 1px solid var(--slate-200);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--slate-600);
+            max-width: 750px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: var(--slate-800);
+            border: 1px solid var(--slate-200);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--slate-100);
+            color: var(--slate-900);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid var(--slate-200);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .icon-blue {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .icon-green {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+        }
+
+        .feature-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--slate-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-desc {
+            color: var(--slate-600);
+            font-size: 0.95rem;
+        }
+
+        /* Playground / Try It Out Section */
+        .playground-section {
+            background: #ffffff;
+            border: 1px solid var(--slate-200);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--slate-900);
+        }
+
+        .section-subtitle {
+            color: var(--slate-600);
+            font-size: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Sample Query Chips */
+        .sample-chips-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--slate-600);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chip {
+            background-color: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: var(--slate-700);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chip:hover {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+            border-color: var(--primary-blue);
+        }
+
+        /* Form Controls */
+        .query-box-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .query-textarea {
+            width: 100%;
+            min-height: 110px;
+            padding: 1.25rem;
+            border-radius: 14px;
+            border: 2px solid var(--slate-200);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            color: var(--slate-900);
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .query-textarea:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .controls-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--slate-100);
+            padding: 0.35rem 0.5rem;
+            border-radius: 10px;
+        }
+
+        .toggle-btn {
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            background: transparent;
+            color: var(--slate-600);
+            transition: all 0.2s;
+        }
+
+        .toggle-btn.active {
+            background: #ffffff;
+            color: var(--dark-blue);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Response Display Card */
+        .response-container {
+            display: none;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 2px dashed var(--slate-200);
+        }
+
+        .response-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .route-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .badge-correct {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            border: 1px solid rgba(5, 150, 105, 0.3);
+        }
+
+        .badge-ambiguous {
+            background-color: #fef3c7;
+            color: #d97706;
+            border: 1px solid rgba(217, 119, 6, 0.3);
+        }
+
+        .badge-incorrect {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+        }
+
+        .metrics-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--slate-600);
+        }
+
+        .metric-pill {
+            background-color: var(--slate-100);
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .answer-card {
+            background-color: #ffffff;
+            border: 1px solid var(--slate-200);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .answer-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 1px solid var(--slate-200);
+            padding-bottom: 0.75rem;
+        }
+
+        /* Formatted Markdown Content Styles */
+        .markdown-body {
+            color: var(--slate-800);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .markdown-body p {
+            margin-bottom: 1rem;
+        }
+
+        .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
+            font-family: var(--font-heading);
+            color: var(--slate-900);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .markdown-body h2 { font-size: 1.4rem; }
+        .markdown-body h3 { font-size: 1.2rem; }
+
+        .markdown-body ul, .markdown-body ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .markdown-body li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Beautiful Markdown Table Styling */
+        .markdown-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.25rem 0;
+            font-size: 0.95rem;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--slate-200);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .markdown-body th {
+            background-color: var(--slate-100);
+            color: var(--slate-900);
+            font-weight: 600;
+            text-align: left;
+            padding: 0.85rem 1rem;
+            border-bottom: 2px solid var(--slate-200);
+        }
+
+        .markdown-body td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--slate-200);
+            vertical-align: top;
+        }
+
+        .markdown-body tr:last-child td {
+            border-bottom: none;
+        }
+
+        .markdown-body tr:hover td {
+            background-color: var(--slate-50);
+        }
+
+        .markdown-body blockquote {
+            border-left: 4px solid var(--primary-blue);
+            background-color: var(--light-blue);
+            padding: 0.75rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+            color: var(--dark-blue);
+            font-style: italic;
+        }
+
+        .markdown-body code {
+            background-color: var(--slate-100);
+            color: var(--dark-blue);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-family: monospace;
+        }
+
+        /* Source Cards */
+        .sources-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .source-card {
+            background: #ffffff;
+            border: 1px solid var(--slate-200);
+            border-radius: 14px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .source-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-blue);
+        }
+
+        .source-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.6rem;
+            border-bottom: 1px solid var(--slate-100);
+            padding-bottom: 0.5rem;
+        }
+
+        .source-filename {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .source-score {
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: var(--light-green);
+            color: var(--primary-green);
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .source-excerpt {
+            font-size: 0.875rem;
+            color: var(--slate-600);
+            line-height: 1.6;
+        }
+
+        /* Pipeline Log Collapse */
+        .logs-section {
+            margin-top: 2rem;
+            background-color: var(--slate-900);
+            color: #e2e8f0;
+            border-radius: 12px;
+            padding: 1.25rem;
+            font-family: monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+
+        .logs-header {
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .log-item {
+            margin-bottom: 0.25rem;
+            opacity: 0.9;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 0.8s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            color: var(--slate-600);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--slate-200);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="brand-title">Heal<span>RAG</span></div>
+        </a>
+        <div class="nav-links">
+            <a href="#playground" class="nav-link"><i class="fa-solid fa-play"></i> Playground</a>
+            <a href="/docs" target="_blank" class="nav-link"><i class="fa-solid fa-code"></i> API Docs</a>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                System Ready
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        
+        <!-- Hero Section / Landing Page -->
+        <header class="hero">
+            <div class="hero-pill">
+                <i class="fa-solid fa-sparkles"></i> Self-Correcting Medical & Statutory Intelligence
+            </div>
+            <h1 class="hero-title">
+                EU & UK Digital Health<br><span>Governance RAG</span>
+            </h1>
+            <p class="hero-subtitle">
+                Answering complex queries on GDPR Article 9, EHDS, NHS Caldicott Principles, and HL7 FHIR UK Core standards — with dynamic retrieval evaluation to prevent compliance hallucinations.
+            </p>
+            <div class="hero-actions">
+                <a href="#playground" class="btn btn-primary">
+                    <i class="fa-solid fa-bolt"></i> Try It Out Now
+                </a>
+                <a href="/docs" target="_blank" class="btn btn-secondary">
+                    <i class="fa-solid fa-book"></i> Interactive API Docs
+                </a>
+            </div>
+        </header>
+
+        <!-- Feature Cards -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon icon-blue">
+                    <i class="fa-solid fa-route"></i>
+                </div>
+                <h3 class="feature-title">Self-Correcting Routing</h3>
+                <p class="feature-desc">Evaluates confidence before answering. Strips prompt noise on clean queries (`CORRECT`), expands jargon queries (`AMBIGUOUS`), and triggers web search fallbacks (`INCORRECT`).</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon icon-green">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+                <h3 class="feature-title">Qdrant + BM25 Hybrid</h3>
+                <p class="feature-desc">Combines Qdrant dense vector similarity with BM25 keyword matching via Reciprocal Rank Fusion (RRF), achieving 100% recall on statutory document mappings.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon icon-blue">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="feature-title">Hardened & Provenance Traced</h3>
+                <p class="feature-desc">SHA-256 API key security, XML prompt isolation, and output injection filters paired with full document source citations for compliance audits.</p>
+            </div>
+        </section>
+
+        <!-- Interactive Playground / Try It Out -->
+        <main id="playground" class="playground-section">
+            <div class="section-header">
+                <h2 class="section-title">Interactive Query Playground</h2>
+                <p class="section-subtitle">Submit a question or pick a sample query below to test the CRAG response in real time.</p>
+            </div>
+
+            <!-- Sample Query Chips -->
+            <div class="sample-chips-label">
+                <i class="fa-solid fa-lightbulb" style="color: var(--primary-green);"></i> Click a sample question to try:
+            </div>
+            <div class="chips-container">
+                <button class="chip" onclick="setQuery('What is GDPR Article 9 special category data?')">
+                    <i class="fa-solid fa-paragraph"></i> What is GDPR Article 9?
+                </button>
+                <button class="chip" onclick="setQuery('What are the NHS Caldicott Principles for sharing patient data?')">
+                    <i class="fa-solid fa-hospital"></i> NHS Caldicott Principles
+                </button>
+                <button class="chip" onclick="setQuery('What is emergency break-glass data access under EHDS?')">
+                    <i class="fa-solid fa-triangle-exclamation"></i> EHDS Break-Glass Emergency
+                </button>
+                <button class="chip" onclick="setQuery('What are the required FHIR UK Core patient demographics?')">
+                    <i class="fa-solid fa-stethoscope"></i> FHIR UK Core Demographics
+                </button>
+            </div>
+
+            <!-- Query Input Form -->
+            <form id="queryForm" onsubmit="handleQuerySubmit(event)">
+                <div class="query-box-container">
+                    <textarea 
+                        id="queryInput" 
+                        class="query-textarea" 
+                        placeholder="Type your digital health regulation or technical question here..." 
+                        required></textarea>
+                </div>
+
+                <div class="controls-bar">
+                    <div class="toggle-group">
+                        <button type="button" id="btnCrag" class="toggle-btn active" onclick="setMode(false)">
+                            <i class="fa-solid fa-shield-halved"></i> Corrective RAG (CRAG)
+                        </button>
+                        <button type="button" id="btnVanilla" class="toggle-btn" onclick="setMode(true)">
+                            <i class="fa-solid fa-arrow-right-long"></i> Vanilla Baseline
+                        </button>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn btn-primary">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Query
+                    </button>
+                </div>
+            </form>
+
+            <!-- Output Display Container -->
+            <div id="responseContainer" class="response-container">
+                <div class="response-header">
+                    <div id="routeBadge" class="route-badge badge-correct">
+                        <i class="fa-solid fa-circle-check"></i> HIGH CONFIDENCE (CORRECT)
+                    </div>
+
+                    <div class="metrics-group">
+                        <div class="metric-pill">
+                            Confidence Score: <span id="confidenceScore" style="color: var(--primary-blue);">0.85</span>
+                        </div>
+                        <div class="metric-pill">
+                            Latency: <span id="latencyMetric" style="color: var(--primary-green);">1.24s</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generated Answer -->
+                <div class="answer-card">
+                    <div class="answer-title">
+                        <i class="fa-solid fa-robot" style="color: var(--primary-blue);"></i> HealRAG Formatted Answer
+                    </div>
+                    <div id="answerText" class="markdown-body">
+                        Processing answer...
+                    </div>
+                </div>
+
+                <!-- Source Document Provenance Cards -->
+                <div class="sources-title">
+                    <i class="fa-solid fa-file-contract" style="color: var(--primary-green);"></i> Retrieved Source Provenance
+                </div>
+                <div id="sourcesGrid" class="sources-grid">
+                    <!-- Source Cards will be injected here -->
+                </div>
+
+                <!-- Step-by-Step Pipeline Execution Log -->
+                <div id="logsSection" class="logs-section" style="display: none;">
+                    <div class="logs-header">
+                        <i class="fa-solid fa-terminal"></i> Step-by-Step Execution Log
+                    </div>
+                    <div id="logsContent"></div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>HealRAG &copy; 2026 — Corrective RAG Platform for EU & UK Digital Health Governance.</p>
+    </footer>
+
+    <!-- Frontend Script -->
+    <script>
+        let isVanillaMode = false;
+
+        function setQuery(text) {
+            document.getElementById('queryInput').value = text;
+            document.getElementById('queryInput').focus();
+        }
+
+        function setMode(vanilla) {
+            isVanillaMode = vanilla;
+            if (vanilla) {
+                document.getElementById('btnVanilla').classList.add('active');
+                document.getElementById('btnCrag').classList.remove('active');
+            } else {
+                document.getElementById('btnCrag').classList.add('active');
+                document.getElementById('btnVanilla').classList.remove('active');
+            }
+        }
+
+        async function handleQuerySubmit(e) {
+            e.preventDefault();
+            const query = document.getElementById('queryInput').value.trim();
+            if (!query) return;
+
+            const submitBtn = document.getElementById('submitBtn');
+            const responseContainer = document.getElementById('responseContainer');
+            const answerText = document.getElementById('answerText');
+            const routeBadge = document.getElementById('routeBadge');
+            const confidenceScore = document.getElementById('confidenceScore');
+            const latencyMetric = document.getElementById('latencyMetric');
+            const sourcesGrid = document.getElementById('sourcesGrid');
+            const logsSection = document.getElementById('logsSection');
+            const logsContent = document.getElementById('logsContent');
+
+            // UI Loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<span class="spinner"></span> Evaluating...`;
+            responseContainer.style.display = 'block';
+            answerText.innerHTML = "<em>Evaluating retrieval confidence and generating answer...</em>";
+            sourcesGrid.innerHTML = '';
+            logsSection.style.display = 'none';
+
+            const startTime = performance.now();
+
+            try {
+                const response = await fetch('/query', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        query: query,
+                        top_k: 3,
+                        vanilla_mode: isVanillaMode
+                    })
+                });
+
+                if (!response.ok) {
+                    const errData = await response.json();
+                    throw new Error(errData.detail || 'Server error');
+                }
+
+                const data = await response.json();
+                const endTime = performance.now();
+                const durationSeconds = ((endTime - startTime) / 1000).toFixed(2) + 's';
+
+                // Update Metrics
+                latencyMetric.innerText = durationSeconds;
+                confidenceScore.innerText = data.confidence_score ? data.confidence_score.toFixed(3) : 'N/A';
+
+                // Update Action Badge
+                const action = data.eval_action || (isVanillaMode ? 'VANILLA' : 'CORRECT');
+                if (action === 'CORRECT') {
+                    routeBadge.className = 'route-badge badge-correct';
+                    routeBadge.innerHTML = `<i class="fa-solid fa-circle-check"></i> HIGH CONFIDENCE (CORRECT)`;
+                } else if (action === 'AMBIGUOUS') {
+                    routeBadge.className = 'route-badge badge-ambiguous';
+                    routeBadge.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> AMBIGUOUS (QUERY EXPANDED)`;
+                } else if (action === 'INCORRECT') {
+                    routeBadge.className = 'route-badge badge-incorrect';
+                    routeBadge.innerHTML = `<i class="fa-solid fa-globe"></i> EXTERNAL SEARCH FALLBACK`;
+                } else {
+                    routeBadge.className = 'route-badge badge-incorrect';
+                    routeBadge.innerHTML = `<i class="fa-solid fa-bolt"></i> VANILLA RAG BASELINE`;
+                }
+
+                // Parse and render formatted Markdown HTML
+                if (window.marked && data.response) {
+                    answerText.innerHTML = marked.parse(data.response);
+                } else {
+                    answerText.innerText = data.response;
+                }
+
+                // Render Source Cards from data.final_chunks
+                const chunks = data.final_chunks || [];
+                if (chunks && chunks.length > 0) {
+                    sourcesGrid.innerHTML = chunks.map((chunk, idx) => `
+                        <div class="source-card">
+                            <div class="source-header">
+                                <span class="source-filename">
+                                    <i class="fa-regular fa-file-lines"></i> ${chunk.source || 'Document #' + (idx+1)}
+                                </span>
+                                <span class="source-score">
+                                    ${chunk.similarity_score ? (chunk.similarity_score * 100).toFixed(1) + '%' : 'Matched'}
+                                </span>
+                            </div>
+                            <div class="source-excerpt">
+                                ${chunk.text ? chunk.text.substring(0, 300) + '...' : ''}
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    sourcesGrid.innerHTML = `<p style="color: var(--slate-600); grid-column: 1 / -1;">No specific local statutory chunks attached.</p>`;
+                }
+
+                // Render Step-by-Step Logs if available
+                if (data.pipeline_log && data.pipeline_log.length > 0) {
+                    logsSection.style.display = 'block';
+                    logsContent.innerHTML = data.pipeline_log.map(log => `
+                        <div class="log-item">&gt; ${log}</div>
+                    `).join('');
+                }
+
+            } catch (err) {
+                answerText.innerText = "Error executing query: " + err.message;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Submit Query`;
+            }
+        }
+    </script>
+</body>
+</html>

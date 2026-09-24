@@ -16,8 +16,9 @@ DB_DIR = BASE_DIR / "db"
 for directory in [DATA_DIR, CORPUS_DIR, DB_DIR]:
     directory.mkdir(parents=True, exist_ok=True)
 
-# Vector DB configuration
-FAISS_INDEX_PATH = DB_DIR / "index.faiss"
+# Vector DB configuration (Qdrant)
+QDRANT_DIR = DB_DIR / "qdrant"
+QDRANT_COLLECTION_NAME = "healrag_chunks"
 METADATA_PATH = DB_DIR / "metadata.json"
 
 # Model configuration
@@ -27,7 +28,7 @@ CHUNK_OVERLAP_WORDS = 50
 
 # LLM Generation configuration
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
-GROQ_MODEL = "openai/gpt-oss-20b"
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama3-8b-8192")
 
 # CRAG Evaluator thresholds
 EVALUATOR_UPPER_THRESHOLD = 0.60  # Confidence score >= 0.60 -> CORRECT

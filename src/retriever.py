@@ -12,46 +12,45 @@ def tokenize(text: str) -> list[str]:
 
 class Retriever:
     def __init__(self):
-        print("Loading FAISS DB index and metadata...")
-        self.index, self.metadata = load_index()
+        print("Loading Qdrant DB index and metadata...")
+        self.client, self.metadata = load_index()
         print("Loading embedding model for retrieval...")
         self.model = get_embedding_model()
-        
+
         # Build BM25 index over corpus chunks for sparse keyword retrieval
         print("Building BM25 index over metadata corpus...")
         self.doc_ids = list(self.metadata.keys())
         self.corpus_texts = [self.metadata[doc_id]["text"] for doc_id in self.doc_ids]
         tokenized_corpus = [tokenize(text) for text in self.corpus_texts]
         self.bm25 = BM25Okapi(tokenized_corpus)
-        
+
     def retrieve(self, query: str, top_k: int = 5) -> list[dict]:
         """
-        Dense vector retrieval using FAISS (all-MiniLM-L6-v2 embeddings).
+        Dense vector retrieval using Qdrant (all-MiniLM-L6-v2 embeddings).
         """
-        query_vector = self.model.encode([query], normalize_embeddings=True)
-        query_vector = np.array(query_vector).astype("float32")
-        
-        scores, indices = self.index.search(query_vector, top_k)
-        
+        query_vector = self.model.encode(query, normalize_embeddings=True).tolist()
+
+        search_results = self.client.query_points(
+            collection_name=config.QDRANT_COLLECTION_NAME,
+            query=query_vector,
+            limit=top_k
+        ).points
+
         results = []
-        for score, idx_val in zip(scores[0], indices[0]):
-            if idx_val == -1 or str(idx_val) not in self.metadata:
-                continue
-                
-            chunk_info = self.metadata[str(idx_val)]
-            res_item = dict(chunk_info)
-            res_item["similarity_score"] = float(score)
-            results.append(res_item)
-            
+        for hit in search_results:
+            chunk_info = dict(hit.payload or {})
+            chunk_info["similarity_score"] = float(hit.score)
+            results.append(chunk_info)
+
         return results
 
     def hybrid_retrieve(self, query: str, top_k: int = 5, candidate_k: int = 20, rrf_k: int = 60) -> list[dict]:
         """
-        Hybrid retrieval combining Dense Vector Search (FAISS) and Sparse Keyword Search (BM25)
+        Hybrid retrieval combining Dense Vector Search (Qdrant) and Sparse Keyword Search (BM25)
         using Reciprocal Rank Fusion (RRF).
         RRF Score = 1 / (rrf_k + Dense_Rank) + 1 / (rrf_k + BM25_Rank)
         """
-        # 1. Dense Retrieval (FAISS)
+        # 1. Dense Retrieval (Qdrant)
         dense_results = self.retrieve(query, top_k=candidate_k)
         dense_ranks = {}
         for rank, item in enumerate(dense_results, start=1):
@@ -62,7 +61,7 @@ class Retriever:
         tokenized_query = tokenize(query)
         bm25_scores = self.bm25.get_scores(tokenized_query)
         top_bm25_indices = np.argsort(bm25_scores)[::-1][:candidate_k]
-        
+
         bm25_ranks = {}
         for rank, idx in enumerate(top_bm25_indices, start=1):
             doc_id = self.doc_ids[idx]
@@ -102,18 +101,18 @@ class Retriever:
         return rrf_scored_items[:top_k]
 
 if __name__ == "__main__":
-    print("Testing Hybrid Retriever...")
+    print("Testing Qdrant Hybrid Retriever...")
     retriever = Retriever()
-    
+
     test_query = "What are the required FHIR UK Core profiles for patient demographics?"
     print(f"\nQuery: '{test_query}'")
-    
-    print("\n--- Dense Retrieval (FAISS) ---")
+
+    print("\n--- Dense Retrieval (Qdrant) ---")
     dense_res = retriever.retrieve(test_query, top_k=3)
     for idx, res in enumerate(dense_res):
         print(f"#{idx+1} [Score: {res['similarity_score']:.4f}] {res['source']}")
-        
-    print("\n--- Hybrid Retrieval (BM25 + FAISS + RRF) ---")
+
+    print("\n--- Hybrid Retrieval (BM25 + Qdrant + RRF) ---")
     hybrid_res = retriever.hybrid_retrieve(test_query, top_k=3)
     for idx, res in enumerate(hybrid_res):
         print(f"#{idx+1} [RRF Score: {res['rrf_score']:.5f} | Dense Score: {res['similarity_score']:.4f}] {res['source']}")
