@@ -625,11 +625,13 @@ def generate_patient_fhir_records(start_idx: int = 30, count: int = 75) -> list[
     return records
 
 
-def seed_corpus():
+def seed_corpus(corpus_dir=None):
     """
     Seed authoritative corpus documents and generate JSON sidecar metadata for every indexed document.
     """
-    corpus_dir = config.CORPUS_DIR
+    if corpus_dir is None:
+        corpus_dir = config.CORPUS_DIR
+    corpus_dir = Path(corpus_dir)
     corpus_dir.mkdir(parents=True, exist_ok=True)
 
     # Clean existing files in corpus_dir
