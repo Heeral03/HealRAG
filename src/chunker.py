@@ -31,22 +31,47 @@ def chunk_text(text: str, chunk_size_words: int = 300, overlap_words: int = 50) 
 def chunk_directory(corpus_dir: Path, chunk_size_words: int = 300, overlap_words: int = 50) -> list[dict]:
     """
     Read all text files in corpus_dir and split them into chunks.
-    Returns a list of dictionaries with text, source, and chunk index.
+    Attaches full document metadata from sidecar JSON files if available.
+    Returns a list of dictionaries with text, source, chunk_index, and document metadata.
     """
+    import json
     all_chunks = []
     file_paths = sorted(list(corpus_dir.glob("*.txt")))
     
     for file_path in file_paths:
         with open(file_path, "r", encoding="utf-8") as f:
             content = f.read()
+
+        # Check for sidecar JSON metadata
+        json_path = file_path.with_suffix(".json")
+        doc_metadata = {}
+        if json_path.exists():
+            try:
+                with open(json_path, "r", encoding="utf-8") as jf:
+                    doc_metadata = json.load(jf)
+            except Exception as e:
+                print(f"Warning: Failed to load metadata for {file_path.name}: {e}")
             
         chunks = chunk_text(content, chunk_size_words, overlap_words)
         for i, chunk_txt in enumerate(chunks):
-            all_chunks.append({
+            chunk_data = {
                 "text": chunk_txt,
                 "source": file_path.name,
-                "chunk_index": i
-            })
+                "chunk_index": i,
+                "source_url": doc_metadata.get("source_url", ""),
+                "publisher": doc_metadata.get("publisher", "Unknown"),
+                "jurisdiction": doc_metadata.get("jurisdiction", "Global"),
+                "document_type": doc_metadata.get("document_type", "regulator_guidance"),
+                "publication_date": doc_metadata.get("publication_date", ""),
+                "effective_from": doc_metadata.get("effective_from", ""),
+                "version": doc_metadata.get("version", ""),
+                "article": doc_metadata.get("article", ""),
+                "retrieved_at": doc_metadata.get("retrieved_at", "2026-09-03"),
+                "content_hash": doc_metadata.get("content_hash", ""),
+                "hierarchy_rank": doc_metadata.get("hierarchy_rank", 2),
+                "source_hierarchy": doc_metadata.get("source_hierarchy", "primary law > regulator guidance > official technical standard > secondary commentary")
+            }
+            all_chunks.append(chunk_data)
             
     return all_chunks
 

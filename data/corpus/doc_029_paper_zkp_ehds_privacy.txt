@@ -1,0 +1,1 @@
+Academic Paper - Zero-Knowledge Proofs for Secondary Health Data Reuse: Proposes a zk-SNARK scheme enabling health researchers to execute statistical queries on Health Data Access Body (HDAB) datasets without decrypting individual records, satisfying EHDS Article 39 Secure Processing Environment constraints.

@@ -2,11 +2,75 @@ import json
 import sys
 import time
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Add src to python path
 sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
 
 from crag_pipeline import CRAGPipeline
+
+def eval_baseline_case(case, crag, total_cases, idx):
+    q_id = case["id"]
+    cat = case["category"]
+    question = case["question"]
+    expected_keywords = case["expected_answer_keywords"]
+    is_out_of_scope = case["out_of_scope"]
+    
+    res = crag.run(question)
+    eval_action = res["eval_action"]
+    conf_score = res["confidence_score"]
+    response_text = res["response"]
+    
+    passed = False
+    note = ""
+    if is_out_of_scope:
+        if "not present" in response_text.lower() or "does not contain" in response_text.lower() or "hipaa privacy rule" in response_text.lower() or "websearch" in response_text.lower() or "no information" in response_text.lower():
+            passed = True
+            note = "Correct Refusal / External Search Identification"
+        else:
+            passed = False
+            note = "Failure on Out-of-Scope"
+    else:
+        matched = [kw for kw in expected_keywords if kw.lower() in response_text.lower()]
+        if len(matched) / len(expected_keywords) >= 0.4:
+            passed = True
+            note = f"Success ({len(matched)}/{len(expected_keywords)} keywords matched)"
+        else:
+            passed = False
+            note = f"Incomplete ({len(matched)}/{len(expected_keywords)} keywords matched)"
+            
+    print(f"[{idx+1:02d}/{total_cases}] CRAG Baseline [{cat}]: {'PASSED' if passed else 'FAILED'} | Decision: {eval_action} ({conf_score:.4f}) | {note}")
+    
+    return {
+        "id": q_id,
+        "category": cat,
+        "question": question,
+        "eval_action": eval_action,
+        "confidence_score": conf_score,
+        "passed": passed,
+        "note": note,
+        "pipeline_log": res["pipeline_log"],
+        "response": response_text
+    }
+
+def eval_stress_case(case, crag, total_cases, idx):
+    q_id = case["id"]
+    failure_mode = case["failure_mode"]
+    question = case["question"]
+    
+    res = crag.run(question)
+    
+    print(f"[{idx+1:02d}/{total_cases}] CRAG Stress [{failure_mode}]: Decision: {res['eval_action']} ({res['confidence_score']:.4f})")
+    
+    return {
+        "id": q_id,
+        "failure_mode": failure_mode,
+        "question": question,
+        "eval_action": res["eval_action"],
+        "confidence_score": res["confidence_score"],
+        "pipeline_log": res["pipeline_log"],
+        "response": res["response"]
+    }
 
 def run_crag_evaluation():
     eval_dataset_path = Path(__file__).resolve().parent / "eval_dataset.json"
@@ -22,89 +86,30 @@ def run_crag_evaluation():
     print(f"Loaded {len(baseline_cases)} baseline cases + {len(stress_cases)} stress cases.")
     crag = CRAGPipeline()
     
-    all_results = []
-    
-    # 1. Run Benchmark on Baseline Dataset (18 questions)
+    # 1. Baseline Run
     print("\n=======================================================")
-    print("      RUNNING CRAG EVALUATION ON 18 BASELINE QUESTIONS   ")
+    print(f"   RUNNING CRAG EVALUATION ON {len(baseline_cases)} BASELINE QUESTIONS   ")
     print("=======================================================")
     
+    all_results = []
     baseline_passed = 0
     for idx, case in enumerate(baseline_cases):
-        q_id = case["id"]
-        cat = case["category"]
-        question = case["question"]
-        expected_keywords = case["expected_answer_keywords"]
-        is_out_of_scope = case["out_of_scope"]
-        
-        print(f"[{idx+1:02d}/18] CRAG Query [{cat}]: '{question}'")
-        res = crag.run(question)
-        
-        eval_action = res["eval_action"]
-        conf_score = res["confidence_score"]
-        response_text = res["response"]
-        
-        passed = False
-        note = ""
-        if is_out_of_scope:
-            if "not present" in response_text.lower() or "does not contain" in response_text.lower() or "hipaa privacy rule" in response_text.lower() or "websearch" in response_text.lower():
-                passed = True
-                note = "Correct Refusal / External Search Identification"
-            else:
-                passed = False
-                note = "Failure on Out-of-Scope"
-        else:
-            matched = [kw for kw in expected_keywords if kw.lower() in response_text.lower()]
-            if len(matched) / len(expected_keywords) >= 0.4:
-                passed = True
-                note = f"Success ({len(matched)}/{len(expected_keywords)} keywords matched)"
-            else:
-                passed = False
-                note = f"Incomplete ({len(matched)}/{len(expected_keywords)} keywords matched)"
-                
-        if passed:
+        res = eval_baseline_case(case, crag, len(baseline_cases), idx)
+        if res["passed"]:
             baseline_passed += 1
+        all_results.append(res)
+        time.sleep(0.5)
             
-        print(f" -> Decision: {eval_action} ({conf_score:.4f}) | Passed: {passed} ({note})")
-        
-        all_results.append({
-            "id": q_id,
-            "category": cat,
-            "question": question,
-            "eval_action": eval_action,
-            "confidence_score": conf_score,
-            "passed": passed,
-            "note": note,
-            "pipeline_log": res["pipeline_log"],
-            "response": response_text
-        })
-        
-    # 2. Run Benchmark on Stress Dataset (6 questions)
+    # 2. Stress Run
     print("\n=======================================================")
-    print("       RUNNING CRAG EVALUATION ON 6 STRESS QUESTIONS     ")
+    print(f"    RUNNING CRAG EVALUATION ON {len(stress_cases)} STRESS QUESTIONS     ")
     print("=======================================================")
     
     stress_results = []
     for idx, case in enumerate(stress_cases):
-        q_id = case["id"]
-        failure_mode = case["failure_mode"]
-        question = case["question"]
-        
-        print(f"[{idx+1:02d}/06] CRAG Stress Query [{failure_mode}]: '{question}'")
-        res = crag.run(question)
-        
-        print(f" -> Decision: {res['eval_action']} ({res['confidence_score']:.4f})")
-        print(f"    Log: {res['pipeline_log'][-1]}")
-        
-        stress_results.append({
-            "id": q_id,
-            "failure_mode": failure_mode,
-            "question": question,
-            "eval_action": res["eval_action"],
-            "confidence_score": res["confidence_score"],
-            "pipeline_log": res["pipeline_log"],
-            "response": res["response"]
-        })
+        res = eval_stress_case(case, crag, len(stress_cases), idx)
+        stress_results.append(res)
+        time.sleep(0.5)
         
     # Save combined CRAG benchmark output
     with open(results_path, "w", encoding="utf-8") as f:

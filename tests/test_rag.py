@@ -49,8 +49,20 @@ def test_retriever():
     assert "text" in results[0]
     assert "source" in results[0]
     assert "similarity_score" in results[0]
-    # Similarity scores should be numerical between -1.0 and 1.0 (normally > 0.0 for relevant queries)
+    assert "publisher" in results[0]
+    assert "jurisdiction" in results[0]
+    assert "hierarchy_rank" in results[0]
+    # Similarity scores should be numerical between -1.0 and 1.0
     assert -1.0 <= results[0]["similarity_score"] <= 1.0
+
+def test_retriever_hybrid():
+    retriever = Retriever()
+    query = "What are the NHS Caldicott Principles for patient data?"
+    results = retriever.hybrid_retrieve(query, top_k=3)
+    assert len(results) > 0
+    assert "text" in results[0]
+    assert "rrf_score" in results[0]
+    assert "publisher" in results[0]
 
 def test_generator_mock():
     gen = Generator()
@@ -61,7 +73,12 @@ def test_generator_mock():
         {
             "text": "GDPR Article 9 prohibits processing of health data with exceptions.",
             "source": "doc_001.txt",
-            "chunk_index": 0
+            "chunk_index": 0,
+            "publisher": "EUR-Lex",
+            "jurisdiction": "EU",
+            "version": "2016/679",
+            "effective_from": "2018-05-25",
+            "hierarchy_rank": 1
         }
     ]
     query = "Is special category data processing allowed under GDPR?"
@@ -69,3 +86,4 @@ def test_generator_mock():
     assert "[LOCAL MOCK LLM MODE" in response
     assert "doc_001.txt" in response
     assert "prohibits processing of health data" in response
+

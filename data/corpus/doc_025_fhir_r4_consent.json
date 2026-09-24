@@ -1,0 +1,16 @@
+{
+  "id": "doc_025_fhir_r4_consent",
+  "title": "HL7 FHIR R4 Consent Resource & Opt-Out Modeling",
+  "source_url": "https://hl7.org/fhir/R4/consent.html",
+  "publisher": "HL7 / NHS Digital",
+  "jurisdiction": "Global",
+  "document_type": "official_technical_standard",
+  "publication_date": "2024-11-15",
+  "effective_from": "2024-11-15",
+  "version": "R4",
+  "article": "FHIR Consent Spec",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "b602bbeea1c2e3beac970b10d1bb1addd7d800c8651137bdac90203e93f99617",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

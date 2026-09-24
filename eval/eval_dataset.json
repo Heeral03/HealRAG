@@ -3,126 +3,692 @@
     "id": "easy_01",
     "category": "Easy",
     "question": "What special categories of personal data are prohibited from processing under GDPR Article 9(1)?",
-    "expected_answer_keywords": ["racial or ethnic origin", "political opinions", "religious", "trade union", "genetic data", "biometric data", "health"],
+    "expected_answer_keywords": [
+      "racial or ethnic origin",
+      "political opinions",
+      "religious",
+      "trade union",
+      "genetic data",
+      "biometric data",
+      "health"
+    ],
     "out_of_scope": false
   },
   {
     "id": "easy_02",
     "category": "Easy",
-    "question": "What three clinical sections are mandatory in the International Patient Summary (IPS) profile?",
-    "expected_answer_keywords": ["Medication Summary", "Allergies and Intolerances", "Active Problems"],
+    "question": "What explicit consent exception exists under GDPR Article 9(2)(a)?",
+    "expected_answer_keywords": [
+      "explicit consent",
+      "data subject",
+      "specified purposes"
+    ],
     "out_of_scope": false
   },
   {
     "id": "easy_03",
     "category": "Easy",
     "question": "What is the primary role of Health Data Access Bodies (HDABs) under EHDS Chapter IV Article 36?",
-    "expected_answer_keywords": ["granting access", "secondary use", "data permits", "pseudonymize", "secure processing environment"],
+    "expected_answer_keywords": [
+      "granting access",
+      "secondary use",
+      "data permits",
+      "pseudonymize",
+      "secure processing environment"
+    ],
     "out_of_scope": false
   },
   {
     "id": "easy_04",
     "category": "Easy",
     "question": "What are the required core attributes of a FHIR Patient Resource?",
-    "expected_answer_keywords": ["identifier", "active", "name", "telecom", "gender", "birthDate", "address"],
+    "expected_answer_keywords": [
+      "identifier",
+      "active",
+      "name",
+      "telecom",
+      "gender",
+      "birthDate",
+      "address"
+    ],
     "out_of_scope": false
   },
   {
     "id": "easy_05",
     "category": "Easy",
     "question": "What platform does the EU Commission establish under EHDS Chapter II Article 5 for cross-border health data exchange?",
-    "expected_answer_keywords": ["MyHealth@EU"],
+    "expected_answer_keywords": [
+      "MyHealth@EU"
+    ],
     "out_of_scope": false
   },
   {
     "id": "easy_06",
     "category": "Easy",
-    "question": "What architectural principles define Fast Healthcare Interoperability Resources (FHIR)?",
-    "expected_answer_keywords": ["modular data components", "Resources", "80% consensus rule", "human readability", "RESTful"],
+    "question": "What core Caldicott Principles govern NHS patient data confidentiality?",
+    "expected_answer_keywords": [
+      "justify the purpose",
+      "use minimum necessary",
+      "need to know"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_07",
+    "category": "Easy",
+    "question": "What is the annual submission deadline for the NHS Data Security and Protection Toolkit (DSPT) 2025-26?",
+    "expected_answer_keywords": [
+      "30 June 2026",
+      "2025-26"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_08",
+    "category": "Easy",
+    "question": "What extension does the NHS UK Core FHIR profile mandate for patient identifiers?",
+    "expected_answer_keywords": [
+      "NHS Number",
+      "UK Core"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_09",
+    "category": "Easy",
+    "question": "How does GDPR Article 9(2)(h) permit data processing for healthcare provision?",
+    "expected_answer_keywords": [
+      "medical diagnosis",
+      "provision of health",
+      "social care"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_10",
+    "category": "Easy",
+    "question": "What public health threat exception is provided under GDPR Article 9(2)(i)?",
+    "expected_answer_keywords": [
+      "public health",
+      "cross-border threats",
+      "high standards"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_11",
+    "category": "Easy",
+    "question": "What research safeguards are mandated by GDPR Article 89(1)?",
+    "expected_answer_keywords": [
+      "technical and organisational",
+      "pseudonymisation",
+      "data minimisation"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_12",
+    "category": "Easy",
+    "question": "What primary access rights do natural persons have under EHDS Chapter II Article 3?",
+    "expected_answer_keywords": [
+      "electronic health data",
+      "free of charge",
+      "immediate access"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_13",
+    "category": "Easy",
+    "question": "How does EHDS Chapter II Article 4 grant health professionals cross-border access?",
+    "expected_answer_keywords": [
+      "health professionals",
+      "cross-border",
+      "member states"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_14",
+    "category": "Easy",
+    "question": "What categories of health data are eligible for secondary use under EHDS Article 33?",
+    "expected_answer_keywords": [
+      "EHRs",
+      "genetic data",
+      "pathology",
+      "clinical trials"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_15",
+    "category": "Easy",
+    "question": "What permitted purposes exist for secondary health data use under EHDS Article 34?",
+    "expected_answer_keywords": [
+      "scientific research",
+      "public health",
+      "innovation",
+      "policy making"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_16",
+    "category": "Easy",
+    "question": "What prohibited secondary uses exist under EHDS Chapter IV Article 35?",
+    "expected_answer_keywords": [
+      "insurance premiums",
+      "detrimental decisions",
+      "advertising"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_17",
+    "category": "Easy",
+    "question": "How does natural person opt-out operate under EHDS Article 38?",
+    "expected_answer_keywords": [
+      "opt-out",
+      "secondary use",
+      "natural persons"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_18",
+    "category": "Easy",
+    "question": "What features define a Secure Processing Environment (SPE) under EHDS Article 39?",
+    "expected_answer_keywords": [
+      "secure processing environment",
+      "anonymised",
+      "pseudonymised",
+      "no raw data export"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_19",
+    "category": "Easy",
+    "question": "How does NHS National Data Opt-out apply to secondary research activities?",
+    "expected_answer_keywords": [
+      "national data opt-out",
+      "secondary research",
+      "confidential patient information"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_20",
+    "category": "Easy",
+    "question": "What required element status codes are used in FHIR R4 Observation resources?",
+    "expected_answer_keywords": [
+      "registered",
+      "preliminary",
+      "final",
+      "amended"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_21",
+    "category": "Easy",
+    "question": "What is the purpose of an HL7 FHIR Bundle resource?",
+    "expected_answer_keywords": [
+      "container",
+      "collection",
+      "transaction",
+      "batch"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_22",
+    "category": "Easy",
+    "question": "How are consent preferences modeled in FHIR R4 Consent resources?",
+    "expected_answer_keywords": [
+      "Consent",
+      "provision",
+      "permit",
+      "deny"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_23",
+    "category": "Easy",
+    "question": "What ICO guidelines exist for anonymisation of health research data?",
+    "expected_answer_keywords": [
+      "ICO",
+      "anonymisation",
+      "code of practice",
+      "re-identification risk"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_24",
+    "category": "Easy",
+    "question": "What GOV.UK Cyber Security Strategy requirements apply to NHS data systems?",
+    "expected_answer_keywords": [
+      "cyber security strategy",
+      "resilience",
+      "health data"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "easy_25",
+    "category": "Easy",
+    "question": "How do Zero-Knowledge Proofs (ZKPs) preserve privacy in EHDS data access?",
+    "expected_answer_keywords": [
+      "Zero-Knowledge Proofs",
+      "ZKP",
+      "HDAB",
+      "re-identification"
+    ],
     "out_of_scope": false
   },
   {
     "id": "hard_01",
     "category": "Hard",
     "question": "How does EHDS secondary data use under Article 34 interact with GDPR Article 89 safeguards for scientific research?",
-    "expected_answer_keywords": ["secondary use", "Article 89", "safeguards", "pseudonymisation", "data minimization", "HDAB"],
+    "expected_answer_keywords": [
+      "secondary use",
+      "Article 89",
+      "safeguards",
+      "pseudonymisation",
+      "data minimisation",
+      "HDAB"
+    ],
     "out_of_scope": false
   },
   {
     "id": "hard_02",
     "category": "Hard",
     "question": "Compare the opt-out mechanism rights for natural persons under EHDS Chapter IV Article 38 against the restriction rights under Chapter II Article 7.",
-    "expected_answer_keywords": ["secondary use opt-out", "Article 38", "restrict health professional access", "Article 7", "emergency access exception"],
+    "expected_answer_keywords": [
+      "secondary use opt-out",
+      "Article 38",
+      "restrict health professional access",
+      "Article 7",
+      "emergency access exception"
+    ],
     "out_of_scope": false
   },
   {
     "id": "hard_03",
     "category": "Hard",
-    "question": "In a cross-border IPS exchange, what coding standards are recommended for diagnostic results versus clinical procedure histories?",
-    "expected_answer_keywords": ["LOINC", "lab tests", "SNOMED CT", "procedures"],
+    "question": "How do HDAB governance mandates under Article 36 compare with SPE operational requirements under Article 39?",
+    "expected_answer_keywords": [
+      "HDAB",
+      "SPE",
+      "data permits",
+      "secure environment",
+      "pseudonymisation"
+    ],
     "out_of_scope": false
   },
   {
     "id": "hard_04",
     "category": "Hard",
-    "question": "How do academic evaluations of SMART on FHIR OAuth2 scope-based filters impact API performance and data leakage?",
-    "expected_answer_keywords": ["scope-based authorization", "patient/Observation.read", "latency overhead", "data leakage"],
+    "question": "Analyze how Caldicott Principle 8 (inform patients) aligns with EHDS Article 3 transparency obligations.",
+    "expected_answer_keywords": [
+      "Caldicott",
+      "transparency",
+      "inform patients",
+      "access rights"
+    ],
     "out_of_scope": false
   },
   {
     "id": "hard_05",
     "category": "Hard",
     "question": "What prohibited secondary uses under EHDS Article 35 safeguard individuals against financial discrimination?",
-    "expected_answer_keywords": ["insurance premiums", "refusing insurance contracts", "detrimental decisions"],
+    "expected_answer_keywords": [
+      "insurance premiums",
+      "refusing insurance contracts",
+      "detrimental decisions"
+    ],
     "out_of_scope": false
   },
   {
     "id": "hard_06",
     "category": "Hard",
     "question": "How can Zero-Knowledge Proofs (ZKPs) be integrated into EHDS Health Data Access Bodies (HDABs) to satisfy Chapter IV security guidelines?",
-    "expected_answer_keywords": ["zk-SNARKs", "without decrypting", "re-identification risks", "mathematical proof"],
+    "expected_answer_keywords": [
+      "zk-SNARKs",
+      "without decrypting",
+      "re-identification risks",
+      "mathematical proof"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_07",
+    "category": "Hard",
+    "question": "Contrast the legal ground of GDPR Article 9(2)(h) for care provision with Article 9(2)(i) for public health threats.",
+    "expected_answer_keywords": [
+      "Article 9(2)(h)",
+      "Article 9(2)(i)",
+      "care provision",
+      "public health"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_08",
+    "category": "Hard",
+    "question": "How does MyHealth@EU handle cross-border semantic transformation between national health record formats?",
+    "expected_answer_keywords": [
+      "MyHealth@EU",
+      "NCPH",
+      "semantic",
+      "cross-border"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_09",
+    "category": "Hard",
+    "question": "Explain how NHS DSPT 2025-26 Standard 1 (personal data protection) incorporates ICO Code of Practice guidelines.",
+    "expected_answer_keywords": [
+      "DSPT",
+      "ICO",
+      "personal data",
+      "Standard 1"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_10",
+    "category": "Hard",
+    "question": "How are FHIR UK Core profiles structured to reconcile HL7 R4 international specifications with NHS Digital extensions?",
+    "expected_answer_keywords": [
+      "FHIR UK Core",
+      "NHS Number",
+      "extension",
+      "R4"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_11",
+    "category": "Hard",
+    "question": "What break-glass emergency access protocols exist under EHDS Article 7 for life-threatening situations?",
+    "expected_answer_keywords": [
+      "break-glass",
+      "emergency access",
+      "vital interests",
+      "Article 7"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_12",
+    "category": "Hard",
+    "question": "How does smart contract consent management support cross-border consent revocation in EHDS networks?",
+    "expected_answer_keywords": [
+      "smart contract",
+      "consent",
+      "blockchain",
+      "revocation"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_13",
+    "category": "Hard",
+    "question": "Analyze how EHDS Article 33 secondary data categories encompass genomic and proteomic dataset exports.",
+    "expected_answer_keywords": [
+      "Article 33",
+      "genetic data",
+      "genomic",
+      "secondary use"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_14",
+    "category": "Hard",
+    "question": "How does ICO guidance distinguish between static pseudonymisation and zero-risk anonymisation in healthcare?",
+    "expected_answer_keywords": [
+      "ICO",
+      "pseudonymisation",
+      "anonymisation",
+      "re-identification"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_15",
+    "category": "Hard",
+    "question": "Evaluate the interaction between NHS National Data Opt-out COPI statutory overrides and Caldicott confidentiality rules.",
+    "expected_answer_keywords": [
+      "National Data Opt-out",
+      "COPI",
+      "Caldicott",
+      "statutory"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_16",
+    "category": "Hard",
+    "question": "How do FHIR Consent resource policyRule elements reflect state-level or national opt-out preferences?",
+    "expected_answer_keywords": [
+      "FHIR Consent",
+      "policyRule",
+      "opt-out",
+      "permit"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_17",
+    "category": "Hard",
+    "question": "What technical security controls in EC SPE guidance prevent data extraction during statistical analysis?",
+    "expected_answer_keywords": [
+      "SPE",
+      "guidelines",
+      "extraction",
+      "output control"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_18",
+    "category": "Hard",
+    "question": "Contrast GDPR Article 9(2)(a) explicit consent requirements with EHDS Article 38 opt-out default mechanisms.",
+    "expected_answer_keywords": [
+      "GDPR Article 9",
+      "explicit consent",
+      "EHDS Article 38",
+      "opt-out"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_19",
+    "category": "Hard",
+    "question": "How does an HDAB evaluate data minimization when issuing multi-country secondary use data permits under Article 36?",
+    "expected_answer_keywords": [
+      "HDAB",
+      "data minimisation",
+      "permits",
+      "Article 36"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_20",
+    "category": "Hard",
+    "question": "What role do National Contact Points for eHealth (NCPH) play in validating clinician credentials across borders?",
+    "expected_answer_keywords": [
+      "NCPH",
+      "credentials",
+      "cross-border",
+      "MyHealth@EU"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_21",
+    "category": "Hard",
+    "question": "How are FHIR Observation LOINC code bindings validated in UK Core healthcare IT integrations?",
+    "expected_answer_keywords": [
+      "FHIR Observation",
+      "LOINC",
+      "UK Core",
+      "code bindings"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_22",
+    "category": "Hard",
+    "question": "What audit trail logging requirements are specified under GOV.UK Cyber Security Strategy for patient record queries?",
+    "expected_answer_keywords": [
+      "audit trail",
+      "GOV.UK",
+      "cyber security",
+      "logging"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_23",
+    "category": "Hard",
+    "question": "Analyze the legal enforceability of EHDS Regulation (EU) 2025/327 before its March 2027 application date.",
+    "expected_answer_keywords": [
+      "2025/327",
+      "entered into force",
+      "26 March 2027",
+      "application date"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_24",
+    "category": "Hard",
+    "question": "How does the NHS DSPT 2025-26 toolkit assess cyber incident reporting compliance within 72 hours?",
+    "expected_answer_keywords": [
+      "DSPT 2025-26",
+      "incident reporting",
+      "72 hours",
+      "compliance"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "hard_25",
+    "category": "Hard",
+    "question": "How do FHIR Bundle resources ensure transactional atomicity during batch patient telemetry ingest?",
+    "expected_answer_keywords": [
+      "FHIR Bundle",
+      "transaction",
+      "atomicity",
+      "batch"
+    ],
     "out_of_scope": false
   },
   {
     "id": "adv_01",
     "category": "Adversarial",
     "question": "What are the penalty fine tiers under US HIPAA Privacy Rule for patient data breaches?",
-    "expected_answer_keywords": ["not present", "does not contain"],
+    "expected_answer_keywords": [
+      "not present",
+      "does not contain"
+    ],
     "out_of_scope": true
   },
   {
     "id": "adv_02",
     "category": "Adversarial",
     "question": "What specific breaking changes were introduced in FHIR Release 4B (R4B) compared to Release 5 (R5)?",
-    "expected_answer_keywords": ["not present", "does not contain"],
+    "expected_answer_keywords": [
+      "not present",
+      "does not contain"
+    ],
     "out_of_scope": true
   },
   {
     "id": "adv_03",
     "category": "Adversarial",
     "question": "What is the maximum CPU memory limit allowed for Docker containers hosting a MyHealth@EU gateway?",
-    "expected_answer_keywords": ["not present", "does not contain"],
+    "expected_answer_keywords": [
+      "not present",
+      "does not contain"
+    ],
     "out_of_scope": true
   },
   {
     "id": "adv_04",
     "category": "Adversarial",
     "question": "Does the EHDS regulation mandate that all EU citizens install a mobile app called EuroHealthWallet by 2026?",
-    "expected_answer_keywords": ["not present", "does not contain"],
+    "expected_answer_keywords": [
+      "not present",
+      "does not contain"
+    ],
     "out_of_scope": true
   },
   {
     "id": "adv_05",
     "category": "Adversarial",
     "question": "What are the exact LOINC codes used for measuring blood glucose levels in FHIR Observation resources according to our corpus?",
-    "expected_answer_keywords": ["not present", "does not contain"],
+    "expected_answer_keywords": [
+      "not present",
+      "does not contain"
+    ],
     "out_of_scope": true
   },
   {
     "id": "adv_06",
     "category": "Adversarial",
     "question": "How does Article 17 of GDPR (Right to be Forgotten) apply to immutable blockchain smart contracts in healthcare?",
-    "expected_answer_keywords": ["not present", "does not contain"],
+    "expected_answer_keywords": [
+      "not present",
+      "does not contain"
+    ],
+    "out_of_scope": true
+  },
+  {
+    "id": "adv_07",
+    "category": "Adversarial",
+    "question": "What FDA 21 CFR Part 11 electronic signature rules apply to clinical trial management in US hospitals?",
+    "expected_answer_keywords": [
+      "not present",
+      "does not contain"
+    ],
+    "out_of_scope": true
+  },
+  {
+    "id": "adv_08",
+    "category": "Adversarial",
+    "question": "What are the mandatory tax reporting guidelines for health insurance providers under the Internal Revenue Code?",
+    "expected_answer_keywords": [
+      "not present",
+      "does not contain"
+    ],
+    "out_of_scope": true
+  },
+  {
+    "id": "adv_09",
+    "category": "Adversarial",
+    "question": "What is the maximum allowed network latency in milliseconds for 5G surgical robotics remote operation under EU law?",
+    "expected_answer_keywords": [
+      "not present",
+      "does not contain"
+    ],
+    "out_of_scope": true
+  },
+  {
+    "id": "adv_10",
+    "category": "Adversarial",
+    "question": "Does the NHS Caldicott guidance specify cryptocurrency payment mechanisms for private medical treatment?",
+    "expected_answer_keywords": [
+      "not present",
+      "does not contain"
+    ],
     "out_of_scope": true
   }
 ]

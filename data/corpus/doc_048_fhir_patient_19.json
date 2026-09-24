@@ -1,0 +1,16 @@
+{
+  "id": "doc_048_fhir_patient_19",
+  "title": "EHR FHIR Export Patient Record PAT-0019",
+  "source_url": "https://fhir.nhs.uk/Patient/PAT-0019",
+  "publisher": "HL7 / NHS Digital",
+  "jurisdiction": "UK",
+  "document_type": "official_technical_standard",
+  "publication_date": "2025-01-15",
+  "effective_from": "2025-01-15",
+  "version": "UK Core R4",
+  "article": "Patient Payload PAT-0019",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "a0c6e0101f7ef7ffcb5c0bf2acbe9a28f85818606a76b84f506f02366dfe6dca",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

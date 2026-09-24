@@ -21,80 +21,90 @@ def run_evaluation():
     retriever = Retriever()
     generator = Generator()
     
-    evaluation_output = []
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+def process_case(case, retriever, generator, total_cases, idx):
+    q_id = case["id"]
+    cat = case["category"]
+    question = case["question"]
+    expected_keywords = case["expected_answer_keywords"]
+    is_out_of_scope = case["out_of_scope"]
     
+    start_time = time.time()
+    retrieved_chunks = retriever.retrieve(question, top_k=3)
+    retrieval_time = time.time() - start_time
+    
+    retrieved_sources = [c["source"] for c in retrieved_chunks]
+    top_score = retrieved_chunks[0]["similarity_score"] if retrieved_chunks else 0.0
+    
+    gen_start = time.time()
+    response_text = generator.generate(question, retrieved_chunks)
+    gen_time = time.time() - gen_start
+    
+    passed = False
+    notes = ""
+    
+    if is_out_of_scope:
+        if "does not contain" in response_text.lower() or "not present" in response_text.lower() or "no information" in response_text.lower():
+            passed = True
+            notes = "Correct Refusal (No Hallucination)"
+        else:
+            passed = False
+            notes = "FAILURE: Hallucination or False Acceptance on Out-of-Scope Query"
+    else:
+        matched_keywords = [kw for kw in expected_keywords if kw.lower() in response_text.lower()]
+        match_ratio = len(matched_keywords) / len(expected_keywords) if expected_keywords else 1.0
+        
+        if match_ratio >= 0.4:
+            passed = True
+            notes = f"Success ({len(matched_keywords)}/{len(expected_keywords)} keywords matched)"
+        else:
+            passed = False
+            notes = f"FAILURE: Incomplete or Missing Synthesis ({len(matched_keywords)}/{len(expected_keywords)} keywords matched)"
+            
+    print(f"[{idx+1:02d}/{total_cases}] {q_id} ({cat}): {'PASSED' if passed else 'FAILED'} | Score: {top_score:.4f} | {notes}")
+    
+    return {
+        "id": q_id,
+        "category": cat,
+        "question": question,
+        "top_similarity_score": top_score,
+        "retrieved_sources": retrieved_sources,
+        "passed": passed,
+        "evaluation_note": notes,
+        "response_preview": response_text[:300].replace("\n", " "),
+        "full_response": response_text,
+        "timing_sec": {
+            "retrieval": round(retrieval_time, 3),
+            "generation": round(gen_time, 3)
+        }
+    }
+
+def run_evaluation():
+    eval_dataset_path = Path(__file__).resolve().parent / "eval_dataset.json"
+    results_path = Path(__file__).resolve().parent / "baseline_results.json"
+    
+    with open(eval_dataset_path, "r", encoding="utf-8") as f:
+        eval_cases = json.load(f)
+        
+    print(f"Loaded {len(eval_cases)} evaluation test cases from {eval_dataset_path}")
+    print("Initializing Retriever and Generator...")
+    retriever = Retriever()
+    generator = Generator()
+    
+    evaluation_output = []
     category_counts = {"Easy": 0, "Hard": 0, "Adversarial": 0}
     category_success = {"Easy": 0, "Hard": 0, "Adversarial": 0}
     
+    print("\nRunning sequential evaluation over dataset...")
     for idx, case in enumerate(eval_cases):
-        q_id = case["id"]
-        cat = case["category"]
-        question = case["question"]
-        expected_keywords = case["expected_answer_keywords"]
-        is_out_of_scope = case["out_of_scope"]
-        
+        res = process_case(case, retriever, generator, len(eval_cases), idx)
+        cat = res["category"]
         category_counts[cat] += 1
-        print(f"\n[{idx+1}/{len(eval_cases)}] Evaluating {q_id} ({cat}): '{question}'")
-        
-        # 1. Retrieve top-3 chunks
-        start_time = time.time()
-        retrieved_chunks = retriever.retrieve(question, top_k=3)
-        retrieval_time = time.time() - start_time
-        
-        # Extract metadata
-        retrieved_sources = [c["source"] for c in retrieved_chunks]
-        top_score = retrieved_chunks[0]["similarity_score"] if retrieved_chunks else 0.0
-        
-        # 2. Generate response
-        gen_start = time.time()
-        response_text = generator.generate(question, retrieved_chunks)
-        gen_time = time.time() - gen_start
-        
-        # 3. Automatic classification & check
-        passed = False
-        notes = ""
-        
-        if is_out_of_scope:
-            # For adversarial queries, success means correctly refusing or noting missing info
-            if "does not contain" in response_text.lower() or "not present" in response_text.lower() or "no information" in response_text.lower():
-                passed = True
-                notes = "Correct Refusal (No Hallucination)"
-            else:
-                passed = False
-                notes = "FAILURE: Hallucination or False Acceptance on Out-of-Scope Query"
-        else:
-            # For Easy / Hard queries, check if expected keywords are present in response
-            matched_keywords = [kw for kw in expected_keywords if kw.lower() in response_text.lower()]
-            match_ratio = len(matched_keywords) / len(expected_keywords) if expected_keywords else 1.0
-            
-            if match_ratio >= 0.5:
-                passed = True
-                notes = f"Success ({len(matched_keywords)}/{len(expected_keywords)} keywords matched)"
-            else:
-                passed = False
-                notes = f"FAILURE: Incomplete or Missing Synthesis ({len(matched_keywords)}/{len(expected_keywords)} keywords matched)"
-                
-        if passed:
+        if res["passed"]:
             category_success[cat] += 1
-            
-        print(f" -> Top Similarity Score: {top_score:.4f}")
-        print(f" -> Result: {'PASSED' if passed else 'FAILED'} ({notes})")
-        
-        evaluation_output.append({
-            "id": q_id,
-            "category": cat,
-            "question": question,
-            "top_similarity_score": top_score,
-            "retrieved_sources": retrieved_sources,
-            "passed": passed,
-            "evaluation_note": notes,
-            "response_preview": response_text[:300].replace("\n", " "),
-            "full_response": response_text,
-            "timing_sec": {
-                "retrieval": round(retrieval_time, 3),
-                "generation": round(gen_time, 3)
-            }
-        })
+        evaluation_output.append(res)
+        time.sleep(0.5)
         
     # Save baseline results
     with open(results_path, "w", encoding="utf-8") as f:

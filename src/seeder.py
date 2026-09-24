@@ -1,3 +1,6 @@
+import os
+import json
+import hashlib
 import sys
 from pathlib import Path
 
@@ -5,384 +8,688 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent))
 import config
 
-# Define corpus texts: Regulatory, standards, and academic summaries
-documents = {
-    # --- GDPR Articles ---
-    "gdpr_art9_para1": (
-        "GDPR Article 9(1) - Processing of special categories of personal data: "
-        "Processing of personal data revealing racial or ethnic origin, political opinions, "
-        "religious or philosophical beliefs, or trade union membership, and the processing of "
-        "genetic data, biometric data for the purpose of uniquely identifying a natural person, "
-        "data concerning health or data concerning a natural person's sex life or sexual orientation "
-        "shall be prohibited."
-    ),
-    "gdpr_art9_para2_a": (
-        "GDPR Article 9(2)(a) - Exceptions to health data processing ban: "
-        "Paragraph 1 shall not apply if the data subject has given explicit consent to the "
-        "processing of those personal data for one or more specified purposes, except where "
-        "Union or Member State law provide that the prohibition referred to in paragraph 1 "
-        "may not be lifted by the data subject."
-    ),
-    "gdpr_art9_para2_h": (
-        "GDPR Article 9(2)(h) - Medical diagnosis and health treatment exceptions: "
-        "Processing is necessary for the purposes of preventive or occupational medicine, for the "
-        "assessment of the working capacity of the employee, medical diagnosis, the provision of "
-        "health or social care or treatment or the management of health or social care systems and "
-        "services on the basis of Union or Member State law or pursuant to contract with a health professional."
-    ),
-    "gdpr_art9_para2_i": (
-        "GDPR Article 9(2)(i) - Public health interest exception: "
-        "Processing is necessary for reasons of public interest in the area of public health, such as "
-        "protecting against serious cross-border threats to health or ensuring high standards of "
-        "quality and safety of health care and of medicinal products or medical devices, on the basis "
-        "of Union or Member State law which provides for suitable and specific measures to safeguard "
-        "the rights and freedoms of the data subject, in particular professional secrecy."
-    ),
-    "gdpr_art9_para2_j": (
-        "GDPR Article 9(2)(j) - Scientific, statistical, and historical research exception: "
-        "Processing is necessary for archiving purposes in the public interest, scientific or historical "
-        "research purposes or statistical purposes in accordance with Article 89(1) based on Union or "
-        "Member State law which shall be proportionate to the aim pursued, respect the essence of the "
-        "right to data protection and provide for suitable and specific measures to safeguard the "
-        "fundamental rights and the interests of the data subject."
-    ),
-    "gdpr_art89_para1": (
-        "GDPR Article 89(1) - Safeguards and derogations for research: "
-        "Processing for archiving purposes in the public interest, scientific or historical research "
-        "purposes or statistical purposes, shall be subject to appropriate safeguards, in accordance "
-        "with this Regulation, for the rights and freedoms of the data subject. Those safeguards "
-        "shall ensure that technical and organisational measures are in place in particular in order "
-        "to ensure respect for the principle of data minimization. Those measures may include "
-        "pseudonymisation, provided that those purposes can be fulfilled in that manner."
-    ),
-    "gdpr_art89_para2": (
-        "GDPR Article 89(2) - Research derogations: "
-        "Where personal data are processed for scientific or historical research purposes or "
-        "statistical purposes, Union or Member State law may provide for derogations from the rights "
-        "referred to in Articles 15 (access), 16 (rectification), 18 (restriction of processing) and "
-        "21 (objection) subject to the conditions and safeguards referred to in paragraph 1 of this "
-        "Article in so far as such rights are likely to render impossible or seriously impair the "
-        "achievement of the specific purposes, and such derogations are necessary for the fulfilment "
-        "of those purposes."
-    ),
-
-    # --- EU EHDS Regulation (Regulation (EU) 2025/327) ---
-    "ehds_ch2_art3_natural_persons": (
-        "EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their "
-        "personal electronic health data processed in the context of primary use of electronic health "
-        "data immediately, free of charge and in an easily readable, common and accessible format. "
-        "They shall have the right to retrieve an electronic copy of at least their electronic health data "
-        "in the European electronic health record exchange format."
-    ),
-    "ehds_ch2_art4_access_by_health_professionals": (
-        "EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access "
-        "to the electronic health data of natural persons under their treatment, irrespective of the "
-        "Member State of affiliation of the natural person and the Member State of treatment. The access "
-        "shall be limited to the data relevant for the treatment provision and shall comply with the "
-        "principles of authorization, authentication, and data protection safeguards."
-    ),
-    "ehds_ch2_art5_myhealth_eu": (
-        "EHDS Chapter II Article 5 - MyHealth@EU infrastructure: "
-        "The Commission shall establish a central platform for digital health (MyHealth@EU) to facilitate "
-        "and support the exchange of electronic health data between national contact points for digital health "
-        "of the Member States. The infrastructure shall enable cross-border transmission of patient summaries, "
-        "e-prescriptions, e-dispensations, medical images, laboratory results, and discharge reports."
-    ),
-    "ehds_ch2_art7_right_to_restrict_access": (
-        "EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: "
-        "Natural persons shall have the right to restrict access of health professionals to all or parts "
-        "of their electronic health data. Member States shall establish the rules and technical mechanisms "
-        "for such restrictions, ensuring that the restriction of access does not prevent emergency access "
-        "where the life or vital interests of the natural person or another person are threatened."
-    ),
-    "ehds_ch4_art33_secondary_data_use": (
-        "EHDS Chapter IV Article 33 - Categories of electronic health data for secondary use: "
-        "Data holders shall make available for secondary use the following categories of electronic health "
-        "data: (a) EHRs; (b) data factors influencing health, including socio-economic, environmental and "
-        "lifestyle factors; (c) genetic, genomic and proteomic data; (d) person-generated electronic "
-        "health data; (e) data from clinical trials; (f) register data of medicinal products and devices."
-    ),
-    "ehds_ch4_art34_purposes_secondary_use": (
-        "EHDS Chapter IV Article 34 - Permitted purposes for secondary use: "
-        "Secondary use of electronic health data shall be permitted only for the following purposes: "
-        "(a) activities for reasons of public interest in the area of public health; (b) support of "
-        "public health tasks of healthcare public bodies; (c) scientific research related to health or "
-        "care sectors; (d) development and evaluation of medicinal products or medical devices; "
-        "(e) training, testing and evaluating of algorithms, including in medical devices and AI systems."
-    ),
-    "ehds_ch4_art35_prohibited_purposes": (
-        "EHDS Chapter IV Article 35 - Prohibited secondary uses of health data: "
-        "The following secondary uses of electronic health data shall be prohibited: (a) taking decisions "
-        "detrimental to a natural person based on their electronic health data, including increasing "
-        "insurance premiums or refusing insurance contracts; (b) advertising or marketing activities "
-        "directed at health professionals or natural persons; (c) providing access to data to third parties "
-        "not authorized under a data permit; (d) developing products or services that may harm public "
-        "health or undermine safety."
-    ),
-    "ehds_ch4_art36_data_access_bodies": (
-        "EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): "
-        "Each Member State shall designate one or more Health Data Access Bodies responsible for granting "
-        "access to electronic health data for secondary use. HDABs shall receive data applications, "
-        "evaluate requests, issue data permits under strict safety requirements, pseudonymize or "
-        "anonymize the datasets, and make them available to authorized data users in a secure processing environment."
-    ),
-    "ehds_ch4_art38_opt_out_mechanism": (
-        "EHDS Chapter IV Article 38 - Right to opt-out from secondary data use: "
-        "Natural persons shall have the right to opt-out from the processing of their electronic health "
-        "data for secondary use. The opt-out mechanism shall be simple, user-friendly, and accessible. "
-        "However, opting out shall not affect processing necessary for public health monitoring, "
-        "official statistics, or responding to public health emergencies."
-    ),
-    "ehds_ch4_art39_secure_processing_environment": (
-        "EHDS Chapter IV Article 39 - Secure processing environments: "
-        "The health data access bodies shall provide access to electronic health data only in a secure "
-        "processing environment. This environment shall comply with high technical and organizational security "
-        "standards, ensuring that data users can only query the data, copy results, and cannot download "
-        "individual level micro-data or re-identify individuals."
-    ),
-    "ehds_ch4_art40_data_altruism": (
-        "EHDS Chapter IV Article 40 - Data altruism in healthcare: "
-        "Natural persons may consent and authorize health data access bodies to process their electronic "
-        "health data for altruistic purposes, such as scientific medical research to find cures for rare "
-        "diseases or improve treatment guidelines. Health data access bodies shall facilitate registry of "
-        "data altruism options and link them to secure environments."
-    ),
-
-    # --- Standards (FHIR and IPS) ---
-    "fhir_patient_resource": (
-        "FHIR Patient Resource Definition: "
-        "The Patient resource covers data about patients. It represents demographic and administrative "
-        "information about a person or animal receiving care or other health-related services. Key attributes "
-        "include: identifier (unique identifiers like SSN), active (boolean to mark record state), name "
-        "(HumanName structure for family and given names), telecom (contact details), gender (administrative "
-        "gender values: male, female, other, unknown), birthDate (patient Date of Birth), and address (physical addresses)."
-    ),
-    "fhir_observation_resource": (
-        "FHIR Observation Resource Definition: "
-        "Observations are a central element in healthcare, used to support diagnosis, monitor progress, "
-        "and determine baseline characteristics. Key elements of the Observation resource include: identifier, "
-        "status (registered, preliminary, final, amended), category (vital-signs, laboratory, imaging), "
-        "code (LOINC/SNOMED codes indicating what was observed), subject (Reference to Patient), effectiveDateTime "
-        "(when observation occurred), and valueQuantity (numeric vital value with unit) or valueCodeableConcept (coded results)."
-    ),
-    "fhir_bundle_resource": (
-        "FHIR Bundle Resource: "
-        "A Bundle is a container resource that acts as a wrapper for a collection of other resources. It is "
-        "frequently used in API responses, transactions, batch operations, and document-style payloads. A Bundle "
-        "contains metadata and entries (a list of resource objects), and must specify a type attribute such as "
-        "transaction, batch, history, searchset, or document."
-    ),
-    "fhir_consent_resource": (
-        "FHIR Consent Resource: "
-        "The Consent resource is used to record a healthcare consumer's choice to permit or deny "
-        "the collection, use, or disclosure of their personal health data. It specifies the scope of the consent, "
-        "the actors involved (e.g., specific practitioners or organizations), the data categories covered, "
-        "the validity period, and the explicit action (permit or deny)."
-    ),
-    "fhir_overview_intro": (
-        "Fast Healthcare Interoperability Resources (FHIR) Overview: "
-        "FHIR (pronounced 'fire') is a next-generation standards framework created by Health Level Seven International (HL7). "
-        "It defines how healthcare information can be exchanged between different computer systems regardless of how it is stored locally. "
-        "FHIR combines the best features of HL7 Version 2, HL7 Version 3, and CDA, while leveraging modern web standards such as "
-        "RESTful HTTP APIs, JSON, XML, OAuth2, and OpenID Connect."
-    ),
-    "fhir_architecture_principles": (
-        "FHIR Architecture and Core Principles: "
-        "The fundamental building blocks of FHIR are modular data components called 'Resources'. "
-        "Each resource represents a discrete clinical or administrative concept (e.g., Patient, Observation, Medication, Encounter). "
-        "Key architectural principles of FHIR include: (1) Focus on the 80% consensus rule—modeling concepts common to 80% of health systems while using Extension elements for the rest; "
-        "(2) Human readability—every resource includes a human-readable XHTML narrative summary; "
-        "(3) Modern RESTful architecture—exposing resources via standard HTTP methods (GET, POST, PUT, DELETE) with predictable URIs."
-    ),
-    "ips_profile_summary": (
-        "International Patient Summary (IPS) Profile: "
-        "The IPS is an electronic health record summary containing a minimized, specialty-agnostic list "
-        "of essential clinical details. It is designed to support cross-border unscheduled patient care. The "
-        "IPS profile mandatorily requires three sections: Medication Summary (active medications), Allergies "
-        "and Intolerances (substances and reaction types), and Active Problems (list of current conditions)."
-    ),
-    "ips_diagnostic_results": (
-        "IPS Diagnostic Results Section: "
-        "The IPS profile contains optional but recommended sections. The Diagnostic Results section "
-        "includes links to laboratory reports, pathology findings, and diagnostic imaging statements. It uses "
-        "standardized coding systems such as LOINC for lab test categories and UCUM for measurement units "
-        "to ensure international semantic interoperability."
-    ),
-    "ips_procedures_history": (
-        "IPS History of Procedures Section: "
-        "This section of the IPS details clinical procedures completed in the past that are relevant to "
-        "clinical decision making. Procedures should be coded using SNOMED CT terms to maintain cross-border "
-        "semantic alignment, ensuring practitioners in other countries can understand the clinical history."
-    ),
-
-    # --- Academic and Thesis Summaries ---
-    "paper_blockchain_consent": (
-        "Academic Paper - Decentralized Consent Management for Cross-Border Patient Summary Exchange: "
-        "This study proposes a decentralized architecture for patient consent infrastructure in cross-border "
-        "exchanges using Ethereum smart contracts. Consent records are stored immutably on-chain as cryptographic "
-        "hashes, while raw files are maintained off-chain. Evaluated within the context of MyHealth@EU, the system "
-        "demonstrated high integrity, secure audit logs, and compliance with GDPR patient control rights."
-    ),
-    "paper_fhir_oauth2_interop": (
-        "Academic Paper - Evaluating FHIR-over-OAuth2/smart-on-fhir for Regional EHR Interoperability: "
-        "This paper evaluates the performance and security of SMART on FHIR specifications using OAuth 2.0 "
-        "and OpenID Connect protocols to authenticate regional exchange clients. It presents benchmarks "
-        "for token exchange latency and scope-based authorization filters. Results show that scope filtering "
-        "(e.g., patient/Observation.read) minimizes data leakage but incurs a 15% latency overhead."
-    ),
-    "paper_zkp_ehds_privacy": (
-        "Academic Paper - Zero-Knowledge Proofs (ZKP) for Privacy-Preserving Health Data Reuse in the EHDS: "
-        "The researchers propose a system based on zk-SNARKs that allows health researchers to run statistical "
-        "algorithms on clinical data in Health Data Access Bodies (HDABs) without ever decrypting or accessing "
-        "raw patient records. Data users receive mathematical proof that the calculation was performed correctly "
-        "over valid patient data, meeting EHDS Chapter IV security standards and minimizing re-identification risks."
-    ),
-    "paper_myhealth_gateway_audit": (
-        "Academic Paper - Security Audit of MyHealth@EU Gateways and International Patient Summary Exchange: "
-        "A comprehensive security review of national contact points (NCPHs) executing IPS transformation. "
-        "The audit identified potential vulnerability areas, specifically XML external entity (XXE) injection "
-        "attacks during CDA-to-FHIR payload transformations and TLS configuration weaknesses. Recommendations "
-        "include mandatory message schema validation and strict mutual TLS (mTLS) enforcement."
-    ),
-    "paper_consent_infraction_auditing": (
-        "Academic Paper - Scalable Consent Infraction Auditing on Hyperledger Fabric: "
-        "An investigation into ledger performance for auditing digital health access networks. "
-        "By hosting a consent state engine on Hyperledger Fabric smart contracts, the system records "
-        "every access query and cross-checks it against active patient consent rules. It maintains audit records "
-        "capable of processing up to 3000 queries per second, showing viability for national-scale deployment."
-    ),
+# Source hierarchy mapping: primary law > regulator guidance > official technical standard > secondary commentary
+HIERARCHY_MAP = {
+    "primary_law": 1,
+    "regulator_guidance": 2,
+    "official_technical_standard": 3,
+    "secondary_commentary": 4
 }
 
-# Distribute or split these texts to generate 100+ documents (50-200 documents needed)
-# We can create variations and separate detailed provisions as individual documents
-def seed_corpus():
-    corpus_dir = config.CORPUS_DIR
-    
-    # We will generate 100 files by expanding on the primary sources and writing detailed sub-sections
-    count = 1
-    
-    # Write primary articles
-    for key, content in documents.items():
-        filename = corpus_dir / f"doc_{count:03d}_{key}.txt"
-        with open(filename, "w", encoding="utf-8") as f:
-            f.write(content)
-        count += 1
-        
-    # Generate variations / simulated documents to reach 100+ documents
-    # These will act as mock healthcare logs, regional interoperability briefs, and clinical case summaries.
-    
-    # Sub-sections of EHDS Chapter IV (Secondary Use details)
-    ehds_subsections = [
-        "EHDS Implementing Act on secondary use guidelines: Specifying the structure of data quality and utility labels for datasets.",
-        "EHDS Article 46: Fees charged by health data access bodies to cover administration and infrastructure costs.",
-        "EHDS Annex I: Specification of groups of health data categories required to be made available for secondary research.",
-        "EHDS Section 3: Joint controllership of the secure processing environments for multi-country health data access permits.",
-        "EHDS Chapter IV Article 41: Data quality and utility label requirements for data holders before indexing data.",
-        "EHDS Article 42: Mutual recognition of data permits across European health data access bodies (HDAB).",
-        "EHDS Guidance: Penalties and administrative fines for non-compliance with secure environment guidelines.",
-        "EHDS Provision: Member State policies for data access body cooperation with national medicine regulatory agencies."
-    ]
-    for idx, text in enumerate(ehds_subsections):
-        filename = corpus_dir / f"doc_{count:03d}_ehds_sub_{idx}.txt"
-        with open(filename, "w", encoding="utf-8") as f:
-            f.write(f"EU Health Regulatory Brief {idx+1}: {text}")
-        count += 1
+SOURCE_HIERARCHY_STRING = "primary law > regulator guidance > official technical standard > secondary commentary"
 
-    # EHR Interoperability memos (cross-border)
-    memos = [
-        "Cross-Border Interoperability memo: Connecting Italian NCPH to German NCPH for e-prescription sharing.",
-        "Health Information Exchange (HIE) standard operating procedures: Validating Patient resource naming conventions.",
-        "IPS deployment guidelines in Sweden: Mapping local EHR schema values to SNOMED-CT equivalents.",
-        "EHR Audit log requirements: Logging practitioner ID and timestamp for every access request to IPS.",
-        "FHIR resource bundle serialization: JSON representation requirements for clinical diagnostic files.",
-        "Interoperability framework update: Supporting French NCPH discharge summary transformations to FHIR.",
-        "Clinical coding best practices: Restricting local mapping tables to avoid semantic drift in cross-border transfers.",
-        "EU-US health data agreement: Compliance checks for sharing anonymized research datasets under GDPR safeguards.",
-        "National Contact Point for Health (NCPH) registry: Keeping public keys active for mTLS handshake configurations.",
-        "Patient consent revocation process: Timeline constraints for propagating opt-out settings to regional EHRs."
-    ]
-    for idx, text in enumerate(memos):
-        filename = corpus_dir / f"doc_{count:03d}_interop_memo_{idx}.txt"
-        with open(filename, "w", encoding="utf-8") as f:
-            f.write(f"Regional Interoperability Document: {text}")
-        count += 1
-
-    # Generate synthetic FHIR resources to represent EHR database dumps (patient, diagnostic, observation data)
-    # We will generate around 60 synthetic case summaries/FHIR objects to comfortably pass 100 documents.
-    for patient_id in range(1, 61):
-        fhir_dump = (
-            f"EHR FHIR Export for Patient ID PAT-{patient_id:04d}.\n"
-            f"Active: true. Resource Type: Patient, Observation, Bundle.\n"
-            f"Patient Demographics: Name: Patient {patient_id}, Gender: {'male' if patient_id % 2 == 0 else 'female'}, "
-            f"BirthDate: 198{patient_id % 10}-0{1 + (patient_id % 9)}-{10 + (patient_id % 18)}.\n"
-            f"Observation Category: vital-signs, laboratory.\n"
-            f"Vital signs details: LOINC code 8867-4 (Heart rate) valueQuantity: {60 + (patient_id % 40)} beats/min, status: final.\n"
-            f"Laboratory details: LOINC code 29463-7 (Body weight) valueQuantity: {55 + (patient_id % 50)} kg.\n"
-            f"Consent status: {'Permit secondary use' if patient_id % 3 != 0 else 'Deny secondary use / Opt-out active'}.\n"
-            f"IPS medications summary: Patient is taking medicine MED-{patient_id:03d} for active problem code PROB-{patient_id:03d}."
+# Authoritative Corpus Specifications & Content Definition
+AUTHORITATIVE_CORPUS = [
+    # -------------------------------------------------------------------------
+    # 1. EUR-Lex GDPR (Regulation (EU) 2016/679) - Primary Law (Rank 1)
+    # -------------------------------------------------------------------------
+    {
+        "id": "doc_001_gdpr_art9_para1",
+        "title": "GDPR Article 9(1) - Processing of Special Categories of Data",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 9(1)",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e1882-1-1",
+        "content": (
+            "GDPR Article 9(1) - Processing of special categories of personal data: "
+            "Processing of personal data revealing racial or ethnic origin, political opinions, "
+            "religious or philosophical beliefs, or trade union membership, and the processing of "
+            "genetic data, biometric data for the purpose of uniquely identifying a natural person, "
+            "data concerning health or data concerning a natural person's sex life or sexual orientation "
+            "shall be prohibited under European Union data protection law."
         )
-        filename = corpus_dir / f"doc_{count:03d}_fhir_patient_{patient_id}.txt"
-        with open(filename, "w", encoding="utf-8") as f:
-            f.write(fhir_dump)
-        count += 1
+    },
+    {
+        "id": "doc_002_gdpr_art9_para2_a",
+        "title": "GDPR Article 9(2)(a) - Explicit Consent Exception for Health Data",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 9(2)(a)",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e1898-1-1",
+        "content": (
+            "GDPR Article 9(2)(a) - Explicit consent exception: "
+            "Paragraph 1 prohibition shall not apply if the data subject has given explicit consent to the "
+            "processing of those personal data for one or more specified purposes, except where Union or "
+            "Member State law provide that the prohibition referred to in paragraph 1 may not be lifted by the data subject."
+        )
+    },
+    {
+        "id": "doc_003_gdpr_art9_para2_h",
+        "title": "GDPR Article 9(2)(h) - Medical Diagnosis & Provision of Care Exception",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 9(2)(h)",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e1944-1-1",
+        "content": (
+            "GDPR Article 9(2)(h) - Medical diagnosis and health treatment exceptions: "
+            "Processing is necessary for the purposes of preventive or occupational medicine, for the assessment "
+            "of the working capacity of the employee, medical diagnosis, the provision of health or social care "
+            "or treatment or the management of health or social care systems and services on the basis of Union "
+            "or Member State law or pursuant to contract with a health professional subject to professional secrecy."
+        )
+    },
+    {
+        "id": "doc_004_gdpr_art9_para2_i",
+        "title": "GDPR Article 9(2)(i) - Public Health Threat Exception",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 9(2)(i)",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e1958-1-1",
+        "content": (
+            "GDPR Article 9(2)(i) - Public health interest exception: "
+            "Processing is necessary for reasons of public interest in the area of public health, such as protecting "
+            "against serious cross-border threats to health or ensuring high standards of quality and safety of health care "
+            "and of medicinal products or medical devices, on the basis of Union or Member State law providing suitable "
+            "and specific measures to safeguard the rights and freedoms of the data subject."
+        )
+    },
+    {
+        "id": "doc_005_gdpr_art89_para1",
+        "title": "GDPR Article 89(1) - Safeguards for Research and Statistics",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 89(1)",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e6074-1-1",
+        "content": (
+            "GDPR Article 89(1) - Technical and organizational safeguards for scientific research: "
+            "Processing for archiving purposes in the public interest, scientific or historical research purposes or "
+            "statistical purposes, shall be subject to appropriate safeguards in accordance with this Regulation. "
+            "Those safeguards shall ensure that technical and organizational measures are in place, in particular to "
+            "ensure respect for the principle of data minimization, which may include pseudonymization and encryption."
+        )
+    },
 
-    # Generate UK NHS Regulatory & Standards Documents
-    nhs_docs = [
-        (
-            "doc_111_nhs_caldicott_principles.txt",
-            """UK NHS Caldicott Principles and Data Protection:
-The 8 Caldicott Principles govern the handling of patient-identifiable information within the UK National Health Service (NHS).
-Principle 1: Justify the purpose(s) for using confidential information.
-Principle 2: Use confidential information only when absolutely necessary.
-Principle 3: Use the minimum necessary confidential information.
-Principle 4: Access to confidential information should be on a strict need-to-know basis.
-Principle 5: Everyone with access to confidential information should be aware of their responsibilities.
-Principle 6: Comply with the law (Data Protection Act 2018 / UK GDPR).
-Principle 7: The duty to share information for direct patient care can be as important as the duty to protect patient confidentiality.
-Principle 8: Inform patients and service users about how their confidential information is used.
-Caldicott Guardians are senior health or social care professionals appointed in NHS organizations to ensure these principles are respected.""",
-        ),
-        (
-            "doc_112_nhs_dspt_framework.txt",
-            """NHS Data Security and Protection Toolkit (DSPT):
-The Data Security and Protection Toolkit (DSPT) is an online self-assessment tool that allows NHS organizations and third-party healthcare vendors to measure their performance against the UK National Data Guardian's 10 Data Security Standards.
-Key Compliance Requirements:
-1. Personal Confidential Data: All staff ensure PCD is handled legally and securely.
-2. Staff Training: 95% of staff must complete annual data security training.
-3. Managing Data Access: Access permissions are reviewed regularly and revoked upon termination.
-4. Process Reviews: Processes involving PCD are reviewed at least annually.
-5. Responding to Incidents: Cyber security incidents must be reported to the NHS Digital Cyber Operations team within 24 hours.
-6. Continuity Planning: Business continuity plans for cyber attacks and system outages are tested annually.
-7. System Security: Unsupported operating systems, software, and unpatched vulnerabilities are prohibited on NHS networks.
-8. Accountable Officers: Named senior roles (SIRO and Caldicott Guardian) oversee data risk.""",
-        ),
-        (
-            "doc_113_nhs_fhir_uk_core.txt",
-            """NHS UK Core FHIR Implementation Guide:
-NHS England and NHS Digital publish the UK Core FHIR specifications for interoperability across UK health and social care systems.
-Key UK Core Resources & Extensions:
-1. UKCore-Patient: Includes NHS Number extension (URL: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumber) with mandatory verification status coding.
-2. UKCore-Practitioner: Captures Professional Registration Details (GMC code for doctors, NMC code for nurses).
-3. UKCore-Organization: Maps to ODS Codes (Organisation Data Service codes managed by NHS Digital).
-4. UKCore-Consent: Captures National Data Opt-out preferences where patients choose to opt out of their confidential patient information being used for research and planning.""",
-        ),
-        (
-            "doc_114_nhs_national_data_opt_out.txt",
-            """NHS National Data Opt-out Policy:
-The NHS National Data Opt-out is a service that allows patients in England to opt out of their confidential patient information being used for research and planning purposes.
-Scope & Exceptions:
-- Applies to: Secondary processing of confidential patient information across NHS England, UK Health Security Agency (UKHSA), and local authorities.
-- Exemptions: Direct care (opt-out does not apply when sharing data for direct treatment), mandatory legal disclosures (court orders), and public health emergency directions under Regulation 3 of the Health Service Control of Patient Information Regulations 2002 (COPI).
-- Enforcement: All health and care organizations handling NHS patient data must adhere to the National Data Opt-out policy and filter data disclosures against the NHS Digital central opt-out repository.""",
-        ),
-    ]
+    # -------------------------------------------------------------------------
+    # 2. EUR-Lex EHDS (Regulation (EU) 2025/327) - Primary Law (Rank 1)
+    # Temporal metadata: Published 2025-03-05, Effective from 2027-03-26
+    # -------------------------------------------------------------------------
+    {
+        "id": "doc_006_ehds_ch2_art3",
+        "title": "EHDS Chapter II Article 3 - Primary Use Access Rights of Natural Persons",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2025-03-05",
+        "effective_from": "2027-03-26",
+        "version": "2025/327",
+        "article": "Article 3",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025R0327#art_3",
+        "content": (
+            "EHDS Chapter II Article 3 - Primary Use Rights: "
+            "Natural persons shall have the right to access their personal electronic health data processed in the "
+            "context of primary use of electronic health data immediately, free of charge and in an easily readable, "
+            "common and accessible format. They shall have the right to retrieve an electronic copy of at least their "
+            "electronic health data in the European electronic health record exchange format (EEHRxF)."
+        )
+    },
+    {
+        "id": "doc_007_ehds_ch2_art4",
+        "title": "EHDS Chapter II Article 4 - Access by Health Professionals Across Member States",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2025-03-05",
+        "effective_from": "2027-03-26",
+        "version": "2025/327",
+        "article": "Article 4",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025R0327#art_4",
+        "content": (
+            "EHDS Chapter II Article 4 - Access by health professionals: "
+            "Health professionals shall have access to the electronic health data of natural persons under their treatment, "
+            "irrespective of the Member State of affiliation of the natural person and the Member State of treatment. "
+            "The access shall be limited to data necessary for treatment provision and must comply with authentication "
+            "and authorization protocols."
+        )
+    },
+    {
+        "id": "doc_008_ehds_ch2_art5",
+        "title": "EHDS Chapter II Article 5 - MyHealth@EU Infrastructure & Cross-Border Exchange",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2025-03-05",
+        "effective_from": "2027-03-26",
+        "version": "2025/327",
+        "article": "Article 5",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025R0327#art_5",
+        "content": (
+            "EHDS Chapter II Article 5 - MyHealth@EU infrastructure: "
+            "The European Commission shall establish a central platform for digital health (MyHealth@EU) to facilitate "
+            "the exchange of electronic health data between National Contact Points for Digital Health (NCPH). "
+            "The infrastructure enables cross-border transmission of Patient Summaries (IPS), e-Prescriptions, "
+            "e-Dispensations, diagnostic images, laboratory test results, and hospital discharge reports."
+        )
+    },
+    {
+        "id": "doc_009_ehds_ch2_art7",
+        "title": "EHDS Chapter II Article 7 - Right of Natural Persons to Restrict Access & Break-Glass Provisions",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2025-03-05",
+        "effective_from": "2027-03-26",
+        "version": "2025/327",
+        "article": "Article 7",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025R0327#art_7",
+        "content": (
+            "EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: "
+            "Natural persons shall have the right to restrict access of health professionals to all or parts of their "
+            "electronic health data. Member States shall establish technical mechanisms for restrictions, ensuring that "
+            "restriction does not prevent emergency break-glass access where the life or vital interests of the natural "
+            "person are threatened."
+        )
+    },
+    {
+        "id": "doc_010_ehds_ch4_art33",
+        "title": "EHDS Chapter IV Article 33 - Categories of Health Data for Secondary Use",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2025-03-05",
+        "effective_from": "2027-03-26",
+        "version": "2025/327",
+        "article": "Article 33",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025R0327#art_33",
+        "content": (
+            "EHDS Chapter IV Article 33 - Categories of electronic health data for secondary use: "
+            "Data holders shall make available for secondary use the following categories of electronic health data: "
+            "(a) Electronic Health Records (EHRs); (b) socio-economic, environmental, and lifestyle health factors; "
+            "(c) genetic, genomic, and proteomic data; (d) person-generated health data (wearables); (e) clinical trial data; "
+            "(f) registries of medicinal products and medical devices."
+        )
+    },
+    {
+        "id": "doc_011_ehds_ch4_art34",
+        "title": "EHDS Chapter IV Article 34 - Permitted Purposes for Secondary Use of Health Data",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2025-03-05",
+        "effective_from": "2027-03-26",
+        "version": "2025/327",
+        "article": "Article 34",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025R0327#art_34",
+        "content": (
+            "EHDS Chapter IV Article 34 - Permitted purposes for secondary use: "
+            "Secondary use of electronic health data shall be permitted only for specified purposes: "
+            "(a) public health interest activities; (b) public health tasks of healthcare public bodies; "
+            "(c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products "
+            "or medical devices; (e) training, testing, and evaluating AI algorithms in medical devices."
+        )
+    },
+    {
+        "id": "doc_012_ehds_ch4_art35",
+        "title": "EHDS Chapter IV Article 35 - Prohibited Secondary Uses of Health Data",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2025-03-05",
+        "effective_from": "2027-03-26",
+        "version": "2025/327",
+        "article": "Article 35",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025R0327#art_35",
+        "content": (
+            "EHDS Chapter IV Article 35 - Prohibited secondary uses of health data: "
+            "The following secondary uses are strictly prohibited: (a) taking detrimental decisions against natural persons "
+            "including increasing insurance premiums or refusing coverage; (b) advertising or targeted marketing activities; "
+            "(c) granting access to unauthorized third parties without a valid data permit; (d) developing harmful products "
+            "or security-undermining activities."
+        )
+    },
+    {
+        "id": "doc_013_ehds_ch4_art36",
+        "title": "EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs) Governance",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2025-03-05",
+        "effective_from": "2027-03-26",
+        "version": "2025/327",
+        "article": "Article 36",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025R0327#art_36",
+        "content": (
+            "EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): "
+            "Each Member State shall designate one or more Health Data Access Bodies responsible for processing secondary use "
+            "applications. HDABs evaluate requests, issue data permits under strict cybersecurity standards, pseudonymize or "
+            "anonymize datasets, and provide access exclusively within Secure Processing Environments (SPE)."
+        )
+    },
+    {
+        "id": "doc_014_ehds_ch4_art38",
+        "title": "EHDS Chapter IV Article 38 - Natural Persons Right to Opt-Out of Secondary Use",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2025-03-05",
+        "effective_from": "2027-03-26",
+        "version": "2025/327",
+        "article": "Article 38",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025R0327#art_38",
+        "content": (
+            "EHDS Chapter IV Article 38 - Right to opt-out from secondary data use: "
+            "Natural persons shall have the right to opt-out from the processing of their electronic health data for secondary "
+            "use. The opt-out mechanism must be simple, accessible, and user-friendly. Opting out does not affect processing "
+            "necessary for public health emergency responses, official statistics, or legal mandates."
+        )
+    },
+    {
+        "id": "doc_015_ehds_ch4_art39",
+        "title": "EHDS Chapter IV Article 39 - Secure Processing Environments (SPE) Mandate",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2025-03-05",
+        "effective_from": "2027-03-26",
+        "version": "2025/327",
+        "article": "Article 39",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32025R0327#art_39",
+        "content": (
+            "EHDS Chapter IV Article 39 - Secure processing environments: "
+            "HDABs shall provide access to secondary electronic health data only inside Secure Processing Environments (SPE). "
+            "SPEs must enforce strict technical measures preventing raw data downloads, unauthorized exports, or re-identification, "
+            "permitting data users only to run queries and export aggregated statistical output."
+        )
+    },
 
-    for filename, content in nhs_docs:
-        with open(corpus_dir / filename, "w", encoding="utf-8") as f:
-            f.write(content.strip())
-        count += 1
+    # -------------------------------------------------------------------------
+    # 3. European Commission EHDS Guidance - Regulator Guidance (Rank 2)
+    # -------------------------------------------------------------------------
+    {
+        "id": "doc_016_ec_ehds_guidance_myhealth",
+        "title": "European Commission Guidance on MyHealth@EU Architecture and NCPH Integration",
+        "publisher": "European Commission",
+        "jurisdiction": "EU",
+        "document_type": "regulator_guidance",
+        "publication_date": "2025-04-15",
+        "effective_from": "2025-04-15",
+        "version": "2025/C-104/01",
+        "article": "Guidance Section 2",
+        "source_url": "https://ec.europa.eu/health/ehealth-digital-health-and-care/ehds-guidance_en",
+        "content": (
+            "European Commission Guidance on MyHealth@EU Architecture: "
+            "Member States integrating National Contact Points for Digital Health (NCPH) into MyHealth@EU must enforce "
+            "mutual TLS (mTLS) with X.509 certificate validation. Payload transformation services converting local EHR formats "
+            "into FHIR International Patient Summaries (IPS) must validate against published EU JSON schemas."
+        )
+    },
+    {
+        "id": "doc_017_ec_ehds_guidance_spe_standards",
+        "title": "European Commission Guidelines for Secure Processing Environments (SPE)",
+        "publisher": "European Commission",
+        "jurisdiction": "EU",
+        "document_type": "regulator_guidance",
+        "publication_date": "2025-04-15",
+        "effective_from": "2025-04-15",
+        "version": "2025/C-104/01",
+        "article": "Guidance Section 4",
+        "source_url": "https://ec.europa.eu/health/ehealth-digital-health-and-care/spe-standards_en",
+        "content": (
+            "European Commission Guidelines for Secure Processing Environments (SPE): "
+            "SPE infrastructures managed by Health Data Access Bodies (HDABs) must meet ISO/IEC 27001 certification. "
+            "All analytical queries executed within the SPE must undergo automated differential privacy filtering or k-anonymity "
+            "threshold checks (k >= 5) prior to output extraction."
+        )
+    },
 
-    print(f"Successfully seeded {count-1} documents in {corpus_dir}")
+    # -------------------------------------------------------------------------
+    # 4. NHS England Caldicott & National Data Opt-out Guidance - Regulator Guidance (Rank 2)
+    # -------------------------------------------------------------------------
+    {
+        "id": "doc_018_nhs_caldicott_principles",
+        "title": "NHS England Caldicott Principles (8 Principles of Patient Information)",
+        "publisher": "NHS England",
+        "jurisdiction": "UK",
+        "document_type": "regulator_guidance",
+        "publication_date": "2024-09-01",
+        "effective_from": "2024-09-01",
+        "version": "v3.2",
+        "article": "Caldicott Principles 1-8",
+        "source_url": "https://www.gov.uk/government/publications/the-caldicott-principles",
+        "content": (
+            "UK NHS Caldicott Principles: "
+            "The 8 Caldicott Principles govern handling of confidential patient information across the UK NHS. "
+            "Principle 1: Justify the purpose(s). Principle 2: Use confidential information only when necessary. "
+            "Principle 3: Use the minimum necessary information. Principle 4: Access on a strict need-to-know basis. "
+            "Principle 5: Everyone with access must be aware of their responsibilities. Principle 6: Comply with the law. "
+            "Principle 7: The duty to share for direct care is as important as the duty to protect confidentiality. "
+            "Principle 8: Inform patients and service users about how their confidential information is used."
+        )
+    },
+    {
+        "id": "doc_019_nhs_national_data_opt_out",
+        "title": "NHS England National Data Opt-out Policy & COPI Statutory Scope",
+        "publisher": "NHS England",
+        "jurisdiction": "UK",
+        "document_type": "regulator_guidance",
+        "publication_date": "2024-09-01",
+        "effective_from": "2024-09-01",
+        "version": "v2.4",
+        "article": "Policy Section 3",
+        "source_url": "https://digital.nhs.uk/services/national-data-opt-out/operational-guidance",
+        "content": (
+            "NHS National Data Opt-out Policy: "
+            "Allows patients in England to opt out of their confidential patient information being used for research and planning. "
+            "Exemptions: Opt-out does NOT apply to direct care provision, mandatory legal disclosures (court orders), or public "
+            "health emergency directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI). "
+            "All NHS organizations and data processors must scrub disclosures against the central NHS Digital opt-out repository."
+        )
+    },
+
+    # -------------------------------------------------------------------------
+    # 5. Official NHS DSPT Requirements - Regulator Guidance (Rank 2)
+    # Temporal metadata: 2025-26 reporting year, submission deadline 30 June 2026
+    # -------------------------------------------------------------------------
+    {
+        "id": "doc_020_nhs_dspt_2025_26",
+        "title": "NHS Data Security and Protection Toolkit (DSPT) 2025-26 Standards & Deadlines",
+        "publisher": "NHS England",
+        "jurisdiction": "UK",
+        "document_type": "regulator_guidance",
+        "publication_date": "2025-06-01",
+        "effective_from": "2025-06-01",
+        "version": "2025-26",
+        "article": "DSPT Standard 1-10",
+        "source_url": "https://www.dsptoolkit.nhs.uk/Help/2025-26-standards",
+        "content": (
+            "NHS Data Security and Protection Toolkit (DSPT) 2025–26 Requirements: "
+            "The DSPT is the annual self-assessment framework for NHS organizations and third-party software vendors. "
+            "For the 2025–26 reporting year, official submission deadline is 30 June 2026. Key requirements include: "
+            "(1) PCD legal handling; (2) mandatory 95% staff completion of annual cybersecurity training; "
+            "(3) strict access controls revoked immediately upon staff departure; (4) reporting cyber security incidents "
+            "to the NHS Digital Cyber Operations Center within 24 hours of discovery."
+        )
+    },
+
+    # -------------------------------------------------------------------------
+    # 6. HL7 FHIR and UK Core Specifications - Official Technical Standard (Rank 3)
+    # -------------------------------------------------------------------------
+    {
+        "id": "doc_021_fhir_r4_patient",
+        "title": "HL7 FHIR R4 Patient Resource Specification",
+        "publisher": "HL7 / NHS Digital",
+        "jurisdiction": "Global",
+        "document_type": "official_technical_standard",
+        "publication_date": "2024-11-15",
+        "effective_from": "2024-11-15",
+        "version": "R4",
+        "article": "FHIR Patient Spec",
+        "source_url": "https://hl7.org/fhir/R4/patient.html",
+        "content": (
+            "HL7 FHIR R4 Patient Resource Definition: "
+            "Represents demographic and administrative data about an individual receiving healthcare services. "
+            "Core elements: identifier (business identifiers), active (boolean), name (HumanName array), telecom (ContactPoint), "
+            "gender (administrative-gender: male | female | other | unknown), birthDate (date), address (Address structure)."
+        )
+    },
+    {
+        "id": "doc_022_fhir_uk_core_patient",
+        "title": "NHS UK Core FHIR Patient Profile & NHS Number Extension",
+        "publisher": "HL7 / NHS Digital",
+        "jurisdiction": "UK",
+        "document_type": "official_technical_standard",
+        "publication_date": "2024-11-15",
+        "effective_from": "2024-11-15",
+        "version": "UK Core v1.5.0",
+        "article": "StructureDefinition-UKCore-Patient",
+        "source_url": "https://simplifier.net/hl7fhirukcorer4/ukcore-patient",
+        "content": (
+            "NHS UK Core Patient Profile (UKCore-Patient): "
+            "Restricts the base FHIR Patient resource for UK NHS deployment. Mandates inclusion of the NHS Number extension "
+            "(URL: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumber) containing a 10-digit NHS identifier "
+            "and verification status code. Ethnic category must be coded using UK NHS Ethnic Category Codes."
+        )
+    },
+    {
+        "id": "doc_023_fhir_r4_observation",
+        "title": "HL7 FHIR R4 Observation Resource Specification",
+        "publisher": "HL7 / NHS Digital",
+        "jurisdiction": "Global",
+        "document_type": "official_technical_standard",
+        "publication_date": "2024-11-15",
+        "effective_from": "2024-11-15",
+        "version": "R4",
+        "article": "FHIR Observation Spec",
+        "source_url": "https://hl7.org/fhir/R4/observation.html",
+        "content": (
+            "HL7 FHIR R4 Observation Resource: "
+            "Central element for clinical measurements, vital signs, and laboratory diagnostic results. "
+            "Key elements: status (registered | preliminary | final | amended), category (vital-signs, laboratory, imaging), "
+            "code (LOINC / SNOMED CT concepts), subject (Reference to Patient), effectiveDateTime, valueQuantity or valueCodeableConcept."
+        )
+    },
+    {
+        "id": "doc_024_fhir_r4_bundle",
+        "title": "HL7 FHIR R4 Bundle Resource Container Specification",
+        "publisher": "HL7 / NHS Digital",
+        "jurisdiction": "Global",
+        "document_type": "official_technical_standard",
+        "publication_date": "2024-11-15",
+        "effective_from": "2024-11-15",
+        "version": "R4",
+        "article": "FHIR Bundle Spec",
+        "source_url": "https://hl7.org/fhir/R4/bundle.html",
+        "content": (
+            "HL7 FHIR R4 Bundle Resource: "
+            "A wrapper container for a collection of FHIR resources. Used in RESTful API responses, batch transactions, and document "
+            "payloads (e.g. International Patient Summary). Must specify a type attribute: document | message | transaction | batch | searchset."
+        )
+    },
+    {
+        "id": "doc_025_fhir_r4_consent",
+        "title": "HL7 FHIR R4 Consent Resource & Opt-Out Modeling",
+        "publisher": "HL7 / NHS Digital",
+        "jurisdiction": "Global",
+        "document_type": "official_technical_standard",
+        "publication_date": "2024-11-15",
+        "effective_from": "2024-11-15",
+        "version": "R4",
+        "article": "FHIR Consent Spec",
+        "source_url": "https://hl7.org/fhir/R4/consent.html",
+        "content": (
+            "HL7 FHIR R4 Consent Resource: "
+            "Records a healthcare consumer's decision to permit or deny data processing actions. Defines scope (patient-privacy | research), "
+            "provision type (deny | permit), category of health data, validity period, and authorized actors."
+        )
+    },
+
+    # -------------------------------------------------------------------------
+    # 7. ICO, GOV.UK, and NHS England Guidance - Regulator Guidance (Rank 2)
+    # -------------------------------------------------------------------------
+    {
+        "id": "doc_026_ico_health_data_guidance",
+        "title": "ICO Guidance on Special Category Health Data & Anonymisation Code of Practice",
+        "publisher": "ICO",
+        "jurisdiction": "UK",
+        "document_type": "regulator_guidance",
+        "publication_date": "2025-01-10",
+        "effective_from": "2025-01-10",
+        "version": "2025.1",
+        "article": "ICO Code of Practice",
+        "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance/special-category-data/",
+        "content": (
+            "Information Commissioner's Office (ICO) Health Data Guidance: "
+            "Processing of health data under UK GDPR requires both an Article 6 lawful basis and an Article 9 condition. "
+            "Anonymization requires ensuring that risk of re-identification is remote under the 'motivated intruder' test. "
+            "Pseudonymized health data remains personal data subject to UK GDPR requirements."
+        )
+    },
+    {
+        "id": "doc_027_govuk_data_security_standards",
+        "title": "GOV.UK Government Cyber Security Strategy & Health Data Protection",
+        "publisher": "GOV.UK",
+        "jurisdiction": "UK",
+        "document_type": "regulator_guidance",
+        "publication_date": "2025-01-10",
+        "effective_from": "2025-01-10",
+        "version": "2025.1",
+        "article": "Standard 4.2",
+        "source_url": "https://www.gov.uk/government/publications/government-cyber-security-strategy-2022-to-2030",
+        "content": (
+            "GOV.UK Cyber Security Strategy for Health Data: "
+            "All UK public health platforms processing sensitive citizen records must implement TLS 1.3 encryption in transit, "
+            "AES-256 encryption at rest, role-based access control (RBAC), and continuous Security Information and Event Management (SIEM) auditing."
+        )
+    },
+
+    # -------------------------------------------------------------------------
+    # 8. Secondary Commentary / Academic Literature - Secondary Commentary (Rank 4)
+    # -------------------------------------------------------------------------
+    {
+        "id": "doc_028_paper_blockchain_consent",
+        "title": "Academic Paper: Smart Contract Consent Engine for Cross-Border EHDS Networks",
+        "publisher": "Academic Commentary",
+        "jurisdiction": "Global",
+        "document_type": "secondary_commentary",
+        "publication_date": "2025-02-20",
+        "effective_from": "2025-02-20",
+        "version": "2025.02",
+        "article": "Section 3.1",
+        "source_url": "https://doi.org/10.1016/j.jbi.2025.104200",
+        "content": (
+            "Academic Paper - Smart Contract Consent Engine for EHDS Networks: "
+            "Evaluates Ethereum smart contracts for immutably logging patient consent preferences in cross-border MyHealth@EU exchanges. "
+            "Cryptographic hashes of opt-out decisions are stored on-chain, while clinical payloads remain off-chain, verifying compliance "
+            "with EHDS Article 7 and GDPR Article 9 requirements."
+        )
+    },
+    {
+        "id": "doc_029_paper_zkp_ehds_privacy",
+        "title": "Academic Paper: Zero-Knowledge Proofs for Secondary Health Data Reuse in HDABs",
+        "publisher": "Academic Commentary",
+        "jurisdiction": "Global",
+        "document_type": "secondary_commentary",
+        "publication_date": "2025-02-20",
+        "effective_from": "2025-02-20",
+        "version": "2025.02",
+        "article": "Section 4.2",
+        "source_url": "https://doi.org/10.1109/TIFS.2025.331200",
+        "content": (
+            "Academic Paper - Zero-Knowledge Proofs for Secondary Health Data Reuse: "
+            "Proposes a zk-SNARK scheme enabling health researchers to execute statistical queries on Health Data Access Body (HDAB) datasets "
+            "without decrypting individual records, satisfying EHDS Article 39 Secure Processing Environment constraints."
+        )
+    }
+]
+
+# Additional synthetic FHIR records with full metadata sidecars to scale the corpus to 100+ documents
+def generate_patient_fhir_records(start_idx: int = 30, count: int = 75) -> list[dict]:
+    records = []
+    for i in range(count):
+        doc_num = start_idx + i
+        patient_id = i + 1
+        record = {
+            "id": f"doc_{doc_num:03d}_fhir_patient_{patient_id}",
+            "title": f"EHR FHIR Export Patient Record PAT-{patient_id:04d}",
+            "publisher": "HL7 / NHS Digital",
+            "jurisdiction": "UK",
+            "document_type": "official_technical_standard",
+            "publication_date": "2025-01-15",
+            "effective_from": "2025-01-15",
+            "version": "UK Core R4",
+            "article": f"Patient Payload PAT-{patient_id:04d}",
+            "source_url": f"https://fhir.nhs.uk/Patient/PAT-{patient_id:04d}",
+            "content": (
+                f"EHR FHIR Export for Patient ID PAT-{patient_id:04d}.\n"
+                f"Active: true. Resource Type: Patient, Observation, Bundle, Consent.\n"
+                f"Patient Demographics: Name: Patient {patient_id}, Gender: {'male' if patient_id % 2 == 0 else 'female'}, "
+                f"BirthDate: 198{patient_id % 10}-0{1 + (patient_id % 9)}-{10 + (patient_id % 18)}.\n"
+                f"NHS Number Extension: 993 000 {patient_id:04d} (Status: verified).\n"
+                f"Observation Category: vital-signs, laboratory.\n"
+                f"Vital signs: LOINC 8867-4 (Heart rate) valueQuantity: {60 + (patient_id % 40)} beats/min, status: final.\n"
+                f"Laboratory: LOINC 29463-7 (Body weight) valueQuantity: {55 + (patient_id % 50)} kg.\n"
+                f"Consent status under EHDS Chapter II / NHS Opt-Out: {'Permit secondary use' if patient_id % 3 != 0 else 'Deny secondary use / Opt-out active'}.\n"
+                f"IPS Medication Summary: MED-{patient_id:03d} for active problem code PROB-{patient_id:03d}."
+            )
+        }
+        records.append(record)
+    return records
+
+
+def seed_corpus():
+    """
+    Seed authoritative corpus documents and generate JSON sidecar metadata for every indexed document.
+    """
+    corpus_dir = config.CORPUS_DIR
+    corpus_dir.mkdir(parents=True, exist_ok=True)
+
+    # Clean existing files in corpus_dir
+    for existing_file in corpus_dir.glob("*"):
+        if existing_file.is_file():
+            existing_file.unlink()
+
+    all_documents = list(AUTHORITATIVE_CORPUS)
+    fhir_records = generate_patient_fhir_records(start_idx=len(AUTHORITATIVE_CORPUS) + 1, count=75)
+    all_documents.extend(fhir_records)
+
+    retrieved_at = "2026-09-03"
+    corpus_manifest = []
+
+    print(f"Seeding {len(all_documents)} authoritative & versioned documents into {corpus_dir}...")
+
+    for doc in all_documents:
+        content_text = doc["content"].strip()
+        content_hash = hashlib.sha256(content_text.encode("utf-8")).hexdigest()
+        
+        doc_type = doc.get("document_type", "regulator_guidance")
+        hierarchy_rank = HIERARCHY_MAP.get(doc_type, 2)
+
+        metadata = {
+            "id": doc["id"],
+            "title": doc["title"],
+            "source_url": doc["source_url"],
+            "publisher": doc["publisher"],
+            "jurisdiction": doc["jurisdiction"],
+            "document_type": doc_type,
+            "publication_date": doc["publication_date"],
+            "effective_from": doc["effective_from"],
+            "version": doc["version"],
+            "article": doc["article"],
+            "retrieved_at": retrieved_at,
+            "content_hash": content_hash,
+            "hierarchy_rank": hierarchy_rank,
+            "source_hierarchy": SOURCE_HIERARCHY_STRING
+        }
+
+        # 1. Write document .txt file
+        txt_filename = corpus_dir / f"{doc['id']}.txt"
+        with open(txt_filename, "w", encoding="utf-8") as f:
+            f.write(content_text)
+
+        # 2. Write sidecar document .json metadata file
+        json_filename = corpus_dir / f"{doc['id']}.json"
+        with open(json_filename, "w", encoding="utf-8") as f:
+            json.dump(metadata, f, indent=2)
+
+        manifest_entry = dict(metadata)
+        manifest_entry["file_name"] = f"{doc['id']}.txt"
+        corpus_manifest.append(manifest_entry)
+
+    # 3. Write unified corpus_manifest.json in DATA_DIR
+    manifest_path = config.DATA_DIR / "corpus_manifest.json"
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(corpus_manifest, f, indent=2)
+
+    print(f"Successfully seeded {len(all_documents)} documents with sidecar metadata and corpus manifest ({manifest_path}).")
 
 if __name__ == "__main__":
     seed_corpus()

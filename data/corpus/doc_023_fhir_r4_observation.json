@@ -1,0 +1,16 @@
+{
+  "id": "doc_023_fhir_r4_observation",
+  "title": "HL7 FHIR R4 Observation Resource Specification",
+  "source_url": "https://hl7.org/fhir/R4/observation.html",
+  "publisher": "HL7 / NHS Digital",
+  "jurisdiction": "Global",
+  "document_type": "official_technical_standard",
+  "publication_date": "2024-11-15",
+  "effective_from": "2024-11-15",
+  "version": "R4",
+  "article": "FHIR Observation Spec",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "de582dabff6abe184a116ec76845177f8120ae5cb844333e61065ea689d44349",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

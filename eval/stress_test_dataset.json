@@ -4,47 +4,159 @@
     "category": "Stress_Irrelevant_Anchoring",
     "failure_mode": "Irrelevant Retrieval Used Anyway",
     "question": "Does EHDS Chapter IV allow commercial health insurance companies to calculate individual risk profiles using patient genetic data?",
-    "description": "Query asks about a specific prohibited commercial use. Weak embedding match will pull general Chapter IV secondary use chunks. Vanilla RAG will attempt to answer using those chunks, potentially anchoring to general research rules instead of recognizing the specific prohibition or missing prohibition details.",
-    "expected_behavior_crag": "Evaluator tags retrieval as Ambiguous/Incorrect -> Triggers Web Search / Knowledge Refinement to confirm explicit prohibition under Article 35."
+    "description": "Query asks about a specific prohibited commercial use under EHDS Article 35.",
+    "expected_behavior_crag": "Evaluator tags retrieval as Ambiguous/Incorrect -> Triggers Knowledge Refinement to confirm explicit prohibition under Article 35."
   },
   {
     "id": "stress_02_noisy_distraction",
     "category": "Stress_Noisy_Distraction",
     "failure_mode": "Noisy Document Distraction",
     "question": "In EHR FHIR Export for Patient PAT-0015, what was the exact LOINC code and numerical value recorded for body weight?",
-    "description": "Retrieves dense patient dump containing 10+ LOINC codes, vital signs, consent tags, and medication IDs. Vanilla RAG's LLM must filter out noise without hallucinating or confusing Heart Rate with Body Weight.",
-    "expected_behavior_crag": "CRAG Knowledge Stripping / Key Sentence Extractor distills noisy document down to the exact relevant sentence before prompt stuffing."
+    "description": "Retrieves dense patient export. CRAG Knowledge Stripping distills relevant sentence.",
+    "expected_behavior_crag": "CRAG Knowledge Stripping / Key Sentence Extractor distills noisy document down to exact sentence."
   },
   {
     "id": "stress_03_static_corpus_limit",
     "category": "Stress_Static_Corpus_Limit",
     "failure_mode": "Static Limited Corpus (Out-of-Corpus External Knowledge)",
     "question": "What is the official European Commission release date and adopted legal text for the EU AI Act (Regulation 2024/1689) healthcare risk classification?",
-    "description": "Topic is highly relevant to digital health regulation, but EU AI Act 2024/1689 is NOT present in our local EHDS/GDPR corpus. Vanilla RAG either hallucinates or fails completely with zero external fallback.",
-    "expected_behavior_crag": "Evaluator rates retrieval confidence as INCORRECT -> Triggers External Web Search Fallback to fetch live EU AI Act regulation info."
+    "description": "Topic is digital health regulation, but EU AI Act 2024/1689 is not in local corpus.",
+    "expected_behavior_crag": "Evaluator rates retrieval confidence as INCORRECT -> Triggers External Web Search Fallback."
   },
   {
     "id": "stress_04_ambiguous_terminology",
     "category": "Stress_Ambiguous_Terminology",
     "failure_mode": "Ambiguous Query & Semantic Drift",
     "question": "How are break-glass emergency procedures handled in cross-border patient data exchange?",
-    "description": "'Break-glass' is common industry terminology, but our corpus uses legal phrasing ('emergency access where life or vital interests are threatened'). Vector search may retrieve low-scoring generic security audit chunks.",
-    "expected_behavior_crag": "Evaluator flags retrieval as AMBIGUOUS -> Triggers Query Expansion ('EHDS Article 7 emergency access vital interests') for high-precision retrieval."
+    "description": "Industry jargon vs legal text phrasing.",
+    "expected_behavior_crag": "Evaluator flags retrieval as AMBIGUOUS -> Triggers Query Expansion."
   },
   {
     "id": "stress_05_version_mismatch_distraction",
     "category": "Stress_Version_Mismatch",
     "failure_mode": "Version Mismatch & Hallucinated Anchor",
     "question": "What are the exact REST API URL endpoints defined for FHIR Release 5 (R5) SubscriptionTopic resources?",
-    "description": "Our corpus contains general FHIR intro and resource definitions, but NOT FHIR R5 SubscriptionTopic endpoints. Vanilla RAG will retrieve general FHIR REST intro and try to improvise URL structures.",
-    "expected_behavior_crag": "Evaluator catches partial mismatch -> Fallback query expansion to external web search."
+    "description": "Corpus contains FHIR R4, not R5 SubscriptionTopic.",
+    "expected_behavior_crag": "Evaluator catches partial mismatch -> Fallback query expansion."
   },
   {
     "id": "stress_06_blind_oneshot_synthesis",
     "category": "Stress_Blind_OneShot",
     "failure_mode": "No Self-Awareness / One-Shot Blind Pipeline",
     "question": "What are the mandatory logging fields required by national medicine regulatory agencies when an HDAB issues a multi-country secondary data permit?",
-    "description": "Corpus mentions HDAB permits and audit logs in separate memos, but lacks the specific combined national medicine agency logging requirements. Vanilla RAG blindly stuffs whatever top-3 chunks it gets without checking if they actually answer the specific question.",
-    "expected_behavior_crag": "Evaluator assesses low relevance score -> Flags missing information and refines search."
+    "description": "Lacks specific combined national agency fields.",
+    "expected_behavior_crag": "Evaluator assesses low relevance score -> Flags missing information."
+  },
+  {
+    "id": "stress_07_temporal_mismatch_ehds",
+    "category": "Stress_Temporal_Mismatch",
+    "failure_mode": "Temporal & Legal Effective Date Confusion",
+    "question": "Are healthcare providers in Germany legally obligated to comply with EHDS Chapter II Article 3 electronic health data access requirements in May 2025?",
+    "description": "EHDS Regulation 2025/327 was published March 2025 but applies from 26 March 2027.",
+    "expected_behavior_crag": "Evaluator extracts temporal metadata showing effective date 2027-03-26."
+  },
+  {
+    "id": "stress_08_dspt_deadline_mismatch",
+    "category": "Stress_Temporal_Deadline",
+    "failure_mode": "Outdated Deadline Assumption",
+    "question": "What is the final submission deadline for NHS trusts for the DSPT reporting cycle ending in 2026?",
+    "description": "Requires matching DSPT 2025-26 official deadline (30 June 2026).",
+    "expected_behavior_crag": "Retrieves versioned 2025-26 DSPT document and extracts 30 June 2026."
+  },
+  {
+    "id": "stress_09_prohibited_use_hallucination",
+    "category": "Stress_Prohibited_Use",
+    "failure_mode": "Hallucinating Permission for Prohibited Uses",
+    "question": "Can an automated AI underwriting model use secondary EHDS data to adjust life insurance premiums if anonymised?",
+    "description": "Article 35 explicitly prohibits insurance re-underwriting regardless of anonymisation state.",
+    "expected_behavior_crag": "Evaluator enforces strict stance based on Article 35 text."
+  },
+  {
+    "id": "stress_10_cross_jurisdiction_confusion",
+    "category": "Stress_Jurisdiction_Drift",
+    "failure_mode": "Mixing UK NHS Opt-out with EU EHDS Opt-out",
+    "question": "Does an NHS patient opting out via the UK National Data Opt-out automatically opt them out of EHDS secondary data access in France?",
+    "description": "Compares UK jurisdiction vs EU EHDS jurisdiction.",
+    "expected_behavior_crag": "CRAG evaluates metadata jurisdiction flags to separate UK NHS policy from EU EHDS Article 38."
+  },
+  {
+    "id": "stress_11_fhir_profile_conflict",
+    "category": "Stress_Technical_Conflict",
+    "failure_mode": "Confusing Standard FHIR R4 with UK Core Profile",
+    "question": "Is the NHS Number extension mandatory in standard HL7 FHIR R4 international Patient resources?",
+    "description": "Standard FHIR R4 vs NHS UK Core profile extension.",
+    "expected_behavior_crag": "Distinguishes international FHIR R4 from NHS UK Core Profile."
+  },
+  {
+    "id": "stress_12_gdpr_vs_ehds_precedence",
+    "category": "Stress_Hierarchy_Precedence",
+    "failure_mode": "Ignoring Legal Hierarchy Precedence",
+    "question": "If secondary health data research is permitted under EHDS Article 34, does it override GDPR Article 9 prohibition without Article 89 safeguards?",
+    "description": "Requires primary law hierarchy reasoning.",
+    "expected_behavior_crag": "Evaluator weights Rank 1 primary law safeguards."
+  },
+  {
+    "id": "stress_13_adversarial_hypothetical",
+    "category": "Stress_Adversarial",
+    "failure_mode": "Answering Unsubstantiated Speculation",
+    "question": "Does EHDS Chapter IV authorize HDABs to commercialize raw genetic sequence files on public torrent networks for non-profit medical research?",
+    "description": "Adversarial absurd query.",
+    "expected_behavior_crag": "Evaluator marks as Incorrect / Refuses based on Article 39 SPE mandate."
+  },
+  {
+    "id": "stress_14_spe_export_violation",
+    "category": "Stress_Technical_Constraint",
+    "failure_mode": "Ignoring Technical Environment Rules",
+    "question": "Under EHDS Article 39, can a researcher download raw pseudonymised patient microdata onto a personal USB drive from an SPE?",
+    "description": "Asks about raw data export from SPE.",
+    "expected_behavior_crag": "Correctly states SPE mandates prohibition of downloading raw data."
+  },
+  {
+    "id": "stress_15_caldicott_guardian_authority",
+    "category": "Stress_Role_Confusion",
+    "failure_mode": "Confusing Caldicott Guardian with Data Protection Officer",
+    "question": "Does a Caldicott Guardian have statutory legal authority to fine NHS trusts under UK GDPR?",
+    "description": "Caldicott Guardian advisory role vs ICO regulatory enforcement.",
+    "expected_behavior_crag": "Clarifies advisory nature of Caldicott Guardian vs ICO enforcement."
+  },
+  {
+    "id": "stress_16_ico_anonymisation_threshold",
+    "category": "Stress_Legal_Threshold",
+    "failure_mode": "Confusing Pseudonymisation with Anonymisation",
+    "question": "Does replacing patient names with random cryptographic hashes make the health dataset fully anonymised under ICO guidance?",
+    "description": "Pseudonymisation vs Anonymisation.",
+    "expected_behavior_crag": "Explains ICO guidance stating pseudonymised data remains personal data under GDPR."
+  },
+  {
+    "id": "stress_17_fhir_observation_status",
+    "category": "Stress_Resource_State",
+    "failure_mode": "Accepting Invalid FHIR Resource States",
+    "question": "Can a FHIR R4 Observation resource with status 'entered-in-error' be included in primary clinical care decision support under UK Core?",
+    "description": "FHIR status rules.",
+    "expected_behavior_crag": "Identifies that 'entered-in-error' records must not be used for active care."
+  },
+  {
+    "id": "stress_18_myhealth_eu_data_storage",
+    "category": "Stress_Architecture_Misconception",
+    "failure_mode": "Assuming Centralized Storage in Distributed Infrastructure",
+    "question": "Does MyHealth@EU store all European patient medical records in a single central EU cloud database in Brussels?",
+    "description": "MyHealth@EU federated NCPH architecture.",
+    "expected_behavior_crag": "Clarifies decentralized, federated network of National Contact Points (NCPH)."
+  },
+  {
+    "id": "stress_19_paper_vs_official_guidance",
+    "category": "Stress_Source_Hierarchy",
+    "failure_mode": "Elevating Academic Paper over Official Law",
+    "question": "If an academic paper proposes using ZKPs for HDAB access, does this replace the formal SPE requirements in EHDS Article 39?",
+    "description": "Source hierarchy Rank 4 (Paper) vs Rank 1 (Primary Law).",
+    "expected_behavior_crag": "Evaluator prioritizes Rank 1 primary law over Rank 4 academic paper."
+  },
+  {
+    "id": "stress_20_opt_out_emergency_exception",
+    "category": "Stress_Complex_Exception",
+    "failure_mode": "Missing Overriding Emergency Exception",
+    "question": "If an NHS patient has a National Data Opt-out registered, can their data still be accessed during a major pandemic public health emergency under COPI statutory notices?",
+    "description": "COPI statutory override of opt-out during public health emergencies.",
+    "expected_behavior_crag": "Explains COPI statutory powers overriding standard opt-out during public health emergencies."
   }
 ]

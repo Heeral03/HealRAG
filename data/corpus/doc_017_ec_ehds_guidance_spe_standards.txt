@@ -1,0 +1,1 @@
+European Commission Guidelines for Secure Processing Environments (SPE): SPE infrastructures managed by Health Data Access Bodies (HDABs) must meet ISO/IEC 27001 certification. All analytical queries executed within the SPE must undergo automated differential privacy filtering or k-anonymity threshold checks (k >= 5) prior to output extraction.

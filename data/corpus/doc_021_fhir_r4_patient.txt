@@ -1,0 +1,1 @@
+HL7 FHIR R4 Patient Resource Definition: Represents demographic and administrative data about an individual receiving healthcare services. Core elements: identifier (business identifiers), active (boolean), name (HumanName array), telecom (ContactPoint), gender (administrative-gender: male | female | other | unknown), birthDate (date), address (Address structure).

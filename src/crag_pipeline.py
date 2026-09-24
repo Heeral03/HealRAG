@@ -3,10 +3,10 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 import time
 
-from src.db import log_query
-
 # Add src to sys.path
 sys.path.append(str(Path(__file__).resolve().parent))
+
+from db import log_query
 
 from retriever import Retriever
 from evaluator import RetrievalEvaluator

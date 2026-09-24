@@ -4,8 +4,10 @@ import numpy as np
 import httpx
 from typing import List, Dict
 
+import os
+
 API_URL = "http://localhost:8000/query"
-DEV_API_KEY = "sk_live_healrag_demo_2026"
+DEV_API_KEY = os.environ.get("HEALRAG_API_KEY", "")
 
 BENCHMARK_QUERIES = [
     "What is GDPR Article 9 rules on processing special category data?",

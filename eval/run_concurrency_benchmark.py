@@ -4,8 +4,10 @@ import numpy as np
 import httpx
 from typing import List, Dict
 
+import os
+
 API_URL = "http://localhost:8000/query"
-DEV_API_KEY = "sk_live_healrag_demo_2026"
+DEV_API_KEY = os.environ.get("HEALRAG_API_KEY", "")
 
 # Distinct queries to prevent synthetic cache hits during benchmark
 DISTINCT_QUERIES = [

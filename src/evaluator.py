@@ -170,6 +170,11 @@ class RetrievalEvaluator:
         provenance = {
             "winning_chunk_index": best_chunk_idx,
             "provenance_source": winning_chunk.get("source", "External Web Search"),
+            "provenance_publisher": winning_chunk.get("publisher", "Unknown"),
+            "provenance_jurisdiction": winning_chunk.get("jurisdiction", "Global"),
+            "provenance_version": winning_chunk.get("version", "N/A"),
+            "provenance_effective_from": winning_chunk.get("effective_from", "N/A"),
+            "provenance_hierarchy_rank": winning_chunk.get("hierarchy_rank", 2),
             "provenance_confidence_score": round(max_score, 4),
             "trust_grade": trust_grade,
             "trust_rationale": reasoning

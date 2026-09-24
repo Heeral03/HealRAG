@@ -44,14 +44,10 @@ def build_index(chunks: list[dict]):
     faiss.write_index(index, str(config.FAISS_INDEX_PATH))
     print(f"Saved FAISS index to {config.FAISS_INDEX_PATH}")
     
-    # Save the metadata (mappings from FAISS internal ID to original chunk/document data)
+    # Save the metadata (mappings from FAISS internal ID to original chunk/document metadata)
     metadata = {}
     for idx, chunk in enumerate(chunks):
-        metadata[str(idx)] = {
-            "text": chunk["text"],
-            "source": chunk["source"],
-            "chunk_index": chunk["chunk_index"]
-        }
+        metadata[str(idx)] = dict(chunk)
         
     with open(config.METADATA_PATH, "w", encoding="utf-8") as f:
         json.dump(metadata, f, indent=2)

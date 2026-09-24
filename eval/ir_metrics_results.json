@@ -1,55 +1,55 @@
 {
   "benchmark_metadata": {
-    "query_count": 16,
+    "query_count": 50,
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
     "vector_index_type": "FAISS IndexFlatIP + BM25 RRF"
   },
   "dense_retrieval_summary": {
     "k=1": {
-      "Hit Rate (%)": "81.25%",
-      "Recall (%)": "60.94%",
-      "MRR": 0.8125
+      "Hit Rate (%)": "66.0%",
+      "Recall (%)": "66.0%",
+      "MRR": 0.66
     },
     "k=3": {
-      "Hit Rate (%)": "100.0%",
-      "Recall (%)": "92.71%",
-      "MRR": 0.8958
+      "Hit Rate (%)": "78.0%",
+      "Recall (%)": "78.0%",
+      "MRR": 0.7133
     },
     "k=5": {
-      "Hit Rate (%)": "100.0%",
-      "Recall (%)": "94.27%",
-      "MRR": 0.8958
+      "Hit Rate (%)": "86.0%",
+      "Recall (%)": "86.0%",
+      "MRR": 0.7313
     },
     "k=10": {
-      "Hit Rate (%)": "100.0%",
-      "Recall (%)": "95.83%",
-      "MRR": 0.8958
+      "Hit Rate (%)": "88.0%",
+      "Recall (%)": "88.0%",
+      "MRR": 0.7347
     }
   },
   "hybrid_retrieval_summary": {
     "k=1": {
-      "Hit Rate (%)": "81.25%",
-      "Recall (%)": "61.46%",
-      "MRR": 0.8125
+      "Hit Rate (%)": "88.0%",
+      "Recall (%)": "88.0%",
+      "MRR": 0.88
     },
     "k=3": {
-      "Hit Rate (%)": "100.0%",
-      "Recall (%)": "94.79%",
-      "MRR": 0.9062
+      "Hit Rate (%)": "94.0%",
+      "Recall (%)": "94.0%",
+      "MRR": 0.91
     },
     "k=5": {
-      "Hit Rate (%)": "100.0%",
-      "Recall (%)": "96.35%",
-      "MRR": 0.9062
+      "Hit Rate (%)": "94.0%",
+      "Recall (%)": "94.0%",
+      "MRR": 0.91
     },
     "k=10": {
       "Hit Rate (%)": "100.0%",
       "Recall (%)": "100.0%",
-      "MRR": 0.9062
+      "MRR": 0.9176
     }
   },
   "latency_ms": {
-    "dense": 10.2,
-    "hybrid": 10.48
+    "dense": 13.6,
+    "hybrid": 12.34
   }
 }

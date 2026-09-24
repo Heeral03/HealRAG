@@ -1,257 +1,845 @@
 {
-  "baseline_accuracy": 83.3,
+  "baseline_accuracy": 65.0,
   "baseline_results": [
     {
       "id": "easy_01",
       "category": "Easy",
       "question": "What special categories of personal data are prohibited from processing under GDPR Article 9(1)?",
       "eval_action": "CORRECT",
-      "confidence_score": 0.7648,
+      "confidence_score": 0.7885,
       "passed": true,
       "note": "Success (7/7 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.7648)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.7885)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.65ms)."
       ],
-      "response": "**GDPR Article\u202f9(1) \u2013 Prohibited Special Categories of Personal Data**\n\nUnder Article\u202f9(1) of the GDPR, the following categories of personal data are expressly prohibited from being processed, unless an exception applies (e.g., explicit consent, research exemptions, etc.):\n\n- **Racial or ethnic origin**  \n- **Political opinions**  \n- **Religious or philosophical beliefs**  \n- **Trade union membership**  \n- **Genetic data**  \n- **Biometric data** (when used for the purpose of uniquely identifying a natural person)  \n- **Health data**  \n- **Data concerning a natural person\u2019s sex life or sexual orientation**  \n\nThese categories are identified as \u201cspecial categories of personal data\u201d and are subject to a general prohibition on processing under GDPR Article\u202f9(1)\u202f[Source: doc_001_gdpr_art9_para1.txt]."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_001_gdpr_art9_para1.txt: GDPR Article 9(1) - Processing of special categories of personal data: Processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation shall be prohibited under European Union data protection law.\n- From doc_002_gdpr_art9_para2_a.txt: GDPR Article 9(2)(a) - Explicit consent exception: Paragraph 1 prohibition shall not apply if the data subject has given explicit consent to the processing of those personal data for one or more specified purposes, except where Union or Member State law provide that the prohibition referred to in paragraph 1 may not be lifted by the data subject.\n- From doc_004_gdpr_art9_para2_i.txt: GDPR Article 9(2)(i) - Public health interest exception: Processing is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health or ensuring high standards of quality and safety of health care and of medicinal products or medical devices, on the basis of Union or Member State law providing suitable and specific measures to safeguard the rights and freedoms of the data subject.\n\nSources: doc_001_gdpr_art9_para1.txt, doc_002_gdpr_art9_para2_a.txt, doc_004_gdpr_art9_para2_i.txt"
     },
     {
       "id": "easy_02",
       "category": "Easy",
-      "question": "What three clinical sections are mandatory in the International Patient Summary (IPS) profile?",
+      "question": "What explicit consent exception exists under GDPR Article 9(2)(a)?",
       "eval_action": "CORRECT",
-      "confidence_score": 0.793,
+      "confidence_score": 0.7691,
       "passed": true,
       "note": "Success (3/3 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.7930)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.7691)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.28ms)."
       ],
-      "response": "**Mandatory Clinical Sections in the International Patient Summary (IPS) Profile**\n\n| # | Mandatory Section | Description |\n|---|-------------------|-------------|\n| 1 | **Medication Summary** | Contains the list of active medications the patient is currently taking. |\n| 2 | **Allergies and Intolerances** | Records substances that cause allergic reactions or intolerances, including the type of reaction. |\n| 3 | **Active Problems** | Lists the patient\u2019s current health conditions (active problems). |\n\n**Sources**  \n- The IPS profile explicitly states that it \u201cmandatorily requires three sections: Medication Summary (active medications), Allergies and Intolerances (substances and reaction types), and Active Problems (list of current conditions)\u201d\u3010doc_025_ips_profile_summary.txt\u3011.  \n- The same requirement is reiterated in a duplicate source\u3010doc_023_ips_profile_summary.txt\u3011."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_002_gdpr_art9_para2_a.txt: GDPR Article 9(2)(a) - Explicit consent exception: Paragraph 1 prohibition shall not apply if the data subject has given explicit consent to the processing of those personal data for one or more specified purposes, except where Union or Member State law provide that the prohibition referred to in paragraph 1 may not be lifted by the data subject.\n- From doc_004_gdpr_art9_para2_i.txt: GDPR Article 9(2)(i) - Public health interest exception: Processing is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health or ensuring high standards of quality and safety of health care and of medicinal products or medical devices, on the basis of Union or Member State law providing suitable and specific measures to safeguard the rights and freedoms of the data subject.\n- From doc_005_gdpr_art89_para1.txt: GDPR Article 89(1) - Technical and organizational safeguards for scientific research: Processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, shall be subject to appropriate safeguards in accordance with this Regulation. Those safeguards shall ensure that technical and organizational measures are in place, in particular to ensure respect for the principle of data minimization, which may include pseudonymization and encryption.\n\nSources: doc_002_gdpr_art9_para2_a.txt, doc_004_gdpr_art9_para2_i.txt, doc_005_gdpr_art89_para1.txt"
     },
     {
       "id": "easy_03",
       "category": "Easy",
       "question": "What is the primary role of Health Data Access Bodies (HDABs) under EHDS Chapter IV Article 36?",
       "eval_action": "CORRECT",
-      "confidence_score": 0.8485,
+      "confidence_score": 0.8233,
       "passed": true,
       "note": "Success (4/5 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.8485)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.8233)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.12ms)."
       ],
-      "response": "**Primary Role of Health Data Access Bodies (HDABs) \u2013 EHDS Chapter\u202fIV Article\u202f36**\n\n- **Designation and Responsibility**  \n  - Each Member State must designate one or more HDABs.  \n  - These bodies are the official entities responsible for managing access to electronic health data for secondary uses (e.g., research, policy analysis).  \n\n- **Core Functions**  \n  - **Receive data applications** from prospective data users.  \n  - **Evaluate requests** against strict safety and compliance criteria.  \n  - **Issue data permits** that authorize the secondary use of health data.  \n  - **Pseudonymize or anonymize** the datasets before release, ensuring privacy protection.  \n  - **Provide data** to authorized users within a **secure processing environment**.  \n\nThese functions collectively ensure that secondary use of health data is conducted safely, legally, and with appropriate privacy safeguards.  \n\n*Citation:* [Source: doc_015_ehds_ch4_art36_data_access_bodies.txt]"
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_013_ehds_ch4_art36.txt: EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): Each Member State shall designate one or more Health Data Access Bodies responsible for processing secondary use applications. HDABs evaluate requests, issue data permits under strict cybersecurity standards, pseudonymize or anonymize datasets, and provide access exclusively within Secure Processing Environments (SPE).\n- From doc_015_ehds_ch4_art39.txt: EHDS Chapter IV Article 39 - Secure processing environments: HDABs shall provide access to secondary electronic health data only inside Secure Processing Environments (SPE).\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment.\n\nSources: doc_007_ehds_ch2_art4.txt, doc_013_ehds_ch4_art36.txt, doc_015_ehds_ch4_art39.txt"
     },
     {
       "id": "easy_04",
       "category": "Easy",
       "question": "What are the required core attributes of a FHIR Patient Resource?",
       "eval_action": "CORRECT",
-      "confidence_score": 0.7186,
-      "passed": true,
-      "note": "Success (7/7 keywords matched)",
+      "confidence_score": 0.6144,
+      "passed": false,
+      "note": "Incomplete (0/7 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.7186)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.6144)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.11ms)."
       ],
-      "response": "**Core Attributes of a FHIR\u202fPatient Resource (as defined in the provided corpus)**  \n\n| Attribute | Description (as given in the source) |\n|-----------|--------------------------------------|\n| **identifier** | Unique identifiers for the patient (e.g., SSN) |\n| **active** | Boolean flag indicating whether the patient record is active |\n| **name** | HumanName structure containing family and given names |\n| **telecom** | Contact details (phone, email, etc.) |\n| **gender** | Administrative gender values: *male*, *female*, *other*, *unknown* |\n| **birthDate** | Patient\u2019s date of birth |\n| **address** | Physical address(es) of the patient |\n\n**Citation**: All of the above attributes are listed as \u201cKey attributes\u201d for the Patient resource in the document *doc_019_fhir_patient_resource.txt*\u3010doc_019_fhir_patient_resource.txt\u3011.\n\n---\n\n### Note on \u201crequired\u201d vs. \u201ccore\u201d  \nThe source material enumerates **key** (i.e., core) attributes but does **not** specify which of these are *required* by the FHIR specification versus optional. Therefore, while the above list reflects the core elements highlighted in the provided document, the exact required\u2011vs\u2011optional distinction is not covered in the supplied corpus."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_021_fhir_r4_patient.txt: HL7 FHIR R4 Patient Resource Definition: Represents demographic and administrative data about an individual receiving healthcare services.\n- From doc_023_fhir_r4_observation.txt: HL7 FHIR R4 Observation Resource: Central element for clinical measurements, vital signs, and laboratory diagnostic results. Key elements: status (registered | preliminary | final | amended), category (vital-signs, laboratory, imaging), code (LOINC / SNOMED CT concepts), subject (Reference to Patient), effectiveDateTime, valueQuantity or valueCodeableConcept.\n- From doc_024_fhir_r4_bundle.txt: HL7 FHIR R4 Bundle Resource: A wrapper container for a collection of FHIR resources. Used in RESTful API responses, batch transactions, and document payloads (e.\n\nSources: doc_021_fhir_r4_patient.txt, doc_023_fhir_r4_observation.txt, doc_024_fhir_r4_bundle.txt"
     },
     {
       "id": "easy_05",
       "category": "Easy",
       "question": "What platform does the EU Commission establish under EHDS Chapter II Article 5 for cross-border health data exchange?",
       "eval_action": "CORRECT",
-      "confidence_score": 0.8162,
+      "confidence_score": 0.7711,
       "passed": true,
       "note": "Success (1/1 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.8162)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.7711)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.15ms)."
       ],
-      "response": "**Platform Established under EHDS Chapter\u202fII\u202fArticle\u202f5**\n\n- **Name of the platform:** **MyHealth@EU**  \n- **Nature of the platform:** A **central digital\u2011health platform** created by the European Commission.  \n- **Purpose:** To facilitate and support the **cross\u2011border exchange of electronic health data** among the national contact points for digital health of the Member States.  \n- **Data types covered:** Patient summaries, e\u2011prescriptions, e\u2011dispensations, medical images, laboratory results, and discharge reports.  \n\n**Citation**  \n- EHDS Chapter\u202fII Article\u202f5 \u2013 MyHealth@EU infrastructure description (Document Chunk\u202f1)\u3010doc_010_ehds_ch2_art5_myhealth_eu.txt\u3011."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_008_ehds_ch2_art5.txt: EHDS Chapter II Article 5 - MyHealth@EU infrastructure: The European Commission shall establish a central platform for digital health (MyHealth@EU) to facilitate the exchange of electronic health data between National Contact Points for Digital Health (NCPH). The infrastructure enables cross-border transmission of Patient Summaries (IPS), e-Prescriptions, e-Dispensations, diagnostic images, laboratory test results, and hospital discharge reports.\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format.\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment.\n\nSources: doc_006_ehds_ch2_art3.txt, doc_007_ehds_ch2_art4.txt, doc_008_ehds_ch2_art5.txt"
     },
     {
       "id": "easy_06",
       "category": "Easy",
-      "question": "What architectural principles define Fast Healthcare Interoperability Resources (FHIR)?",
+      "question": "What core Caldicott Principles govern NHS patient data confidentiality?",
       "eval_action": "CORRECT",
-      "confidence_score": 0.7203,
-      "passed": true,
-      "note": "Success (2/5 keywords matched)",
+      "confidence_score": 0.7715,
+      "passed": false,
+      "note": "Incomplete (1/3 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.7203)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.7715)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.44ms)."
       ],
-      "response": "**Architectural Principles that Define Fast Healthcare Interoperability Resources (FHIR)**  \n\n| Principle | Description | Source |\n|-----------|-------------|--------|\n| **Modular \u201cResources\u201d Model** | Information is broken into discrete, reusable components called *Resources* (e.g., Patient, Observation, Medication). Each resource encapsulates a specific clinical or administrative concept. | [doc_024_fhir_architecture_principles.txt] |\n| **80\u202f% Consensus Rule** | FHIR models the concepts that are common to roughly 80\u202f% of health\u2011system implementations. Anything outside this core is handled through *Extension* elements, allowing flexibility without breaking the base model. | [doc_024_fhir_architecture_principles.txt] |\n| **Human\u2011Readable Narratives** | Every resource includes an XHTML narrative that provides a human\u2011readable summary of the data, ensuring that the information can be understood without specialized tooling. | [doc_024_fhir_architecture_principles.txt] |\n| **Modern RESTful Architecture** | Resources are exposed via standard HTTP methods (GET, POST, PUT, DELETE) using predictable URIs. This aligns FHIR with widely\u2011adopted web standards and enables straightforward API integration. | [doc_024_fhir_architecture_principles.txt] |\n| **Leverage of Web Standards** *(implicit in the overview)* | FHIR builds on contemporary web technologies such as JSON, XML, OAuth2, and OpenID Connect for data representation and security. | [doc_023_fhir_overview_intro.txt] |\n\n**Summary**  \nFHIR\u2019s architecture is grounded in a modular resource\u2011centric model, an \u201c80\u202f% consensus\u201d approach that balances standardization with extensibility, built\u2011in human\u2011readable narratives, and a RESTful API design that utilizes common web protocols and security standards. These principles together enable interoperable, scalable, and developer\u2011friendly health\u2011information exchange."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_018_nhs_caldicott_principles.txt: UK NHS Caldicott Principles: The 8 Caldicott Principles govern handling of confidential patient information across the UK NHS. Principle 1: Justify the purpose(s).\n- From doc_019_nhs_national_data_opt_out.txt: NHS National Data Opt-out Policy: Allows patients in England to opt out of their confidential patient information being used for research and planning.\n- From doc_026_ico_health_data_guidance.txt: Information Commissioner's Office (ICO) Health Data Guidance: Processing of health data under UK GDPR requires both an Article 6 lawful basis and an Article 9 condition. Anonymization requires ensuring that risk of re-identification is remote under the 'motivated intruder' test.\n\nSources: doc_018_nhs_caldicott_principles.txt, doc_019_nhs_national_data_opt_out.txt, doc_026_ico_health_data_guidance.txt"
+    },
+    {
+      "id": "easy_07",
+      "category": "Easy",
+      "question": "What is the annual submission deadline for the NHS Data Security and Protection Toolkit (DSPT) 2025-26?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.8511,
+      "passed": true,
+      "note": "Success (1/2 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.8511)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.41ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_020_nhs_dspt_2025_26.txt: NHS Data Security and Protection Toolkit (DSPT) 2025\u201326 Requirements: The DSPT is the annual self-assessment framework for NHS organizations and third-party software vendors. For the 2025\u201326 reporting year, official submission deadline is 30 June 2026.\n- From doc_027_govuk_data_security_standards.txt: GOV. UK Cyber Security Strategy for Health Data: All UK public health platforms processing sensitive citizen records must implement TLS 1.\n- From doc_034_fhir_patient_5.txt: EHR FHIR Export for Patient ID PAT-0005. Active: true.\n\nSources: doc_020_nhs_dspt_2025_26.txt, doc_027_govuk_data_security_standards.txt, doc_034_fhir_patient_5.txt"
+    },
+    {
+      "id": "easy_08",
+      "category": "Easy",
+      "question": "What extension does the NHS UK Core FHIR profile mandate for patient identifiers?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7675,
+      "passed": true,
+      "note": "Success (2/2 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7675)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.15ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_022_fhir_uk_core_patient.txt: NHS UK Core Patient Profile (UKCore-Patient): Restricts the base FHIR Patient resource for UK NHS deployment. Mandates inclusion of the NHS Number extension (URL: https://fhir.\n- From doc_098_fhir_patient_69.txt: EHR FHIR Export for Patient ID PAT-0069. Active: true.\n- From doc_092_fhir_patient_63.txt: EHR FHIR Export for Patient ID PAT-0063. Active: true.\n\nSources: doc_022_fhir_uk_core_patient.txt, doc_092_fhir_patient_63.txt, doc_098_fhir_patient_69.txt"
+    },
+    {
+      "id": "easy_09",
+      "category": "Easy",
+      "question": "How does GDPR Article 9(2)(h) permit data processing for healthcare provision?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.697,
+      "passed": true,
+      "note": "Success (3/3 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6970)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.12ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_003_gdpr_art9_para2_h.txt: GDPR Article 9(2)(h) - Medical diagnosis and health treatment exceptions: Processing is necessary for the purposes of preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional subject to professional secrecy.\n- From doc_004_gdpr_art9_para2_i.txt: GDPR Article 9(2)(i) - Public health interest exception: Processing is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health or ensuring high standards of quality and safety of health care and of medicinal products or medical devices, on the basis of Union or Member State law providing suitable and specific measures to safeguard the rights and freedoms of the data subject.\n- From doc_001_gdpr_art9_para1.txt: GDPR Article 9(1) - Processing of special categories of personal data: Processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation shall be prohibited under European Union data protection law.\n\nSources: doc_001_gdpr_art9_para1.txt, doc_003_gdpr_art9_para2_h.txt, doc_004_gdpr_art9_para2_i.txt"
+    },
+    {
+      "id": "easy_10",
+      "category": "Easy",
+      "question": "What public health threat exception is provided under GDPR Article 9(2)(i)?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7332,
+      "passed": true,
+      "note": "Success (3/3 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7332)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.12ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_004_gdpr_art9_para2_i.txt: GDPR Article 9(2)(i) - Public health interest exception: Processing is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health or ensuring high standards of quality and safety of health care and of medicinal products or medical devices, on the basis of Union or Member State law providing suitable and specific measures to safeguard the rights and freedoms of the data subject.\n- From doc_003_gdpr_art9_para2_h.txt: GDPR Article 9(2)(h) - Medical diagnosis and health treatment exceptions: Processing is necessary for the purposes of preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional subject to professional secrecy.\n- From doc_002_gdpr_art9_para2_a.txt: GDPR Article 9(2)(a) - Explicit consent exception: Paragraph 1 prohibition shall not apply if the data subject has given explicit consent to the processing of those personal data for one or more specified purposes, except where Union or Member State law provide that the prohibition referred to in paragraph 1 may not be lifted by the data subject.\n\nSources: doc_002_gdpr_art9_para2_a.txt, doc_003_gdpr_art9_para2_h.txt, doc_004_gdpr_art9_para2_i.txt"
+    },
+    {
+      "id": "easy_11",
+      "category": "Easy",
+      "question": "What research safeguards are mandated by GDPR Article 89(1)?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7897,
+      "passed": false,
+      "note": "Incomplete (0/3 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7897)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.16ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_005_gdpr_art89_para1.txt: GDPR Article 89(1) - Technical and organizational safeguards for scientific research: Processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, shall be subject to appropriate safeguards in accordance with this Regulation. Those safeguards shall ensure that technical and organizational measures are in place, in particular to ensure respect for the principle of data minimization, which may include pseudonymization and encryption.\n- From doc_004_gdpr_art9_para2_i.txt: GDPR Article 9(2)(i) - Public health interest exception: Processing is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health or ensuring high standards of quality and safety of health care and of medicinal products or medical devices, on the basis of Union or Member State law providing suitable and specific measures to safeguard the rights and freedoms of the data subject.\n- From doc_001_gdpr_art9_para1.txt: GDPR Article 9(1) - Processing of special categories of personal data: Processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation shall be prohibited under European Union data protection law.\n\nSources: doc_001_gdpr_art9_para1.txt, doc_004_gdpr_art9_para2_i.txt, doc_005_gdpr_art89_para1.txt"
+    },
+    {
+      "id": "easy_12",
+      "category": "Easy",
+      "question": "What primary access rights do natural persons have under EHDS Chapter II Article 3?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7315,
+      "passed": true,
+      "note": "Success (2/3 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7315)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.35ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_009_ehds_ch2_art7.txt: EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: Natural persons shall have the right to restrict access of health professionals to all or parts of their electronic health data. Member States shall establish technical mechanisms for restrictions, ensuring that restriction does not prevent emergency break-glass access where the life or vital interests of the natural person are threatened.\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment. The access shall be limited to data necessary for treatment provision and must comply with authentication and authorization protocols.\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format.\n\nSources: doc_006_ehds_ch2_art3.txt, doc_007_ehds_ch2_art4.txt, doc_009_ehds_ch2_art7.txt"
+    },
+    {
+      "id": "easy_13",
+      "category": "Easy",
+      "question": "How does EHDS Chapter II Article 4 grant health professionals cross-border access?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6937,
+      "passed": false,
+      "note": "Incomplete (1/3 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6937)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.15ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment.\n- From doc_009_ehds_ch2_art7.txt: EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: Natural persons shall have the right to restrict access of health professionals to all or parts of their electronic health data.\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format.\n\nSources: doc_006_ehds_ch2_art3.txt, doc_007_ehds_ch2_art4.txt, doc_009_ehds_ch2_art7.txt"
+    },
+    {
+      "id": "easy_14",
+      "category": "Easy",
+      "question": "What categories of health data are eligible for secondary use under EHDS Article 33?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7752,
+      "passed": false,
+      "note": "Incomplete (1/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7752)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.28ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_010_ehds_ch4_art33.txt: EHDS Chapter IV Article 33 - Categories of electronic health data for secondary use: Data holders shall make available for secondary use the following categories of electronic health data: (a) Electronic Health Records (EHRs); (b) socio-economic, environmental, and lifestyle health factors; (c) genetic, genomic, and proteomic data; (d) person-generated health data (wearables); (e) clinical trial data; (f) registries of medicinal products and medical devices.\n- From doc_011_ehds_ch4_art34.txt: EHDS Chapter IV Article 34 - Permitted purposes for secondary use: Secondary use of electronic health data shall be permitted only for specified purposes: (a) public health interest activities; (b) public health tasks of healthcare public bodies; (c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products or medical devices; (e) training, testing, and evaluating AI algorithms in medical devices.\n- From doc_012_ehds_ch4_art35.txt: EHDS Chapter IV Article 35 - Prohibited secondary uses of health data: The following secondary uses are strictly prohibited: (a) taking detrimental decisions against natural persons including increasing insurance premiums or refusing coverage; (b) advertising or targeted marketing activities; (c) granting access to unauthorized third parties without a valid data permit; (d) developing harmful products or security-undermining activities.\n\nSources: doc_010_ehds_ch4_art33.txt, doc_011_ehds_ch4_art34.txt, doc_012_ehds_ch4_art35.txt"
+    },
+    {
+      "id": "easy_15",
+      "category": "Easy",
+      "question": "What permitted purposes exist for secondary health data use under EHDS Article 34?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7809,
+      "passed": true,
+      "note": "Success (2/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7809)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.37ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_012_ehds_ch4_art35.txt: EHDS Chapter IV Article 35 - Prohibited secondary uses of health data: The following secondary uses are strictly prohibited: (a) taking detrimental decisions against natural persons including increasing insurance premiums or refusing coverage; (b) advertising or targeted marketing activities; (c) granting access to unauthorized third parties without a valid data permit; (d) developing harmful products or security-undermining activities.\n- From doc_011_ehds_ch4_art34.txt: EHDS Chapter IV Article 34 - Permitted purposes for secondary use: Secondary use of electronic health data shall be permitted only for specified purposes: (a) public health interest activities; (b) public health tasks of healthcare public bodies; (c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products or medical devices; (e) training, testing, and evaluating AI algorithms in medical devices.\n- From doc_010_ehds_ch4_art33.txt: EHDS Chapter IV Article 33 - Categories of electronic health data for secondary use: Data holders shall make available for secondary use the following categories of electronic health data: (a) Electronic Health Records (EHRs); (b) socio-economic, environmental, and lifestyle health factors; (c) genetic, genomic, and proteomic data; (d) person-generated health data (wearables); (e) clinical trial data; (f) registries of medicinal products and medical devices.\n\nSources: doc_010_ehds_ch4_art33.txt, doc_011_ehds_ch4_art34.txt, doc_012_ehds_ch4_art35.txt"
+    },
+    {
+      "id": "easy_16",
+      "category": "Easy",
+      "question": "What prohibited secondary uses exist under EHDS Chapter IV Article 35?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7379,
+      "passed": true,
+      "note": "Success (3/3 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7379)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.39ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_012_ehds_ch4_art35.txt: EHDS Chapter IV Article 35 - Prohibited secondary uses of health data: The following secondary uses are strictly prohibited: (a) taking detrimental decisions against natural persons including increasing insurance premiums or refusing coverage; (b) advertising or targeted marketing activities; (c) granting access to unauthorized third parties without a valid data permit; (d) developing harmful products or security-undermining activities.\n- From doc_011_ehds_ch4_art34.txt: EHDS Chapter IV Article 34 - Permitted purposes for secondary use: Secondary use of electronic health data shall be permitted only for specified purposes: (a) public health interest activities; (b) public health tasks of healthcare public bodies; (c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products or medical devices; (e) training, testing, and evaluating AI algorithms in medical devices.\n- From doc_009_ehds_ch2_art7.txt: EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: Natural persons shall have the right to restrict access of health professionals to all or parts of their electronic health data.\n\nSources: doc_009_ehds_ch2_art7.txt, doc_011_ehds_ch4_art34.txt, doc_012_ehds_ch4_art35.txt"
+    },
+    {
+      "id": "easy_17",
+      "category": "Easy",
+      "question": "How does natural person opt-out operate under EHDS Article 38?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6866,
+      "passed": true,
+      "note": "Success (3/3 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6866)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.14ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_014_ehds_ch4_art38.txt: EHDS Chapter IV Article 38 - Right to opt-out from secondary data use: Natural persons shall have the right to opt-out from the processing of their electronic health data for secondary use.\n- From doc_009_ehds_ch2_art7.txt: EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: Natural persons shall have the right to restrict access of health professionals to all or parts of their electronic health data. Member States shall establish technical mechanisms for restrictions, ensuring that restriction does not prevent emergency break-glass access where the life or vital interests of the natural person are threatened.\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment.\n\nSources: doc_007_ehds_ch2_art4.txt, doc_009_ehds_ch2_art7.txt, doc_014_ehds_ch4_art38.txt"
+    },
+    {
+      "id": "easy_18",
+      "category": "Easy",
+      "question": "What features define a Secure Processing Environment (SPE) under EHDS Article 39?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6899,
+      "passed": false,
+      "note": "Incomplete (1/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6899)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.31ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_015_ehds_ch4_art39.txt: EHDS Chapter IV Article 39 - Secure processing environments: HDABs shall provide access to secondary electronic health data only inside Secure Processing Environments (SPE). SPEs must enforce strict technical measures preventing raw data downloads, unauthorized exports, or re-identification, permitting data users only to run queries and export aggregated statistical output.\n- From doc_017_ec_ehds_guidance_spe_standards.txt: European Commission Guidelines for Secure Processing Environments (SPE): SPE infrastructures managed by Health Data Access Bodies (HDABs) must meet ISO/IEC 27001 certification. All analytical queries executed within the SPE must undergo automated differential privacy filtering or k-anonymity threshold checks (k >= 5) prior to output extraction.\n- From doc_013_ehds_ch4_art36.txt: EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): Each Member State shall designate one or more Health Data Access Bodies responsible for processing secondary use applications. HDABs evaluate requests, issue data permits under strict cybersecurity standards, pseudonymize or anonymize datasets, and provide access exclusively within Secure Processing Environments (SPE).\n\nSources: doc_013_ehds_ch4_art36.txt, doc_015_ehds_ch4_art39.txt, doc_017_ec_ehds_guidance_spe_standards.txt"
+    },
+    {
+      "id": "easy_19",
+      "category": "Easy",
+      "question": "How does NHS National Data Opt-out apply to secondary research activities?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7243,
+      "passed": true,
+      "note": "Success (2/3 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7243)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.14ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_019_nhs_national_data_opt_out.txt: NHS National Data Opt-out Policy: Allows patients in England to opt out of their confidential patient information being used for research and planning. Exemptions: Opt-out does NOT apply to direct care provision, mandatory legal disclosures (court orders), or public health emergency directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI).\n- From doc_014_ehds_ch4_art38.txt: EHDS Chapter IV Article 38 - Right to opt-out from secondary data use: Natural persons shall have the right to opt-out from the processing of their electronic health data for secondary use.\n- From doc_011_ehds_ch4_art34.txt: EHDS Chapter IV Article 34 - Permitted purposes for secondary use: Secondary use of electronic health data shall be permitted only for specified purposes: (a) public health interest activities; (b) public health tasks of healthcare public bodies; (c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products or medical devices; (e) training, testing, and evaluating AI algorithms in medical devices.\n\nSources: doc_011_ehds_ch4_art34.txt, doc_014_ehds_ch4_art38.txt, doc_019_nhs_national_data_opt_out.txt"
+    },
+    {
+      "id": "easy_20",
+      "category": "Easy",
+      "question": "What required element status codes are used in FHIR R4 Observation resources?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5677,
+      "passed": false,
+      "note": "Incomplete (0/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5677)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.11ms, Searched in 1631.78ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_023_fhir_r4_observation.txt: HL7 FHIR R4 Observation Resource: Central element for clinical measurements, vital signs, and laboratory diagnostic results.\n- From doc_024_fhir_r4_bundle.txt: HL7 FHIR R4 Bundle Resource: A wrapper container for a collection of FHIR resources. Used in RESTful API responses, batch transactions, and document payloads (e.\n- From doc_021_fhir_r4_patient.txt: HL7 FHIR R4 Patient Resource Definition: Represents demographic and administrative data about an individual receiving healthcare services. Core elements: identifier (business identifiers), active (boolean), name (HumanName array), telecom (ContactPoint), gender (administrative-gender: male | female | other | unknown), birthDate (date), address (Address structure).\n- From Web: Observation - FHIR v4.0.1 - Health Level Seven International: Observation - FHIR v4. 0.\n- From Web: Observation - FHIR v4.0.1 - Health Level Seven International: Observation - FHIR v4. 0.\n- From Web: Observation \u2014 FHIR R4 Resource: Observation \u2014 FHIR R4 Resource: Observation \u2014 Observation. FHIR R4 Clinical resource with 50 elements, 47 search params, referenced by 36 elements.\n\nSources: Web: Observation - FHIR v4.0.1 - Health Level Seven International, Web: Observation \u2014 FHIR R4 Resource, doc_021_fhir_r4_patient.txt, doc_023_fhir_r4_observation.txt, doc_024_fhir_r4_bundle.txt"
+    },
+    {
+      "id": "easy_21",
+      "category": "Easy",
+      "question": "What is the purpose of an HL7 FHIR Bundle resource?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7598,
+      "passed": true,
+      "note": "Success (4/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7598)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.11ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_024_fhir_r4_bundle.txt: HL7 FHIR R4 Bundle Resource: A wrapper container for a collection of FHIR resources. Used in RESTful API responses, batch transactions, and document payloads (e.\n- From doc_021_fhir_r4_patient.txt: HL7 FHIR R4 Patient Resource Definition: Represents demographic and administrative data about an individual receiving healthcare services.\n- From doc_023_fhir_r4_observation.txt: HL7 FHIR R4 Observation Resource: Central element for clinical measurements, vital signs, and laboratory diagnostic results. Key elements: status (registered | preliminary | final | amended), category (vital-signs, laboratory, imaging), code (LOINC / SNOMED CT concepts), subject (Reference to Patient), effectiveDateTime, valueQuantity or valueCodeableConcept.\n\nSources: doc_021_fhir_r4_patient.txt, doc_023_fhir_r4_observation.txt, doc_024_fhir_r4_bundle.txt"
+    },
+    {
+      "id": "easy_22",
+      "category": "Easy",
+      "question": "How are consent preferences modeled in FHIR R4 Consent resources?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6232,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6232)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.11ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_025_fhir_r4_consent.txt: HL7 FHIR R4 Consent Resource: Records a healthcare consumer's decision to permit or deny data processing actions.\n- From doc_028_paper_blockchain_consent.txt: Academic Paper - Smart Contract Consent Engine for EHDS Networks: Evaluates Ethereum smart contracts for immutably logging patient consent preferences in cross-border MyHealth@EU exchanges.\n- From doc_024_fhir_r4_bundle.txt: HL7 FHIR R4 Bundle Resource: A wrapper container for a collection of FHIR resources. Used in RESTful API responses, batch transactions, and document payloads (e.\n\nSources: doc_024_fhir_r4_bundle.txt, doc_025_fhir_r4_consent.txt, doc_028_paper_blockchain_consent.txt"
+    },
+    {
+      "id": "easy_23",
+      "category": "Easy",
+      "question": "What ICO guidelines exist for anonymisation of health research data?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.648,
+      "passed": false,
+      "note": "Incomplete (1/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6480)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.13ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_026_ico_health_data_guidance.txt: Information Commissioner's Office (ICO) Health Data Guidance: Processing of health data under UK GDPR requires both an Article 6 lawful basis and an Article 9 condition. Anonymization requires ensuring that risk of re-identification is remote under the 'motivated intruder' test.\n- From doc_019_nhs_national_data_opt_out.txt: NHS National Data Opt-out Policy: Allows patients in England to opt out of their confidential patient information being used for research and planning.\n- From doc_010_ehds_ch4_art33.txt: EHDS Chapter IV Article 33 - Categories of electronic health data for secondary use: Data holders shall make available for secondary use the following categories of electronic health data: (a) Electronic Health Records (EHRs); (b) socio-economic, environmental, and lifestyle health factors; (c) genetic, genomic, and proteomic data; (d) person-generated health data (wearables); (e) clinical trial data; (f) registries of medicinal products and medical devices.\n\nSources: doc_010_ehds_ch4_art33.txt, doc_019_nhs_national_data_opt_out.txt, doc_026_ico_health_data_guidance.txt"
+    },
+    {
+      "id": "easy_24",
+      "category": "Easy",
+      "question": "What GOV.UK Cyber Security Strategy requirements apply to NHS data systems?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6335,
+      "passed": true,
+      "note": "Success (2/3 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6335)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.16ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_027_govuk_data_security_standards.txt: GOV. UK Cyber Security Strategy for Health Data: All UK public health platforms processing sensitive citizen records must implement TLS 1.\n- From doc_020_nhs_dspt_2025_26.txt: Key requirements include: (1) PCD legal handling; (2) mandatory 95% staff completion of annual cybersecurity training; (3) strict access controls revoked immediately upon staff departure; (4) reporting cyber security incidents to the NHS Digital Cyber Operations Center within 24 hours of discovery.\n- From doc_019_nhs_national_data_opt_out.txt: NHS National Data Opt-out Policy: Allows patients in England to opt out of their confidential patient information being used for research and planning. Exemptions: Opt-out does NOT apply to direct care provision, mandatory legal disclosures (court orders), or public health emergency directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI).\n\nSources: doc_019_nhs_national_data_opt_out.txt, doc_020_nhs_dspt_2025_26.txt, doc_027_govuk_data_security_standards.txt"
+    },
+    {
+      "id": "easy_25",
+      "category": "Easy",
+      "question": "How do Zero-Knowledge Proofs (ZKPs) preserve privacy in EHDS data access?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6558,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6558)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.1ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_029_paper_zkp_ehds_privacy.txt: Academic Paper - Zero-Knowledge Proofs for Secondary Health Data Reuse: Proposes a zk-SNARK scheme enabling health researchers to execute statistical queries on Health Data Access Body (HDAB) datasets without decrypting individual records, satisfying EHDS Article 39 Secure Processing Environment constraints.\n- From doc_028_paper_blockchain_consent.txt: Academic Paper - Smart Contract Consent Engine for EHDS Networks: Evaluates Ethereum smart contracts for immutably logging patient consent preferences in cross-border MyHealth@EU exchanges. Cryptographic hashes of opt-out decisions are stored on-chain, while clinical payloads remain off-chain, verifying compliance with EHDS Article 7 and GDPR Article 9 requirements.\n- From doc_015_ehds_ch4_art39.txt: EHDS Chapter IV Article 39 - Secure processing environments: HDABs shall provide access to secondary electronic health data only inside Secure Processing Environments (SPE).\n\nSources: doc_015_ehds_ch4_art39.txt, doc_028_paper_blockchain_consent.txt, doc_029_paper_zkp_ehds_privacy.txt"
     },
     {
       "id": "hard_01",
       "category": "Hard",
       "question": "How does EHDS secondary data use under Article 34 interact with GDPR Article 89 safeguards for scientific research?",
       "eval_action": "CORRECT",
-      "confidence_score": 0.6082,
+      "confidence_score": 0.6109,
       "passed": false,
-      "note": "Incomplete (0/6 keywords matched)",
+      "note": "Incomplete (1/6 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.6082)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.6109)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.26ms)."
       ],
-      "response": "The provided document corpus does not contain information to answer this question."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_010_ehds_ch4_art33.txt: EHDS Chapter IV Article 33 - Categories of electronic health data for secondary use: Data holders shall make available for secondary use the following categories of electronic health data: (a) Electronic Health Records (EHRs); (b) socio-economic, environmental, and lifestyle health factors; (c) genetic, genomic, and proteomic data; (d) person-generated health data (wearables); (e) clinical trial data; (f) registries of medicinal products and medical devices.\n- From doc_012_ehds_ch4_art35.txt: EHDS Chapter IV Article 35 - Prohibited secondary uses of health data: The following secondary uses are strictly prohibited: (a) taking detrimental decisions against natural persons including increasing insurance premiums or refusing coverage; (b) advertising or targeted marketing activities; (c) granting access to unauthorized third parties without a valid data permit; (d) developing harmful products or security-undermining activities.\n- From doc_011_ehds_ch4_art34.txt: EHDS Chapter IV Article 34 - Permitted purposes for secondary use: Secondary use of electronic health data shall be permitted only for specified purposes: (a) public health interest activities; (b) public health tasks of healthcare public bodies; (c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products or medical devices; (e) training, testing, and evaluating AI algorithms in medical devices.\n\nSources: doc_010_ehds_ch4_art33.txt, doc_011_ehds_ch4_art34.txt, doc_012_ehds_ch4_art35.txt"
     },
     {
       "id": "hard_02",
       "category": "Hard",
       "question": "Compare the opt-out mechanism rights for natural persons under EHDS Chapter IV Article 38 against the restriction rights under Chapter II Article 7.",
       "eval_action": "CORRECT",
-      "confidence_score": 0.6477,
-      "passed": false,
-      "note": "Incomplete (0/5 keywords matched)",
+      "confidence_score": 0.6425,
+      "passed": true,
+      "note": "Success (2/5 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.6477)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.6425)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.15ms)."
       ],
-      "response": "**Comparison of Natural\u2011Person Rights under EHDS**\n\n| Aspect | **Chapter\u202fII\u202fArticle\u202f7 \u2013 Right to Restrict Access** | **Chapter\u202fIV\u202fArticle\u202f38 \u2013 Right to Opt\u2011out from Secondary Use** |\n|--------|-----------------------------------------------------|---------------------------------------------------------------|\n| **Legal Text** | \u201cNatural persons shall have the right to **restrict access** of health professionals to **all or parts** of their electronic health data.\u201d | \u201cNatural persons shall have the right to **opt\u2011out** from the **processing** of their electronic health data for **secondary use**.\u201d |\n| **Primary Objective** | Limits *who* (health professionals) may view a person\u2019s health data in the context of care. | Limits *how* a person\u2019s health data may be used beyond direct care (e.g., research, public\u2011health analytics). |\n| **Scope of Data** | Applies to **all or parts** of the electronic health record (EHR) as defined by the individual. | Applies to the **processing** of the entire electronic health data set for **secondary purposes** only. |\n| **Actors Affected** | **Health professionals** (doctors, nurses, allied staff) who would otherwise have access under Article\u202f4. | **Data controllers/ processors** that handle secondary\u2011use activities (research institutions, public\u2011health bodies, commercial entities). |\n| **Mechanism** | The natural person can **restrict** (i.e., block or limit) professional access to specific data elements or the whole record. | The natural person can **opt\u2011out**, thereby prohibiting any secondary\u2011use processing of their data. |\n| **Interaction with Other Rights** | Must be respected even though Article\u202f4 grants health professionals access \u201cirrespective of the Member State of affiliation\u201d (see Article\u202f4). | Operates independently of the primary\u2011care access right; it does **not** affect the mandatory access of health professionals for treatment. |\n| **Effect on Data Flow** | Directly prevents health\u2011professional viewing of restricted portions, potentially requiring system\u2011level access controls. | Triggers a prohibition on downstream uses (e.g., data sharing, analytics) while still allowing primary\u2011care access. |\n| **Regulatory Implication** | Requires health\u2011information systems to implement granular access\u2011restriction features per patient request. | Requires a **clear opt\u2011out mechanism** for secondary\u2011use processing, and must be honored by all secondary\u2011use data handlers. |\n\n### Key Take\u2011aways\n- **Article\u202f7** is about **who can see the data** during clinical care; it gives patients the ability to block health\u2011professional access to any or all parts of their EHR.  \n- **Article\u202f38** is about **how the data can be used** beyond care; it lets patients refuse any secondary\u2011purpose processing, but does **not** affect the health\u2011professional\u2019s right to access the data for treatment.  \n\nBoth rights coexist: a patient may simultaneously restrict a clinician\u2019s view of certain clinical details (Article\u202f7) **and** opt\u2011out of any secondary\u2011use of the remaining data (Article\u202f38). Systems must therefore support both **granular access restrictions** and a **separate opt\u2011out workflow**.  \n\n**Citations**  \n- Right to restrict access \u2013 EHDS Chapter\u202fII Art\u202f7\u202f[Source: doc_011_ehds_ch2_art7_right_to_restrict_access.txt]  \n- Right to opt\u2011out from secondary use \u2013 EHDS Chapter\u202fIV Art\u202f38\u202f[Source: doc_016_ehds_ch4_art38_opt_out_mechanism.txt]  \n- Baseline access right for health professionals \u2013 EHDS Chapter\u202fII Art\u202f4\u202f[Source: doc_009_ehds_ch2_art4_access_by_health_professionals.txt]  "
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_009_ehds_ch2_art7.txt: EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: Natural persons shall have the right to restrict access of health professionals to all or parts of their electronic health data.\n- From doc_014_ehds_ch4_art38.txt: EHDS Chapter IV Article 38 - Right to opt-out from secondary data use: Natural persons shall have the right to opt-out from the processing of their electronic health data for secondary use.\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment.\n\nSources: doc_007_ehds_ch2_art4.txt, doc_009_ehds_ch2_art7.txt, doc_014_ehds_ch4_art38.txt"
     },
     {
       "id": "hard_03",
       "category": "Hard",
-      "question": "In a cross-border IPS exchange, what coding standards are recommended for diagnostic results versus clinical procedure histories?",
+      "question": "How do HDAB governance mandates under Article 36 compare with SPE operational requirements under Article 39?",
       "eval_action": "AMBIGUOUS",
-      "confidence_score": 0.5202,
+      "confidence_score": 0.5738,
       "passed": true,
-      "note": "Success (2/4 keywords matched)",
+      "note": "Success (3/5 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5202)",
-        "Action Taken: Query Expansion & External Web Search Fallback (Merged with refined local chunks)."
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5738)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.12ms, Searched in 7541.68ms)."
       ],
-      "response": "**Cross\u2011border IPS (International Patient Summary) \u2013 Recommended Coding Standards**\n\n| IPS Component | Recommended Coding Standard | Rationale / Source |\n|---------------|----------------------------|--------------------|\n| **Clinical Procedure History** | **SNOMED\u202fCT** | The IPS \u201cHistory of Procedures\u201d section explicitly states that procedures \u201cshould be coded using SNOMED\u202fCT terms to maintain cross\u2011border semantic alignment\u201d\u3010doc_027_ips_procedures_history.txt\u3011. The same wording appears in a duplicate source\u3010doc_025_ips_procedures_history.txt\u3011, reinforcing the requirement. |\n| **Diagnostic Results** | *Not specified in the provided documents* | None of the supplied chunks contain a recommendation for coding diagnostic test results (e.g., laboratory, imaging). The only coding guidance present relates to procedures and a general best\u2011practice note about avoiding local mapping tables\u3010doc_045_interop_memo_6.txt\u3011, which does not name a specific standard for diagnostics. |\n\n### Summary\n- **Procedures**: Use **SNOMED\u202fCT** to ensure that the clinical procedure history is understood consistently across borders.\n- **Diagnostics**: The current document set does **not** provide a specific coding system (e.g., LOINC, SNOMED\u202fCT, ICD\u201110) for diagnostic results. Additional regulatory or interoperability guidance would be needed to determine the appropriate standard for that component."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_017_ec_ehds_guidance_spe_standards.txt: European Commission Guidelines for Secure Processing Environments (SPE): SPE infrastructures managed by Health Data Access Bodies (HDABs) must meet ISO/IEC 27001 certification. All analytical queries executed within the SPE must undergo automated differential privacy filtering or k-anonymity threshold checks (k >= 5) prior to output extraction.\n- From doc_013_ehds_ch4_art36.txt: EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): Each Member State shall designate one or more Health Data Access Bodies responsible for processing secondary use applications. HDABs evaluate requests, issue data permits under strict cybersecurity standards, pseudonymize or anonymize datasets, and provide access exclusively within Secure Processing Environments (SPE).\n- From doc_015_ehds_ch4_art39.txt: EHDS Chapter IV Article 39 - Secure processing environments: HDABs shall provide access to secondary electronic health data only inside Secure Processing Environments (SPE). SPEs must enforce strict technical measures preventing raw data downloads, unauthorized exports, or re-identification, permitting data users only to run queries and export aggregated statistical output.\n- From WebSearch: Official Regulatory Registry: External web reference: General healthcare regulatory index details for query 'How do HDAB governance mandates under Article 36 compare with SPE operational requirements under Article 39?'.\n\nSources: WebSearch: Official Regulatory Registry, doc_013_ehds_ch4_art36.txt, doc_015_ehds_ch4_art39.txt, doc_017_ec_ehds_guidance_spe_standards.txt"
     },
     {
       "id": "hard_04",
       "category": "Hard",
-      "question": "How do academic evaluations of SMART on FHIR OAuth2 scope-based filters impact API performance and data leakage?",
-      "eval_action": "CORRECT",
-      "confidence_score": 0.7559,
+      "question": "Analyze how Caldicott Principle 8 (inform patients) aligns with EHDS Article 3 transparency obligations.",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5709,
       "passed": true,
-      "note": "Success (2/4 keywords matched)",
+      "note": "Success (3/4 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.7559)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5709)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.39ms, Searched in 5441.51ms)."
       ],
-      "response": "**Academic Evaluation of SMART\u2011on\u2011FHIR OAuth\u202f2.0 Scope\u2011Based Filters**\n\n| Aspect | Findings from the academic studies |\n|--------|--------------------------------------|\n| **API Performance** | The papers report that applying fine\u2011grained scopes (e.g., `patient/Observation.read`) adds **\u2248\u202f15\u202f% latency** to the token\u2011exchange and request processing flow. This overhead is attributed to the additional authorization checks performed for each scoped request. \u202f[Source: doc_029_paper_fhir_oauth2_interop.txt] |\n| **Data Leakage** | Scope\u2011based filtering **significantly reduces data leakage** because the access token is limited to the exact resource types and patient contexts required by the client. By restricting permissions to the minimal necessary set, unintended exposure of unrelated clinical data is minimized. \u202f[Source: doc_029_paper_fhir_oauth2_interop.txt] |\n\n### Key Take\u2011aways\n- **Performance Trade\u2011off:** Implementing granular OAuth\u202f2.0 scopes improves security but introduces a measurable latency penalty (~15\u202f%). System architects must balance the need for strict data access controls against acceptable response times for end\u2011users.\n- **Security Benefit:** The same studies confirm that scope filtering is an effective mitigation against data leakage, ensuring that clients can only retrieve the specific FHIR resources they are authorized to access.  \n\n*Both document chunks (doc_029 and doc_027) contain identical findings; the citation above references one of them.*"
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_018_nhs_caldicott_principles.txt: UK NHS Caldicott Principles: The 8 Caldicott Principles govern handling of confidential patient information across the UK NHS. Principle 1: Justify the purpose(s).\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment. The access shall be limited to data necessary for treatment provision and must comply with authentication and authorization protocols.\n- From doc_009_ehds_ch2_art7.txt: EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: Natural persons shall have the right to restrict access of health professionals to all or parts of their electronic health data. Member States shall establish technical mechanisms for restrictions, ensuring that restriction does not prevent emergency break-glass access where the life or vital interests of the natural person are threatened.\n- From WebSearch: Official Regulatory Registry: External web reference: General healthcare regulatory index details for query 'Analyze how Caldicott Principle 8 (inform patients) aligns with EHDS Article 3 transparency obligations. '.\n\nSources: WebSearch: Official Regulatory Registry, doc_007_ehds_ch2_art4.txt, doc_009_ehds_ch2_art7.txt, doc_018_nhs_caldicott_principles.txt"
     },
     {
       "id": "hard_05",
       "category": "Hard",
       "question": "What prohibited secondary uses under EHDS Article 35 safeguard individuals against financial discrimination?",
-      "eval_action": "AMBIGUOUS",
-      "confidence_score": 0.5395,
+      "eval_action": "CORRECT",
+      "confidence_score": 0.608,
       "passed": true,
       "note": "Success (2/3 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5395)",
-        "Action Taken: Query Expansion & External Web Search Fallback (Merged with refined local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.6080)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.33ms)."
       ],
-      "response": "**Prohibited secondary use that protects individuals from financial discrimination**\n\n- **Article\u202f35\u202f(a)** \u2013 *\u201ctaking decisions detrimental to a natural person based on their electronic health data, **including increasing insurance premiums or refusing insurance contracts**;\u201d*  \n  - This clause explicitly bans any secondary\u2011use activity that would lead to higher insurance costs or denial of coverage on the basis of a person\u2019s electronic health data, thereby preventing financial discrimination.  \n\n**Reference**  \n- EHDS Chapter\u202fIV Article\u202f35 \u2013 Prohibited secondary uses of health data, point\u202f(a)\u202f[Source: doc_014_ehds_ch4_art35_prohibited_purposes.txt].  \n\n*No other items listed in Article\u202f35 directly address financial discrimination; they focus on advertising, unauthorised third\u2011party access, and public\u2011health\u2011related harms.*"
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_012_ehds_ch4_art35.txt: EHDS Chapter IV Article 35 - Prohibited secondary uses of health data: The following secondary uses are strictly prohibited: (a) taking detrimental decisions against natural persons including increasing insurance premiums or refusing coverage; (b) advertising or targeted marketing activities; (c) granting access to unauthorized third parties without a valid data permit; (d) developing harmful products or security-undermining activities.\n- From doc_009_ehds_ch2_art7.txt: EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: Natural persons shall have the right to restrict access of health professionals to all or parts of their electronic health data. Member States shall establish technical mechanisms for restrictions, ensuring that restriction does not prevent emergency break-glass access where the life or vital interests of the natural person are threatened.\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format. They shall have the right to retrieve an electronic copy of at least their electronic health data in the European electronic health record exchange format (EEHRxF).\n\nSources: doc_006_ehds_ch2_art3.txt, doc_009_ehds_ch2_art7.txt, doc_012_ehds_ch4_art35.txt"
     },
     {
       "id": "hard_06",
       "category": "Hard",
       "question": "How can Zero-Knowledge Proofs (ZKPs) be integrated into EHDS Health Data Access Bodies (HDABs) to satisfy Chapter IV security guidelines?",
       "eval_action": "CORRECT",
-      "confidence_score": 0.7443,
+      "confidence_score": 0.6853,
       "passed": false,
       "note": "Incomplete (1/4 keywords matched)",
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.7443)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.6853)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.3ms)."
       ],
-      "response": "**Integration of Zero\u2011Knowledge Proofs (ZKPs) into EHDS Health Data Access Bodies (HDABs) to Meet Chapter\u202fIV Security Guidelines**\n\n---\n\n### 1. Legal Basis \u2013 EHDS Chapter\u202fIV Requirement  \n- **Article\u202f36** mandates that each Member State designate one or more **Health Data Access Bodies (HDABs)** that \u201cgrant access to electronic health data for secondary use\u201d\u3010doc_015_ehds_ch4_art36_data_access_bodies.txt\u3011.  \n- Chapter\u202fIV also sets **security standards** that any secondary\u2011use system must satisfy (e.g., protection against re\u2011identification, integrity of processing).\n\n---\n\n### 2. Technical Solution \u2013 ZKP\u2011Based Architecture  \n\n| Component | Role in the HDAB workflow | How it satisfies Chapter\u202fIV security |\n|-----------|---------------------------|--------------------------------------|\n| **Encrypted Clinical Repository** | Stores raw patient records in a cryptographically protected format. | Raw data never leaves the HDAB, preventing unauthorized exposure. |\n| **Statistical Algorithm Engine (inside HDAB)** | Executes approved analytics directly on encrypted data using secure computation (e.g., homomorphic encryption) or on decrypted data in a tightly controlled sandbox. | Limits data exposure to the HDAB environment only. |\n| **zk\u2011SNARK Generator** | After the algorithm finishes, the engine produces a **zero\u2011knowledge succinct non\u2011interactive argument of knowledge (zk\u2011SNARK)** that proves: <br>\u2022 The computation was performed correctly. <br>\u2022 Only valid patient records were used. | Provides **mathematical proof** to the external researcher that the result is trustworthy **without revealing any underlying patient data**. |\n| **Proof Verifier (researcher side)** | Receives the statistical output together with the zk\u2011SNARK proof and verifies it locally. | Confirms compliance with the HDAB\u2019s security policy while preserving privacy. |\n| **Audit Log & Governance Layer** | Records proof generation, verification timestamps, and access decisions. | Enables traceability and accountability required by EHDS security oversight. |\n\n*The above architecture is directly described in the academic papers that propose a zk\u2011SNARK\u2011based system for health\u2011data reuse, stating that it \u201callows health researchers to run statistical algorithms on clinical data in Health Data Access Bodies (HDABs) without ever decrypting or accessing raw patient records\u201d and that it \u201cmeets EHDS Chapter\u202fIV security standards and minimizes re\u2011identification risks\u201d\u3010doc_030_paper_zkp_ehds_privacy.txt\u3011\u3010doc_028_paper_zkp_ehds_privacy.txt\u3011.*\n\n---\n\n### 3. Step\u2011by\u2011Step Integration Process  \n\n1. **Designation & Policy Definition** (per Article\u202f36)  \n   - Member State designates the HDAB and defines the list of permissible secondary\u2011use projects.  \n\n2. **Data Ingestion & Encryption**  \n   - Clinical data are ingested into the HDAB\u2019s secure repository, encrypted at rest.  \n\n3. **Project Approval**  \n   - Researchers submit a request; the HDAB validates the scientific purpose and legal basis.  \n\n4. **Secure Computation Launch**  \n   - The approved algorithm runs inside the HDAB\u2019s controlled environment.  \n\n5. **zk\u2011SNARK Proof Generation**  \n   - Upon completion, the HDAB\u2019s zk\u2011SNARK module creates a proof that the computation used **only** the authorized dataset and that the output is correct.  \n\n6. **Proof Delivery & Verification**  \n   - The HDAB sends the result **plus** the zk\u2011SNARK proof to the researcher.  \n   - The researcher verifies the proof locally; no raw data are ever transmitted.  \n\n7. **Audit & Reporting**  \n   - All proof\u2011generation events are logged for supervisory review, fulfilling the transparency obligations of Chapter\u202fIV.  \n\n---\n\n### 4. Alignment with Chapter\u202fIV Security Guidelines  \n\n- **Data Minimisation & Re\u2011identification Risk Reduction** \u2013 By never exposing raw records, the ZKP approach directly \u201cminimizes re\u2011identification risks\u201d as highlighted in the papers\u3010doc_030_paper_zkp_ehds_privacy.txt\u3011.  \n- **Integrity & Correctness Assurance** \u2013 zk\u2011SNARKs provide cryptographic assurance that the statistical output is derived from the intended dataset, satisfying integrity requirements.  \n- **Accountability & Auditable Evidence** \u2013 The generated proofs serve as verifiable evidence of compliance, supporting supervisory oversight mandated by Chapter\u202fIV.  \n\n---\n\n### 5. Practical Considerations for Implementation  \n\n- **Performance** \u2013 zk\u2011SNARK proof generation can be computationally intensive; HDABs should provision adequate processing resources.  \n- **Standardisation** \u2013 Adopt existing open\u2011source zk\u2011SNARK libraries (e.g., libsnark, zkSync) and align proof formats with emerging FHIR\u2011based security extensions if applicable.  \n- **Legal Review** \u2013 Ensure that the use of ZKPs is documented in the HDAB\u2019s data\u2011access policies to demonstrate conformity with the EHDS legal framework.  \n\n---\n\n**Conclusion**  \nIntegrating Zero\u2011Knowledge Proofs\u2014specifically zk\u2011SNARKs\u2014into the workflow of Health Data Access Bodies enables researchers to obtain validated statistical results while the HDAB retains exclusive control over raw patient data. This architecture fulfills the **security standards of EHDS Chapter\u202fIV** by guaranteeing data minimisation, integrity, and auditable proof of compliance, as explicitly described in the referenced academic literature\u3010doc_030_paper_zkp_ehds_privacy.txt\u3011\u3010doc_028_paper_zkp_ehds_privacy.txt\u3011 and grounded in the legal mandate of **Article\u202f36**\u3010doc_015_ehds_ch4_art36_data_access_bodies.txt\u3011."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_029_paper_zkp_ehds_privacy.txt: Academic Paper - Zero-Knowledge Proofs for Secondary Health Data Reuse: Proposes a zk-SNARK scheme enabling health researchers to execute statistical queries on Health Data Access Body (HDAB) datasets without decrypting individual records, satisfying EHDS Article 39 Secure Processing Environment constraints.\n- From doc_013_ehds_ch4_art36.txt: EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): Each Member State shall designate one or more Health Data Access Bodies responsible for processing secondary use applications.\n- From doc_015_ehds_ch4_art39.txt: EHDS Chapter IV Article 39 - Secure processing environments: HDABs shall provide access to secondary electronic health data only inside Secure Processing Environments (SPE).\n\nSources: doc_013_ehds_ch4_art36.txt, doc_015_ehds_ch4_art39.txt, doc_029_paper_zkp_ehds_privacy.txt"
+    },
+    {
+      "id": "hard_07",
+      "category": "Hard",
+      "question": "Contrast the legal ground of GDPR Article 9(2)(h) for care provision with Article 9(2)(i) for public health threats.",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6709,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6709)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.39ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_004_gdpr_art9_para2_i.txt: GDPR Article 9(2)(i) - Public health interest exception: Processing is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health or ensuring high standards of quality and safety of health care and of medicinal products or medical devices, on the basis of Union or Member State law providing suitable and specific measures to safeguard the rights and freedoms of the data subject.\n- From doc_003_gdpr_art9_para2_h.txt: GDPR Article 9(2)(h) - Medical diagnosis and health treatment exceptions: Processing is necessary for the purposes of preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional subject to professional secrecy.\n- From doc_001_gdpr_art9_para1.txt: GDPR Article 9(1) - Processing of special categories of personal data: Processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation shall be prohibited under European Union data protection law.\n\nSources: doc_001_gdpr_art9_para1.txt, doc_003_gdpr_art9_para2_h.txt, doc_004_gdpr_art9_para2_i.txt"
+    },
+    {
+      "id": "hard_08",
+      "category": "Hard",
+      "question": "How does MyHealth@EU handle cross-border semantic transformation between national health record formats?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5852,
+      "passed": true,
+      "note": "Success (4/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5852)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.16ms, Searched in 5343.99ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_008_ehds_ch2_art5.txt: EHDS Chapter II Article 5 - MyHealth@EU infrastructure: The European Commission shall establish a central platform for digital health (MyHealth@EU) to facilitate the exchange of electronic health data between National Contact Points for Digital Health (NCPH).\n- From doc_016_ec_ehds_guidance_myhealth.txt: European Commission Guidance on MyHealth@EU Architecture: Member States integrating National Contact Points for Digital Health (NCPH) into MyHealth@EU must enforce mutual TLS (mTLS) with X. 509 certificate validation.\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format. They shall have the right to retrieve an electronic copy of at least their electronic health data in the European electronic health record exchange format (EEHRxF).\n- From WebSearch: Official Regulatory Registry: External web reference: General healthcare regulatory index details for query 'How does MyHealth@EU handle cross-border semantic transformation between national health record formats?'.\n\nSources: WebSearch: Official Regulatory Registry, doc_006_ehds_ch2_art3.txt, doc_008_ehds_ch2_art5.txt, doc_016_ec_ehds_guidance_myhealth.txt"
+    },
+    {
+      "id": "hard_09",
+      "category": "Hard",
+      "question": "Explain how NHS DSPT 2025-26 Standard 1 (personal data protection) incorporates ICO Code of Practice guidelines.",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5162,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5162)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.18ms, Searched in 2792.93ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_020_nhs_dspt_2025_26.txt: NHS Data Security and Protection Toolkit (DSPT) 2025\u201326 Requirements: The DSPT is the annual self-assessment framework for NHS organizations and third-party software vendors. For the 2025\u201326 reporting year, official submission deadline is 30 June 2026.\n- From doc_026_ico_health_data_guidance.txt: Information Commissioner's Office (ICO) Health Data Guidance: Processing of health data under UK GDPR requires both an Article 6 lawful basis and an Article 9 condition. Anonymization requires ensuring that risk of re-identification is remote under the 'motivated intruder' test.\n- From doc_019_nhs_national_data_opt_out.txt: NHS National Data Opt-out Policy: Allows patients in England to opt out of their confidential patient information being used for research and planning. Exemptions: Opt-out does NOT apply to direct care provision, mandatory legal disclosures (court orders), or public health emergency directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI).\n- From Web: Data Security and Protection Toolkit: Data Security and Protection Toolkit: May 7, 2026 \u00b7 The Data Security and Protection Toolkit is an online self-assessment tool that allows organisations to measure their performance against the National Data Guardian\u2019s 10 data security standards.\n- From Web: Data Security Standard 1 - Personal confidential data - NHS ...: Data Security Standard 1 - Personal confidential data - NHS. : Sep 28, 2023 \u00b7 Personal confidential data is only shared for lawful and appropriate purposes.\n- From Web: Data Security and Protection Toolkit - NHS Standards Directory: Data Security and Protection Toolkit - NHS Standards Directory: May 13, 2026 \u00b7 All organisations that have access to NHS patient data and systems must use this toolkit to provide assurance that they are practising good data security and that personal information is handled correctly.\n\nSources: Web: Data Security Standard 1 - Personal confidential data - NHS ..., Web: Data Security and Protection Toolkit, Web: Data Security and Protection Toolkit - NHS Standards Directory, doc_019_nhs_national_data_opt_out.txt, doc_020_nhs_dspt_2025_26.txt, doc_026_ico_health_data_guidance.txt"
+    },
+    {
+      "id": "hard_10",
+      "category": "Hard",
+      "question": "How are FHIR UK Core profiles structured to reconcile HL7 R4 international specifications with NHS Digital extensions?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.567,
+      "passed": true,
+      "note": "Success (4/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5670)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.34ms, Searched in 2186.93ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_022_fhir_uk_core_patient.txt: NHS UK Core Patient Profile (UKCore-Patient): Restricts the base FHIR Patient resource for UK NHS deployment. Mandates inclusion of the NHS Number extension (URL: https://fhir.\n- From doc_021_fhir_r4_patient.txt: HL7 FHIR R4 Patient Resource Definition: Represents demographic and administrative data about an individual receiving healthcare services. Core elements: identifier (business identifiers), active (boolean), name (HumanName array), telecom (ContactPoint), gender (administrative-gender: male | female | other | unknown), birthDate (date), address (Address structure).\n- From doc_025_fhir_r4_consent.txt: HL7 FHIR R4 Consent Resource: Records a healthcare consumer's decision to permit or deny data processing actions. Defines scope (patient-privacy | research), provision type (deny | permit), category of health data, validity period, and authorized actors.\n- From Web: FHIR UK Core API standards - NHS England Digital: FHIR UK Core API standards - NHS England Digital: Jun 10, 2026 \u00b7 These API standards are being developed as FHIR UK Core using FHIR release 4 to create a unified approach to interoperability across England, Scotland, Wales and Northern Ireland. This is to enable consistent information flows across borders to improve health and care outcomes for all patients.\n- From Web: Standardising transfer of health and social care data: Standardising transfer of health and social care data: Jun 10, 2026 \u00b7 Therefore, where the data being transferred using the patterns and interactions methods described in this guide as clearly healthcare related, this data must be expressed using the HL7 FHIR R4 UK core data model.\n- From Web: UK Standards \u2013 HL7 UK: UK Standards \u2013 HL7 UK: The UK Core Implementation Guide aims to provide UK wide FHIR implementation guidance that has applicability across jurisdictions and care settings. It is based on FHIR Release 4 and gives extra guidance about applying FHIR in a UK context.\n\nSources: Web: FHIR UK Core API standards - NHS England Digital, Web: Standardising transfer of health and social care data, Web: UK Standards \u2013 HL7 UK, doc_021_fhir_r4_patient.txt, doc_022_fhir_uk_core_patient.txt, doc_025_fhir_r4_consent.txt"
+    },
+    {
+      "id": "hard_11",
+      "category": "Hard",
+      "question": "What break-glass emergency access protocols exist under EHDS Article 7 for life-threatening situations?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5718,
+      "passed": true,
+      "note": "Success (4/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5718)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.2ms, Searched in 4560.75ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_009_ehds_ch2_art7.txt: EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: Natural persons shall have the right to restrict access of health professionals to all or parts of their electronic health data. Member States shall establish technical mechanisms for restrictions, ensuring that restriction does not prevent emergency break-glass access where the life or vital interests of the natural person are threatened.\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment.\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format.\n- From WebSearch: Official Regulatory Registry: Under EHDS Chapter II Article 7, break-glass emergency access allows clinicians to override patient restrictions when vital interests or life are threatened.\n\nSources: WebSearch: Official Regulatory Registry, doc_006_ehds_ch2_art3.txt, doc_007_ehds_ch2_art4.txt, doc_009_ehds_ch2_art7.txt"
+    },
+    {
+      "id": "hard_12",
+      "category": "Hard",
+      "question": "How does smart contract consent management support cross-border consent revocation in EHDS networks?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6819,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6819)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.15ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_028_paper_blockchain_consent.txt: Academic Paper - Smart Contract Consent Engine for EHDS Networks: Evaluates Ethereum smart contracts for immutably logging patient consent preferences in cross-border MyHealth@EU exchanges. Cryptographic hashes of opt-out decisions are stored on-chain, while clinical payloads remain off-chain, verifying compliance with EHDS Article 7 and GDPR Article 9 requirements.\n- From doc_009_ehds_ch2_art7.txt: EHDS Chapter II Article 7 - Right of natural persons to restrict access of health professionals: Natural persons shall have the right to restrict access of health professionals to all or parts of their electronic health data. Member States shall establish technical mechanisms for restrictions, ensuring that restriction does not prevent emergency break-glass access where the life or vital interests of the natural person are threatened.\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format. They shall have the right to retrieve an electronic copy of at least their electronic health data in the European electronic health record exchange format (EEHRxF).\n\nSources: doc_006_ehds_ch2_art3.txt, doc_009_ehds_ch2_art7.txt, doc_028_paper_blockchain_consent.txt"
+    },
+    {
+      "id": "hard_13",
+      "category": "Hard",
+      "question": "Analyze how EHDS Article 33 secondary data categories encompass genomic and proteomic dataset exports.",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6486,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6486)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.33ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_010_ehds_ch4_art33.txt: EHDS Chapter IV Article 33 - Categories of electronic health data for secondary use: Data holders shall make available for secondary use the following categories of electronic health data: (a) Electronic Health Records (EHRs); (b) socio-economic, environmental, and lifestyle health factors; (c) genetic, genomic, and proteomic data; (d) person-generated health data (wearables); (e) clinical trial data; (f) registries of medicinal products and medical devices.\n- From doc_013_ehds_ch4_art36.txt: EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): Each Member State shall designate one or more Health Data Access Bodies responsible for processing secondary use applications.\n- From doc_011_ehds_ch4_art34.txt: EHDS Chapter IV Article 34 - Permitted purposes for secondary use: Secondary use of electronic health data shall be permitted only for specified purposes: (a) public health interest activities; (b) public health tasks of healthcare public bodies; (c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products or medical devices; (e) training, testing, and evaluating AI algorithms in medical devices.\n\nSources: doc_010_ehds_ch4_art33.txt, doc_011_ehds_ch4_art34.txt, doc_013_ehds_ch4_art36.txt"
+    },
+    {
+      "id": "hard_14",
+      "category": "Hard",
+      "question": "How does ICO guidance distinguish between static pseudonymisation and zero-risk anonymisation in healthcare?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5421,
+      "passed": true,
+      "note": "Success (4/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5421)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.37ms, Searched in 3965.05ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_026_ico_health_data_guidance.txt: Information Commissioner's Office (ICO) Health Data Guidance: Processing of health data under UK GDPR requires both an Article 6 lawful basis and an Article 9 condition. Anonymization requires ensuring that risk of re-identification is remote under the 'motivated intruder' test.\n- From doc_019_nhs_national_data_opt_out.txt: NHS National Data Opt-out Policy: Allows patients in England to opt out of their confidential patient information being used for research and planning. Exemptions: Opt-out does NOT apply to direct care provision, mandatory legal disclosures (court orders), or public health emergency directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI).\n- From doc_018_nhs_caldicott_principles.txt: UK NHS Caldicott Principles: The 8 Caldicott Principles govern handling of confidential patient information across the UK NHS. Principle 1: Justify the purpose(s).\n- From WebSearch: Official Regulatory Registry: External web reference: General healthcare regulatory index details for query 'How does ICO guidance distinguish between static pseudonymisation and zero-risk anonymisation in healthcare?'.\n\nSources: WebSearch: Official Regulatory Registry, doc_018_nhs_caldicott_principles.txt, doc_019_nhs_national_data_opt_out.txt, doc_026_ico_health_data_guidance.txt"
+    },
+    {
+      "id": "hard_15",
+      "category": "Hard",
+      "question": "Evaluate the interaction between NHS National Data Opt-out COPI statutory overrides and Caldicott confidentiality rules.",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6353,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6353)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.45ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_019_nhs_national_data_opt_out.txt: NHS National Data Opt-out Policy: Allows patients in England to opt out of their confidential patient information being used for research and planning. Exemptions: Opt-out does NOT apply to direct care provision, mandatory legal disclosures (court orders), or public health emergency directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI).\n- From doc_018_nhs_caldicott_principles.txt: UK NHS Caldicott Principles: The 8 Caldicott Principles govern handling of confidential patient information across the UK NHS. Principle 1: Justify the purpose(s).\n- From doc_026_ico_health_data_guidance.txt: Information Commissioner's Office (ICO) Health Data Guidance: Processing of health data under UK GDPR requires both an Article 6 lawful basis and an Article 9 condition. Anonymization requires ensuring that risk of re-identification is remote under the 'motivated intruder' test.\n\nSources: doc_018_nhs_caldicott_principles.txt, doc_019_nhs_national_data_opt_out.txt, doc_026_ico_health_data_guidance.txt"
+    },
+    {
+      "id": "hard_16",
+      "category": "Hard",
+      "question": "How do FHIR Consent resource policyRule elements reflect state-level or national opt-out preferences?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.4818,
+      "passed": true,
+      "note": "Success (2/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4818)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.12ms, Searched in 2140.73ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_025_fhir_r4_consent.txt: HL7 FHIR R4 Consent Resource: Records a healthcare consumer's decision to permit or deny data processing actions. Defines scope (patient-privacy | research), provision type (deny | permit), category of health data, validity period, and authorized actors.\n- From doc_028_paper_blockchain_consent.txt: Academic Paper - Smart Contract Consent Engine for EHDS Networks: Evaluates Ethereum smart contracts for immutably logging patient consent preferences in cross-border MyHealth@EU exchanges. Cryptographic hashes of opt-out decisions are stored on-chain, while clinical payloads remain off-chain, verifying compliance with EHDS Article 7 and GDPR Article 9 requirements.\n- From doc_002_gdpr_art9_para2_a.txt: GDPR Article 9(2)(a) - Explicit consent exception: Paragraph 1 prohibition shall not apply if the data subject has given explicit consent to the processing of those personal data for one or more specified purposes, except where Union or Member State law provide that the prohibition referred to in paragraph 1 may not be lifted by the data subject.\n- From Web: Consent - FHIR v6.0.0-ballot4: Consent - FHIR v6. 0.\n- From Web: Consent - FHIR v5.0.0: Consent - FHIR v5. 0.\n- From Web: Consent - FHIR v6.0.0-ballot3: Consent - FHIR v6. 0.\n\nSources: Web: Consent - FHIR v5.0.0, Web: Consent - FHIR v6.0.0-ballot3, Web: Consent - FHIR v6.0.0-ballot4, doc_002_gdpr_art9_para2_a.txt, doc_025_fhir_r4_consent.txt, doc_028_paper_blockchain_consent.txt"
+    },
+    {
+      "id": "hard_17",
+      "category": "Hard",
+      "question": "What technical security controls in EC SPE guidance prevent data extraction during statistical analysis?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5561,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5561)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.14ms, Searched in 3468.52ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_017_ec_ehds_guidance_spe_standards.txt: European Commission Guidelines for Secure Processing Environments (SPE): SPE infrastructures managed by Health Data Access Bodies (HDABs) must meet ISO/IEC 27001 certification. All analytical queries executed within the SPE must undergo automated differential privacy filtering or k-anonymity threshold checks (k >= 5) prior to output extraction.\n- From doc_015_ehds_ch4_art39.txt: SPEs must enforce strict technical measures preventing raw data downloads, unauthorized exports, or re-identification, permitting data users only to run queries and export aggregated statistical output.\n- From doc_005_gdpr_art89_para1.txt: GDPR Article 89(1) - Technical and organizational safeguards for scientific research: Processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, shall be subject to appropriate safeguards in accordance with this Regulation. Those safeguards shall ensure that technical and organizational measures are in place, in particular to ensure respect for the principle of data minimization, which may include pseudonymization and encryption.\n- From Web: D7.1 Guideline on how to use data in a secure processing ...: D7. 1 Guideline on how to use data in a secure processing.\n- From Web: M7.4 Draft technical, functional and security specifications ...: M7. 4 Draft technical, functional and security specifications.\n- From Web: Types Of Data Security Controls & Best Practices to Implement ...: Types Of Data Security Controls & Best Practices to Implement. : Nov 3, 2023 \u00b7 This blog explains what data security controls are, their types, and best practices to implement them.\n\nSources: Web: D7.1 Guideline on how to use data in a secure processing ..., Web: M7.4 Draft technical, functional and security specifications ..., Web: Types Of Data Security Controls & Best Practices to Implement ..., doc_005_gdpr_art89_para1.txt, doc_015_ehds_ch4_art39.txt, doc_017_ec_ehds_guidance_spe_standards.txt"
+    },
+    {
+      "id": "hard_18",
+      "category": "Hard",
+      "question": "Contrast GDPR Article 9(2)(a) explicit consent requirements with EHDS Article 38 opt-out default mechanisms.",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6239,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6239)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.13ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_002_gdpr_art9_para2_a.txt: GDPR Article 9(2)(a) - Explicit consent exception: Paragraph 1 prohibition shall not apply if the data subject has given explicit consent to the processing of those personal data for one or more specified purposes, except where Union or Member State law provide that the prohibition referred to in paragraph 1 may not be lifted by the data subject.\n- From doc_028_paper_blockchain_consent.txt: Cryptographic hashes of opt-out decisions are stored on-chain, while clinical payloads remain off-chain, verifying compliance with EHDS Article 7 and GDPR Article 9 requirements.\n- From doc_014_ehds_ch4_art38.txt: EHDS Chapter IV Article 38 - Right to opt-out from secondary data use: Natural persons shall have the right to opt-out from the processing of their electronic health data for secondary use.\n\nSources: doc_002_gdpr_art9_para2_a.txt, doc_014_ehds_ch4_art38.txt, doc_028_paper_blockchain_consent.txt"
+    },
+    {
+      "id": "hard_19",
+      "category": "Hard",
+      "question": "How does an HDAB evaluate data minimization when issuing multi-country secondary use data permits under Article 36?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5756,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5756)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.14ms, Searched in 2864.97ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_013_ehds_ch4_art36.txt: EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): Each Member State shall designate one or more Health Data Access Bodies responsible for processing secondary use applications. HDABs evaluate requests, issue data permits under strict cybersecurity standards, pseudonymize or anonymize datasets, and provide access exclusively within Secure Processing Environments (SPE).\n- From doc_015_ehds_ch4_art39.txt: EHDS Chapter IV Article 39 - Secure processing environments: HDABs shall provide access to secondary electronic health data only inside Secure Processing Environments (SPE).\n- From doc_017_ec_ehds_guidance_spe_standards.txt: European Commission Guidelines for Secure Processing Environments (SPE): SPE infrastructures managed by Health Data Access Bodies (HDABs) must meet ISO/IEC 27001 certification. All analytical queries executed within the SPE must undergo automated differential privacy filtering or k-anonymity threshold checks (k >= 5) prior to output extraction.\n- From Web: EHDS Secondary Use: Who Verifies the Researcher Asking for ...: EHDS Secondary Use: Who Verifies the Researcher Asking for. : Jul 10, 2026 \u00b7 Apply for a data permit covering a defined research project, against a defined scope of health data, processed inside a Secure Processing Environment under a specified retention window.\n- From Web: EHDS 2027: Health Data Access Bodies and data permits: EHDS 2027: Health Data Access Bodies and data permits: Mar 18, 2026 \u00b7 A researcher wanting to study a pathology with data from several Member States submits the request to one HDAB only (the one of its country or the one designated by the coordination node), which routes the request towards the other competent HDABs.\n- From Web: EHDS - Access to health data for secondary use under the ...: EHDS - Access to health data for secondary use under the. : Nov 20, 2024 \u00b7 Each Member State must designate an HDAB which is, inter alia, responsible for deciding on data access applications, authorizing and issuing data permits, providing access to electronic.\n\nSources: Web: EHDS - Access to health data for secondary use under the ..., Web: EHDS 2027: Health Data Access Bodies and data permits, Web: EHDS Secondary Use: Who Verifies the Researcher Asking for ..., doc_013_ehds_ch4_art36.txt, doc_015_ehds_ch4_art39.txt, doc_017_ec_ehds_guidance_spe_standards.txt"
+    },
+    {
+      "id": "hard_20",
+      "category": "Hard",
+      "question": "What role do National Contact Points for eHealth (NCPH) play in validating clinician credentials across borders?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5156,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5156)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.31ms, Searched in 4157.65ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_008_ehds_ch2_art5.txt: EHDS Chapter II Article 5 - MyHealth@EU infrastructure: The European Commission shall establish a central platform for digital health (MyHealth@EU) to facilitate the exchange of electronic health data between National Contact Points for Digital Health (NCPH). The infrastructure enables cross-border transmission of Patient Summaries (IPS), e-Prescriptions, e-Dispensations, diagnostic images, laboratory test results, and hospital discharge reports.\n- From doc_016_ec_ehds_guidance_myhealth.txt: European Commission Guidance on MyHealth@EU Architecture: Member States integrating National Contact Points for Digital Health (NCPH) into MyHealth@EU must enforce mutual TLS (mTLS) with X. 509 certificate validation.\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment. The access shall be limited to data necessary for treatment provision and must comply with authentication and authorization protocols.\n- From Web: [PDF] SITUATION ANALYSIS ON EVIDENCE-INFORMED HEALTH ...: [PDF] SITUATION ANALYSIS ON EVIDENCE-INFORMED HEALTH. : National Center for Public Health (NCPH) are responsible for the development and implementation at national level of measures to strengthen public health and.\n- From Web: patient portals role: Topics by Science.gov: patient portals role: Topics by Science. gov: Online patient portals can provide vital information and support in managing health tasks through notification and reminder features.\n- From Web: Chapter: Appendix E: Commissioned Papers: Chapter: Appendix E: Commissioned Papers: By implementing a health care reference data model, bolstered by digital tools at the national level, the groundwork for a highly function HIS will be laid.\n\nSources: Web: Chapter: Appendix E: Commissioned Papers, Web: [PDF] SITUATION ANALYSIS ON EVIDENCE-INFORMED HEALTH ..., Web: patient portals role: Topics by Science.gov, doc_007_ehds_ch2_art4.txt, doc_008_ehds_ch2_art5.txt, doc_016_ec_ehds_guidance_myhealth.txt"
+    },
+    {
+      "id": "hard_21",
+      "category": "Hard",
+      "question": "How are FHIR Observation LOINC code bindings validated in UK Core healthcare IT integrations?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5118,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5118)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.17ms, Searched in 1533.7ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_022_fhir_uk_core_patient.txt: NHS UK Core Patient Profile (UKCore-Patient): Restricts the base FHIR Patient resource for UK NHS deployment. Mandates inclusion of the NHS Number extension (URL: https://fhir.\n- From doc_023_fhir_r4_observation.txt: HL7 FHIR R4 Observation Resource: Central element for clinical measurements, vital signs, and laboratory diagnostic results. Key elements: status (registered | preliminary | final | amended), category (vital-signs, laboratory, imaging), code (LOINC / SNOMED CT concepts), subject (Reference to Patient), effectiveDateTime, valueQuantity or valueCodeableConcept.\n- From doc_098_fhir_patient_69.txt: EHR FHIR Export for Patient ID PAT-0069. Active: true.\n- From Web: UK Core FHIR Conformance in Practice for NHS Integrations: UK Core FHIR Conformance in Practice for NHS Integrations: Aug 11, 2026 \u00b7 Being conformant means your resources validate against the specific UK Core profiles in play, at a pinned version of the implementation guide, including the terminology bindings, not just the structural shape.\n- From Web: FHIR vital signs profiles - NHS England Digital: FHIR vital signs profiles - NHS England Digital: It is important to recognise that when using FHIR observations resources within the UK, systems must ensure that as well as the FHIR mandated LOINC \u201cmagic value\u201d, an appropriate SNOMED CT value is also included.\n- From Web: UK Core Implementation Guide 1.0.0 - STU1 - Standards: UK Core Implementation Guide 1. 0.\n\nSources: Web: FHIR vital signs profiles - NHS England Digital, Web: UK Core FHIR Conformance in Practice for NHS Integrations, Web: UK Core Implementation Guide 1.0.0 - STU1 - Standards, doc_022_fhir_uk_core_patient.txt, doc_023_fhir_r4_observation.txt, doc_098_fhir_patient_69.txt"
+    },
+    {
+      "id": "hard_22",
+      "category": "Hard",
+      "question": "What audit trail logging requirements are specified under GOV.UK Cyber Security Strategy for patient record queries?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5272,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5272)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.15ms, Searched in 1611.97ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_027_govuk_data_security_standards.txt: GOV. UK Cyber Security Strategy for Health Data: All UK public health platforms processing sensitive citizen records must implement TLS 1.\n- From doc_020_nhs_dspt_2025_26.txt: NHS Data Security and Protection Toolkit (DSPT) 2025\u201326 Requirements: The DSPT is the annual self-assessment framework for NHS organizations and third-party software vendors. For the 2025\u201326 reporting year, official submission deadline is 30 June 2026.\n- From doc_017_ec_ehds_guidance_spe_standards.txt: European Commission Guidelines for Secure Processing Environments (SPE): SPE infrastructures managed by Health Data Access Bodies (HDABs) must meet ISO/IEC 27001 certification. All analytical queries executed within the SPE must undergo automated differential privacy filtering or k-anonymity threshold checks (k >= 5) prior to output extraction.\n- From Web: Audit Logging Best Practices, Components & Challenges - Sonar: Audit Logging Best Practices, Components & Challenges - Sonar: This guide will walk you through everything you need to know about audit logging in software development, from core concepts and best practices.\n- From Web: The power of audit trails in ensuring transparency - Eligo Voting: The power of audit trails in ensuring transparency - Eligo Voting: 15 Apr 2025 \u00b7 Discover the power of audit trails for transparency on our blog. Explore how audit trails enhance accountability and accuracy.\n- From Web: What is an audit trail? Everything you need to know - Optro: What is an audit trail? Everything you need to know - Optro: 31 Mar 2026 \u00b7 Key Takeaway: An audit trail is a tamper-evident, time-stamped record of who did what, when, where, and why across a system or process.\n\nSources: Web: Audit Logging Best Practices, Components & Challenges - Sonar, Web: The power of audit trails in ensuring transparency - Eligo Voting, Web: What is an audit trail? Everything you need to know - Optro, doc_017_ec_ehds_guidance_spe_standards.txt, doc_020_nhs_dspt_2025_26.txt, doc_027_govuk_data_security_standards.txt"
+    },
+    {
+      "id": "hard_23",
+      "category": "Hard",
+      "question": "Analyze the legal enforceability of EHDS Regulation (EU) 2025/327 before its March 2027 application date.",
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.4405,
+      "passed": false,
+      "note": "Incomplete (1/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: INCORRECT (Confidence Score: 0.4405)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 3677.57ms."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: Regulation (EU) 2025/327 of the European Parliament and of ...: Regulation (EU) 2025/327 of the European Parliament and of. : This Regulation provides the legal basis for the processing of personal electronic health data in MyHealth@EU as a task carried out in the public interest assigned by Union law referred to in Article 6(1), point (e), of Regulation (EU) 2016/679.\n- From Web: The European Health Data Space is in force: implications for ...: The European Health Data Space is in force: implications for. : Mar 25, 2026 \u00b7 We first consider the legal obligations arising from the EHDS Regulation for healthcare providers, manufacturers and suppliers of EHR systems, and life sciences organisations (Section one), before analysing the implementation steps recommended for affected organisations during the transition period (Section two).\n- From Web: EHDS \u2014 European Health Data Space \u2014 Clinical Compliance EU: EHDS \u2014 European Health Data Space \u2014 Clinical Compliance EU: The European Health Data Space Regulation (EU 2025/327), published on 5 March 2025, creates a uniform framework for accessing, sharing, and using electronic health data across the entire European Union.\n\nSources: Web: EHDS \u2014 European Health Data Space \u2014 Clinical Compliance EU, Web: Regulation (EU) 2025/327 of the European Parliament and of ..., Web: The European Health Data Space is in force: implications for ..."
+    },
+    {
+      "id": "hard_24",
+      "category": "Hard",
+      "question": "How does the NHS DSPT 2025-26 toolkit assess cyber incident reporting compliance within 72 hours?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.7471,
+      "passed": false,
+      "note": "Incomplete (0/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7471)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.2ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_020_nhs_dspt_2025_26.txt: NHS Data Security and Protection Toolkit (DSPT) 2025\u201326 Requirements: The DSPT is the annual self-assessment framework for NHS organizations and third-party software vendors. For the 2025\u201326 reporting year, official submission deadline is 30 June 2026.\n- From doc_027_govuk_data_security_standards.txt: GOV. UK Cyber Security Strategy for Health Data: All UK public health platforms processing sensitive citizen records must implement TLS 1.\n- From doc_017_ec_ehds_guidance_spe_standards.txt: European Commission Guidelines for Secure Processing Environments (SPE): SPE infrastructures managed by Health Data Access Bodies (HDABs) must meet ISO/IEC 27001 certification. All analytical queries executed within the SPE must undergo automated differential privacy filtering or k-anonymity threshold checks (k >= 5) prior to output extraction.\n\nSources: doc_017_ec_ehds_guidance_spe_standards.txt, doc_020_nhs_dspt_2025_26.txt, doc_027_govuk_data_security_standards.txt"
+    },
+    {
+      "id": "hard_25",
+      "category": "Hard",
+      "question": "How do FHIR Bundle resources ensure transactional atomicity during batch patient telemetry ingest?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.4906,
+      "passed": true,
+      "note": "Success (3/4 keywords matched)",
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4906)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.22ms, Searched in 1488.59ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_024_fhir_r4_bundle.txt: HL7 FHIR R4 Bundle Resource: A wrapper container for a collection of FHIR resources. Used in RESTful API responses, batch transactions, and document payloads (e.\n- From doc_025_fhir_r4_consent.txt: HL7 FHIR R4 Consent Resource: Records a healthcare consumer's decision to permit or deny data processing actions. Defines scope (patient-privacy | research), provision type (deny | permit), category of health data, validity period, and authorized actors.\n- From doc_021_fhir_r4_patient.txt: HL7 FHIR R4 Patient Resource Definition: Represents demographic and administrative data about an individual receiving healthcare services. Core elements: identifier (business identifiers), active (boolean), name (HumanName array), telecom (ContactPoint), gender (administrative-gender: male | female | other | unknown), birthDate (date), address (Address structure).\n- From Web: FHIR Transaction Bundle: Atomic Healthcare Data Exchange: FHIR Transaction Bundle: Atomic Healthcare Data Exchange: Unlike a FHIR Batch Bundle, which processes entries independently, a Transaction Bundle guarantees that a complex update spanning multiple resources, such as creating a new Patient, an Encounter, and a Condition simultaneously, either fully commits or fully fails, preventing partial writes that would corrupt clinical data integrity.\n- From Web: Bundling FHIR resources - AWS HealthLake: Bundling FHIR resources - AWS HealthLake: A FHIR Bundle is a container for a collection of FHIR resources in AWS HealthLake. AWS HealthLake supports two types of bundles with different processing behaviors.\n- From Web: FHIR Bundle transactions and batches - Oracle Help Center: FHIR Bundle transactions and batches - Oracle Help Center: Basic bundle transaction Oracle FHIR transaction bundle has a few important elements. Bundle multiple related resources A common use for FHIR bundle transactions is to persist a collection of related resources to a server.\n\nSources: Web: Bundling FHIR resources - AWS HealthLake, Web: FHIR Bundle transactions and batches - Oracle Help Center, Web: FHIR Transaction Bundle: Atomic Healthcare Data Exchange, doc_021_fhir_r4_patient.txt, doc_024_fhir_r4_bundle.txt, doc_025_fhir_r4_consent.txt"
     },
     {
       "id": "adv_01",
       "category": "Adversarial",
       "question": "What are the penalty fine tiers under US HIPAA Privacy Rule for patient data breaches?",
       "eval_action": "INCORRECT",
-      "confidence_score": 0.3845,
+      "confidence_score": 0.4034,
       "passed": true,
       "note": "Correct Refusal / External Search Identification",
       "pipeline_log": [
-        "Evaluator Action: INCORRECT (Confidence Score: 0.3845)",
-        "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+        "Evaluator Action: INCORRECT (Confidence Score: 0.4034)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 3967.54ms."
       ],
-      "response": "**Penalty Fine Tiers under the U.S. HIPAA Privacy Rule (as provided)**  \n\n- The HIPAA Privacy Rule sets **national standards** for safeguarding individuals\u2019 medical records.  \n- It includes **penalty tiers** that can reach **up to\u202f$1.5\u202fmillion per year** for violations.  \n\n*Citation:* [Source: WebSearch: Official Regulatory Registry \u2013 Document Chunk 1]\n\n**What is missing from the provided corpus**\n\n- The specific breakdown of the tiered penalty amounts (e.g., the four categories based on the level of negligence, the per\u2011violation caps, and the maximum annual aggregate limits) is **not included** in the supplied document. Further details would be needed to list each tier\u2019s exact dollar range."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From WebSearch: Official Regulatory Registry: US HIPAA Privacy Rule establishes national standards to protect individuals' medical records, enforcing penalty tiers up to $1. 5M per year.\n\nSources: WebSearch: Official Regulatory Registry"
     },
     {
       "id": "adv_02",
       "category": "Adversarial",
       "question": "What specific breaking changes were introduced in FHIR Release 4B (R4B) compared to Release 5 (R5)?",
       "eval_action": "INCORRECT",
-      "confidence_score": 0.2989,
-      "passed": true,
-      "note": "Correct Refusal / External Search Identification",
+      "confidence_score": 0.298,
+      "passed": false,
+      "note": "Failure on Out-of-Scope",
       "pipeline_log": [
-        "Evaluator Action: INCORRECT (Confidence Score: 0.2989)",
-        "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+        "Evaluator Action: INCORRECT (Confidence Score: 0.2980)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 3061.16ms."
       ],
-      "response": "The provided document corpus does not contain information to answer this question."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: Versions - FHIR v5.0.0 - HL7.org: Versions - FHIR v5. 0.\n- From Web: FHIR R4 vs R5 vs R6: All Versions Compared (2026): FHIR R4 vs R5 vs R6: All Versions Compared (2026): 7 Oct 2025 \u00b7 FHIR R5 introduces breaking changes and lacks backward compatibility, making it difficult for organizations to transition from FHIR R4 without.\n- From Web: History - FHIR v6.0.0-ballot4 - FHIR specification: History - FHIR v6. 0.\n\nSources: Web: FHIR R4 vs R5 vs R6: All Versions Compared (2026), Web: History - FHIR v6.0.0-ballot4 - FHIR specification, Web: Versions - FHIR v5.0.0 - HL7.org"
     },
     {
       "id": "adv_03",
       "category": "Adversarial",
       "question": "What is the maximum CPU memory limit allowed for Docker containers hosting a MyHealth@EU gateway?",
       "eval_action": "INCORRECT",
-      "confidence_score": 0.1649,
-      "passed": true,
-      "note": "Correct Refusal / External Search Identification",
+      "confidence_score": 0.1786,
+      "passed": false,
+      "note": "Failure on Out-of-Scope",
       "pipeline_log": [
-        "Evaluator Action: INCORRECT (Confidence Score: 0.1649)",
-        "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+        "Evaluator Action: INCORRECT (Confidence Score: 0.1786)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 1308.41ms."
       ],
-      "response": "The provided document corpus does not contain information to answer this question."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: [PDF] The challenges of national health data ecosystems in feeding ...: [PDF] The challenges of national health data ecosystems in feeding. : 8 Dec 2025 \u00b7 With containerization, you can manage variable loads thanks to dynamic autoscaling of pods based on CPU, memory or custom metrics, elastic.\n- From Web: Building accountability into the Internet of Things: the IoT ...: Building accountability into the Internet of Things: the IoT. : 27 Jan 2018 \u00b7 This paper outlines the IoT Databox model as a means of making the Internet of Things (IoT) accountable to individuals.\n- From Web: Ask HN: What was your \"oh shit\" moment with GenAI?: Ask HN: What was your \"oh shit\" moment with GenAI?: 6 Jun 2026 \u00b7 It found several real memory bugs, and now that service has been running since with no problems. IAC and Docker Compose stuff.\n\nSources: Web: Ask HN: What was your \"oh shit\" moment with GenAI?, Web: Building accountability into the Internet of Things: the IoT ..., Web: [PDF] The challenges of national health data ecosystems in feeding ..."
     },
     {
       "id": "adv_04",
       "category": "Adversarial",
       "question": "Does the EHDS regulation mandate that all EU citizens install a mobile app called EuroHealthWallet by 2026?",
-      "eval_action": "AMBIGUOUS",
-      "confidence_score": 0.4814,
-      "passed": true,
-      "note": "Correct Refusal / External Search Identification",
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.4198,
+      "passed": false,
+      "note": "Failure on Out-of-Scope",
       "pipeline_log": [
-        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4814)",
-        "Action Taken: Query Expansion & External Web Search Fallback (Merged with refined local chunks)."
+        "Evaluator Action: INCORRECT (Confidence Score: 0.4198)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 4329.55ms."
       ],
-      "response": "The provided document corpus does not contain information to answer this question."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: EHDS FAQs | Official EU Commission Q&A | EHDS Explorer: EHDS FAQs | Official EU Commission Q&A | EHDS Explorer: Official Frequently Asked Questions on the European Health Data Space (EHDS) Regulation from the European Commission DG SANTE.\n- From Web: European Health Data Space (EHDS) - EUR-Lex: European Health Data Space (EHDS) - EUR-Lex: Mar 26, 2026 \u00b7 Regulation (EU) 2025/327 establishes the European Health Data Space (EHDS) to enhance individuals\u2019 access to and control over their personal electronic health data to improve healthcare delivery and support research and innovation.\n- From Web: European Health Data Space Regulation (EHDS) - Public Health: European Health Data Space Regulation (EHDS) - Public Health: The European Health Data Space (EHDS) is designed to benefit all EU citizens, including patients, healthcare professionals, researchers, policymakers, and industry players.\n\nSources: Web: EHDS FAQs | Official EU Commission Q&A | EHDS Explorer, Web: European Health Data Space (EHDS) - EUR-Lex, Web: European Health Data Space Regulation (EHDS) - Public Health"
     },
     {
       "id": "adv_05",
       "category": "Adversarial",
       "question": "What are the exact LOINC codes used for measuring blood glucose levels in FHIR Observation resources according to our corpus?",
       "eval_action": "INCORRECT",
-      "confidence_score": 0.4467,
-      "passed": true,
-      "note": "Correct Refusal / External Search Identification",
+      "confidence_score": 0.3866,
+      "passed": false,
+      "note": "Failure on Out-of-Scope",
       "pipeline_log": [
-        "Evaluator Action: INCORRECT (Confidence Score: 0.4467)",
-        "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+        "Evaluator Action: INCORRECT (Confidence Score: 0.3866)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 3268.6ms."
       ],
-      "response": "The provided document corpus does not contain information to answer this question."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: LOINC Codes 101: Structure, Lookup & Comparison - MedHeave: LOINC Codes 101: Structure, Lookup & Comparison - MedHeave: 12 Aug 2026 \u00b7 Learn what LOINC codes are, how to find them, their six-part structure, uses, and differences from CPT, ICD-10-CM, and SNOMED CT.\n- From Web: LOINC \u2013 IVD Test Code (LIVD) Mapping - FHIR specification: LOINC \u2013 IVD Test Code (LIVD) Mapping - FHIR specification: LIS Test Result Code = 456 - Fasting Glucose Urine mg/dL MAP TO LOINC Code = 63382-6 Fasting glucose [Mass/volume] in Urine; LIS Test Result Code = 789 - 1 Hour.\n- From Web: Harmonizing Logical Observation Identifiers Names and Codes ...: Harmonizing Logical Observation Identifiers Names and Codes. : 9 Mar 2026 \u00b7 While standards such as Logical Observation Identifiers Names and Codes (LOINC) can ensure semantic interoperability for laboratory observations.\n\nSources: Web: Harmonizing Logical Observation Identifiers Names and Codes ..., Web: LOINC Codes 101: Structure, Lookup & Comparison - MedHeave, Web: LOINC \u2013 IVD Test Code (LIVD) Mapping - FHIR specification"
     },
     {
       "id": "adv_06",
       "category": "Adversarial",
       "question": "How does Article 17 of GDPR (Right to be Forgotten) apply to immutable blockchain smart contracts in healthcare?",
-      "eval_action": "INCORRECT",
-      "confidence_score": 0.4281,
-      "passed": true,
-      "note": "Correct Refusal / External Search Identification",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.4907,
+      "passed": false,
+      "note": "Failure on Out-of-Scope",
       "pipeline_log": [
-        "Evaluator Action: INCORRECT (Confidence Score: 0.4281)",
-        "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4907)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.32ms, Searched in 4640.37ms)."
       ],
-      "response": "The provided document corpus does not contain information to answer this question."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_028_paper_blockchain_consent.txt: Academic Paper - Smart Contract Consent Engine for EHDS Networks: Evaluates Ethereum smart contracts for immutably logging patient consent preferences in cross-border MyHealth@EU exchanges. Cryptographic hashes of opt-out decisions are stored on-chain, while clinical payloads remain off-chain, verifying compliance with EHDS Article 7 and GDPR Article 9 requirements.\n- From doc_004_gdpr_art9_para2_i.txt: GDPR Article 9(2)(i) - Public health interest exception: Processing is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health or ensuring high standards of quality and safety of health care and of medicinal products or medical devices, on the basis of Union or Member State law providing suitable and specific measures to safeguard the rights and freedoms of the data subject.\n- From doc_003_gdpr_art9_para2_h.txt: GDPR Article 9(2)(h) - Medical diagnosis and health treatment exceptions: Processing is necessary for the purposes of preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional subject to professional secrecy.\n- From Web: How GDPR Affects Blockchain Technology - GDPR Local: How GDPR Affects Blockchain Technology - GDPR Local: Jan 8, 2026 \u00b7 GDPR\u2019s \u201cright to be forgotten\u201d (Article 17) allows individuals to demand the deletion of their personal data under specific circumstances. At the same time, blockchain\u2019s defining characteristic is immutability: the inability to alter or delete data once it\u2019s recorded on the distributed ledger.\n- From Web: The GDPR Paradox: The Right to Be Forgotten on an Immutable ...: The GDPR Paradox: The Right to Be Forgotten on an Immutable. : Feb 18, 2026 \u00b7 GDPR requirements, specifically Article 17, grant individuals the right to be forgotten (Right to Erasure), meaning they can demand you delete data associated with them.\n- From Web: Blockchain: the right to be forgotten (or not) | Paul ...: Blockchain: the right to be forgotten (or not) | Paul. : In this article for New Law Journal, I explore with Dean Armstrong QC how a more nuanced analysis of Article 17 yields some possible solutions to the problem of blockchain data being immutable and provide guidance on how data controllers might respond to erasure requests.\n\nSources: Web: Blockchain: the right to be forgotten (or not) | Paul ..., Web: How GDPR Affects Blockchain Technology - GDPR Local, Web: The GDPR Paradox: The Right to Be Forgotten on an Immutable ..., doc_003_gdpr_art9_para2_h.txt, doc_004_gdpr_art9_para2_i.txt, doc_028_paper_blockchain_consent.txt"
+    },
+    {
+      "id": "adv_07",
+      "category": "Adversarial",
+      "question": "What FDA 21 CFR Part 11 electronic signature rules apply to clinical trial management in US hospitals?",
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.3821,
+      "passed": false,
+      "note": "Failure on Out-of-Scope",
+      "pipeline_log": [
+        "Evaluator Action: INCORRECT (Confidence Score: 0.3821)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 2265.91ms."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: 21 CFR Part 11 -- Electronic Records; Electronic Signatures: 21 CFR Part 11 -- Electronic Records; Electronic Signatures: Electronic signatures and handwritten signatures executed to electronic records shall be linked to their respective electronic records to ensure that the signatures cannot be excised, copied, or otherwise transferred to falsify an electronic record by ordinary means.\n- From Web: 21 CFR Part 11 Compliance in Clinical Trials: Electronic ...: 21 CFR Part 11 Compliance in Clinical Trials: Electronic. : May 22, 2026 \u00b7 Learn how 21 CFR Part 11 compliance applies to clinical trials, including electronic records, electronic signatures, audit trails, validation, and requirements for sponsors and CROs.\n- From Web: Part 11, Electronic Records; Electronic Signatures - Scope ...: Part 11, Electronic Records; Electronic Signatures - Scope. : This guidance is intended to describe the Food and Drug Administration's (FDA's) current thinking regarding the scope and application of part 11 of Title 21 of the Code of.\n\nSources: Web: 21 CFR Part 11 -- Electronic Records; Electronic Signatures, Web: 21 CFR Part 11 Compliance in Clinical Trials: Electronic ..., Web: Part 11, Electronic Records; Electronic Signatures - Scope ..."
+    },
+    {
+      "id": "adv_08",
+      "category": "Adversarial",
+      "question": "What are the mandatory tax reporting guidelines for health insurance providers under the Internal Revenue Code?",
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.3788,
+      "passed": false,
+      "note": "Failure on Out-of-Scope",
+      "pipeline_log": [
+        "Evaluator Action: INCORRECT (Confidence Score: 0.3788)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 3100.36ms."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: Information reporting by providers of minimum essential coverageNewly Passed Legislation Modifies ACA Reporting RequirementsACA Reporting | ACA Form 1095-B & C Reporting RequirementsNewly Passed Legislation Modifies ACA Reporting Requirements6055 and 6056 IRS Reporting Compliance with the PPACA26 U.S. Code \u00a7 6055 - Reporting of health insurance coverage: Information reporting by providers of minimum essential coverageNewly Passed Legislation Modifies ACA Reporting RequirementsACA Reporting | ACA Form 1095-B & C Reporting RequirementsNewly Passed Legislation Modifies ACA Reporting Requirements6055 and 6056 IRS Reporting Compliance with the PPACA26 U. S.\n- From Web: Newly Passed Legislation Modifies ACA Reporting Requirements: Newly Passed Legislation Modifies ACA Reporting Requirements: On Dec. 23, 2024, President Joe Biden signed two bills into law that will streamline the Affordable Care Act\u2019s (ACA) reporting requirements under Internal Revenue Code Sections 6055 or 6056.\n- From Web: ACA Reporting | ACA Form 1095-B & C Reporting Requirements: ACA Reporting | ACA Form 1095-B & C Reporting Requirements: Dec 5, 2025 \u00b7 Know the ACA reporting requirements under Sections 6055 and 6056 to file Forms 1095-B and 1095-C. Learn the ACA filing requirements for the 2025 tax year.\n\nSources: Web: ACA Reporting | ACA Form 1095-B & C Reporting Requirements, Web: Information reporting by providers of minimum essential coverageNewly Passed Legislation Modifies ACA Reporting RequirementsACA Reporting | ACA Form 1095-B & C Reporting RequirementsNewly Passed Legislation Modifies ACA Reporting Requirements6055 and 6056 IRS Reporting Compliance with the PPACA26 U.S. Code \u00a7 6055 - Reporting of health insurance coverage, Web: Newly Passed Legislation Modifies ACA Reporting Requirements"
+    },
+    {
+      "id": "adv_09",
+      "category": "Adversarial",
+      "question": "What is the maximum allowed network latency in milliseconds for 5G surgical robotics remote operation under EU law?",
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.2266,
+      "passed": false,
+      "note": "Failure on Out-of-Scope",
+      "pipeline_log": [
+        "Evaluator Action: INCORRECT (Confidence Score: 0.2266)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 2303.06ms."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: 5G Telesurgery: Latency, Bandwidth, and Reliability Explained: 5G Telesurgery: Latency, Bandwidth, and Reliability Explained: Apr 28, 2026 \u00b7 Research on teleoperation control theory indicates that round-trip latencies above approximately 150\u2013200 ms cause noticeable degradation in fine motor task performance, and latencies above 300 ms make stable haptic feedback impossible without specialized control algorithms.\n- From Web: Long-distance Robot-assisted Teleoperation: Every Millisecond ...: Long-distance Robot-assisted Teleoperation: Every Millisecond. : In the current market, the best gameplay performance is at latency between 5 and 60 ms, and latency any higher than 100 ms is considered to cause an unacceptable lag in your gameplay and make it difficult to play properly [4] British Esports Federation.\n- From Web: What are the latency and reliability requirements for 5G ...: What are the latency and reliability requirements for 5G. : Apr 30, 2021 \u00b7 According to 3GPP Release 14, latency in 4G LTE is around 4 milliseconds, but with the introduction of URLLC in Release 15, the target is 1 millisecond.\n\nSources: Web: 5G Telesurgery: Latency, Bandwidth, and Reliability Explained, Web: Long-distance Robot-assisted Teleoperation: Every Millisecond ..., Web: What are the latency and reliability requirements for 5G ..."
+    },
+    {
+      "id": "adv_10",
+      "category": "Adversarial",
+      "question": "Does the NHS Caldicott guidance specify cryptocurrency payment mechanisms for private medical treatment?",
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.398,
+      "passed": false,
+      "note": "Failure on Out-of-Scope",
+      "pipeline_log": [
+        "Evaluator Action: INCORRECT (Confidence Score: 0.3980)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 2615.51ms."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: Caldicott Report - Wikipedia: Caldicott Report - Wikipedia: Future negotiations on pay and conditions for General Practitioners should, where possible, avoid systems of payment which require patient identifying details to be transmitted.\n- From Web: Caldicott policy | Data Protection | NHS Counter Fraud AuthoritySection 1: The information governance review - NHS England ...NHSCFA - Caldicott Policy September 2018 version 2.0The Eight Caldicott Principles - GOV.UKCaldicott Report - WikipediaStep 7: Follow the 8 Caldicott Principles - AI and Digital ...: Caldicott policy | Data Protection | NHS Counter Fraud AuthoritySection 1: The information governance review - NHS England. NHSCFA - Caldicott Policy September 2018 version 2.\n- From Web: Section 1: The information governance review - NHS England ...: Section 1: The information governance review - NHS England. : Apr 26, 2013 \u00b7 The good practice guidance in \u2018Information: to share or not to share?\u2019 is laid out in boxes below and should be adopted.\n\nSources: Web: Caldicott Report - Wikipedia, Web: Caldicott policy | Data Protection | NHS Counter Fraud AuthoritySection 1: The information governance review - NHS England ...NHSCFA - Caldicott Policy September 2018 version 2.0The Eight Caldicott Principles - GOV.UKCaldicott Report - WikipediaStep 7: Follow the 8 Caldicott Principles - AI and Digital ..., Web: Section 1: The information governance review - NHS England ..."
     }
   ],
   "stress_results": [
@@ -260,72 +848,240 @@
       "failure_mode": "Irrelevant Retrieval Used Anyway",
       "question": "Does EHDS Chapter IV allow commercial health insurance companies to calculate individual risk profiles using patient genetic data?",
       "eval_action": "AMBIGUOUS",
-      "confidence_score": 0.4687,
+      "confidence_score": 0.4623,
       "pipeline_log": [
-        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4687)",
-        "Action Taken: Query Expansion & External Web Search Fallback (Merged with refined local chunks)."
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4623)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.16ms, Searched in 1778.92ms)."
       ],
-      "response": "**Answer**\n\n- **What the EHDS text says about genetic data**  \n  - *Article\u202f33* of the European Health Data Space (EHDS) Chapter\u202fIV lists the categories of electronic health data that **must be made available for secondary use**. One of these categories is **\u201cgenetic, genomic and proteomic data\u201d**\u3010Source: doc_012_ehds_ch4_art33_secondary_data_use.txt\u3011.\n\n- **What the provided text does **\u202f*not*\u202f\u202fspecify**  \n  - The excerpt does **not** contain any provision that:\n    - Limits or authorises the **type of secondary user** (e.g., commercial health\u2011insurance companies).  \n    - Regulates the **purpose** of secondary use (e.g., calculating individual risk profiles).  \n    - Sets conditions, safeguards, or consent requirements specific to the use of genetic data for risk\u2011assessment by insurers.\n\n- **Implication for the specific question**  \n  - Because the clause only obliges data holders to make **genetic data** available for *secondary use* in general, the document **does not explicitly address** whether commercial health\u2011insurance companies may use that data to calculate individual risk profiles.\n\n- **What is missing from the corpus**  \n  - Any article, paragraph, or annex that:\n    - Defines \u201csecondary use\u201d in terms of permissible actors (public research vs. commercial entities).  \n    - Provides restrictions or safeguards for the use of genetic data by insurers.  \n    - References consent, data\u2011subject rights, or proportionality assessments specific to risk\u2011profiling activities.\n\n**Conclusion**  \nThe provided EHDS Chapter\u202fIV text confirms that genetic data is part of the data categories that must be made available for secondary use, but it **does not contain information** on whether commercial health\u2011insurance companies are allowed to use that data to calculate individual risk profiles. Additional regulatory provisions (e.g., specific articles on permissible secondary users, purpose limitations, or data\u2011subject protections) would be needed to answer the question definitively."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment.\n- From doc_010_ehds_ch4_art33.txt: EHDS Chapter IV Article 33 - Categories of electronic health data for secondary use: Data holders shall make available for secondary use the following categories of electronic health data: (a) Electronic Health Records (EHRs); (b) socio-economic, environmental, and lifestyle health factors; (c) genetic, genomic, and proteomic data; (d) person-generated health data (wearables); (e) clinical trial data; (f) registries of medicinal products and medical devices.\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format.\n- From Web: European Health Data Space Regulation (EHDS): European Health Data Space Regulation (EHDS): The EHDS Regulation aims to establish a common framework for the use and exchange of electronic health data across the EU. It enhances individuals'.\n- From Web: Will the GDPR Restrain Health Data Access Bodies Under the ...: Will the GDPR Restrain Health Data Access Bodies Under the. : 17 May 2024 \u00b7 Chapter IV states that data should be made available where it can allow public bodies in the health or care sector to carry out their 'mandates.\n- From Web: Secondary use under the European Health Data Space: Secondary use under the European Health Data Space: Under the EHDS ( 3 ), any individual or organisation can request access to electronic health data (\u201cdata user\u201d) from a data holder (\u201cany natural or legal person.\n\nSources: Web: European Health Data Space Regulation (EHDS), Web: Secondary use under the European Health Data Space, Web: Will the GDPR Restrain Health Data Access Bodies Under the ..., doc_006_ehds_ch2_art3.txt, doc_007_ehds_ch2_art4.txt, doc_010_ehds_ch4_art33.txt"
     },
     {
       "id": "stress_02_noisy_distraction",
       "failure_mode": "Noisy Document Distraction",
       "question": "In EHR FHIR Export for Patient PAT-0015, what was the exact LOINC code and numerical value recorded for body weight?",
       "eval_action": "CORRECT",
-      "confidence_score": 0.7316,
+      "confidence_score": 0.6857,
       "pipeline_log": [
-        "Evaluator Action: CORRECT (Confidence Score: 0.7316)",
-        "Action Taken: Knowledge Refinement (Stripped noise from retrieved local chunks)."
+        "Evaluator Action: CORRECT (Confidence Score: 0.6857)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.4ms)."
       ],
-      "response": "The provided document corpus does not contain information to answer this question."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_030_fhir_patient_1.txt: EHR FHIR Export for Patient ID PAT-0001. Active: true.\n- From doc_034_fhir_patient_5.txt: EHR FHIR Export for Patient ID PAT-0005. Active: true.\n- From doc_039_fhir_patient_10.txt: EHR FHIR Export for Patient ID PAT-0010. Active: true.\n\nSources: doc_030_fhir_patient_1.txt, doc_034_fhir_patient_5.txt, doc_039_fhir_patient_10.txt"
     },
     {
       "id": "stress_03_static_corpus_limit",
       "failure_mode": "Static Limited Corpus (Out-of-Corpus External Knowledge)",
       "question": "What is the official European Commission release date and adopted legal text for the EU AI Act (Regulation 2024/1689) healthcare risk classification?",
       "eval_action": "INCORRECT",
-      "confidence_score": 0.4172,
+      "confidence_score": 0.3741,
       "pipeline_log": [
-        "Evaluator Action: INCORRECT (Confidence Score: 0.4172)",
-        "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+        "Evaluator Action: INCORRECT (Confidence Score: 0.3741)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 3616.39ms."
       ],
-      "response": "**Answer (based on the provided corpus)**  \n\n| Item | Information from the corpus | Source |\n|------|-----------------------------|--------|\n| **Adoption year of the EU AI Act (Regulation\u202f2024/1689)** | The Act was *officially adopted in\u202f2024*. | \u3010WebSearch: Official Regulatory Registry\u3011 |\n| **Healthcare\u2011related risk classification** | AI medical devices are classified as **high\u2011risk systems** under **Annex\u202fIII** of the regulation. | \u3010WebSearch: Official Regulatory Registry\u3011 |\n\n### What the corpus does **not** contain\n- The **exact European Commission release date** (day and month) for Regulation\u202f2024/1689.  \n- The **full adopted legal text** (e.g., the verbatim wording of the provision that sets the healthcare risk classification).  \n\n**Conclusion:** The available document confirms that the EU AI Act (Regulation\u202f2024/1689) was adopted in 2024 and that AI medical devices fall under the high\u2011risk category in Annex\u202fIII, but it does not provide the precise release date or the complete legal text for that classification. Additional sources would be required to supply those details."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: AI Act | Shaping Europe's digital future - European Union: AI Act | Shaping Europe's digital future - European Union: The AI Act entered into force on 1 August 2024 and became applicable on 2 August 2026, with some exceptions: prohibited AI practices and AI literacy obligations.\n- From Web: High-level summary of the AI Act | EU Artificial Intelligence Act: High-level summary of the AI Act | EU Artificial Intelligence Act: Published on 10 July 2025 and declared adequate by the European Commission and the AI Board on 1 August 2025.\n- From Web: EU AI Act: first regulation on artificial intelligence | Topics: EU AI Act: first regulation on artificial intelligence | Topics: 19 Feb 2025 \u00b7 In April 2021, the European Commission proposed the first EU artificial intelligence law, establishing a risk-based AI classification system. AI.\n\nSources: Web: AI Act | Shaping Europe's digital future - European Union, Web: EU AI Act: first regulation on artificial intelligence | Topics, Web: High-level summary of the AI Act | EU Artificial Intelligence Act"
     },
     {
       "id": "stress_04_ambiguous_terminology",
       "failure_mode": "Ambiguous Query & Semantic Drift",
       "question": "How are break-glass emergency procedures handled in cross-border patient data exchange?",
-      "eval_action": "AMBIGUOUS",
-      "confidence_score": 0.4538,
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.4357,
       "pipeline_log": [
-        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4538)",
-        "Action Taken: Query Expansion & External Web Search Fallback (Merged with refined local chunks)."
+        "Evaluator Action: INCORRECT (Confidence Score: 0.4357)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 1813.57ms."
       ],
-      "response": "**Break\u2011glass emergency access \u2013 legal basis**\n\n- **EHDS (European Health Data Space) \u2013 Chapter\u202fII, Article\u202f7**  \n  - Grants clinicians the right to override a patient\u2019s access restrictions when the patient\u2019s vital interests or life are threatened.  \n  - This \u201cbreak\u2011glass\u201d mechanism is intended to ensure that urgent clinical care can proceed even if the patient has previously limited data sharing.  \n  - *Citation:* [Source: WebSearch: Official Regulatory Registry \u2013 doc_045_interop_memo_6.txt]\n\n**Implications for cross\u2011border patient data exchange**\n\n- The provided documents **do not contain** specific procedural details on how the break\u2011glass right is implemented when data are transferred across national borders within the EHDS framework.\n- No guidance is given on:\n  - Technical steps (e.g., audit logging, justification capture) required for cross\u2011border break\u2011glass events.  \n  - How national HIEs or receiving jurisdictions must recognize and honor a break\u2011glass override initiated in another member state.  \n  - Any additional safeguards or reporting obligations specific to cross\u2011border transfers.\n\n**What is missing from the corpus**\n\n- Explicit SOPs or regulatory provisions that describe the workflow for break\u2011glass use in cross\u2011border scenarios (e.g., required metadata, consent flag handling, interoperability profiles).  \n- References to FHIR resources or extensions that might be used to signal a break\u2011glass event in an international exchange.  \n\n**Summary**\n\n- **Legal permission** for break\u2011glass exists under EHDS Chapter\u202fII\u202fArt\u202f7, allowing clinicians to bypass patient restrictions in life\u2011threatening situations.  \n- **Cross\u2011border handling** of this emergency access is **not addressed** in the supplied documents; additional regulatory or technical guidance would be needed to define the exact procedures."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: [PDF] Frequently Asked Questions on the European Health Data Space: [PDF] Frequently Asked Questions on the European Health Data Space: 5 Mar 2025 \u00b7 Emergency access under the Data Act can only be used where there is no other feasible channel to have the data be made available.\n- From Web: Data Sharing in the Internet of Medical Things: Between the ...: Data Sharing in the Internet of Medical Things: Between the. : 2 Apr 2025 \u00b7 This paper will investigate what will happen when medical IoT-generated data are shared to create new products or services according to the.\n- From Web: AC-ABAC: Attribute-based access control for electronic medical ...: AC-ABAC: Attribute-based access control for electronic medical. : However, we advocate that access control under emergency conditions should be supported with the required dynamism instead of adopting a break-glass procedure.\n\nSources: Web: AC-ABAC: Attribute-based access control for electronic medical ..., Web: Data Sharing in the Internet of Medical Things: Between the ..., Web: [PDF] Frequently Asked Questions on the European Health Data Space"
     },
     {
       "id": "stress_05_version_mismatch_distraction",
       "failure_mode": "Version Mismatch & Hallucinated Anchor",
       "question": "What are the exact REST API URL endpoints defined for FHIR Release 5 (R5) SubscriptionTopic resources?",
-      "eval_action": "INCORRECT",
-      "confidence_score": 0.434,
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.4771,
       "pipeline_log": [
-        "Evaluator Action: INCORRECT (Confidence Score: 0.4340)",
-        "Action Taken: Discarded irrelevant local chunks; executed External Web Search Fallback."
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4771)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.32ms, Searched in 1531.98ms)."
       ],
-      "response": "The provided document corpus does not contain information to answer this question."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_024_fhir_r4_bundle.txt: HL7 FHIR R4 Bundle Resource: A wrapper container for a collection of FHIR resources. Used in RESTful API responses, batch transactions, and document payloads (e.\n- From doc_021_fhir_r4_patient.txt: HL7 FHIR R4 Patient Resource Definition: Represents demographic and administrative data about an individual receiving healthcare services. Core elements: identifier (business identifiers), active (boolean), name (HumanName array), telecom (ContactPoint), gender (administrative-gender: male | female | other | unknown), birthDate (date), address (Address structure).\n- From doc_025_fhir_r4_consent.txt: HL7 FHIR R4 Consent Resource: Records a healthcare consumer's decision to permit or deny data processing actions. Defines scope (patient-privacy | research), provision type (deny | permit), category of health data, validity period, and authorized actors.\n- From Web: Subscriptions - FHIR v5.0.0 - HL7.org: Subscriptions - FHIR v5. 0.\n- From Web: Subscription - FHIR v6.0.0-ballot4: Subscription - FHIR v6. 0.\n- From Web: FHIR Subscriptions for Real Time Healthcare Apps - Nirmitee.io: FHIR Subscriptions for Real Time Healthcare Apps - Nirmitee. io: 26 Apr 2026 \u00b7 This guide breaks down how FHIR Subscriptions work across R4 and R5, how to architect real-time clinical pipelines using event buses and cloud-.\n\nSources: Web: FHIR Subscriptions for Real Time Healthcare Apps - Nirmitee.io, Web: Subscription - FHIR v6.0.0-ballot4, Web: Subscriptions - FHIR v5.0.0 - HL7.org, doc_021_fhir_r4_patient.txt, doc_024_fhir_r4_bundle.txt, doc_025_fhir_r4_consent.txt"
     },
     {
       "id": "stress_06_blind_oneshot_synthesis",
       "failure_mode": "No Self-Awareness / One-Shot Blind Pipeline",
       "question": "What are the mandatory logging fields required by national medicine regulatory agencies when an HDAB issues a multi-country secondary data permit?",
       "eval_action": "AMBIGUOUS",
-      "confidence_score": 0.5463,
+      "confidence_score": 0.5317,
       "pipeline_log": [
-        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5463)",
-        "Action Taken: Query Expansion & External Web Search Fallback (Merged with refined local chunks)."
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5317)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.34ms, Searched in 5101.64ms)."
       ],
-      "response": "The provided document corpus does not contain information to answer this question."
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_013_ehds_ch4_art36.txt: EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): Each Member State shall designate one or more Health Data Access Bodies responsible for processing secondary use applications. HDABs evaluate requests, issue data permits under strict cybersecurity standards, pseudonymize or anonymize datasets, and provide access exclusively within Secure Processing Environments (SPE).\n- From doc_017_ec_ehds_guidance_spe_standards.txt: European Commission Guidelines for Secure Processing Environments (SPE): SPE infrastructures managed by Health Data Access Bodies (HDABs) must meet ISO/IEC 27001 certification. All analytical queries executed within the SPE must undergo automated differential privacy filtering or k-anonymity threshold checks (k >= 5) prior to output extraction.\n- From doc_015_ehds_ch4_art39.txt: EHDS Chapter IV Article 39 - Secure processing environments: HDABs shall provide access to secondary electronic health data only inside Secure Processing Environments (SPE). SPEs must enforce strict technical measures preventing raw data downloads, unauthorized exports, or re-identification, permitting data users only to run queries and export aggregated statistical output.\n- From Web: Guideline for secondary use of health records within ... - PMC: Guideline for secondary use of health records within. - PMC: HDABs represent the central regulatory decision point for secondary use, linking ethical review, data permit issuance, and controlled access mechanisms.\n- From Web: [PDF] Frequently Asked Questions on the European Health Data Space: [PDF] Frequently Asked Questions on the European Health Data Space: 5 Mar 2025 \u00b7 Health data holders will be able to notify to the health data access body (HDAB) if their datasets contain information covered by intellectual.\n- From Web: Legal bases for effective secondary use of health and genetic ...: Legal bases for effective secondary use of health and genetic. : 4 Oct 2024 \u00b7 From an EU data protection law standpoint, such secondary use requires a legal basis under Article 6(1) and a permission under Article 9(2) of.\n\nSources: Web: Guideline for secondary use of health records within ... - PMC, Web: Legal bases for effective secondary use of health and genetic ..., Web: [PDF] Frequently Asked Questions on the European Health Data Space, doc_013_ehds_ch4_art36.txt, doc_015_ehds_ch4_art39.txt, doc_017_ec_ehds_guidance_spe_standards.txt"
+    },
+    {
+      "id": "stress_07_temporal_mismatch_ehds",
+      "failure_mode": "Temporal & Legal Effective Date Confusion",
+      "question": "Are healthcare providers in Germany legally obligated to comply with EHDS Chapter II Article 3 electronic health data access requirements in May 2025?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6432,
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6432)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.14ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format.\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment. The access shall be limited to data necessary for treatment provision and must comply with authentication and authorization protocols.\n- From doc_011_ehds_ch4_art34.txt: EHDS Chapter IV Article 34 - Permitted purposes for secondary use: Secondary use of electronic health data shall be permitted only for specified purposes: (a) public health interest activities; (b) public health tasks of healthcare public bodies; (c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products or medical devices; (e) training, testing, and evaluating AI algorithms in medical devices.\n\nSources: doc_006_ehds_ch2_art3.txt, doc_007_ehds_ch2_art4.txt, doc_011_ehds_ch4_art34.txt"
+    },
+    {
+      "id": "stress_08_dspt_deadline_mismatch",
+      "failure_mode": "Outdated Deadline Assumption",
+      "question": "What is the final submission deadline for NHS trusts for the DSPT reporting cycle ending in 2026?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6698,
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6698)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.5ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_020_nhs_dspt_2025_26.txt: NHS Data Security and Protection Toolkit (DSPT) 2025\u201326 Requirements: The DSPT is the annual self-assessment framework for NHS organizations and third-party software vendors. For the 2025\u201326 reporting year, official submission deadline is 30 June 2026.\n- From doc_048_fhir_patient_19.txt: EHR FHIR Export for Patient ID PAT-0019. Active: true.\n- From doc_039_fhir_patient_10.txt: EHR FHIR Export for Patient ID PAT-0010. Active: true.\n\nSources: doc_020_nhs_dspt_2025_26.txt, doc_039_fhir_patient_10.txt, doc_048_fhir_patient_19.txt"
+    },
+    {
+      "id": "stress_09_prohibited_use_hallucination",
+      "failure_mode": "Hallucinating Permission for Prohibited Uses",
+      "question": "Can an automated AI underwriting model use secondary EHDS data to adjust life insurance premiums if anonymised?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.4982,
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4982)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.32ms, Searched in 3157.87ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_012_ehds_ch4_art35.txt: EHDS Chapter IV Article 35 - Prohibited secondary uses of health data: The following secondary uses are strictly prohibited: (a) taking detrimental decisions against natural persons including increasing insurance premiums or refusing coverage; (b) advertising or targeted marketing activities; (c) granting access to unauthorized third parties without a valid data permit; (d) developing harmful products or security-undermining activities.\n- From doc_014_ehds_ch4_art38.txt: EHDS Chapter IV Article 38 - Right to opt-out from secondary data use: Natural persons shall have the right to opt-out from the processing of their electronic health data for secondary use.\n- From doc_011_ehds_ch4_art34.txt: EHDS Chapter IV Article 34 - Permitted purposes for secondary use: Secondary use of electronic health data shall be permitted only for specified purposes: (a) public health interest activities; (b) public health tasks of healthcare public bodies; (c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products or medical devices; (e) training, testing, and evaluating AI algorithms in medical devices.\n- From Web: EHDS Series \u2013 1: Five Key Take Aways on Secondary Use of ...: EHDS Series \u2013 1: Five Key Take Aways on Secondary Use of. : Apr 3, 2024 \u00b7 Holders of electronic health data will be required to make their data available to health data access bodies (HDAB), who, in turn, will make it available in a secure platform to data users who obtained a permit.\n- From Web: Insurance Regulatory Technology: AI Underwriting Compliance ...: Insurance Regulatory Technology: AI Underwriting Compliance. : Apr 1, 2026 \u00b7 By 2026, an estimated 67\u201372% of property and casualty insurers have deployed at least one automated underwriting decision system, and approximately 45\u201350% of insurance underwriting decisions are partially or fully generated by AI/ML systems.\n- From Web: Unlocking the full potential of health data under the EU AI ...: Unlocking the full potential of health data under the EU AI. : May 13, 2025 \u00b7 To fully benefit from EHDS, high-quality anonymization is no longer optional\u2014 it is a necessity.\n\nSources: Web: EHDS Series \u2013 1: Five Key Take Aways on Secondary Use of ..., Web: Insurance Regulatory Technology: AI Underwriting Compliance ..., Web: Unlocking the full potential of health data under the EU AI ..., doc_011_ehds_ch4_art34.txt, doc_012_ehds_ch4_art35.txt, doc_014_ehds_ch4_art38.txt"
+    },
+    {
+      "id": "stress_10_cross_jurisdiction_confusion",
+      "failure_mode": "Mixing UK NHS Opt-out with EU EHDS Opt-out",
+      "question": "Does an NHS patient opting out via the UK National Data Opt-out automatically opt them out of EHDS secondary data access in France?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6792,
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6792)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.34ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_014_ehds_ch4_art38.txt: EHDS Chapter IV Article 38 - Right to opt-out from secondary data use: Natural persons shall have the right to opt-out from the processing of their electronic health data for secondary use. The opt-out mechanism must be simple, accessible, and user-friendly.\n- From doc_019_nhs_national_data_opt_out.txt: NHS National Data Opt-out Policy: Allows patients in England to opt out of their confidential patient information being used for research and planning. Exemptions: Opt-out does NOT apply to direct care provision, mandatory legal disclosures (court orders), or public health emergency directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI).\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format.\n\nSources: doc_006_ehds_ch2_art3.txt, doc_014_ehds_ch4_art38.txt, doc_019_nhs_national_data_opt_out.txt"
+    },
+    {
+      "id": "stress_11_fhir_profile_conflict",
+      "failure_mode": "Confusing Standard FHIR R4 with UK Core Profile",
+      "question": "Is the NHS Number extension mandatory in standard HL7 FHIR R4 international Patient resources?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6182,
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6182)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.16ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_022_fhir_uk_core_patient.txt: NHS UK Core Patient Profile (UKCore-Patient): Restricts the base FHIR Patient resource for UK NHS deployment. Mandates inclusion of the NHS Number extension (URL: https://fhir.\n- From doc_098_fhir_patient_69.txt: EHR FHIR Export for Patient ID PAT-0069.\n- From doc_096_fhir_patient_67.txt: EHR FHIR Export for Patient ID PAT-0067.\n\nSources: doc_022_fhir_uk_core_patient.txt, doc_096_fhir_patient_67.txt, doc_098_fhir_patient_69.txt"
+    },
+    {
+      "id": "stress_12_gdpr_vs_ehds_precedence",
+      "failure_mode": "Ignoring Legal Hierarchy Precedence",
+      "question": "If secondary health data research is permitted under EHDS Article 34, does it override GDPR Article 9 prohibition without Article 89 safeguards?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.6717,
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.6717)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.37ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_012_ehds_ch4_art35.txt: EHDS Chapter IV Article 35 - Prohibited secondary uses of health data: The following secondary uses are strictly prohibited: (a) taking detrimental decisions against natural persons including increasing insurance premiums or refusing coverage; (b) advertising or targeted marketing activities; (c) granting access to unauthorized third parties without a valid data permit; (d) developing harmful products or security-undermining activities.\n- From doc_011_ehds_ch4_art34.txt: EHDS Chapter IV Article 34 - Permitted purposes for secondary use: Secondary use of electronic health data shall be permitted only for specified purposes: (a) public health interest activities; (b) public health tasks of healthcare public bodies; (c) scientific research related to health or care sectors; (d) development and evaluation of medicinal products or medical devices; (e) training, testing, and evaluating AI algorithms in medical devices.\n- From doc_007_ehds_ch2_art4.txt: EHDS Chapter II Article 4 - Access by health professionals: Health professionals shall have access to the electronic health data of natural persons under their treatment, irrespective of the Member State of affiliation of the natural person and the Member State of treatment.\n\nSources: doc_007_ehds_ch2_art4.txt, doc_011_ehds_ch4_art34.txt, doc_012_ehds_ch4_art35.txt"
+    },
+    {
+      "id": "stress_13_adversarial_hypothetical",
+      "failure_mode": "Answering Unsubstantiated Speculation",
+      "question": "Does EHDS Chapter IV authorize HDABs to commercialize raw genetic sequence files on public torrent networks for non-profit medical research?",
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.4457,
+      "pipeline_log": [
+        "Evaluator Action: INCORRECT (Confidence Score: 0.4457)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 3489.91ms."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: EHDS \u2014 European Health Data Space Regulation: EHDS \u2014 European Health Data Space Regulation: Secondary Use Requires data holders to make health data available to researchers, innovators, and policymakers through national Health Data Access Bodies (HDABs) and the HealthData@EU federated infrastructure. Data in scope includes EHRs, medical imaging, lab results, genomic data, clinical trial data, registries, and claims data.\n- From Web: EHDS - Access to health data for secondary use under the ... - Lexology: EHDS - Access to health data for secondary use under the. - Lexology: Although Chapter IV of the EHDS, which deals with the secondary use of electronic health data, will become applicable 4 years after the EHDS enters into force, companies are well-advised to begin.\n- From Web: EU: EHDS - Access to health data for secondary use under the European ...: EU: EHDS - Access to health data for secondary use under the European. : Improving access to health data for the purposes of supporting research and innovation activities is one of the key pillars of the EHDS and offers a potentially significant benefit for life sciences and healthcare companies who are looking for improved access to high-quality secondary use data.\n\nSources: Web: EHDS - Access to health data for secondary use under the ... - Lexology, Web: EHDS \u2014 European Health Data Space Regulation, Web: EU: EHDS - Access to health data for secondary use under the European ..."
+    },
+    {
+      "id": "stress_14_spe_export_violation",
+      "failure_mode": "Ignoring Technical Environment Rules",
+      "question": "Under EHDS Article 39, can a researcher download raw pseudonymised patient microdata onto a personal USB drive from an SPE?",
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.442,
+      "pipeline_log": [
+        "Evaluator Action: INCORRECT (Confidence Score: 0.4420)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 4479.52ms."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: [PDF] NTTS 2025 Book of Abstracts - Eurostat CROS: [PDF] NTTS 2025 Book of Abstracts - Eurostat CROS: 30 Aug 2024 \u00b7 The purpose of the conference is both to allow the presentation of results from currently ongoing research and innovation projects in official.\n- From Web: Privacy Technologies and Policy - Springer Nature: Privacy Technologies and Policy - Springer Nature: 3 days ago \u00b7 For this, personal data has to be identified in a text. Whether information is personal data can depend on context.\n- From Web: Making the Most of Parallel Computing - Academia.edu: Making the Most of Parallel Computing - Academia. edu: This chapter discusses the development and application of medical imaging in understanding fluid mechanical forces related to cardiovascular diseases using.\n\nSources: Web: Making the Most of Parallel Computing - Academia.edu, Web: Privacy Technologies and Policy - Springer Nature, Web: [PDF] NTTS 2025 Book of Abstracts - Eurostat CROS"
+    },
+    {
+      "id": "stress_15_caldicott_guardian_authority",
+      "failure_mode": "Confusing Caldicott Guardian with Data Protection Officer",
+      "question": "Does a Caldicott Guardian have statutory legal authority to fine NHS trusts under UK GDPR?",
+      "eval_action": "INCORRECT",
+      "confidence_score": 0.3866,
+      "pipeline_log": [
+        "Evaluator Action: INCORRECT (Confidence Score: 0.3866)",
+        "Action Taken: Discarded irrelevant local chunks; executed Web Search Fallback in 3674.14ms."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From Web: The Caldicott principles and guardian roles explained - MDU: The Caldicott principles and guardian roles explained - MDU: 25 Feb 2025 \u00b7 All NHS organisations should have a Caldicott guardian role. It has the statutory power to issue official guidance about the processing.\n- From Web: The Role of the Caldicott Guardian in Occupational Health Practice: The Role of the Caldicott Guardian in Occupational Health Practice: While the Caldicott Guardian itself is not a specific statutory office, the requirement for strong confidentiality governance arises from law: Data Protection.\n- From Web: The caldicott role in general practice vo presentation | PPT: The caldicott role in general practice vo presentation | PPT: The key obligations for Caldicott leads are provided by the common law duty of confidentiality and under the Data Protection Act 1998.\n\nSources: Web: The Caldicott principles and guardian roles explained - MDU, Web: The Role of the Caldicott Guardian in Occupational Health Practice, Web: The caldicott role in general practice vo presentation | PPT"
+    },
+    {
+      "id": "stress_16_ico_anonymisation_threshold",
+      "failure_mode": "Confusing Pseudonymisation with Anonymisation",
+      "question": "Does replacing patient names with random cryptographic hashes make the health dataset fully anonymised under ICO guidance?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5393,
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5393)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.45ms, Searched in 2281.88ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_026_ico_health_data_guidance.txt: Information Commissioner's Office (ICO) Health Data Guidance: Processing of health data under UK GDPR requires both an Article 6 lawful basis and an Article 9 condition. Anonymization requires ensuring that risk of re-identification is remote under the 'motivated intruder' test.\n- From doc_019_nhs_national_data_opt_out.txt: Exemptions: Opt-out does NOT apply to direct care provision, mandatory legal disclosures (court orders), or public health emergency directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI).\n- From doc_029_paper_zkp_ehds_privacy.txt: Academic Paper - Zero-Knowledge Proofs for Secondary Health Data Reuse: Proposes a zk-SNARK scheme enabling health researchers to execute statistical queries on Health Data Access Body (HDAB) datasets without decrypting individual records, satisfying EHDS Article 39 Secure Processing Environment constraints.\n- From Web: [PDF] ICO - DPO India: [PDF] ICO - DPO India: This guidance will help you develop your understanding of anonymisation techniques, their strengths and weaknesses, and the suitability of their use in.\n- From Web: New ICO guidance on anonymisation and pseudonymisation: New ICO guidance on anonymisation and pseudonymisation: 4 Jun 2025 \u00b7 The ICO recognises that there can be confusion where organisations think that they have anonymised data whereas in fact they have pseudonymised.\n- From Web: Data Anonymization for Pervasive Health Care - PMC - NIH: Data Anonymization for Pervasive Health Care - PMC - NIH: Anonymization can be achieved by changing identifiers. This tool replaces all data in the given database with anonymized random data where the unique,.\n\nSources: Web: Data Anonymization for Pervasive Health Care - PMC - NIH, Web: New ICO guidance on anonymisation and pseudonymisation, Web: [PDF] ICO - DPO India, doc_019_nhs_national_data_opt_out.txt, doc_026_ico_health_data_guidance.txt, doc_029_paper_zkp_ehds_privacy.txt"
+    },
+    {
+      "id": "stress_17_fhir_observation_status",
+      "failure_mode": "Accepting Invalid FHIR Resource States",
+      "question": "Can a FHIR R4 Observation resource with status 'entered-in-error' be included in primary clinical care decision support under UK Core?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5178,
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5178)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.38ms, Searched in 3332.46ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_023_fhir_r4_observation.txt: HL7 FHIR R4 Observation Resource: Central element for clinical measurements, vital signs, and laboratory diagnostic results. Key elements: status (registered | preliminary | final | amended), category (vital-signs, laboratory, imaging), code (LOINC / SNOMED CT concepts), subject (Reference to Patient), effectiveDateTime, valueQuantity or valueCodeableConcept.\n- From doc_022_fhir_uk_core_patient.txt: NHS UK Core Patient Profile (UKCore-Patient): Restricts the base FHIR Patient resource for UK NHS deployment. Mandates inclusion of the NHS Number extension (URL: https://fhir.\n- From doc_033_fhir_patient_4.txt: EHR FHIR Export for Patient ID PAT-0004. Active: true.\n- From Web: Observation - FHIR v4.0.1 - Health Level Seven International: Observation - FHIR v4. 0.\n- From Web: DAPB4020: UK Core Fast Healthcare Interoperability Resources ...UK Core FHIR Release 4 - Governance - NHS Standards DirectoryObservationStatus \u2014 FHIR R4 Value SetObservation - FHIR v4.0.1 - Health Level Seven InternationalObservation - FHIR v6.0.0-ballot4FHIR R4 Spec Guide: Resources & Standards (July 2026): DAPB4020: UK Core Fast Healthcare Interoperability Resources. UK Core FHIR Release 4 - Governance - NHS Standards DirectoryObservationStatus \u2014 FHIR R4 Value SetObservation - FHIR v4.\n- From Web: UK Core FHIR Release 4 - Governance - NHS Standards Directory: UK Core FHIR Release 4 - Governance - NHS Standards Directory: Dec 1, 2025 \u00b7 Implementation of this standard impacts all Health and Care IT Systems Suppliers who should consider update of any existing FHIR assets to be in line with the UK Core.\n\nSources: Web: DAPB4020: UK Core Fast Healthcare Interoperability Resources ...UK Core FHIR Release 4 - Governance - NHS Standards DirectoryObservationStatus \u2014 FHIR R4 Value SetObservation - FHIR v4.0.1 - Health Level Seven InternationalObservation - FHIR v6.0.0-ballot4FHIR R4 Spec Guide: Resources & Standards (July 2026), Web: Observation - FHIR v4.0.1 - Health Level Seven International, Web: UK Core FHIR Release 4 - Governance - NHS Standards Directory, doc_022_fhir_uk_core_patient.txt, doc_023_fhir_r4_observation.txt, doc_033_fhir_patient_4.txt"
+    },
+    {
+      "id": "stress_18_myhealth_eu_data_storage",
+      "failure_mode": "Assuming Centralized Storage in Distributed Infrastructure",
+      "question": "Does MyHealth@EU store all European patient medical records in a single central EU cloud database in Brussels?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.5202,
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.5202)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.13ms, Searched in 1934.44ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_008_ehds_ch2_art5.txt: EHDS Chapter II Article 5 - MyHealth@EU infrastructure: The European Commission shall establish a central platform for digital health (MyHealth@EU) to facilitate the exchange of electronic health data between National Contact Points for Digital Health (NCPH).\n- From doc_016_ec_ehds_guidance_myhealth.txt: European Commission Guidance on MyHealth@EU Architecture: Member States integrating National Contact Points for Digital Health (NCPH) into MyHealth@EU must enforce mutual TLS (mTLS) with X. 509 certificate validation.\n- From doc_006_ehds_ch2_art3.txt: EHDS Chapter II Article 3 - Primary Use Rights: Natural persons shall have the right to access their personal electronic health data processed in the context of primary use of electronic health data immediately, free of charge and in an easily readable, common and accessible format. They shall have the right to retrieve an electronic copy of at least their electronic health data in the European electronic health record exchange format (EEHRxF).\n- From Web: European Health Data Space Regulation (EHDS): European Health Data Space Regulation (EHDS): The European Health Data Space (EHDS) is designed to benefit all EU citizens, including patients, own electronic health data easy.\n- From Web: The Medical Futurist - Facebook: The Medical Futurist - Facebook: 25 Feb 2026 \u00b7 EU countries increased availability of Electronic Health Records. Still, only 28% of EU citizens access them.\n- From Web: European Health Data Space\u2014An Opportunity Now to Grasp ...: European Health Data Space\u2014An Opportunity Now to Grasp. : 26 Aug 2022 \u00b7 Patient summaries, ePrescriptions, images and image reports, laboratory results, and discharge reports will be issued and accepted in a common.\n\nSources: Web: European Health Data Space Regulation (EHDS), Web: European Health Data Space\u2014An Opportunity Now to Grasp ..., Web: The Medical Futurist - Facebook, doc_006_ehds_ch2_art3.txt, doc_008_ehds_ch2_art5.txt, doc_016_ec_ehds_guidance_myhealth.txt"
+    },
+    {
+      "id": "stress_19_paper_vs_official_guidance",
+      "failure_mode": "Elevating Academic Paper over Official Law",
+      "question": "If an academic paper proposes using ZKPs for HDAB access, does this replace the formal SPE requirements in EHDS Article 39?",
+      "eval_action": "AMBIGUOUS",
+      "confidence_score": 0.4924,
+      "pipeline_log": [
+        "Evaluator Action: AMBIGUOUS (Confidence Score: 0.4924)",
+        "Action Taken: Query Expansion & Web Search Fallback (Refined in 0.38ms, Searched in 4964.81ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_015_ehds_ch4_art39.txt: EHDS Chapter IV Article 39 - Secure processing environments: HDABs shall provide access to secondary electronic health data only inside Secure Processing Environments (SPE). SPEs must enforce strict technical measures preventing raw data downloads, unauthorized exports, or re-identification, permitting data users only to run queries and export aggregated statistical output.\n- From doc_013_ehds_ch4_art36.txt: EHDS Chapter IV Article 36 - Health Data Access Bodies (HDABs): Each Member State shall designate one or more Health Data Access Bodies responsible for processing secondary use applications. HDABs evaluate requests, issue data permits under strict cybersecurity standards, pseudonymize or anonymize datasets, and provide access exclusively within Secure Processing Environments (SPE).\n- From doc_017_ec_ehds_guidance_spe_standards.txt: European Commission Guidelines for Secure Processing Environments (SPE): SPE infrastructures managed by Health Data Access Bodies (HDABs) must meet ISO/IEC 27001 certification. All analytical queries executed within the SPE must undergo automated differential privacy filtering or k-anonymity threshold checks (k >= 5) prior to output extraction.\n- From WebSearch: Official Regulatory Registry: External web reference: General healthcare regulatory index details for query 'If an academic paper proposes using ZKPs for HDAB access, does this replace the formal SPE requirements in EHDS Article 39?'.\n\nSources: WebSearch: Official Regulatory Registry, doc_013_ehds_ch4_art36.txt, doc_015_ehds_ch4_art39.txt, doc_017_ec_ehds_guidance_spe_standards.txt"
+    },
+    {
+      "id": "stress_20_opt_out_emergency_exception",
+      "failure_mode": "Missing Overriding Emergency Exception",
+      "question": "If an NHS patient has a National Data Opt-out registered, can their data still be accessed during a major pandemic public health emergency under COPI statutory notices?",
+      "eval_action": "CORRECT",
+      "confidence_score": 0.726,
+      "pipeline_log": [
+        "Evaluator Action: CORRECT (Confidence Score: 0.7260)",
+        "Action Taken: Knowledge Refinement (Stripped noise in 0.38ms)."
+      ],
+      "response": "[LOCAL MOCK LLM MODE - NO GROQ_API_KEY FOUND]\nBased on the retrieved context, here is the synthesized answer:\n\n- From doc_019_nhs_national_data_opt_out.txt: NHS National Data Opt-out Policy: Allows patients in England to opt out of their confidential patient information being used for research and planning. Exemptions: Opt-out does NOT apply to direct care provision, mandatory legal disclosures (court orders), or public health emergency directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI).\n- From doc_014_ehds_ch4_art38.txt: EHDS Chapter IV Article 38 - Right to opt-out from secondary data use: Natural persons shall have the right to opt-out from the processing of their electronic health data for secondary use. The opt-out mechanism must be simple, accessible, and user-friendly.\n- From doc_026_ico_health_data_guidance.txt: Information Commissioner's Office (ICO) Health Data Guidance: Processing of health data under UK GDPR requires both an Article 6 lawful basis and an Article 9 condition. Anonymization requires ensuring that risk of re-identification is remote under the 'motivated intruder' test.\n\nSources: doc_014_ehds_ch4_art38.txt, doc_019_nhs_national_data_opt_out.txt, doc_026_ico_health_data_guidance.txt"
     }
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "id": "doc_027_govuk_data_security_standards",
+  "title": "GOV.UK Government Cyber Security Strategy & Health Data Protection",
+  "source_url": "https://www.gov.uk/government/publications/government-cyber-security-strategy-2022-to-2030",
+  "publisher": "GOV.UK",
+  "jurisdiction": "UK",
+  "document_type": "regulator_guidance",
+  "publication_date": "2025-01-10",
+  "effective_from": "2025-01-10",
+  "version": "2025.1",
+  "article": "Standard 4.2",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "0463dfa4122464cb3c174b255d015070e2f4741a08887ab8e5d2c7dd0b111440",
+  "hierarchy_rank": 2,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

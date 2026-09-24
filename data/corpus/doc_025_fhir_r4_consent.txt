@@ -1,0 +1,1 @@
+HL7 FHIR R4 Consent Resource: Records a healthcare consumer's decision to permit or deny data processing actions. Defines scope (patient-privacy | research), provision type (deny | permit), category of health data, validity period, and authorized actors.

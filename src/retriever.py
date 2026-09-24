@@ -39,12 +39,9 @@ class Retriever:
                 continue
                 
             chunk_info = self.metadata[str(idx_val)]
-            results.append({
-                "text": chunk_info["text"],
-                "source": chunk_info["source"],
-                "chunk_index": chunk_info["chunk_index"],
-                "similarity_score": float(score)
-            })
+            res_item = dict(chunk_info)
+            res_item["similarity_score"] = float(score)
+            results.append(res_item)
             
         return results
 
@@ -92,12 +89,8 @@ class Retriever:
                 rank_b, chunk_b, _ = bm25_ranks[key]
                 rrf_score += 1.0 / (rrf_k + rank_b)
                 if chunk_info is None:
-                    chunk_info = {
-                        "text": chunk_b["text"],
-                        "source": chunk_b["source"],
-                        "chunk_index": chunk_b["chunk_index"],
-                        "similarity_score": 0.0
-                    }
+                    chunk_info = dict(chunk_b)
+                    chunk_info["similarity_score"] = 0.0
 
             item_out = dict(chunk_info)
             item_out["rrf_score"] = float(rrf_score)
