@@ -20,8 +20,8 @@ ENV PORT=8000
 # Pre-seed corpus and pre-build Qdrant index during image build stage
 RUN python3 src/seeder.py && python3 src/embedder.py
 
-# Expose FastAPI default port
+# Expose FastAPI port
 EXPOSE 8000
 
-# Run FastAPI app with Uvicorn with exec for signal handling
-CMD ["sh", "-c", "exec python3 -m uvicorn src.api:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# Run FastAPI app with Uvicorn on 0.0.0.0:8000
+CMD ["python3", "-m", "uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]
