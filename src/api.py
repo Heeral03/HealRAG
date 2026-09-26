@@ -12,6 +12,7 @@ from fastapi.responses import FileResponse
 from starlette.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
 import torch
+import threading
 
 # Add src to sys.path
 sys.path.append(str(Path(__file__).resolve().parent))
@@ -66,6 +67,37 @@ pipeline_instance: Optional[CRAGPipeline] = None
 retriever_instance: Optional[Retriever] = None
 generator_instance: Optional[Generator] = None
 
+_init_lock = threading.Lock()
+
+def get_retriever():
+    global retriever_instance
+    with _init_lock:
+        if retriever_instance is None:
+            retriever_instance = Retriever()
+    return retriever_instance
+
+def get_generator():
+    global generator_instance
+    with _init_lock:
+        if generator_instance is None:
+            generator_instance = Generator()
+    return generator_instance
+
+def get_pipeline():
+    global pipeline_instance
+    with _init_lock:
+        if pipeline_instance is None:
+            pipeline_instance = CRAGPipeline()
+    return pipeline_instance
+
+def bg_initialize_models():
+    """Background thread to pre-load ML models so they don't block webserver startup or delay the first request."""
+    print("[HealRAG API] Pre-initializing AI models in background thread...")
+    get_pipeline()
+    get_retriever()
+    get_generator()
+    print("[HealRAG API] Background model initialization complete.")
+
 api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
 
 def authenticate_client(
@@ -109,8 +141,11 @@ def startup_event():
         chunks = chunk_directory(config.CORPUS_DIR, config.CHUNK_SIZE_WORDS, config.CHUNK_OVERLAP_WORDS)
         build_index(chunks)
         print("[HealRAG API] Qdrant index build complete.")
-    print("[HealRAG API] Service startup complete. CRAG Pipeline ready for lazy initialization.")
-
+    
+    # Start background thread to pre-load models
+    threading.Thread(target=bg_initialize_models, daemon=True).start()
+    
+    print("[HealRAG API] Service startup complete. CRAG Pipeline initializing in background.")
 # Pydantic Schemas
 class QueryRequest(BaseModel):
     query: str = Field(..., example="What is GDPR Article 9?", description="User regulatory or technical health query")
@@ -199,14 +234,11 @@ async def execute_query(
     t0 = time.time()
     try:
         if req.vanilla_mode:
-            global retriever_instance, generator_instance
-            if retriever_instance is None:
-                retriever_instance = Retriever()
-            if generator_instance is None:
-                generator_instance = Generator()
+            retr = get_retriever()
+            gen = get_generator()
 
-            chunks = await run_in_threadpool(retriever_instance.retrieve, req.query, req.top_k)
-            ans = await run_in_threadpool(generator_instance.generate, req.query, chunks)
+            chunks = await run_in_threadpool(retr.retrieve, req.query, req.top_k)
+            ans = await run_in_threadpool(gen.generate, req.query, chunks)
             latency = time.time() - t0
 
             # Deduct tokens for Vanilla RAG (~1200 tokens)
@@ -232,11 +264,9 @@ async def execute_query(
                 response=ans
             )
         else:
-            global pipeline_instance
-            if pipeline_instance is None:
-                pipeline_instance = CRAGPipeline()
+            pipe = get_pipeline()
 
-            res = await run_in_threadpool(pipeline_instance.run, req.query, req.top_k)
+            res = await run_in_threadpool(pipe.run, req.query, req.top_k)
             latency = time.time() - t0
 
             eval_act = res.get("eval_action", "CORRECT")
