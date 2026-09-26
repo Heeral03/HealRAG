@@ -124,6 +124,12 @@ class RetrievalEvaluator:
                 text_lower = chunk.get("text", "").lower()
                 matches = sum(1 for term in query_terms if term in text_lower)
                 kw_ratio = matches / len(query_terms) if query_terms else 0.0
+                
+                # Strict Penalty: If the user query specifically asks for a number (e.g. '32') and it is missing, heavily penalize.
+                missing_digits = any(term.isdigit() and term not in text_lower for term in query_terms)
+                if missing_digits:
+                    sim_score *= 0.50  # Cut similarity by 50% to force failure if explicit numbers don't match
+                
                 eval_score = 0.7 * sim_score + 0.3 * kw_ratio
 
             scores.append(eval_score)
