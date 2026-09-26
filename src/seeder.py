@@ -24,6 +24,69 @@ AUTHORITATIVE_CORPUS = [
     # 1. EUR-Lex GDPR (Regulation (EU) 2016/679) - Primary Law (Rank 1)
     # -------------------------------------------------------------------------
     {
+        "id": "doc_000_gdpr_art5",
+        "title": "GDPR Article 5 - Principles relating to processing of personal data",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 5",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e1713-1-1",
+        "content": (
+            "GDPR Article 5 - Principles relating to processing of personal data: "
+            "Personal data shall be: (a) processed lawfully, fairly and in a transparent manner; "
+            "(b) collected for specified, explicit and legitimate purposes; "
+            "(c) adequate, relevant and limited to what is necessary (data minimisation); "
+            "(d) accurate and kept up to date; "
+            "(e) kept in a form which permits identification for no longer than is necessary; "
+            "(f) processed in a manner that ensures appropriate security of the personal data."
+        )
+    },
+    {
+        "id": "doc_000_gdpr_art6",
+        "title": "GDPR Article 6 - Lawfulness of processing",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 6",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e1761-1-1",
+        "content": (
+            "GDPR Article 6 - Lawfulness of processing: "
+            "Processing shall be lawful only if and to the extent that at least one of the following applies: "
+            "(a) the data subject has given consent; (b) processing is necessary for the performance of a contract; "
+            "(c) processing is necessary for compliance with a legal obligation; (d) processing is necessary to protect "
+            "the vital interests of the data subject or of another natural person; (e) processing is necessary for the "
+            "performance of a task carried out in the public interest; (f) processing is necessary for the purposes of the "
+            "legitimate interests pursued by the controller or by a third party."
+        )
+    },
+    {
+        "id": "doc_000_gdpr_art32",
+        "title": "GDPR Article 32 - Security of processing",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 32",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e3092-1-1",
+        "content": (
+            "GDPR Article 32 - Security of processing: "
+            "Taking into account the state of the art, the costs of implementation and the nature, scope, "
+            "context and purposes of processing as well as the risk of varying likelihood and severity for the "
+            "rights and freedoms of natural persons, the controller and the processor shall implement appropriate "
+            "technical and organisational measures to ensure a level of security appropriate to the risk, including: "
+            "the pseudonymisation and encryption of personal data; the ability to ensure the ongoing confidentiality, "
+            "integrity, availability and resilience of processing systems and services."
+        )
+    },
+    {
         "id": "doc_001_gdpr_art9_para1",
         "title": "GDPR Article 9(1) - Processing of Special Categories of Data",
         "publisher": "EUR-Lex",
