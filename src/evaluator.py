@@ -115,10 +115,11 @@ class RetrievalEvaluator:
                 eval_score = 0.5 * sim_score + 0.5 * t5_score
                 kw_ratio = 0.0
             else:
+                stop_words = {"what", "is", "the", "are", "of", "and", "in", "to", "for", "how", "does", "do", "you", "mean", "by", "a", "an"}
                 query_terms = [
                     term.lower()
                     for term in query.replace("?", "").replace(".", "").split()
-                    if len(term) > 3
+                    if term.lower() not in stop_words and (len(term) > 2 or term.isdigit())
                 ]
                 text_lower = chunk.get("text", "").lower()
                 matches = sum(1 for term in query_terms if term in text_lower)
