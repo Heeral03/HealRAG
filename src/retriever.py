@@ -5,6 +5,7 @@ from sentence_transformers import SentenceTransformer
 
 import config
 from embedder import load_index, get_embedding_model
+from reranker import Reranker
 
 def tokenize(text: str) -> list[str]:
     """Simple alphanumeric tokenizer for BM25 keyword matching."""
@@ -16,6 +17,7 @@ class Retriever:
         self.client, self.metadata = load_index()
         print("Loading embedding model for retrieval...")
         self.model = get_embedding_model()
+        self.reranker = Reranker()
 
         # Build BM25 index over corpus chunks for sparse keyword retrieval
         print("Building BM25 index over metadata corpus...")
@@ -26,9 +28,11 @@ class Retriever:
 
     def retrieve(self, query: str, top_k: int = 5) -> list[dict]:
         """
-        Dense vector retrieval using Qdrant (all-MiniLM-L6-v2 embeddings).
+        Dense vector retrieval using Qdrant (supports asymmetric models like intfloat/multilingual-e5-small).
         """
-        query_vector = self.model.encode(query, normalize_embeddings=True).tolist()
+        is_e5 = "e5" in config.EMBEDDING_MODEL_NAME.lower()
+        encoded_query = f"query: {query}" if is_e5 else query
+        query_vector = self.model.encode(encoded_query, normalize_embeddings=True).tolist()
 
         search_results = self.client.query_points(
             collection_name=config.QDRANT_COLLECTION_NAME,
@@ -44,10 +48,10 @@ class Retriever:
 
         return results
 
-    def hybrid_retrieve(self, query: str, top_k: int = 5, candidate_k: int = 20, rrf_k: int = 60) -> list[dict]:
+    def hybrid_retrieve(self, query: str, top_k: int = 5, candidate_k: int = 30, rrf_k: int = 60, enable_rerank: bool = True) -> list[dict]:
         """
         Hybrid retrieval combining Dense Vector Search (Qdrant) and Sparse Keyword Search (BM25)
-        using Reciprocal Rank Fusion (RRF).
+        using Reciprocal Rank Fusion (RRF), followed by optional Cross-Encoder Reranking.
         RRF Score = 1 / (rrf_k + Dense_Rank) + 1 / (rrf_k + BM25_Rank)
         """
         # 1. Dense Retrieval (Qdrant)
@@ -96,9 +100,15 @@ class Retriever:
             item_out["similarity_score"] = float(dense_sim_score if dense_sim_score > 0 else rrf_score)
             rrf_scored_items.append(item_out)
 
-        # Sort by RRF score descending
+        # Sort by RRF score descending to form candidate pool
         rrf_scored_items.sort(key=lambda x: x["rrf_score"], reverse=True)
-        return rrf_scored_items[:top_k]
+        candidate_pool = rrf_scored_items[:candidate_k]
+
+        # 4. Cross-Encoder Reranking
+        if enable_rerank and self.reranker:
+            return self.reranker.rerank(query, candidate_pool, top_k=top_k)
+
+        return candidate_pool[:top_k]
 
 if __name__ == "__main__":
     print("Testing Qdrant Hybrid Retriever...")

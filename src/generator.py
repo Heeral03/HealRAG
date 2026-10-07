@@ -104,12 +104,24 @@ class Generator:
             hierarchy_rank = chunk.get("hierarchy_rank", "N/A")
             source_url = chunk.get("source_url", "")
 
+            # Neutralize forged prompt XML boundary tags within untrusted retrieved text
+            raw_chunk_text = chunk.get("text", "")
+            sanitized_chunk_text = (
+                raw_chunk_text
+                .replace("</retrieved_context>", "[NEUTRALIZED_TAG: </retrieved_context>]")
+                .replace("<retrieved_context>", "[NEUTRALIZED_TAG: <retrieved_context>]")
+                .replace("</system_instructions>", "[NEUTRALIZED_TAG: </system_instructions>]")
+                .replace("<system_instructions>", "[NEUTRALIZED_TAG: <system_instructions>]")
+                .replace("</user_query>", "[NEUTRALIZED_TAG: </user_query>]")
+                .replace("<user_query>", "[NEUTRALIZED_TAG: <user_query>]")
+            )
+
             context_block += (
                 f"--- Document Chunk {idx+1} [Source: {chunk['source']}] ---\n"
                 f"Publisher: {publisher} | Jurisdiction: {jurisdiction} | Version: {version} | "
                 f"Effective From: {effective_from} | Article/Section: {article} | "
                 f"Hierarchy Rank: {hierarchy_rank} | URL: {source_url}\n"
-                f"Content: {chunk['text']}\n\n"
+                f"Content: {sanitized_chunk_text}\n\n"
             )
 
         system_instructions = (

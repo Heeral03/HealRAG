@@ -52,9 +52,9 @@ class CRAGPipeline:
                 cached_result["observability"]["latencies_ms"]["total"] = round(latency_ms, 2)
                 return cached_result
 
-        # Step 1: Initial Vector Retrieval
+        # Step 1: Hybrid Vector + BM25 Retrieval & Cross-Encoder Reranking
         t0 = time.time()
-        raw_chunks = self.retriever.retrieve(query, top_k=top_k)
+        raw_chunks = self.retriever.hybrid_retrieve(query, top_k=top_k)
         retrieval_latency_ms = round((time.time() - t0) * 1000, 2)
 
         # Step 2: Evaluate Retrieval Confidence

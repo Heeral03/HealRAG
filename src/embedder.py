@@ -32,8 +32,9 @@ def build_index(chunks: list[dict]):
     print(f"Loading embedding model: {config.EMBEDDING_MODEL_NAME}...")
     model = get_embedding_model()
 
-    texts = [c["text"] for c in chunks]
-    print(f"Generating embeddings for {len(texts)} chunks...")
+    is_e5 = "e5" in config.EMBEDDING_MODEL_NAME.lower()
+    texts = [f"passage: {c['text']}" if is_e5 else c["text"] for c in chunks]
+    print(f"Generating embeddings for {len(texts)} chunks (E5 passage mode: {is_e5})...")
     embeddings = model.encode(texts, normalize_embeddings=True, show_progress_bar=True)
     embeddings = np.array(embeddings).astype("float32")
 
