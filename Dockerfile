@@ -17,6 +17,7 @@ COPY . .
 ENV PYTHONPATH=/app/src
 ENV PORT=8000
 ENV DISABLE_BG_PRELOAD=1
+ENV ENABLE_CROSS_ENCODER=0
 
 # Pre-seed corpus, build Qdrant index, and pre-download CrossEncoder model weights during image build stage
 RUN python3 src/seeder.py && python3 src/embedder.py && python3 -c "from sentence_transformers import CrossEncoder; CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')"

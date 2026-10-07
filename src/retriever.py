@@ -1,4 +1,5 @@
 import re
+from typing import Optional
 import numpy as np
 from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer
@@ -48,12 +49,14 @@ class Retriever:
 
         return results
 
-    def hybrid_retrieve(self, query: str, top_k: int = 5, candidate_k: int = 30, rrf_k: int = 60, enable_rerank: bool = True) -> list[dict]:
+    def hybrid_retrieve(self, query: str, top_k: int = 5, candidate_k: int = 30, rrf_k: int = 60, enable_rerank: Optional[bool] = None) -> list[dict]:
         """
         Hybrid retrieval combining Dense Vector Search (Qdrant) and Sparse Keyword Search (BM25)
         using Reciprocal Rank Fusion (RRF), followed by optional Cross-Encoder Reranking.
         RRF Score = 1 / (rrf_k + Dense_Rank) + 1 / (rrf_k + BM25_Rank)
         """
+        if enable_rerank is None:
+            enable_rerank = config.ENABLE_CROSS_ENCODER
         # 1. Dense Retrieval (Qdrant)
         dense_results = self.retrieve(query, top_k=candidate_k)
         dense_ranks = {}
