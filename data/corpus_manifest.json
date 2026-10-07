@@ -1,5 +1,56 @@
 [
   {
+    "id": "doc_000_gdpr_art5",
+    "title": "GDPR Article 5 - Principles relating to processing of personal data",
+    "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e1713-1-1",
+    "publisher": "EUR-Lex",
+    "jurisdiction": "EU",
+    "document_type": "primary_law",
+    "publication_date": "2016-05-04",
+    "effective_from": "2018-05-25",
+    "version": "2016/679",
+    "article": "Article 5",
+    "retrieved_at": "2026-09-03",
+    "content_hash": "6694698de9f9b407ea16a1efebdba1a116e53453e5d980d1f49432fbfb551b9f",
+    "hierarchy_rank": 1,
+    "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
+    "file_name": "doc_000_gdpr_art5.txt"
+  },
+  {
+    "id": "doc_000_gdpr_art6",
+    "title": "GDPR Article 6 - Lawfulness of processing",
+    "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e1761-1-1",
+    "publisher": "EUR-Lex",
+    "jurisdiction": "EU",
+    "document_type": "primary_law",
+    "publication_date": "2016-05-04",
+    "effective_from": "2018-05-25",
+    "version": "2016/679",
+    "article": "Article 6",
+    "retrieved_at": "2026-09-03",
+    "content_hash": "e557dfd108b52e8e6674f14fa8cdf0500f81d8d91a0a8813b800168be3f309bf",
+    "hierarchy_rank": 1,
+    "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
+    "file_name": "doc_000_gdpr_art6.txt"
+  },
+  {
+    "id": "doc_000_gdpr_art32",
+    "title": "GDPR Article 32 - Security of processing",
+    "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e3092-1-1",
+    "publisher": "EUR-Lex",
+    "jurisdiction": "EU",
+    "document_type": "primary_law",
+    "publication_date": "2016-05-04",
+    "effective_from": "2018-05-25",
+    "version": "2016/679",
+    "article": "Article 32",
+    "retrieved_at": "2026-09-03",
+    "content_hash": "3d3f6d98f90bb6c21e1a0a46154cfc89d2818c930ab68dfc7a28958713e73f9f",
+    "hierarchy_rank": 1,
+    "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
+    "file_name": "doc_000_gdpr_art32.txt"
+  },
+  {
     "id": "doc_001_gdpr_art9_para1",
     "title": "GDPR Article 9(1) - Processing of Special Categories of Data",
     "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679#d1e1882-1-1",
@@ -493,7 +544,7 @@
     "file_name": "doc_029_paper_zkp_ehds_privacy.txt"
   },
   {
-    "id": "doc_030_fhir_patient_1",
+    "id": "doc_033_fhir_patient_1",
     "title": "EHR FHIR Export Patient Record PAT-0001",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0001",
     "publisher": "HL7 / NHS Digital",
@@ -507,10 +558,10 @@
     "content_hash": "d56d571bbe3764960429ef1fe3aa8670f9b11c836210a822a234f090346fe4ca",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_030_fhir_patient_1.txt"
+    "file_name": "doc_033_fhir_patient_1.txt"
   },
   {
-    "id": "doc_031_fhir_patient_2",
+    "id": "doc_034_fhir_patient_2",
     "title": "EHR FHIR Export Patient Record PAT-0002",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0002",
     "publisher": "HL7 / NHS Digital",
@@ -524,10 +575,10 @@
     "content_hash": "035aa2508496f40dd793315f251fb1131953dca44aa5a7e7d8738150f3643021",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_031_fhir_patient_2.txt"
+    "file_name": "doc_034_fhir_patient_2.txt"
   },
   {
-    "id": "doc_032_fhir_patient_3",
+    "id": "doc_035_fhir_patient_3",
     "title": "EHR FHIR Export Patient Record PAT-0003",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0003",
     "publisher": "HL7 / NHS Digital",
@@ -541,10 +592,10 @@
     "content_hash": "85dc4b676d6dc4f4877df0eb5ac7da0d3e1ee46c25dc7e3057acaf1e729f89b9",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_032_fhir_patient_3.txt"
+    "file_name": "doc_035_fhir_patient_3.txt"
   },
   {
-    "id": "doc_033_fhir_patient_4",
+    "id": "doc_036_fhir_patient_4",
     "title": "EHR FHIR Export Patient Record PAT-0004",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0004",
     "publisher": "HL7 / NHS Digital",
@@ -558,10 +609,10 @@
     "content_hash": "85bcf17a90773e5bfbf3fce5a3530a3f1e634cb2b89c037893d4e56679571cbe",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_033_fhir_patient_4.txt"
+    "file_name": "doc_036_fhir_patient_4.txt"
   },
   {
-    "id": "doc_034_fhir_patient_5",
+    "id": "doc_037_fhir_patient_5",
     "title": "EHR FHIR Export Patient Record PAT-0005",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0005",
     "publisher": "HL7 / NHS Digital",
@@ -575,10 +626,10 @@
     "content_hash": "3804ce356403f30e202fa4b6bbd7a3f1fed8a91a0dc4845ba1480bc124fbcf35",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_034_fhir_patient_5.txt"
+    "file_name": "doc_037_fhir_patient_5.txt"
   },
   {
-    "id": "doc_035_fhir_patient_6",
+    "id": "doc_038_fhir_patient_6",
     "title": "EHR FHIR Export Patient Record PAT-0006",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0006",
     "publisher": "HL7 / NHS Digital",
@@ -592,10 +643,10 @@
     "content_hash": "1a621ac90dcf6c76ec8ff46b39b5b13be96df7b6827037a68e8e8d3468b46781",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_035_fhir_patient_6.txt"
+    "file_name": "doc_038_fhir_patient_6.txt"
   },
   {
-    "id": "doc_036_fhir_patient_7",
+    "id": "doc_039_fhir_patient_7",
     "title": "EHR FHIR Export Patient Record PAT-0007",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0007",
     "publisher": "HL7 / NHS Digital",
@@ -609,10 +660,10 @@
     "content_hash": "901d6107d211bc58670de4b0ba2f72dba72634567cc34bd2c7b1a80d1078c48c",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_036_fhir_patient_7.txt"
+    "file_name": "doc_039_fhir_patient_7.txt"
   },
   {
-    "id": "doc_037_fhir_patient_8",
+    "id": "doc_040_fhir_patient_8",
     "title": "EHR FHIR Export Patient Record PAT-0008",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0008",
     "publisher": "HL7 / NHS Digital",
@@ -626,10 +677,10 @@
     "content_hash": "0341142ffb6aeee0e4df84afa6334bcce06a2e360fbd926ebad8ff9a087d967e",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_037_fhir_patient_8.txt"
+    "file_name": "doc_040_fhir_patient_8.txt"
   },
   {
-    "id": "doc_038_fhir_patient_9",
+    "id": "doc_041_fhir_patient_9",
     "title": "EHR FHIR Export Patient Record PAT-0009",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0009",
     "publisher": "HL7 / NHS Digital",
@@ -643,10 +694,10 @@
     "content_hash": "953b7e3f0a16c4e3fcd398abf8ce36e9af2d7bbf7cb0fb5d5b1239ee23a65862",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_038_fhir_patient_9.txt"
+    "file_name": "doc_041_fhir_patient_9.txt"
   },
   {
-    "id": "doc_039_fhir_patient_10",
+    "id": "doc_042_fhir_patient_10",
     "title": "EHR FHIR Export Patient Record PAT-0010",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0010",
     "publisher": "HL7 / NHS Digital",
@@ -660,10 +711,10 @@
     "content_hash": "e8dbc3c2b08bfd4ccddc84bbdd2266e4b33002025565b0c6b3d41c86759f1d6d",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_039_fhir_patient_10.txt"
+    "file_name": "doc_042_fhir_patient_10.txt"
   },
   {
-    "id": "doc_040_fhir_patient_11",
+    "id": "doc_043_fhir_patient_11",
     "title": "EHR FHIR Export Patient Record PAT-0011",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0011",
     "publisher": "HL7 / NHS Digital",
@@ -677,10 +728,10 @@
     "content_hash": "ee4477b5c999ac6e5dad8cff6a8b72f3e4d5cd9583a4a06016deb7db9b2611ca",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_040_fhir_patient_11.txt"
+    "file_name": "doc_043_fhir_patient_11.txt"
   },
   {
-    "id": "doc_041_fhir_patient_12",
+    "id": "doc_044_fhir_patient_12",
     "title": "EHR FHIR Export Patient Record PAT-0012",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0012",
     "publisher": "HL7 / NHS Digital",
@@ -694,10 +745,10 @@
     "content_hash": "94af70f4c1bdc84d5c01e1f85781ba5212cf1d5b5dab5be182654bce999fcd28",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_041_fhir_patient_12.txt"
+    "file_name": "doc_044_fhir_patient_12.txt"
   },
   {
-    "id": "doc_042_fhir_patient_13",
+    "id": "doc_045_fhir_patient_13",
     "title": "EHR FHIR Export Patient Record PAT-0013",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0013",
     "publisher": "HL7 / NHS Digital",
@@ -711,10 +762,10 @@
     "content_hash": "cdd834380ec9883f9c83b941d0b958a66a52df7694b49193c37b3dec3076ca04",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_042_fhir_patient_13.txt"
+    "file_name": "doc_045_fhir_patient_13.txt"
   },
   {
-    "id": "doc_043_fhir_patient_14",
+    "id": "doc_046_fhir_patient_14",
     "title": "EHR FHIR Export Patient Record PAT-0014",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0014",
     "publisher": "HL7 / NHS Digital",
@@ -728,10 +779,10 @@
     "content_hash": "deba8c8018920c7e271f45f23e7803380efa21806a9c32843ca37517f1d0e84d",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_043_fhir_patient_14.txt"
+    "file_name": "doc_046_fhir_patient_14.txt"
   },
   {
-    "id": "doc_044_fhir_patient_15",
+    "id": "doc_047_fhir_patient_15",
     "title": "EHR FHIR Export Patient Record PAT-0015",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0015",
     "publisher": "HL7 / NHS Digital",
@@ -745,10 +796,10 @@
     "content_hash": "2d9e17695476b72b65c3ca2b0980ccf5a2f24e17f77fb0e721115a267b3c004b",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_044_fhir_patient_15.txt"
+    "file_name": "doc_047_fhir_patient_15.txt"
   },
   {
-    "id": "doc_045_fhir_patient_16",
+    "id": "doc_048_fhir_patient_16",
     "title": "EHR FHIR Export Patient Record PAT-0016",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0016",
     "publisher": "HL7 / NHS Digital",
@@ -762,10 +813,10 @@
     "content_hash": "8e9c19ddebee48e9898ea3ce3d8c67c16397d7a52c7c4a99d4c0eeebeef2b236",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_045_fhir_patient_16.txt"
+    "file_name": "doc_048_fhir_patient_16.txt"
   },
   {
-    "id": "doc_046_fhir_patient_17",
+    "id": "doc_049_fhir_patient_17",
     "title": "EHR FHIR Export Patient Record PAT-0017",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0017",
     "publisher": "HL7 / NHS Digital",
@@ -779,10 +830,10 @@
     "content_hash": "4d9549a419c3ed05aa3109a14d630371761fcfb9076f4f001a98716c8c3fcbf4",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_046_fhir_patient_17.txt"
+    "file_name": "doc_049_fhir_patient_17.txt"
   },
   {
-    "id": "doc_047_fhir_patient_18",
+    "id": "doc_050_fhir_patient_18",
     "title": "EHR FHIR Export Patient Record PAT-0018",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0018",
     "publisher": "HL7 / NHS Digital",
@@ -796,10 +847,10 @@
     "content_hash": "4409eea647f9a5800a22508307d002ad84341d6a065c4f2598e71cd34e4f72de",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_047_fhir_patient_18.txt"
+    "file_name": "doc_050_fhir_patient_18.txt"
   },
   {
-    "id": "doc_048_fhir_patient_19",
+    "id": "doc_051_fhir_patient_19",
     "title": "EHR FHIR Export Patient Record PAT-0019",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0019",
     "publisher": "HL7 / NHS Digital",
@@ -813,10 +864,10 @@
     "content_hash": "a0c6e0101f7ef7ffcb5c0bf2acbe9a28f85818606a76b84f506f02366dfe6dca",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_048_fhir_patient_19.txt"
+    "file_name": "doc_051_fhir_patient_19.txt"
   },
   {
-    "id": "doc_049_fhir_patient_20",
+    "id": "doc_052_fhir_patient_20",
     "title": "EHR FHIR Export Patient Record PAT-0020",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0020",
     "publisher": "HL7 / NHS Digital",
@@ -830,10 +881,10 @@
     "content_hash": "26266eb28301434a12eaac02487e77bdb40c88c5c99c33a59ad9cdd4fc7ad6ef",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_049_fhir_patient_20.txt"
+    "file_name": "doc_052_fhir_patient_20.txt"
   },
   {
-    "id": "doc_050_fhir_patient_21",
+    "id": "doc_053_fhir_patient_21",
     "title": "EHR FHIR Export Patient Record PAT-0021",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0021",
     "publisher": "HL7 / NHS Digital",
@@ -847,10 +898,10 @@
     "content_hash": "a27cae3c8e26a90d5bdf55ab31945a6ac17451de0992d0e07380c2dd0a78bc55",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_050_fhir_patient_21.txt"
+    "file_name": "doc_053_fhir_patient_21.txt"
   },
   {
-    "id": "doc_051_fhir_patient_22",
+    "id": "doc_054_fhir_patient_22",
     "title": "EHR FHIR Export Patient Record PAT-0022",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0022",
     "publisher": "HL7 / NHS Digital",
@@ -864,10 +915,10 @@
     "content_hash": "f7bd1441129578b483e4e6e440e6ad30fd871e099633864a87be91ca9f157e44",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_051_fhir_patient_22.txt"
+    "file_name": "doc_054_fhir_patient_22.txt"
   },
   {
-    "id": "doc_052_fhir_patient_23",
+    "id": "doc_055_fhir_patient_23",
     "title": "EHR FHIR Export Patient Record PAT-0023",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0023",
     "publisher": "HL7 / NHS Digital",
@@ -881,10 +932,10 @@
     "content_hash": "9fc57b7989861612e0435b0061412b343b39816da74f48bfaa32c82736fae57a",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_052_fhir_patient_23.txt"
+    "file_name": "doc_055_fhir_patient_23.txt"
   },
   {
-    "id": "doc_053_fhir_patient_24",
+    "id": "doc_056_fhir_patient_24",
     "title": "EHR FHIR Export Patient Record PAT-0024",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0024",
     "publisher": "HL7 / NHS Digital",
@@ -898,10 +949,10 @@
     "content_hash": "864c9de1c69a79ba0e66a928415f7c8cbea136672c8b4a5ba927dc4c6411af00",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_053_fhir_patient_24.txt"
+    "file_name": "doc_056_fhir_patient_24.txt"
   },
   {
-    "id": "doc_054_fhir_patient_25",
+    "id": "doc_057_fhir_patient_25",
     "title": "EHR FHIR Export Patient Record PAT-0025",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0025",
     "publisher": "HL7 / NHS Digital",
@@ -915,10 +966,10 @@
     "content_hash": "8ebca345e0575063b64dafbf9ccf1af30f57700c34912a9dbc2c1467fb33f041",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_054_fhir_patient_25.txt"
+    "file_name": "doc_057_fhir_patient_25.txt"
   },
   {
-    "id": "doc_055_fhir_patient_26",
+    "id": "doc_058_fhir_patient_26",
     "title": "EHR FHIR Export Patient Record PAT-0026",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0026",
     "publisher": "HL7 / NHS Digital",
@@ -932,10 +983,10 @@
     "content_hash": "ea72bb5c090ed4ee91d0dc8afacd4bf65386ff93a8d83a9540fd3685d7324ddd",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_055_fhir_patient_26.txt"
+    "file_name": "doc_058_fhir_patient_26.txt"
   },
   {
-    "id": "doc_056_fhir_patient_27",
+    "id": "doc_059_fhir_patient_27",
     "title": "EHR FHIR Export Patient Record PAT-0027",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0027",
     "publisher": "HL7 / NHS Digital",
@@ -949,10 +1000,10 @@
     "content_hash": "8091d4eab69da1f18fef6e9d7a88716d2551a82219b8bf6631c723cbbbe0e58c",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_056_fhir_patient_27.txt"
+    "file_name": "doc_059_fhir_patient_27.txt"
   },
   {
-    "id": "doc_057_fhir_patient_28",
+    "id": "doc_060_fhir_patient_28",
     "title": "EHR FHIR Export Patient Record PAT-0028",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0028",
     "publisher": "HL7 / NHS Digital",
@@ -966,10 +1017,10 @@
     "content_hash": "e2858eb9a6606e3c7d604f3e0c97d77591abcdc65e1be242ec8b71fea9e8a272",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_057_fhir_patient_28.txt"
+    "file_name": "doc_060_fhir_patient_28.txt"
   },
   {
-    "id": "doc_058_fhir_patient_29",
+    "id": "doc_061_fhir_patient_29",
     "title": "EHR FHIR Export Patient Record PAT-0029",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0029",
     "publisher": "HL7 / NHS Digital",
@@ -983,10 +1034,10 @@
     "content_hash": "bbe8dcf3551691ac013b30b034eb271762fef2891afb86a8587a3af03c282320",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_058_fhir_patient_29.txt"
+    "file_name": "doc_061_fhir_patient_29.txt"
   },
   {
-    "id": "doc_059_fhir_patient_30",
+    "id": "doc_062_fhir_patient_30",
     "title": "EHR FHIR Export Patient Record PAT-0030",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0030",
     "publisher": "HL7 / NHS Digital",
@@ -1000,10 +1051,10 @@
     "content_hash": "e276f5c709d6506c8e0ab0c966397bbe7c103c027d8a13543751b2e6c38759fe",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_059_fhir_patient_30.txt"
+    "file_name": "doc_062_fhir_patient_30.txt"
   },
   {
-    "id": "doc_060_fhir_patient_31",
+    "id": "doc_063_fhir_patient_31",
     "title": "EHR FHIR Export Patient Record PAT-0031",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0031",
     "publisher": "HL7 / NHS Digital",
@@ -1017,10 +1068,10 @@
     "content_hash": "1e8f41b6572af2da221216fe44a73268045140a6d534f5d89b93aad19b546c26",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_060_fhir_patient_31.txt"
+    "file_name": "doc_063_fhir_patient_31.txt"
   },
   {
-    "id": "doc_061_fhir_patient_32",
+    "id": "doc_064_fhir_patient_32",
     "title": "EHR FHIR Export Patient Record PAT-0032",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0032",
     "publisher": "HL7 / NHS Digital",
@@ -1034,10 +1085,10 @@
     "content_hash": "075a5c858cf5ee8c8705b94f333a97f15158b3bcb68509219e40536eaca32dcb",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_061_fhir_patient_32.txt"
+    "file_name": "doc_064_fhir_patient_32.txt"
   },
   {
-    "id": "doc_062_fhir_patient_33",
+    "id": "doc_065_fhir_patient_33",
     "title": "EHR FHIR Export Patient Record PAT-0033",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0033",
     "publisher": "HL7 / NHS Digital",
@@ -1051,10 +1102,10 @@
     "content_hash": "0589793607b0684ffb964c53c116466902e52fc4d7b5d9656f683ebedd363c86",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_062_fhir_patient_33.txt"
+    "file_name": "doc_065_fhir_patient_33.txt"
   },
   {
-    "id": "doc_063_fhir_patient_34",
+    "id": "doc_066_fhir_patient_34",
     "title": "EHR FHIR Export Patient Record PAT-0034",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0034",
     "publisher": "HL7 / NHS Digital",
@@ -1068,10 +1119,10 @@
     "content_hash": "340a88044a77086a57f563a2d4c567faffa5c8df4e2f01a30265a63bc6f178a1",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_063_fhir_patient_34.txt"
+    "file_name": "doc_066_fhir_patient_34.txt"
   },
   {
-    "id": "doc_064_fhir_patient_35",
+    "id": "doc_067_fhir_patient_35",
     "title": "EHR FHIR Export Patient Record PAT-0035",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0035",
     "publisher": "HL7 / NHS Digital",
@@ -1085,10 +1136,10 @@
     "content_hash": "932a15e9eb7e40ead5b3d9ff73c19d1fe5b30fd06db7c2207ade5764d0eb80ee",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_064_fhir_patient_35.txt"
+    "file_name": "doc_067_fhir_patient_35.txt"
   },
   {
-    "id": "doc_065_fhir_patient_36",
+    "id": "doc_068_fhir_patient_36",
     "title": "EHR FHIR Export Patient Record PAT-0036",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0036",
     "publisher": "HL7 / NHS Digital",
@@ -1102,10 +1153,10 @@
     "content_hash": "f3a70ca0b07669c72f2bb334659f0f29f963de90e4bee0646856e53920763469",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_065_fhir_patient_36.txt"
+    "file_name": "doc_068_fhir_patient_36.txt"
   },
   {
-    "id": "doc_066_fhir_patient_37",
+    "id": "doc_069_fhir_patient_37",
     "title": "EHR FHIR Export Patient Record PAT-0037",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0037",
     "publisher": "HL7 / NHS Digital",
@@ -1119,10 +1170,10 @@
     "content_hash": "845f4fc13d26f51be1126ece206820e5032ab33fc0da114831dfd74b6c0896b5",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_066_fhir_patient_37.txt"
+    "file_name": "doc_069_fhir_patient_37.txt"
   },
   {
-    "id": "doc_067_fhir_patient_38",
+    "id": "doc_070_fhir_patient_38",
     "title": "EHR FHIR Export Patient Record PAT-0038",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0038",
     "publisher": "HL7 / NHS Digital",
@@ -1136,10 +1187,10 @@
     "content_hash": "2937843c9a4e86884fdb57692dae592a0675a2dba2d23ca58f0c15907ebe953b",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_067_fhir_patient_38.txt"
+    "file_name": "doc_070_fhir_patient_38.txt"
   },
   {
-    "id": "doc_068_fhir_patient_39",
+    "id": "doc_071_fhir_patient_39",
     "title": "EHR FHIR Export Patient Record PAT-0039",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0039",
     "publisher": "HL7 / NHS Digital",
@@ -1153,10 +1204,10 @@
     "content_hash": "7ce4710da341e341066e756cbfdf96366c216682eb3d0a149e23506539ca5674",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_068_fhir_patient_39.txt"
+    "file_name": "doc_071_fhir_patient_39.txt"
   },
   {
-    "id": "doc_069_fhir_patient_40",
+    "id": "doc_072_fhir_patient_40",
     "title": "EHR FHIR Export Patient Record PAT-0040",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0040",
     "publisher": "HL7 / NHS Digital",
@@ -1170,10 +1221,10 @@
     "content_hash": "3c3700b4ef90834df4aacf8bd790583f193c8655cce2347173062cbf3db3c006",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_069_fhir_patient_40.txt"
+    "file_name": "doc_072_fhir_patient_40.txt"
   },
   {
-    "id": "doc_070_fhir_patient_41",
+    "id": "doc_073_fhir_patient_41",
     "title": "EHR FHIR Export Patient Record PAT-0041",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0041",
     "publisher": "HL7 / NHS Digital",
@@ -1187,10 +1238,10 @@
     "content_hash": "720c6570d514768bd9bed07d47a6c76f8717435e1c4a55bc2318e7e21125d5b1",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_070_fhir_patient_41.txt"
+    "file_name": "doc_073_fhir_patient_41.txt"
   },
   {
-    "id": "doc_071_fhir_patient_42",
+    "id": "doc_074_fhir_patient_42",
     "title": "EHR FHIR Export Patient Record PAT-0042",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0042",
     "publisher": "HL7 / NHS Digital",
@@ -1204,10 +1255,10 @@
     "content_hash": "542664345fb1946d4cbe2ec45eff99cb4e20761342df47dadf4ed71f2d99e427",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_071_fhir_patient_42.txt"
+    "file_name": "doc_074_fhir_patient_42.txt"
   },
   {
-    "id": "doc_072_fhir_patient_43",
+    "id": "doc_075_fhir_patient_43",
     "title": "EHR FHIR Export Patient Record PAT-0043",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0043",
     "publisher": "HL7 / NHS Digital",
@@ -1221,10 +1272,10 @@
     "content_hash": "4e729be3d9355a915161080e9b6db596b90e97bd7eaae20087eb4e5f15ae0ab8",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_072_fhir_patient_43.txt"
+    "file_name": "doc_075_fhir_patient_43.txt"
   },
   {
-    "id": "doc_073_fhir_patient_44",
+    "id": "doc_076_fhir_patient_44",
     "title": "EHR FHIR Export Patient Record PAT-0044",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0044",
     "publisher": "HL7 / NHS Digital",
@@ -1238,10 +1289,10 @@
     "content_hash": "95433cef1dde0da0cef0a87f277c641b516b0e292f3cb5270d6217c97423bb91",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_073_fhir_patient_44.txt"
+    "file_name": "doc_076_fhir_patient_44.txt"
   },
   {
-    "id": "doc_074_fhir_patient_45",
+    "id": "doc_077_fhir_patient_45",
     "title": "EHR FHIR Export Patient Record PAT-0045",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0045",
     "publisher": "HL7 / NHS Digital",
@@ -1255,10 +1306,10 @@
     "content_hash": "9928dcfcac4490b0890793905712b765759e2de26cc657eabbf8e8c1c88e1cfa",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_074_fhir_patient_45.txt"
+    "file_name": "doc_077_fhir_patient_45.txt"
   },
   {
-    "id": "doc_075_fhir_patient_46",
+    "id": "doc_078_fhir_patient_46",
     "title": "EHR FHIR Export Patient Record PAT-0046",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0046",
     "publisher": "HL7 / NHS Digital",
@@ -1272,10 +1323,10 @@
     "content_hash": "e4328ca542a99a0efacc63eac153bc433018f2ea86fbc2ae590bbedb2e5d11d9",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_075_fhir_patient_46.txt"
+    "file_name": "doc_078_fhir_patient_46.txt"
   },
   {
-    "id": "doc_076_fhir_patient_47",
+    "id": "doc_079_fhir_patient_47",
     "title": "EHR FHIR Export Patient Record PAT-0047",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0047",
     "publisher": "HL7 / NHS Digital",
@@ -1289,10 +1340,10 @@
     "content_hash": "c4bee1de2c1fdd94b0497c18290d6ed3eaa8d4367b11925d14df2a16466f72c8",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_076_fhir_patient_47.txt"
+    "file_name": "doc_079_fhir_patient_47.txt"
   },
   {
-    "id": "doc_077_fhir_patient_48",
+    "id": "doc_080_fhir_patient_48",
     "title": "EHR FHIR Export Patient Record PAT-0048",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0048",
     "publisher": "HL7 / NHS Digital",
@@ -1306,10 +1357,10 @@
     "content_hash": "9fc3c5f5d56c6d5f1029782429552a37db2ee9ed3ba9c4e32eda869616ae437e",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_077_fhir_patient_48.txt"
+    "file_name": "doc_080_fhir_patient_48.txt"
   },
   {
-    "id": "doc_078_fhir_patient_49",
+    "id": "doc_081_fhir_patient_49",
     "title": "EHR FHIR Export Patient Record PAT-0049",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0049",
     "publisher": "HL7 / NHS Digital",
@@ -1323,10 +1374,10 @@
     "content_hash": "2e466b7c464daa89694349bad10960a6e19ab569809ba5c1afb74c25c0a09453",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_078_fhir_patient_49.txt"
+    "file_name": "doc_081_fhir_patient_49.txt"
   },
   {
-    "id": "doc_079_fhir_patient_50",
+    "id": "doc_082_fhir_patient_50",
     "title": "EHR FHIR Export Patient Record PAT-0050",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0050",
     "publisher": "HL7 / NHS Digital",
@@ -1340,10 +1391,10 @@
     "content_hash": "1aea9d6a6dfba1b270a4baf0c2a8b9d52bd8c72c30dbc4cd17fe0162ed53654a",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_079_fhir_patient_50.txt"
+    "file_name": "doc_082_fhir_patient_50.txt"
   },
   {
-    "id": "doc_080_fhir_patient_51",
+    "id": "doc_083_fhir_patient_51",
     "title": "EHR FHIR Export Patient Record PAT-0051",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0051",
     "publisher": "HL7 / NHS Digital",
@@ -1357,10 +1408,10 @@
     "content_hash": "3e563b6bf8e9e3a12748a536beb51d4bf7f33e5f0e98438a08ce8003a45214cb",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_080_fhir_patient_51.txt"
+    "file_name": "doc_083_fhir_patient_51.txt"
   },
   {
-    "id": "doc_081_fhir_patient_52",
+    "id": "doc_084_fhir_patient_52",
     "title": "EHR FHIR Export Patient Record PAT-0052",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0052",
     "publisher": "HL7 / NHS Digital",
@@ -1374,10 +1425,10 @@
     "content_hash": "341621ee591aa3e5227cb8066eff0086dce1359d57ab79738062b7eb29ab9304",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_081_fhir_patient_52.txt"
+    "file_name": "doc_084_fhir_patient_52.txt"
   },
   {
-    "id": "doc_082_fhir_patient_53",
+    "id": "doc_085_fhir_patient_53",
     "title": "EHR FHIR Export Patient Record PAT-0053",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0053",
     "publisher": "HL7 / NHS Digital",
@@ -1391,10 +1442,10 @@
     "content_hash": "7daa02478cfed4578218fcce83b993a2602f6569c6354aa8d8cc8305d9beb31c",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_082_fhir_patient_53.txt"
+    "file_name": "doc_085_fhir_patient_53.txt"
   },
   {
-    "id": "doc_083_fhir_patient_54",
+    "id": "doc_086_fhir_patient_54",
     "title": "EHR FHIR Export Patient Record PAT-0054",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0054",
     "publisher": "HL7 / NHS Digital",
@@ -1408,10 +1459,10 @@
     "content_hash": "4ad1ab2e819b2dd35e1545667e8e44f70ce9b8fa87eca7e2e2bfe6377fbd2539",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_083_fhir_patient_54.txt"
+    "file_name": "doc_086_fhir_patient_54.txt"
   },
   {
-    "id": "doc_084_fhir_patient_55",
+    "id": "doc_087_fhir_patient_55",
     "title": "EHR FHIR Export Patient Record PAT-0055",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0055",
     "publisher": "HL7 / NHS Digital",
@@ -1425,10 +1476,10 @@
     "content_hash": "2c8f6a09fb23633ba814f53555f9f0bc89277b0515ae889431f2259a0bdffaa0",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_084_fhir_patient_55.txt"
+    "file_name": "doc_087_fhir_patient_55.txt"
   },
   {
-    "id": "doc_085_fhir_patient_56",
+    "id": "doc_088_fhir_patient_56",
     "title": "EHR FHIR Export Patient Record PAT-0056",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0056",
     "publisher": "HL7 / NHS Digital",
@@ -1442,10 +1493,10 @@
     "content_hash": "1b2ece7cc89be61c8f0dd1d43a0fd216f309198156117a3e50d452656ff092f2",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_085_fhir_patient_56.txt"
+    "file_name": "doc_088_fhir_patient_56.txt"
   },
   {
-    "id": "doc_086_fhir_patient_57",
+    "id": "doc_089_fhir_patient_57",
     "title": "EHR FHIR Export Patient Record PAT-0057",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0057",
     "publisher": "HL7 / NHS Digital",
@@ -1459,10 +1510,10 @@
     "content_hash": "aca712a4e949a219d40993085cf7efcb09d977fc3d8b0ebf20b429d9c370effe",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_086_fhir_patient_57.txt"
+    "file_name": "doc_089_fhir_patient_57.txt"
   },
   {
-    "id": "doc_087_fhir_patient_58",
+    "id": "doc_090_fhir_patient_58",
     "title": "EHR FHIR Export Patient Record PAT-0058",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0058",
     "publisher": "HL7 / NHS Digital",
@@ -1476,10 +1527,10 @@
     "content_hash": "8cd969d57a0a54de22addcb736b428b9fa1d8b28c7c5355c569c428db9ddecbe",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_087_fhir_patient_58.txt"
+    "file_name": "doc_090_fhir_patient_58.txt"
   },
   {
-    "id": "doc_088_fhir_patient_59",
+    "id": "doc_091_fhir_patient_59",
     "title": "EHR FHIR Export Patient Record PAT-0059",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0059",
     "publisher": "HL7 / NHS Digital",
@@ -1493,10 +1544,10 @@
     "content_hash": "eec14884658dd964a8a82dd47645bada21a61f4391d01cbf6526776e420b09fc",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_088_fhir_patient_59.txt"
+    "file_name": "doc_091_fhir_patient_59.txt"
   },
   {
-    "id": "doc_089_fhir_patient_60",
+    "id": "doc_092_fhir_patient_60",
     "title": "EHR FHIR Export Patient Record PAT-0060",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0060",
     "publisher": "HL7 / NHS Digital",
@@ -1510,10 +1561,10 @@
     "content_hash": "56cf23df2d1924b9fb72fc9f9a0d9ad479afc4f3e0b13b5d6900e7fee271bf08",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_089_fhir_patient_60.txt"
+    "file_name": "doc_092_fhir_patient_60.txt"
   },
   {
-    "id": "doc_090_fhir_patient_61",
+    "id": "doc_093_fhir_patient_61",
     "title": "EHR FHIR Export Patient Record PAT-0061",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0061",
     "publisher": "HL7 / NHS Digital",
@@ -1527,10 +1578,10 @@
     "content_hash": "07657526dfc75e2e156d1107f3068831a5806d2fce94801e79aff6f20f55e87d",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_090_fhir_patient_61.txt"
+    "file_name": "doc_093_fhir_patient_61.txt"
   },
   {
-    "id": "doc_091_fhir_patient_62",
+    "id": "doc_094_fhir_patient_62",
     "title": "EHR FHIR Export Patient Record PAT-0062",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0062",
     "publisher": "HL7 / NHS Digital",
@@ -1544,10 +1595,10 @@
     "content_hash": "950e24f66e3c1dc3e0d5de62beaf78a4737d9ad31d1a088cfb95b5e1a72c9eee",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_091_fhir_patient_62.txt"
+    "file_name": "doc_094_fhir_patient_62.txt"
   },
   {
-    "id": "doc_092_fhir_patient_63",
+    "id": "doc_095_fhir_patient_63",
     "title": "EHR FHIR Export Patient Record PAT-0063",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0063",
     "publisher": "HL7 / NHS Digital",
@@ -1561,10 +1612,10 @@
     "content_hash": "6727f81034bb12735c14d70321b57479e7292811ac774e5b1a208ab3a3042055",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_092_fhir_patient_63.txt"
+    "file_name": "doc_095_fhir_patient_63.txt"
   },
   {
-    "id": "doc_093_fhir_patient_64",
+    "id": "doc_096_fhir_patient_64",
     "title": "EHR FHIR Export Patient Record PAT-0064",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0064",
     "publisher": "HL7 / NHS Digital",
@@ -1578,10 +1629,10 @@
     "content_hash": "9081433af58df178b0b5b177cc8510f6744eafe39b2fa0cd49d6a9fa2c5d2612",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_093_fhir_patient_64.txt"
+    "file_name": "doc_096_fhir_patient_64.txt"
   },
   {
-    "id": "doc_094_fhir_patient_65",
+    "id": "doc_097_fhir_patient_65",
     "title": "EHR FHIR Export Patient Record PAT-0065",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0065",
     "publisher": "HL7 / NHS Digital",
@@ -1595,10 +1646,10 @@
     "content_hash": "ec57b2e3e23852105f6e1d6e70c60712bb0e76eac34efd497ac6ad811fd58c91",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_094_fhir_patient_65.txt"
+    "file_name": "doc_097_fhir_patient_65.txt"
   },
   {
-    "id": "doc_095_fhir_patient_66",
+    "id": "doc_098_fhir_patient_66",
     "title": "EHR FHIR Export Patient Record PAT-0066",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0066",
     "publisher": "HL7 / NHS Digital",
@@ -1612,10 +1663,10 @@
     "content_hash": "bad53d7afec31da7293cdd938fd82522e105bb5ad08fd56a47943e41e5514b76",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_095_fhir_patient_66.txt"
+    "file_name": "doc_098_fhir_patient_66.txt"
   },
   {
-    "id": "doc_096_fhir_patient_67",
+    "id": "doc_099_fhir_patient_67",
     "title": "EHR FHIR Export Patient Record PAT-0067",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0067",
     "publisher": "HL7 / NHS Digital",
@@ -1629,10 +1680,10 @@
     "content_hash": "561574c004d4d81f9d3b936c13bce5b37588b998832f61ab3259877bdce0a0e0",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_096_fhir_patient_67.txt"
+    "file_name": "doc_099_fhir_patient_67.txt"
   },
   {
-    "id": "doc_097_fhir_patient_68",
+    "id": "doc_100_fhir_patient_68",
     "title": "EHR FHIR Export Patient Record PAT-0068",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0068",
     "publisher": "HL7 / NHS Digital",
@@ -1646,10 +1697,10 @@
     "content_hash": "90699651a988fdc8b387a63812ba927ac44d7ab8c6554d6f4b90f70f7fd1afd8",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_097_fhir_patient_68.txt"
+    "file_name": "doc_100_fhir_patient_68.txt"
   },
   {
-    "id": "doc_098_fhir_patient_69",
+    "id": "doc_101_fhir_patient_69",
     "title": "EHR FHIR Export Patient Record PAT-0069",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0069",
     "publisher": "HL7 / NHS Digital",
@@ -1663,10 +1714,10 @@
     "content_hash": "5df4caad13c6dbdd623531e680a7ac4003d48a5b3b52b0cb1bb0a3fbd6da24f1",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_098_fhir_patient_69.txt"
+    "file_name": "doc_101_fhir_patient_69.txt"
   },
   {
-    "id": "doc_099_fhir_patient_70",
+    "id": "doc_102_fhir_patient_70",
     "title": "EHR FHIR Export Patient Record PAT-0070",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0070",
     "publisher": "HL7 / NHS Digital",
@@ -1680,10 +1731,10 @@
     "content_hash": "9debb0d734051d3e72e1c898a8c99626a2926e25dacf30c3f0975e7989cd58c5",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_099_fhir_patient_70.txt"
+    "file_name": "doc_102_fhir_patient_70.txt"
   },
   {
-    "id": "doc_100_fhir_patient_71",
+    "id": "doc_103_fhir_patient_71",
     "title": "EHR FHIR Export Patient Record PAT-0071",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0071",
     "publisher": "HL7 / NHS Digital",
@@ -1697,10 +1748,10 @@
     "content_hash": "5711214a02a836d828fd585b20b62abaed87c6028b21d45e2fd9c9f2c91751d6",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_100_fhir_patient_71.txt"
+    "file_name": "doc_103_fhir_patient_71.txt"
   },
   {
-    "id": "doc_101_fhir_patient_72",
+    "id": "doc_104_fhir_patient_72",
     "title": "EHR FHIR Export Patient Record PAT-0072",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0072",
     "publisher": "HL7 / NHS Digital",
@@ -1714,10 +1765,10 @@
     "content_hash": "e3e88dab60c0f79b4355a2e25a277ffce07bc644bb574b203fdb4593009fd3c3",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_101_fhir_patient_72.txt"
+    "file_name": "doc_104_fhir_patient_72.txt"
   },
   {
-    "id": "doc_102_fhir_patient_73",
+    "id": "doc_105_fhir_patient_73",
     "title": "EHR FHIR Export Patient Record PAT-0073",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0073",
     "publisher": "HL7 / NHS Digital",
@@ -1731,10 +1782,10 @@
     "content_hash": "e7d53d2d3a92b97a3ac493d6e676d9f5f563849bd95991cbb299b67d8d9708a7",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_102_fhir_patient_73.txt"
+    "file_name": "doc_105_fhir_patient_73.txt"
   },
   {
-    "id": "doc_103_fhir_patient_74",
+    "id": "doc_106_fhir_patient_74",
     "title": "EHR FHIR Export Patient Record PAT-0074",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0074",
     "publisher": "HL7 / NHS Digital",
@@ -1748,10 +1799,10 @@
     "content_hash": "428ea993d8c0c9c2a0d983ad81e777e576ccf93bfc6a4ac7f07764a6a1ef15e3",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_103_fhir_patient_74.txt"
+    "file_name": "doc_106_fhir_patient_74.txt"
   },
   {
-    "id": "doc_104_fhir_patient_75",
+    "id": "doc_107_fhir_patient_75",
     "title": "EHR FHIR Export Patient Record PAT-0075",
     "source_url": "https://fhir.nhs.uk/Patient/PAT-0075",
     "publisher": "HL7 / NHS Digital",
@@ -1765,6 +1816,6 @@
     "content_hash": "241dda9f4f26bff4910a61098e7a742d179a37d9b5a86038469aeaf7b5413ac2",
     "hierarchy_rank": 3,
     "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary",
-    "file_name": "doc_104_fhir_patient_75.txt"
+    "file_name": "doc_107_fhir_patient_75.txt"
   }
 ]
