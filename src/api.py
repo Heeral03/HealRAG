@@ -101,11 +101,16 @@ def get_pipeline():
 
 def bg_initialize_models():
     """Background thread to pre-load ML models so they don't block webserver startup or delay the first request."""
+    if os.environ.get("DISABLE_BG_PRELOAD") == "1":
+        print("[HealRAG API] DISABLE_BG_PRELOAD=1 set. Skipping background pre-load to conserve RAM on 512MB free tier.")
+        return
     print("[HealRAG API] Pre-initializing AI models in background thread...")
-    get_pipeline()
-    get_retriever()
-    get_generator()
-    print("[HealRAG API] Background model initialization complete.")
+    try:
+        get_retriever()
+        gc.collect()
+        print("[HealRAG API] Background model initialization complete.")
+    except Exception as e:
+        print(f"[HealRAG API Warning] Background model pre-load skipped: {e}")
 
 api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
 

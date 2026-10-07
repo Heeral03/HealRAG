@@ -22,7 +22,7 @@ QDRANT_COLLECTION_NAME = "healrag_chunks"
 METADATA_PATH = DB_DIR / "metadata.json"
 
 # Model configuration
-EMBEDDING_MODEL_NAME = "intfloat/multilingual-e5-small"
+EMBEDDING_MODEL_NAME = os.environ.get("EMBEDDING_MODEL_NAME", "intfloat/multilingual-e5-small")
 CHUNK_SIZE_WORDS = 300
 CHUNK_OVERLAP_WORDS = 50
 
