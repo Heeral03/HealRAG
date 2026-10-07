@@ -31,6 +31,12 @@ from fastapi.security import APIKeyHeader
 from auth import seed_default_dev_key, verify_api_key, register_api_key, revoke_api_key
 
 # Optimize PyTorch CPU memory & thread footprint for low-memory containers (Render 512MB limit)
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
+os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
+os.environ["NUMEXPR_NUM_THREADS"] = "1"
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 torch.set_num_threads(1)
 torch.set_num_interop_threads(1)
 

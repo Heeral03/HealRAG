@@ -17,8 +17,8 @@ COPY . .
 ENV PYTHONPATH=/app/src
 ENV PORT=8000
 
-# Pre-seed corpus and pre-build Qdrant index during image build stage
-RUN python3 src/seeder.py && python3 src/embedder.py
+# Pre-seed corpus, build Qdrant index, and pre-download CrossEncoder model weights during image build stage
+RUN python3 src/seeder.py && python3 src/embedder.py && python3 -c "from sentence_transformers import CrossEncoder; CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')"
 
 # Expose FastAPI port
 EXPOSE 8000
