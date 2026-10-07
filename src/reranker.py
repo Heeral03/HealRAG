@@ -7,9 +7,11 @@ os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
 os.environ["NUMEXPR_NUM_THREADS"] = "1"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-import torch
-torch.set_num_threads(1)
-torch.set_num_interop_threads(1)
+try:
+    import torch
+    torch.set_num_threads(1)
+except Exception:
+    pass
 
 from pathlib import Path
 from typing import List, Dict

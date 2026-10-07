@@ -37,8 +37,11 @@ os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
 os.environ["NUMEXPR_NUM_THREADS"] = "1"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-torch.set_num_threads(1)
-torch.set_num_interop_threads(1)
+
+try:
+    torch.set_num_threads(1)
+except Exception:
+    pass
 
 app = FastAPI(
     title="HealRAG API",
