@@ -22,7 +22,8 @@ QDRANT_COLLECTION_NAME = "healrag_chunks"
 METADATA_PATH = DB_DIR / "metadata.json"
 
 # Model configuration
-EMBEDDING_MODEL_NAME = os.environ.get("EMBEDDING_MODEL_NAME", "intfloat/multilingual-e5-small")
+default_embed_model = "all-MiniLM-L6-v2" if os.environ.get("RENDER") or os.environ.get("DISABLE_BG_PRELOAD") else "intfloat/multilingual-e5-small"
+EMBEDDING_MODEL_NAME = os.environ.get("EMBEDDING_MODEL_NAME", default_embed_model)
 ENABLE_CROSS_ENCODER = os.environ.get("ENABLE_CROSS_ENCODER", "0" if os.environ.get("RENDER") or os.environ.get("DISABLE_BG_PRELOAD") else "1") == "1"
 CHUNK_SIZE_WORDS = 300
 CHUNK_OVERLAP_WORDS = 50
