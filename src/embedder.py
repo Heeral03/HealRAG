@@ -22,14 +22,18 @@ def get_embedding_model() -> SentenceTransformer:
     """Load the SentenceTransformer model."""
     return SentenceTransformer(config.EMBEDDING_MODEL_NAME)
 
+import threading
+
 _QDRANT_CLIENT_INSTANCE = None
+_qdrant_lock = threading.Lock()
 
 def get_qdrant_client() -> QdrantClient:
     """Returns local disk-persisted QdrantClient instance (singleton)."""
     global _QDRANT_CLIENT_INSTANCE
-    if _QDRANT_CLIENT_INSTANCE is None:
-        config.QDRANT_DIR.mkdir(parents=True, exist_ok=True)
-        _QDRANT_CLIENT_INSTANCE = QdrantClient(path=str(config.QDRANT_DIR))
+    with _qdrant_lock:
+        if _QDRANT_CLIENT_INSTANCE is None:
+            config.QDRANT_DIR.mkdir(parents=True, exist_ok=True)
+            _QDRANT_CLIENT_INSTANCE = QdrantClient(path=str(config.QDRANT_DIR))
     return _QDRANT_CLIENT_INSTANCE
 
 def build_index(chunks: list[dict]):

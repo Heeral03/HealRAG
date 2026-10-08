@@ -157,6 +157,7 @@ class Generator:
                 ],
                 model=self.model_name,
                 temperature=0.2,
+                max_tokens=600,
                 timeout=5.0
             )
             raw_answer = chat_completion.choices[0].message.content
