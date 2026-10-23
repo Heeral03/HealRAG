@@ -1,0 +1,122 @@
+[
+  {
+    "id": "gold_001",
+    "question": "What core principles relating to the processing of personal data are established under GDPR Article 5?",
+    "ideal_answer": "Under GDPR Article 5, personal data must be processed lawfully, fairly, and in a transparent manner; collected for specified, explicit, and legitimate purposes; adequate, relevant, and limited to what is necessary (data minimisation); accurate and kept up to date; kept in a form permitting identification for no longer than necessary (storage limitation); and processed in a manner that ensures appropriate security including protection against unauthorised or unlawful processing.",
+    "relevant_document": "doc_000_gdpr_art5.txt"
+  },
+  {
+    "id": "gold_002",
+    "question": "What categories of personal data are classified as special categories and prohibited from processing under GDPR Article 9(1)?",
+    "ideal_answer": "GDPR Article 9(1) prohibits processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, as well as the processing of genetic data, biometric data for uniquely identifying a natural person, data concerning health, or data concerning a natural person's sex life or sexual orientation.",
+    "relevant_document": "doc_001_gdpr_art9_para1.txt"
+  },
+  {
+    "id": "gold_003",
+    "question": "Under what condition does GDPR Article 9(2)(a) permit the processing of special category health data?",
+    "ideal_answer": "GDPR Article 9(2)(a) permits processing where the data subject has given explicit consent to the processing of those personal data for one or more specified purposes, except where Union or Member State law provides that the prohibition may not be lifted by the data subject.",
+    "relevant_document": "doc_002_gdpr_art9_para2_a.txt"
+  },
+  {
+    "id": "gold_004",
+    "question": "How does GDPR Article 9(2)(h) permit the processing of health data for medical diagnosis and health treatment?",
+    "ideal_answer": "GDPR Article 9(2)(h) permits processing when necessary for preventive or occupational medicine, assessment of the working capacity of the employee, medical diagnosis, provision of health or social care or treatment, or the management of health or social care systems and services, on the basis of Union or Member State law or pursuant to contract with a health professional subject to professional secrecy.",
+    "relevant_document": "doc_003_gdpr_art9_para2_h.txt"
+  },
+  {
+    "id": "gold_005",
+    "question": "What public health exception is provided under GDPR Article 9(2)(i) for processing sensitive health data?",
+    "ideal_answer": "GDPR Article 9(2)(i) provides an exception when processing is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health or ensuring high standards of quality and safety of health care and of medicinal products or medical devices, subject to professional secrecy or statutory safeguards.",
+    "relevant_document": "doc_004_gdpr_art9_para2_i.txt"
+  },
+  {
+    "id": "gold_006",
+    "question": "What technical and organisational security measures are mandated under GDPR Article 32 to ensure security of processing?",
+    "ideal_answer": "GDPR Article 32 mandates appropriate technical and organisational measures appropriate to the risk, including pseudonymisation and encryption of personal data, the ability to ensure ongoing confidentiality, integrity, availability, and resilience of processing systems and services, regular testing and evaluation of effectiveness, and the ability to restore availability and access to personal data in the event of an incident.",
+    "relevant_document": "doc_000_gdpr_art32.txt"
+  },
+  {
+    "id": "gold_007",
+    "question": "What safeguards does GDPR Article 89(1) mandate for processing health data for scientific research and statistical purposes?",
+    "ideal_answer": "GDPR Article 89(1) mandates that processing for archiving, scientific or historical research, or statistical purposes shall be subject to appropriate safeguards, including technical and organisational measures to ensure respect for the principle of data minimisation, such as pseudonymisation or anonymisation whenever those purposes can be fulfilled without identifying data subjects.",
+    "relevant_document": "doc_005_gdpr_art89_para1.txt"
+  },
+  {
+    "id": "gold_008",
+    "question": "What primary access rights do natural persons possess regarding their electronic health data under EHDS Chapter II Article 3?",
+    "ideal_answer": "Under EHDS Chapter II Article 3, natural persons have the right to access their personal electronic health data processed for primary use immediately, free of charge, and in an easily readable, common, and accessible format, as well as the right to retrieve an electronic copy in the European electronic health record exchange format (EEHRxF).",
+    "relevant_document": "doc_006_ehds_ch2_art3.txt"
+  },
+  {
+    "id": "gold_009",
+    "question": "What is the purpose and role of the MyHealth@EU platform established under EHDS Chapter II Article 5?",
+    "ideal_answer": "Under EHDS Chapter II Article 5, the European Commission establishes MyHealth@EU as a central platform for digital health to facilitate the exchange of electronic health data between National Contact Points for Digital Health (NCPH), enabling cross-border transmission of patient summaries, e-prescriptions, e-dispensations, diagnostic images, lab results, and hospital discharge reports.",
+    "relevant_document": "doc_008_ehds_ch2_art5.txt"
+  },
+  {
+    "id": "gold_010",
+    "question": "How does EHDS Chapter II Article 7 govern an individual's right to restrict access and what break-glass exceptions apply?",
+    "ideal_answer": "EHDS Chapter II Article 7 allows natural persons to restrict access by health professionals to all or part of their electronic health data. However, health professionals can bypass restrictions via emergency 'break-glass' access only when strictly necessary to protect the vital interests of the data subject or another person in life-threatening situations.",
+    "relevant_document": "doc_009_ehds_ch2_art7.txt"
+  },
+  {
+    "id": "gold_011",
+    "question": "Which categories of electronic health data must data holders make available for secondary use under EHDS Chapter IV Article 33?",
+    "ideal_answer": "Under EHDS Chapter IV Article 33, data holders must make available for secondary use: Electronic Health Records (EHRs), socio-economic, environmental, and lifestyle health factors, genetic, genomic, and proteomic data, person-generated health data (including wearables and mobile health apps), clinical trial data, and registries of medicinal products and medical devices.",
+    "relevant_document": "doc_010_ehds_ch4_art33.txt"
+  },
+  {
+    "id": "gold_012",
+    "question": "What permitted purposes are authorized for secondary use of electronic health data under EHDS Chapter IV Article 34?",
+    "ideal_answer": "Under EHDS Chapter IV Article 34, permitted purposes include public health activities, public health tasks of healthcare public bodies, scientific research related to health or care, development and evaluation of medicinal products or medical devices, and training, testing, and evaluating AI algorithms used in digital health and medical devices.",
+    "relevant_document": "doc_011_ehds_ch4_art34.txt"
+  },
+  {
+    "id": "gold_013",
+    "question": "What secondary uses of health data are explicitly prohibited under EHDS Chapter IV Article 35?",
+    "ideal_answer": "EHDS Chapter IV Article 35 strictly prohibits: taking detrimental decisions against natural persons (such as increasing insurance premiums or refusing coverage); advertising or targeted marketing activities; granting access to unauthorized third parties without a valid data permit; and developing harmful products or security-undermining activities.",
+    "relevant_document": "doc_012_ehds_ch4_art35.txt"
+  },
+  {
+    "id": "gold_014",
+    "question": "What is the role and responsibility of Health Data Access Bodies (HDABs) under EHDS Chapter IV Article 36?",
+    "ideal_answer": "Under EHDS Chapter IV Article 36, Member States designate Health Data Access Bodies (HDABs) to process secondary use applications, evaluate data requests, issue data permits under strict cybersecurity standards, pseudonymize or anonymize datasets, and provide secure access exclusively within Secure Processing Environments (SPE).",
+    "relevant_document": "doc_013_ehds_ch4_art36.txt"
+  },
+  {
+    "id": "gold_015",
+    "question": "How does the natural person's right to opt-out of secondary data use operate under EHDS Chapter IV Article 38?",
+    "ideal_answer": "EHDS Chapter IV Article 38 gives natural persons the right to opt-out from the processing of their electronic health data for secondary use via a simple, accessible, user-friendly mechanism. Opting out does not affect processing necessary for public health emergency responses, official statistics, or legal mandates.",
+    "relevant_document": "doc_014_ehds_ch4_art38.txt"
+  },
+  {
+    "id": "gold_016",
+    "question": "What are the core technical constraints of Secure Processing Environments (SPE) under EHDS Chapter IV Article 39?",
+    "ideal_answer": "Under EHDS Chapter IV Article 39, HDABs must provide secondary health data access strictly inside Secure Processing Environments (SPE). SPEs enforce strict technical controls preventing raw data downloads, unauthorized exports, or re-identification, permitting users only to execute analyses and export aggregated statistical results.",
+    "relevant_document": "doc_015_ehds_ch4_art39.txt"
+  },
+  {
+    "id": "gold_017",
+    "question": "What are the 8 NHS Caldicott Principles governing confidential patient information in the UK?",
+    "ideal_answer": "The 8 Caldicott Principles are: 1. Justify the purpose(s); 2. Use confidential information only when necessary; 3. Use the minimum necessary information; 4. Access on a strict need-to-know basis; 5. Everyone with access must be aware of their responsibilities; 6. Comply with the law; 7. The duty to share for direct care is as important as the duty to protect confidentiality; 8. Inform patients and service users about how their confidential information is used.",
+    "relevant_document": "doc_018_nhs_caldicott_principles.txt"
+  },
+  {
+    "id": "gold_018",
+    "question": "Under what circumstances does the NHS National Data Opt-out policy NOT apply?",
+    "ideal_answer": "The NHS National Data Opt-out does not apply to direct care provision, mandatory legal disclosures (such as court orders), or public health emergency directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI).",
+    "relevant_document": "doc_019_nhs_national_data_opt_out.txt"
+  },
+  {
+    "id": "gold_019",
+    "question": "What is the annual submission deadline and incident reporting requirement for the NHS Data Security and Protection Toolkit (DSPT) 2025-26?",
+    "ideal_answer": "For the 2025–26 reporting year, the official DSPT submission deadline is 30 June 2026. Key requirements include mandatory 95% staff completion of annual cybersecurity training and reporting cyber security incidents to the NHS Digital Cyber Operations Center within 24 hours of discovery.",
+    "relevant_document": "doc_020_nhs_dspt_2025_26.txt"
+  },
+  {
+    "id": "gold_020",
+    "question": "What extension does the NHS UK Core FHIR Patient profile mandate for patient identification?",
+    "ideal_answer": "The NHS UK Core FHIR Patient profile (UKCore-Patient) mandates the inclusion of the NHS Number extension (StructureDefinition/Extension-UKCore-NHSNumber) containing a 10-digit NHS identifier and verification status code, along with ethnic categories coded according to UK NHS Ethnic Category Codes.",
+    "relevant_document": "doc_022_fhir_uk_core_patient.txt"
+  }
+]

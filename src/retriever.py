@@ -8,9 +8,13 @@ import config
 from embedder import load_index, get_embedding_model
 from reranker import Reranker
 
+ART_REF = re.compile(r'(\d+)((?:\(\w+\))+)')
+
 def tokenize(text: str) -> list[str]:
-    """Simple alphanumeric tokenizer for BM25 keyword matching."""
-    return re.findall(r'\w+', text.lower())
+    text = text.lower()
+    refs = ["ref_" + m.group(1) + "_" + "_".join(re.findall(r'\((\w+)\)', m.group(2)))
+            for m in ART_REF.finditer(text)]
+    return re.findall(r'\w+', text) + refs
 
 class Retriever:
     def __init__(self):
@@ -49,7 +53,7 @@ class Retriever:
 
         return results
 
-    def hybrid_retrieve(self, query: str, top_k: int = 5, candidate_k: int = 30, rrf_k: int = 60, enable_rerank: Optional[bool] = None) -> list[dict]:
+    def hybrid_retrieve(self, query: str, top_k: int = 5, candidate_k: int = 50, rrf_k: int = 60, enable_rerank: Optional[bool] = None) -> list[dict]:
         """
         Hybrid retrieval combining Dense Vector Search (Qdrant) and Sparse Keyword Search (BM25)
         using Reciprocal Rank Fusion (RRF), followed by optional Cross-Encoder Reranking.

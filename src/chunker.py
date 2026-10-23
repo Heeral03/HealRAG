@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 
-def recursive_split_text(text: str, max_words: int = 300, overlap_words: int = 50) -> list[str]:
+def recursive_split_text(text: str, max_words: int = 400, overlap_words: int = 55) -> list[str]:
     """
     Recursively splits a text block if it exceeds max_words using natural text separators:
     Paragraphs (\n\n) -> Lines (\n) -> Sentences (. ! ?) -> Words.
@@ -57,7 +57,7 @@ def recursive_split_text(text: str, max_words: int = 300, overlap_words: int = 5
     return chunks
 
 
-def chunk_text(text: str, chunk_size_words: int = 300, overlap_words: int = 50) -> list[str]:
+def chunk_text(text: str, chunk_size_words: int = 400, overlap_words: int = 55) -> list[str]:
     r"""
     Structure-Aware & Recursive Chunker:
     1. First identifies statutory/structural markers (Article \d+, Chapter [IVXLCDM]+, Section \d+).
@@ -83,7 +83,7 @@ def chunk_text(text: str, chunk_size_words: int = 300, overlap_words: int = 50) 
 
     return final_chunks if final_chunks else [text.strip()]
 
-def chunk_directory(corpus_dir: Path, chunk_size_words: int = 300, overlap_words: int = 50) -> list[dict]:
+def chunk_directory(corpus_dir: Path, chunk_size_words: int = 400, overlap_words: int = 55) -> list[dict]:
     """
     Read all text files in corpus_dir and split them into chunks.
     Attaches full document metadata from sidecar JSON files if available.

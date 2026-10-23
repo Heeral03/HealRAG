@@ -25,8 +25,8 @@ METADATA_PATH = DB_DIR / "metadata.json"
 default_embed_model = "all-MiniLM-L6-v2" if os.environ.get("RENDER") or os.environ.get("DISABLE_BG_PRELOAD") else "intfloat/multilingual-e5-small"
 EMBEDDING_MODEL_NAME = os.environ.get("EMBEDDING_MODEL_NAME", default_embed_model)
 ENABLE_CROSS_ENCODER = os.environ.get("ENABLE_CROSS_ENCODER", "0" if os.environ.get("RENDER") or os.environ.get("DISABLE_BG_PRELOAD") else "1") == "1"
-CHUNK_SIZE_WORDS = 300
-CHUNK_OVERLAP_WORDS = 50
+CHUNK_SIZE_WORDS = 400
+CHUNK_OVERLAP_WORDS = 55
 
 # LLM Generation configuration
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
