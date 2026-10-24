@@ -1,0 +1,27 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.egg-info/
+*.dist-info/
+.env
+.venv/
+venv/
+build/
+dist/
+*.log
+*.sqlite3
+*.db
+*.tar
+*.gz
+*.zip
+.git
+.gitignore
+.DS_Store
+.idea/
+.vscode/
+# Exclude large data directories
+data/
+tests/
