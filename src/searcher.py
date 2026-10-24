@@ -76,7 +76,7 @@ class WebSearcher:
 
         self._ddg_available = False
         try:
-            from ddgs import DDGS
+            from duckduckgo_search import DDGS
             self._ddg_available = True
         except ImportError:
             self._ddg_available = False
@@ -168,7 +168,7 @@ class WebSearcher:
     def _ddg_search(self, query: str) -> List[Dict]:
         """Search using DuckDuckGo (~600ms typical latency)."""
         try:
-            from ddgs import DDGS
+            from duckduckgo_search import DDGS
             with DDGS() as ddgs:
                 ddg_res = list(ddgs.text(query, max_results=self.max_results))
                 results = []
