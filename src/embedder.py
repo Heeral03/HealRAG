@@ -10,6 +10,7 @@ torch.set_num_threads(1)
 torch.set_num_interop_threads(1)
 
 import json
+import functools
 import numpy as np
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
@@ -18,8 +19,9 @@ from qdrant_client.models import Distance, VectorParams, PointStruct
 
 import config
 
+@functools.lru_cache(maxsize=1)
 def get_embedding_model() -> SentenceTransformer:
-    """Load the SentenceTransformer model."""
+    """Load the SentenceTransformer model once and share it (saves RAM on small instances)."""
     return SentenceTransformer(config.EMBEDDING_MODEL_NAME)
 
 import threading
