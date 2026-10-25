@@ -206,7 +206,7 @@ STATIC_DIR = config.BASE_DIR / "static"
 if STATIC_DIR.exists():
     app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
-@app.get("/", response_class=FileResponse, tags=["Web Interface"])
+@app.get("/", tags=["Web Interface"], include_in_schema=False)
 def root():
     index_path = config.BASE_DIR / "static" / "index.html"
     if index_path.exists():
