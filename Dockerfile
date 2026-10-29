@@ -18,10 +18,11 @@ COPY static ./static
 ENV PYTHONPATH=/app/src
 ENV PORT=8000
 ENV DISABLE_BG_PRELOAD=1
+ENV FASTEMBED_CACHE_PATH=/app/.fastembed
 ENV ENABLE_CROSS_ENCODER=0
 
-# Pre-seed corpus, build Qdrant index, and pre-download CrossEncoder model weights during image build stage
-RUN python3 src/seeder.py && python3 src/embedder.py && python3 -c "from sentence_transformers import CrossEncoder; CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')"
+# Pre-seed corpus, build Qdrant index, (downloads the ONNX embedding model into the image) during image build stage
+RUN python3 src/seeder.py && python3 src/embedder.py
 
 # Expose FastAPI port
 EXPOSE 8000

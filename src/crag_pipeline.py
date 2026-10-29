@@ -28,12 +28,12 @@ class CRAGPipeline:
          - INCORRECT: Trigger External Web Search Fallback -> Generate
     """
 
-    def __init__(self, enable_cache: bool = True):
-        self.retriever = Retriever()
+    def __init__(self, enable_cache: bool = True, retriever=None, generator=None):
+        self.retriever = retriever or Retriever()
         self.evaluator = RetrievalEvaluator()
         self.refiner = KnowledgeRefiner()
         self.searcher = WebSearcher()
-        self.generator = Generator()
+        self.generator = generator or Generator()
         self.cache = SemanticCache(similarity_threshold=0.95) if enable_cache else None
 
     def run(self, query: str, top_k: int = 3) -> Dict:

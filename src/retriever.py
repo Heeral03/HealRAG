@@ -2,7 +2,6 @@ import re
 from typing import Optional
 import numpy as np
 from rank_bm25 import BM25Okapi
-from sentence_transformers import SentenceTransformer
 
 import config
 from embedder import load_index, get_embedding_model

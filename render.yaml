@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: healrag
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: EMBEDDING_MODEL_NAME
+        value: all-MiniLM-L6-v2
+      - key: ENABLE_CROSS_ENCODER
+        value: "0"

@@ -11,7 +11,6 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from starlette.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
-import torch
 import threading
 
 # Add src to sys.path
@@ -30,18 +29,13 @@ from starlette.concurrency import run_in_threadpool
 from fastapi.security import APIKeyHeader
 from auth import seed_default_dev_key, verify_api_key, register_api_key, revoke_api_key
 
-# Optimize PyTorch CPU memory & thread footprint for low-memory containers (Render 512MB limit)
+# Optimize CPU memory & thread footprint for low-memory containers (Render 512MB limit)
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
 os.environ["NUMEXPR_NUM_THREADS"] = "1"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-
-try:
-    torch.set_num_threads(1)
-except Exception:
-    pass
 
 app = FastAPI(
     title="HealRAG API",
@@ -78,35 +72,39 @@ generator_instance: Optional[Generator] = None
 
 _init_lock = threading.Lock()
 
-def get_retriever():
+def _shared_retriever():
+    # Caller must hold _init_lock (or be single-threaded).
     global retriever_instance
-    with _init_lock:
-        if retriever_instance is None:
-            retriever_instance = Retriever()
+    if retriever_instance is None:
+        retriever_instance = Retriever()
     return retriever_instance
 
-def get_generator():
+def _shared_generator():
     global generator_instance
-    with _init_lock:
-        if generator_instance is None:
-            generator_instance = Generator()
+    if generator_instance is None:
+        generator_instance = Generator()
     return generator_instance
+
+def get_retriever():
+    with _init_lock:
+        return _shared_retriever()
+
+def get_generator():
+    with _init_lock:
+        return _shared_generator()
 
 def get_pipeline():
     global pipeline_instance
     with _init_lock:
         if pipeline_instance is None:
-            pipeline_instance = CRAGPipeline()
+            pipeline_instance = CRAGPipeline(retriever=_shared_retriever(), generator=_shared_generator())
     return pipeline_instance
 
 def bg_initialize_models():
     """Background thread to pre-load ML models so they don't block webserver startup or delay the first request."""
-    if os.environ.get("DISABLE_BG_PRELOAD") == "1":
-        print("[HealRAG API] DISABLE_BG_PRELOAD=1 set. Skipping background pre-load to conserve RAM on 512MB free tier.")
-        return
     print("[HealRAG API] Pre-initializing AI models in background thread...")
     try:
-        get_retriever()
+        get_pipeline()
         gc.collect()
         print("[HealRAG API] Background model initialization complete.")
     except Exception as e:

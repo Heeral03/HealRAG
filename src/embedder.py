@@ -5,24 +5,37 @@ os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
 os.environ["NUMEXPR_NUM_THREADS"] = "1"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-import torch
-torch.set_num_threads(1)
-torch.set_num_interop_threads(1)
-
 import json
 import functools
 import numpy as np
 from pathlib import Path
-from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
 
 import config
 
+class _OnnxEmbedder:
+    """Minimal SentenceTransformer-compatible wrapper over fastembed (ONNX runtime, no PyTorch)."""
+
+    def __init__(self, model_name: str):
+        from fastembed import TextEmbedding
+        if "/" not in model_name:
+            model_name = f"sentence-transformers/{model_name}"
+        self._model = TextEmbedding(model_name, threads=1)
+
+    def encode(self, texts, normalize_embeddings: bool = True, show_progress_bar: bool = False, **_):
+        single = isinstance(texts, str)
+        batch = [texts] if single else list(texts)
+        vecs = np.array(list(self._model.embed(batch, batch_size=32)), dtype="float32")
+        if normalize_embeddings:
+            vecs = vecs / np.maximum(np.linalg.norm(vecs, axis=1, keepdims=True), 1e-12)
+        return vecs[0] if single else vecs
+
+
 @functools.lru_cache(maxsize=1)
-def get_embedding_model() -> SentenceTransformer:
-    """Load the SentenceTransformer model once and share it (saves RAM on small instances)."""
-    return SentenceTransformer(config.EMBEDDING_MODEL_NAME)
+def get_embedding_model() -> _OnnxEmbedder:
+    """Load the ONNX embedding model once and share it (saves RAM on small instances)."""
+    return _OnnxEmbedder(config.EMBEDDING_MODEL_NAME)
 
 import threading
 
