@@ -1,0 +1,16 @@
+{
+  "id": "doc_022_fhir_uk_core_patient",
+  "title": "NHS UK Core FHIR Patient Profile & NHS Number Extension",
+  "source_url": "https://simplifier.net/hl7fhirukcorer4/ukcore-patient",
+  "publisher": "HL7 / NHS Digital",
+  "jurisdiction": "UK",
+  "document_type": "official_technical_standard",
+  "publication_date": "2024-11-15",
+  "effective_from": "2024-11-15",
+  "version": "UK Core v1.5.0",
+  "article": "StructureDefinition-UKCore-Patient",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "ae5624961ef46fb3166237e6eda04f9adbe07c25830b3f1c48288d5d1aeeff01",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

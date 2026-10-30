@@ -32,7 +32,7 @@ HealRAG solves this by introducing an **autonomous corrective control loop**:
                                       | (Miss)
                                       v
                             +---------+---------+
-                            | FAISS Vector DB   |
+                            | Qdrant Vector DB  |
                             | (all-MiniLM-L6)   |
                             +---------+---------+
                                       |
@@ -69,8 +69,8 @@ HealRAG solves this by introducing an **autonomous corrective control loop**:
 | :--- | :--- | :--- |
 | **Corpus Seeder** | `src/seeder.py` | Seeds 114 regulatory statutory documents (GDPR, EHDS, NHS Caldicott, FHIR specs). |
 | **Document Chunker** | `src/chunker.py` | Decomposes documents using sliding-window word chunking (200 words, 50-word overlap). |
-| **Vector Embedder** | `src/embedder.py` | Generates 384-dimensional dense embeddings using `all-MiniLM-L6-v2` and builds FAISS `IndexFlatIP`. |
-| **Vector Retriever** | `src/retriever.py` | Performs $O(1)$ cosine similarity vector search over FAISS index. |
+| **Vector Embedder** | `src/embedder.py` | Generates 384-dimensional dense embeddings using `all-MiniLM-L6-v2` and upserts them into a Qdrant collection (Cosine distance, metadata as payload). |
+| **Vector Retriever** | `src/retriever.py` | Performs $O(1)$ cosine similarity vector search over the Qdrant collection. |
 | **Semantic Cache** | `src/cache.py` | Caches query embeddings & JSON responses; returns cached payload in **< 2ms** when similarity $\ge 0.80$. |
 | **Retrieval Evaluator**| `src/evaluator.py` | Sub-millisecond heuristic evaluator scoring retrieval confidence via $0.70 \times \text{Cosine} + 0.30 \times \text{Coverage}$. |
 | **Knowledge Refiner** | `src/refiner.py` | Strips sentence-level noise from retrieved chunks on `CORRECT` queries. |
@@ -117,7 +117,7 @@ Every response payload includes full explainability metadata:
     * `INCORRECT` (Web Fallback Path): **2,200 tokens**
 
 ### 6. Non-Blocking Async Threadpool Architecture
-* FastAPI request handlers use `starlette.concurrency.run_in_threadpool` to delegate blocking FAISS vector search, PyTorch forward passes, and synchronous LLM API calls to background threadpool workers.
+* FastAPI request handlers use `starlette.concurrency.run_in_threadpool` to delegate blocking Qdrant vector search, PyTorch forward passes, and synchronous LLM API calls to background threadpool workers.
 * Keeps FastAPI's main event loop unblocked to handle concurrent requests and `/health` monitoring.
 
 ---
@@ -128,7 +128,7 @@ Every response payload includes full explainability metadata:
 * Interactive OpenAPI Swagger documentation served at `/docs`.
 * Endpoints:
   * `POST /query`: Main CRAG query execution endpoint (supports `--vanilla_mode` flag).
-  * `GET /health`: Health status check for FAISS index and LLM connection.
+  * `GET /health`: Health status check for Qdrant index and LLM connection.
   * `GET /rate-limit-status`: Real-time view of client token bucket levels.
   * `GET /analytics`: Summary of query logs, average latency, route breakdown, and cumulative cost.
 
@@ -156,7 +156,7 @@ Every response payload includes full explainability metadata:
 
 ### B. Standard Information Retrieval (IR) Metrics Matrix
 
-Evaluated across FAISS `IndexFlatIP` vector retrieval over 114 regulatory statutory documents:
+Evaluated (originally measured on the earlier FAISS `IndexFlatIP` build) across vector retrieval over 114 regulatory statutory documents:
 
 | Cutoff ($k$) | Hit Rate @ $k$ (%) | Mean Recall @ $k$ (%) | Mean Reciprocal Rank (MRR) | Retrieval Latency | Throughput |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -181,7 +181,7 @@ Evaluated across FAISS `IndexFlatIP` vector retrieval over 114 regulatory statut
 | **3. Context Distraction & Token Waste** | Retrieved chunks contain 80% irrelevant legal boilerplate text. | Built `KnowledgeRefiner` to strip non-relevant sentences, cutting prompt tokens by 62.5% and speeding LLM generation by 2.5x. |
 | **4. Jargon & Vocabulary Drift** | User queries use informal terms (e.g. "break-glass") while statutes use formal language. | Implemented automated LLM query expansion step to rewrite informal phrasing into statutory terminology. |
 | **5. Static Corpus Limits** | Vector index lacks coverage for brand-new statutes (EU AI Act). | Integrated DuckDuckGo web search fallback when local evaluator score is `< 0.45` (`INCORRECT`). |
-| **6. FastAPI Event Loop Freezing** | FAISS CPU search, PyTorch encoding, and synchronous API calls block single thread loop. | Wrapped pipeline execution with `starlette.concurrency.run_in_threadpool` to offload work to background thread pool. |
+| **6. FastAPI Event Loop Freezing** | Vector search, embedding, and synchronous API calls block single thread loop. | Wrapped pipeline execution with `starlette.concurrency.run_in_threadpool` to offload work to background thread pool. |
 | **7. API Flooding & Financial Quota Exhaustion** | Fallback search routes consume 4-5x more tokens (~2,200 vs ~450). | Designed dynamic Layer-2 token bucket rate limiter that deducts tokens based on route cost, throttling fallback abusers 4-5x faster. |
 
 ---

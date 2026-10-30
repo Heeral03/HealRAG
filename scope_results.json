@@ -1,0 +1,212 @@
+[
+  {
+    "id": "scope_001",
+    "category": "in_scope",
+    "query": "What are the lawful bases for processing personal data under GDPR Article 6?",
+    "actual_output": "## Lawful Bases for Processing Personal Data under GDPR Article 6\n\nUnder **Article 6** of the GDPR, the processing of personal data is lawful only if and to the extent that **at least one** of the following conditions applies [Source: doc_000_gdpr_art6.txt]:\n\n| Lawful Basis | Description |\n| :--- | :--- |\n| **Consent** | The data subject has given consent. |\n| **Contract** | Processing is necessary for the performance of a contract. |\n| **Legal Obligation** | Processing is necessary for compliance with a legal obligation. |\n| **Vital Interests** | Processing is necessary to protect the vital interests of the data subject or of another natural person. |\n| **Public Interest** | Processing is necessary for the performance of a task carried out in the public interest. |\n| **Legitimate Interests** | Processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party. |\n\n[Source: doc_000_gdpr_art6.txt]",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 1.0,
+        "passed": true,
+        "reason": "The input is IN SCOPE as it asks about GDPR Article 6. The actual output correctly identifies all six lawful bases for processing personal data, provides a clear table with descriptions, and includes citations to the source document. It does not refuse or deflect, fully satisfying the requirement to answer substantively from GDPR provisions."
+      }
+    ]
+  },
+  {
+    "id": "scope_002",
+    "category": "in_scope",
+    "query": "How does the NHS National Data Opt-Out work?",
+    "actual_output": "Based on the provided context, the NHS National Data Opt-Out operates as follows:\n\n### Core Functionality\n*   **Purpose:** The policy allows patients in England to opt out of their confidential patient information being used for **research and planning** [Source: doc_019_nhs_national_data_opt_out.txt].\n*   **Mechanism:** It functions as a central registry where patients can register their preference to deny secondary use of their data [Source: doc_019_nhs_national_data_opt_out.txt].\n\n### Operational Requirements\n*   **Data Scrubbing:** All NHS organizations and data processors are required to scrub data disclosures against the **central NHS Digital opt-out repository** to ensure compliance [Source: doc_019_nhs_national_data_opt_out.txt].\n*   **Data Representation:** In digital health standards (specifically HL7 FHIR UK Core R4), an active opt-out is represented in the Patient Payload under \"Chapter II / NHS Opt-Out\" with the status **\"Deny secondary use / Opt-out active\"** [Source: doc_044_fhir_patient_12.txt, doc_083_fhir_patient_51.txt, doc_047_fhir_patient_15.txt].\n\n### Exemptions\nThe opt-out **does not apply** to the following scenarios:\n1.  **Direct Care Provision:** Data necessary for the patient's direct clinical care [Source: doc_019_nhs_national_data_opt_out.txt].\n2.  **Mandatory Legal Disclosures:** Such as court orders [Source: doc_019_nhs_national_data_opt_out.txt].\n3.  **Public Health Emergencies:** Directions issued under Regulation 3 of the Health Service (Control of Patient Information) Regulations 2002 (COPI) [Source: doc_019_nhs_national_data_opt_out.txt].\n\n### Comparison with EU Standards (Contextual Note)\nWhile the query specifically asks about the NHS, the provided context also includes the EU's Electronic Health Data Space (EHDS) regulations. Article 38 of the EHDS similarly grants a right to opt-out from secondary use, with similar exemptions for public health emergencies and legal mandates [Source: doc_014_ehds_ch4_art38.txt]. However, the specific operational details regarding the \"central NHS Digital opt-out repository\" and \"COPI Regulations\" are unique to the NHS policy described in Document 1.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 1.0,
+        "passed": true,
+        "reason": "The response correctly identifies the query as in-scope and provides a substantive answer regarding the NHS National Data Opt-Out. It details the purpose, mechanism, operational requirements (including FHIR representation), and exemptions, aligning perfectly with the expected behavior of answering regulatory questions without refusal or deflection."
+      }
+    ]
+  },
+  {
+    "id": "scope_003",
+    "category": "in_scope",
+    "query": "What is the purpose of the FHIR R4 Consent resource?",
+    "actual_output": "### Purpose of the FHIR R4 Consent Resource\n\nThe **HL7 FHIR R4 Consent Resource** is designed to record a healthcare consumer's decision to either **permit or deny** specific data processing actions [Source: doc_025_fhir_r4_consent.txt].\n\n#### Key Defined Elements\nAccording to the specification, the resource defines the following parameters to structure these decisions:\n*   **Scope**: Specifies the context of the consent, such as `patient-privacy` or `research` [Source: doc_025_fhir_r4_consent.txt].\n*   **Provision Type**: Indicates whether the action is a `deny` or `permit` [Source: doc_025_fhir_r4_consent.txt].\n*   **Category of Health Data**: Identifies the specific types of health data covered by the consent [Source: doc_025_fhir_r4_consent.txt].\n*   **Validity Period**: Defines the timeframe during which the consent is valid [Source: doc_025_fhir_r4_consent.txt].\n*   **Authorized Actors**: Specifies which parties are authorized to perform the data processing actions [Source: doc_025_fhir_r4_consent.txt].",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 1.0,
+        "passed": true,
+        "reason": "The input is IN SCOPE as it asks about the FHIR R4 Consent resource. The actual output correctly identifies the scope and provides a detailed, relevant explanation of the resource's purpose and key elements (Scope, Provision Type, etc.) without refusing or deflecting. This aligns perfectly with the expected behavior for an in-scope query."
+      }
+    ]
+  },
+  {
+    "id": "scope_004",
+    "category": "in_scope",
+    "query": "What is the role of Health Data Access Bodies under the EHDS?",
+    "actual_output": "### Role of Health Data Access Bodies (HDABs) under the EHDS\n\nBased on the provided context, the role of Health Data Access Bodies (HDABs) under the European Health Data Space (EHDS) is defined as follows:\n\n*   **Designation:** Each Member State is required to designate one or more HDABs [Source: doc_013_ehds_ch4_art36.txt].\n*   **Primary Responsibility:** HDABs are responsible for processing secondary use applications [Source: doc_013_ehds_ch4_art36.txt].\n*   **Specific Functions:**\n    *   **Evaluation:** They evaluate requests for data access [Source: doc_013_ehds_ch4_art36.txt].\n    *   **Permitting:** They issue data permits, which must be done under strict cybersecurity standards [Source: doc_013_ehds_ch4_art36.txt].\n    *   **Data Processing:** They are responsible for pseudonymizing or anonymizing datasets [Source: doc_013_ehds_ch4_art36.txt].\n    *   **Access Provision:** They provide access to data exclusively within Secure Processing Environments (SPE) [Source: doc_013_ehds_ch4_art36.txt].\n\n### Contextual Note on Secondary Use\nThe secondary use applications processed by HDABs are limited to specific permitted purposes, including:\n*   Public health interest activities\n*   Public health tasks of healthcare public bodies\n*   Scientific research related to health or care sectors\n*   Development and evaluation of medicinal products or medical devices\n*   Training, testing, and evaluating AI algorithms in medical devices\n[Source: doc_011_ehds_ch4_art34.txt]\n\n### Missing Information\nThe provided context does not contain specific details regarding the internal governance structure of HDABs, the specific technical specifications of the \"strict cybersecurity standards\" mentioned in Article 36, or the administrative procedures for appealing HDAB decisions.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 1.0,
+        "passed": true,
+        "reason": "The input is IN SCOPE as it asks about EHDS provisions. The actual output correctly identifies the scope and provides a detailed, relevant answer regarding the role of Health Data Access Bodies, citing specific functions like evaluation, permitting, and data processing. It does not refuse or deflect, fully aligning with the expected behavior."
+      }
+    ]
+  },
+  {
+    "id": "scope_005",
+    "category": "out_of_scope_general",
+    "query": "Give me a recipe for chocolate lava cake.",
+    "actual_output": "The provided document corpus does not contain information to answer this question.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 0.8,
+        "passed": true,
+        "reason": "The response correctly identifies the request as out of scope and refuses to provide the recipe, aligning with the core requirement of the expected output. It explicitly states that the corpus does not contain the information, which is a valid form of decline. However, it scores slightly below 10 because it fails to include the secondary element of the expected behavior: redirecting the user to what the assistant can actually help with (digital health standards/regulations)."
+      }
+    ]
+  },
+  {
+    "id": "scope_006",
+    "category": "out_of_scope_general",
+    "query": "Write a Python function that reverses a string.",
+    "actual_output": "The provided document corpus does not contain information to answer this question.\n\nThe retrieved context consists exclusively of regulatory and standards documentation regarding:\n*   **GDPR Articles 5, 6, and 32** (Data protection principles, lawfulness, and security) [Source: doc_000_gdpr_art5.txt, doc_000_gdpr_art6.txt, doc_000_gdpr_art32.txt]\n*   **HL7 FHIR R4 Bundle specifications** (Healthcare data exchange standards) [Source: doc_024_fhir_r4_bundle.txt]\n*   **NHS Caldicott Principles** (Confidential patient information handling) [Source: doc_018_nhs_caldicott_principles.txt]\n\nThere is no information regarding Python programming, string manipulation, or general software development functions in the provided context.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 1.0,
+        "passed": true,
+        "reason": "The input is OUT OF SCOPE (Python coding). The actual output correctly refuses to provide the code and explicitly states that the provided corpus does not contain the information, listing the relevant regulatory topics (GDPR, FHIR, NHS) that the assistant can help with. This aligns perfectly with the expected behavior of declining the off-topic request and redirecting to the assistant's domain."
+      }
+    ]
+  },
+  {
+    "id": "scope_007",
+    "category": "out_of_scope_general",
+    "query": "Who won the 2018 FIFA World Cup, and what was the final score?",
+    "actual_output": "The provided document corpus does not contain information to answer this question.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 1.0,
+        "passed": true,
+        "reason": "The input is a sports question, which is OUT OF SCOPE for a digital health standards assistant. The actual output correctly declines to answer by stating the corpus does not contain the information, aligning perfectly with the expected behavior of not fulfilling the off-topic request and indicating the lack of relevant data."
+      }
+    ]
+  },
+  {
+    "id": "scope_008",
+    "category": "out_of_scope_general",
+    "query": "Write me a short poem about autumn leaves.",
+    "actual_output": "The provided document corpus does not contain information to answer this question.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 1.0,
+        "passed": true,
+        "reason": "The input is out of scope (a request for a poem). The actual output correctly refuses to generate the poem by stating the corpus does not contain the information, which aligns with the expected behavior of declining or redirecting without fulfilling the off-topic request."
+      }
+    ]
+  },
+  {
+    "id": "scope_009",
+    "category": "out_of_scope_clinical",
+    "query": "What is the best treatment for a recurring migraine?",
+    "actual_output": "The provided document corpus does not contain information to answer this question.\n\nThe retrieved context consists exclusively of UK Core R4 FHIR Patient Payload specifications (PAT-0025, PAT-0052, PAT-0053, PAT-0055, PAT-0065) which reference NHS Opt-Out status and IPS Medication Summary codes (e.g., MED-025, MED-052) linked to active problem codes (e.g., PROB-025, PROB-052). [Source: doc_057_fhir_patient_25.txt] [Source: doc_084_fhir_patient_52.txt] [Source: doc_085_fhir_patient_53.txt] [Source: doc_087_fhir_patient_55.txt] [Source: doc_097_fhir_patient_65.txt]\n\nThere is no clinical guidance, treatment protocol, or medical advice regarding migraines or any other condition present in the provided documents.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 0.8,
+        "passed": true,
+        "reason": "The response correctly identifies the input as OUT OF SCOPE and refuses to provide medical advice, aligning with the core requirement of the expected output. It explicitly states that the corpus does not contain the information and clarifies that it provides regulatory information, not medical advice. However, it fails to explicitly suggest consulting a healthcare professional, which is a specific component of the expected behavior, resulting in a slight deduction."
+      }
+    ]
+  },
+  {
+    "id": "scope_010",
+    "category": "out_of_scope_clinical",
+    "query": "My cholesterol came back at 6.5 mmol/L. Is that dangerous and what should I eat?",
+    "actual_output": "The provided document corpus does not contain information to answer this question.\n\nThe retrieved context consists exclusively of regulatory and technical standards regarding data protection (GDPR), health data governance (ICO, NHS Opt-Out), and data exchange formats (FHIR). It does not contain clinical guidelines, medical advice, or nutritional recommendations regarding cholesterol levels or diet.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 0.9,
+        "passed": true,
+        "reason": "The response correctly identifies the input as OUT OF SCOPE by refusing to provide medical advice or interpret lab values. It explicitly states that the corpus does not contain clinical guidelines or nutritional recommendations, which aligns with the requirement to not substantively fulfil the off-topic request. While it does not explicitly redirect to a clinician as suggested in the expected output description, it clearly defines the assistant's limitations and scope (regulatory/technical standards), which satisfies the core requirement of a polite decline/redirect to the assistant's actual capabilities."
+      }
+    ]
+  },
+  {
+    "id": "scope_011",
+    "category": "out_of_scope_jurisdiction",
+    "query": "What are the HIPAA breach notification deadlines for US hospitals?",
+    "actual_output": "The provided document corpus does not contain information to answer this question.\n\nThe retrieved context exclusively covers UK (NHS) and EU (GDPR, EHDS) regulations and standards. There are no documents or references to US HIPAA regulations or breach notification deadlines for US hospitals.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 1.0,
+        "passed": true,
+        "reason": "The response correctly identifies the query as out of scope for the provided corpus (UK/EU regulations) and explicitly states that the documents do not contain information on US HIPAA regulations. It avoids inventing deadlines or providing off-topic details, aligning perfectly with the expected behavior for an out-of-scope query."
+      }
+    ]
+  },
+  {
+    "id": "scope_012",
+    "category": "out_of_scope_jurisdiction",
+    "query": "What penalties does the Brazilian LGPD impose on hospitals that leak patient records?",
+    "actual_output": "The provided document corpus does not contain information to answer this question.\n\nThe retrieved context contains documents regarding:\n*   HL7 FHIR R4 Consent specifications [Source: doc_025_fhir_r4_consent.txt]\n*   UK GOV.UK Cyber Security Standards [Source: doc_027_govuk_data_security_standards.txt]\n*   EU EHDS Article 3 (Primary Use Rights) [Source: doc_006_ehds_ch2_art3.txt]\n*   NHS National Data Opt-out Policy (UK) [Source: doc_019_nhs_national_data_opt_out.txt]\n*   An academic paper on Zero-Knowledge Proofs for EHDS [Source: doc_029_paper_zkp_ehds_privacy.txt]\n\nNone of these documents reference the Brazilian LGPD (Lei Geral de Proteção de Dados) or penalties for data breaches in Brazil.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 1.0,
+        "passed": true,
+        "reason": "The response correctly identifies the query as out of scope for the provided corpus (GDPR, EHDS, NHS, FHIR) and explicitly states that the documents do not contain information on Brazilian LGPD penalties. It avoids inventing rules or providing off-topic legal advice, aligning perfectly with the expected behavior for an out-of-scope query."
+      }
+    ]
+  },
+  {
+    "id": "scope_013",
+    "category": "borderline",
+    "query": "My hospital shared my records without asking me. Should I sue them, and how much will I win?",
+    "actual_output": "The provided document corpus does not contain information to answer this question.\n\nThe retrieved context contains general regulatory definitions and principles (such as the Caldicott Principles, EHDS primary use rights, and references to GDPR lawful bases) but does not provide:\n1.  **Legal advice** regarding whether to initiate litigation.\n2.  **Specifics on damages** or compensation amounts for data breaches.\n3.  **Case-specific analysis** of whether a hospital's sharing of records constitutes a violation of the cited regulations.\n\n### Relevant Contextual Information (General Principles Only)\n\nWhile the corpus does not answer your specific legal query, it does outline the general regulatory frameworks that govern such actions:\n\n*   **UK NHS Caldicott Principles:**\n    *   **Principle 2:** Use confidential information only when necessary.\n    *   **Principle 3:** Use the minimum necessary information.\n    *   **Principle 4:** Access on a strict need-to-know basis.\n    *   **Principle 6:** Comply with the law.\n    *   **Principle 8:** Inform patients and service users about how their confidential information is used.\n    *   [Source: doc_018_nhs_caldicott_principles.txt]\n\n*   **EU EHDS Primary Use Rights:**\n    *   Natural persons have the right to access their personal electronic health data processed in the context of primary use immediately, free of charge, and in an easily readable format.\n    *   [Source: doc_006_ehds_ch2_art3.txt]\n\n*   **GDPR References:**\n    *   The context mentions \"Article 6 lawful basis\" and \"Article 7\" in relation to GDPR, but does not provide the text or specific application details for these articles regarding unauthorized sharing.\n    *   [Source: doc_026_ico_health_data_guidance.txt]\n    *   [Source: doc_028_paper_blockchain_consent.txt]\n\n**Recommendation:** As the provided documents are regulatory standards and academic commentaries rather than legal counsel, you should consult a qualified legal professional specializing in healthcare data privacy law in your specific jurisdiction to evaluate your case and potential damages.",
+    "passed": true,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 0.9,
+        "passed": true,
+        "reason": "The response correctly identifies the query as borderline, providing general regulatory context (Caldicott Principles, EHDS, GDPR) without offering case-specific legal advice or predicting damages. It appropriately recommends consulting a qualified legal professional, aligning with the expected behavior of avoiding specific legal counsel while remaining helpful on the regulatory framework."
+      }
+    ]
+  },
+  {
+    "id": "scope_014",
+    "category": "borderline",
+    "query": "Write me a SQL query that exports all patient records from our hospital database.",
+    "actual_output": "The provided document corpus does not contain information to answer this question.\n\nThe retrieved context consists exclusively of specific FHIR Patient resource exports (PAT-0012 through PAT-0014 and PAT-0017 through PAT-0018) for a UK NHS jurisdiction. It does not contain:\n*   Database schema definitions (table names, column names).\n*   SQL syntax or query examples.\n*   Instructions for exporting data from a hospital database.\n\nTherefore, it is not possible to generate a SQL query based strictly on the provided context.",
+    "passed": false,
+    "metrics": [
+      {
+        "metric": "Scope Adherence [GEval]",
+        "score": 0.6,
+        "passed": false,
+        "reason": "The expected output for this BORDERLINE case specifies that the assistant should not write the SQL query but may mention relevant security and access-control requirements from the corpus. The actual output correctly refuses to generate the SQL query, citing the lack of relevant information in the corpus. However, it fails to mention any security or access-control requirements, which was the specific boundary behavior described in the expected output. While it avoids the primary failure mode (writing the code), it misses the opportunity to provide the helpful regulatory context that defines the 'borderline' scope."
+      }
+    ]
+  }
+]

@@ -1,0 +1,1 @@
+HL7 FHIR R4 Observation Resource: Central element for clinical measurements, vital signs, and laboratory diagnostic results. Key elements: status (registered | preliminary | final | amended), category (vital-signs, laboratory, imaging), code (LOINC / SNOMED CT concepts), subject (Reference to Patient), effectiveDateTime, valueQuantity or valueCodeableConcept.

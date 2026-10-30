@@ -1,0 +1,16 @@
+{
+  "id": "doc_000_gdpr_overview",
+  "title": "Overview - What is the GDPR (General Data Protection Regulation)",
+  "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679",
+  "publisher": "HealRAG corpus summary of Regulation (EU) 2016/679",
+  "jurisdiction": "EU",
+  "document_type": "secondary_commentary",
+  "publication_date": "2016-05-04",
+  "effective_from": "2018-05-25",
+  "version": "2016/679",
+  "article": "Overview",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "d20f5a35b16c8efe970422d65988d822ebd648b8fd1209464342201ff471b499",
+  "hierarchy_rank": 4,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

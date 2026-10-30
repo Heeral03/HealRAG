@@ -1,0 +1,1 @@
+European Commission Guidance on MyHealth@EU Architecture: Member States integrating National Contact Points for Digital Health (NCPH) into MyHealth@EU must enforce mutual TLS (mTLS) with X.509 certificate validation. Payload transformation services converting local EHR formats into FHIR International Patient Summaries (IPS) must validate against published EU JSON schemas.

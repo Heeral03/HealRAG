@@ -1,0 +1,9 @@
+EHR FHIR Export for Patient ID PAT-0002.
+Active: true. Resource Type: Patient, Observation, Bundle, Consent.
+Patient Demographics: Name: Patient 2, Gender: male, BirthDate: 1982-03-12.
+NHS Number Extension: 993 000 0002 (Status: verified).
+Observation Category: vital-signs, laboratory.
+Vital signs: LOINC 8867-4 (Heart rate) valueQuantity: 62 beats/min, status: final.
+Laboratory: LOINC 29463-7 (Body weight) valueQuantity: 57 kg.
+Consent status under EHDS Chapter II / NHS Opt-Out: Permit secondary use.
+IPS Medication Summary: MED-002 for active problem code PROB-002.

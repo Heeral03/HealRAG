@@ -1,0 +1,1 @@
+EHDS Chapter IV Article 39 - Secure processing environments: HDABs shall provide access to secondary electronic health data only inside Secure Processing Environments (SPE). SPEs must enforce strict technical measures preventing raw data downloads, unauthorized exports, or re-identification, permitting data users only to run queries and export aggregated statistical output.

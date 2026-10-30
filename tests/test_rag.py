@@ -84,3 +84,11 @@ def test_generator_mock():
     assert "doc_001.txt" in response
     assert "prohibits processing of health data" in response
 
+
+
+def test_definitional_query_finds_overview_document():
+    """Regression: 'What is GDPR?' must retrieve a document that actually defines the GDPR.
+    (Requires an index built after the GDPR scope/definition documents were added.)"""
+    retriever = Retriever()
+    results = retriever.hybrid_retrieve("What is GDPR?", top_k=3)
+    assert any(r["source"] == "doc_000_gdpr_overview.txt" for r in results)

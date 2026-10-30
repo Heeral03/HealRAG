@@ -18,6 +18,15 @@ from langchain_groq import ChatGroq
 from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_core.documents import Document
 
+# Mandated reply when the context cannot answer the query. The CRAG pipeline treats it as a
+# failed retrieval signal and triggers corrective re-retrieval.
+NO_ANSWER_SENTENCE = "The provided document corpus does not contain information to answer this question."
+
+
+def is_no_answer(text: str) -> bool:
+    return NO_ANSWER_SENTENCE.lower() in (text or "").lower()
+
+
 class Generator:
     INJECTION_PATTERNS = [
         "ignore previous instructions",
@@ -122,7 +131,7 @@ class Generator:
         Generate a structured mock response by extracting details from context chunks into a Markdown table.
         """
         if not retrieved_chunks:
-            return "The provided document corpus does not contain information to answer this question."
+            return NO_ANSWER_SENTENCE
 
         response_lines = [
             "### Statutory & Governance Overview\n",
@@ -215,7 +224,7 @@ class Generator:
             "3. Format your response cleanly using Markdown headings, bullet points, and Markdown tables where appropriate.\n"
             "4. Include exact inline citations (e.g., [Source: doc_001_gdpr_art9_para1.txt]).\n"
             "5. If context ONLY partially answers the query, answer what is present and explicitly state what specific aspect is missing.\n"
-            "6. If context does not contain the answer or is unrelated, clearly state: 'The provided document corpus does not contain information to answer this question.' Do NOT hallucinate outside facts."
+            "6. If context does not contain the answer or is unrelated, clearly state: '" + NO_ANSWER_SENTENCE + "' Do NOT hallucinate outside facts."
         )
 
         user_prompt = (

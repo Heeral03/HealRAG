@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 import time
 
 # Add src to sys.path
@@ -12,7 +12,7 @@ from retriever import Retriever
 from evaluator import RetrievalEvaluator
 from refiner import KnowledgeRefiner
 from searcher import WebSearcher
-from generator import Generator
+from generator import Generator, is_no_answer
 from cache import SemanticCache
 
 class CRAGPipeline:
@@ -20,12 +20,15 @@ class CRAGPipeline:
     End-to-End Corrective Retrieval-Augmented Generation (CRAG) Pipeline.
     Orchestrates:
       1. Semantic Response Cache check (< 2ms hit latency)
-      2. Vector Retrieval (FAISS)
+      2. Hybrid Retrieval (Qdrant dense + BM25, RRF fusion, optional cross-encoder rerank)
       3. Retrieval Evaluator (Confidence Classification: CORRECT, AMBIGUOUS, INCORRECT)
       4. Action Routing:
          - CORRECT: Apply Knowledge Refinement (strip noise) -> Generate
          - AMBIGUOUS: Apply Knowledge Refinement + External Web Search Fallback -> Merge & Generate
          - INCORRECT: Trigger External Web Search Fallback -> Generate
+      5. Answerability check: if the generator reports that the context cannot answer the query
+         (the evaluator scores topical similarity, so it can over-trust related-but-unhelpful
+         chunks), re-retrieve with an expanded query, add web results and regenerate once.
     """
 
     def __init__(self, enable_cache: bool = True, retriever=None, generator=None):
@@ -35,6 +38,38 @@ class CRAGPipeline:
         self.searcher = WebSearcher()
         self.generator = generator or Generator()
         self.cache = SemanticCache(similarity_threshold=0.95) if enable_cache else None
+
+    def _correct_unanswerable(
+        self, query: str, top_k: int, chunks: List[Dict], web_already_used: bool, pipeline_log: List[str]
+    ) -> Tuple[List[Dict], Optional[str]]:
+        """
+        One bounded corrective attempt after the generator said the context cannot answer:
+        retrieve again with an expanded query, add web results if not already used, regenerate.
+        Returns (chunks, new_response); new_response is None if there was no new evidence.
+        """
+        def _key(c: Dict):
+            return (c.get("source"), (c.get("text") or "")[:200])
+
+        existing = {_key(c) for c in chunks}
+        extra: List[Dict] = []
+
+        expanded = self.searcher.expand_query(query)
+        if expanded != query:
+            raw = self.retriever.hybrid_retrieve(expanded, top_k=top_k)
+            _, _, annotated, _ = self.evaluator.evaluate_chunks(expanded, raw)
+            extra += self.refiner.refine_chunks(expanded, annotated)
+            pipeline_log.append("Answerability Check: re-retrieved locally with expanded query.")
+
+        if not web_already_used:
+            extra += self.searcher.search(query)
+            pipeline_log.append("Answerability Check: added web search results.")
+
+        new_chunks = [c for c in extra if _key(c) not in existing]
+        if not new_chunks:
+            return chunks, None
+
+        merged = chunks + new_chunks
+        return merged, self.generator.generate(query, merged)
 
     def run(self, query: str, top_k: int = 3) -> Dict:
         """
@@ -107,11 +142,30 @@ class CRAGPipeline:
         generated_response = self.generator.generate(query, final_chunks)
         generation_latency_ms = round((time.time() - t0) * 1000, 2)
 
+        # Step 5: Answerability check (generation-time correction)
+        initial_eval_action = eval_action
+        correction_latency_ms = 0.0
+        if is_no_answer(generated_response):
+            t0 = time.time()
+            final_chunks, corrected_response = self._correct_unanswerable(
+                query, top_k, final_chunks, web_already_used=(eval_action != "CORRECT"), pipeline_log=pipeline_log
+            )
+            correction_latency_ms = round((time.time() - t0) * 1000, 2)
+            if corrected_response is not None and not is_no_answer(corrected_response):
+                generated_response = corrected_response
+                eval_action = "AMBIGUOUS"  # answered only after local + external evidence were combined
+            else:
+                if corrected_response is not None:
+                    generated_response = corrected_response
+                eval_action = "INCORRECT"  # nothing available could answer it
+            pipeline_log.append(f"Answerability Check: initial route {initial_eval_action} -> final route {eval_action} ({correction_latency_ms}ms).")
+
         total_latency_ms = round((time.time() - t_start) * 1000, 2)
 
         observability = {
             "query": query,
             "eval_action": eval_action,
+            "initial_eval_action": initial_eval_action,
             "confidence_score": confidence_score,
             "eval_details": eval_details,
             "latencies_ms": {
@@ -120,6 +174,7 @@ class CRAGPipeline:
                 "refinement": refinement_latency_ms,
                 "search_fallback": search_latency_ms,
                 "generation": generation_latency_ms,
+                "correction": correction_latency_ms,
                 "total": total_latency_ms
             },
             "chunks_summary": {
@@ -140,8 +195,8 @@ class CRAGPipeline:
             "observability": observability
         }
 
-        # Store result in Semantic Response Cache
-        if self.cache:
+        # Store result in Semantic Response Cache (never cache a refusal)
+        if self.cache and not is_no_answer(generated_response):
             self.cache.put(query, result)
 
         latency_ms = (time.perf_counter() - start) * 1000

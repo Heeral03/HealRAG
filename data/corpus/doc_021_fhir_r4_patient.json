@@ -1,0 +1,16 @@
+{
+  "id": "doc_021_fhir_r4_patient",
+  "title": "HL7 FHIR R4 Patient Resource Specification",
+  "source_url": "https://hl7.org/fhir/R4/patient.html",
+  "publisher": "HL7 / NHS Digital",
+  "jurisdiction": "Global",
+  "document_type": "official_technical_standard",
+  "publication_date": "2024-11-15",
+  "effective_from": "2024-11-15",
+  "version": "R4",
+  "article": "FHIR Patient Spec",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "d07b9d960cd66523bbf51506c3224fecbcc0ce4ec9a7b2d66d319deba5d510ce",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

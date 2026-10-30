@@ -16,10 +16,112 @@ HIERARCHY_MAP = {
     "secondary_commentary": 4
 }
 
+# Fixed so patient record filenames (doc_NNN_fhir_patient_N) stay stable when corpus documents are added
+FHIR_START_IDX = 33
+
 SOURCE_HIERARCHY_STRING = "primary law > regulator guidance > official technical standard > secondary commentary"
 
 # Authoritative Corpus Specifications & Content Definition
 AUTHORITATIVE_CORPUS = [
+    {
+        "id": "doc_000_gdpr_art1",
+        "title": "GDPR Article 1 - Subject matter and objectives",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 1",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679",
+        "content": (
+            'GDPR Article 1 - Subject matter and objectives: '
+            '1. This Regulation lays down rules relating to the protection of natural persons with regard to the processing of personal data and rules relating to the free movement of personal data. '
+            '2. This Regulation protects fundamental rights and freedoms of natural persons and in particular their right to the protection of personal data. '
+            '3. The free movement of personal data within the Union shall be neither restricted nor prohibited for reasons connected with the protection of natural persons with regard to the processing of personal data.'
+        )
+    },
+    {
+        "id": "doc_000_gdpr_art2",
+        "title": "GDPR Article 2 - Material scope",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 2",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679",
+        "content": (
+            'GDPR Article 2 - Material scope: '
+            '1. This Regulation applies to the processing of personal data wholly or partly by automated means and to the processing other than by automated means of personal data which form part of a filing system or are intended to form part of a filing system. '
+            '2. This Regulation does not apply to the processing of personal data: (a) in the course of an activity which falls outside the scope of Union law; (b) by the Member States when carrying out activities which fall within the scope of Chapter 2 of Title V of the TEU; (c) by a natural person in the course of a purely personal or household activity; (d) by competent authorities for the purposes of the prevention, investigation, detection or prosecution of criminal offences or the execution of criminal penalties.'
+        )
+    },
+    {
+        "id": "doc_000_gdpr_art3",
+        "title": "GDPR Article 3 - Territorial scope",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 3",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679",
+        "content": (
+            'GDPR Article 3 - Territorial scope: '
+            '1. This Regulation applies to the processing of personal data in the context of the activities of an establishment of a controller or a processor in the Union, regardless of whether the processing takes place in the Union or not. '
+            '2. This Regulation applies to the processing of personal data of data subjects who are in the Union by a controller or processor not established in the Union, where the processing activities are related to: (a) the offering of goods or services to such data subjects in the Union; or (b) the monitoring of their behaviour as far as their behaviour takes place within the Union. '
+            '3. This Regulation applies to the processing of personal data by a controller not established in the Union, but in a place where Member State law applies by virtue of public international law.'
+        )
+    },
+    {
+        "id": "doc_000_gdpr_art4",
+        "title": "GDPR Article 4 - Definitions",
+        "publisher": "EUR-Lex",
+        "jurisdiction": "EU",
+        "document_type": "primary_law",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Article 4",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679",
+        "content": (
+            'GDPR Article 4 - Definitions: For the purposes of this Regulation: '
+            "(1) 'personal data' means any information relating to an identified or identifiable natural person ('data subject'); "
+            "(2) 'processing' means any operation or set of operations performed on personal data, such as collection, recording, organisation, structuring, storage, adaptation, retrieval, consultation, use, disclosure, dissemination, restriction, erasure or destruction; "
+            "(5) 'pseudonymisation' means the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information kept separately; "
+            "(7) 'controller' means the natural or legal person, public authority or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data; "
+            "(8) 'processor' means a natural or legal person, public authority or other body which processes personal data on behalf of the controller; "
+            "(11) 'consent' of the data subject means any freely given, specific, informed and unambiguous indication of the data subject's wishes by which they signify agreement to the processing of personal data relating to them; "
+            "(12) 'personal data breach' means a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data; "
+            "(13) 'genetic data' means personal data relating to the inherited or acquired genetic characteristics of a natural person; "
+            "(14) 'biometric data' means personal data resulting from specific technical processing relating to the physical, physiological or behavioural characteristics of a natural person which allow or confirm the unique identification of that natural person; "
+            "(15) 'data concerning health' means personal data related to the physical or mental health of a natural person, including the provision of health care services, which reveal information about his or her health status."
+        )
+    },
+    {
+        "id": "doc_000_gdpr_overview",
+        "title": "Overview - What is the GDPR (General Data Protection Regulation)",
+        "publisher": "HealRAG corpus summary of Regulation (EU) 2016/679",
+        "jurisdiction": "EU",
+        "document_type": "secondary_commentary",
+        "publication_date": "2016-05-04",
+        "effective_from": "2018-05-25",
+        "version": "2016/679",
+        "article": "Overview",
+        "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679",
+        "content": (
+            'Overview - What is the GDPR: The General Data Protection Regulation (GDPR), Regulation (EU) 2016/679, is the European Union law on the protection of personal data and privacy. '
+            'It was adopted on 27 April 2016, has applied since 25 May 2018, and replaced Directive 95/46/EC. As a regulation it is directly applicable in all EU Member States. '
+            'It governs how controllers and processors collect, use, store and share the personal data of people in the EU, and it also applies to organisations outside the EU that offer goods or services to, or monitor the behaviour of, people in the EU (Art. 3). '
+            'Core elements: data protection principles such as lawfulness, purpose limitation and data minimisation (Art. 5); lawful bases for processing (Art. 6); stricter rules for special category data including health data (Art. 9); data subject rights such as access, rectification and erasure (Arts. 12-23); security of processing (Art. 32); and personal data breach notification (Arts. 33-34). '
+            'Supervisory authorities enforce it, with administrative fines of up to EUR 20 million or 4 percent of worldwide annual turnover (Art. 83). '
+            'After Brexit the UK retained the regulation as the UK GDPR, supplemented by the Data Protection Act 2018, and the ICO is the UK regulator. '
+            'This is a summary for orientation; the binding text is in the individual Articles.'
+        )
+    },
     # -------------------------------------------------------------------------
     # 1. EUR-Lex GDPR (Regulation (EU) 2016/679) - Primary Law (Rank 1)
     # -------------------------------------------------------------------------
@@ -703,7 +805,7 @@ def seed_corpus(corpus_dir=None):
             existing_file.unlink()
 
     all_documents = list(AUTHORITATIVE_CORPUS)
-    fhir_records = generate_patient_fhir_records(start_idx=len(AUTHORITATIVE_CORPUS) + 1, count=75)
+    fhir_records = generate_patient_fhir_records(start_idx=FHIR_START_IDX, count=75)
     all_documents.extend(fhir_records)
 
     retrieved_at = "2026-09-03"

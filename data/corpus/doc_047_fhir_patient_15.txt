@@ -1,0 +1,9 @@
+EHR FHIR Export for Patient ID PAT-0015.
+Active: true. Resource Type: Patient, Observation, Bundle, Consent.
+Patient Demographics: Name: Patient 15, Gender: female, BirthDate: 1985-07-25.
+NHS Number Extension: 993 000 0015 (Status: verified).
+Observation Category: vital-signs, laboratory.
+Vital signs: LOINC 8867-4 (Heart rate) valueQuantity: 75 beats/min, status: final.
+Laboratory: LOINC 29463-7 (Body weight) valueQuantity: 70 kg.
+Consent status under EHDS Chapter II / NHS Opt-Out: Deny secondary use / Opt-out active.
+IPS Medication Summary: MED-015 for active problem code PROB-015.

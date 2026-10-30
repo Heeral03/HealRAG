@@ -100,6 +100,9 @@ class WebSearcher:
             "break-glass": "EHDS Article 7 emergency access vital interests override",
             "hipaa": "GDPR Article 9 EU US health data compliance differences",
             "fhir r4b": "HL7 FHIR Release 4B vs Release 5 specification changes",
+            "gdpr": "General Data Protection Regulation (EU) 2016/679 overview scope definitions",
+            "ehds": "European Health Data Space Regulation overview primary and secondary use of electronic health data",
+            "caldicott": "NHS Caldicott Principles confidentiality of patient information",
         }
         for jargon, expansion in jargon_map.items():
             if jargon in query_clean.lower():

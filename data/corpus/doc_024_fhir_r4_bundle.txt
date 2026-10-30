@@ -1,0 +1,1 @@
+HL7 FHIR R4 Bundle Resource: A wrapper container for a collection of FHIR resources. Used in RESTful API responses, batch transactions, and document payloads (e.g. International Patient Summary). Must specify a type attribute: document | message | transaction | batch | searchset.

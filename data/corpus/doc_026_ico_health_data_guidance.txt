@@ -1,0 +1,1 @@
+Information Commissioner's Office (ICO) Health Data Guidance: Processing of health data under UK GDPR requires both an Article 6 lawful basis and an Article 9 condition. Anonymization requires ensuring that risk of re-identification is remote under the 'motivated intruder' test. Pseudonymized health data remains personal data subject to UK GDPR requirements.

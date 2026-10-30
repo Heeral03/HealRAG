@@ -79,7 +79,7 @@ def main():
     parser = argparse.ArgumentParser(description="Digital Health Corrective RAG (CRAG) CLI")
     parser.add_argument("--query", type=str, help="Question to ask the RAG pipeline")
     parser.add_argument("--top-k", type=int, default=3, help="Number of chunks to retrieve (default: 3)")
-    parser.add_argument("--rebuild", action="store_true", help="Force rebuild of corpus seeder and FAISS index")
+    parser.add_argument("--rebuild", action="store_true", help="Force rebuild of corpus seeder and Qdrant index")
     parser.add_argument("--vanilla", action="store_true", help="Run Vanilla RAG instead of CRAG pipeline")
     
     args = parser.parse_args()

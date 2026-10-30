@@ -1,0 +1,1 @@
+NHS UK Core Patient Profile (UKCore-Patient): Restricts the base FHIR Patient resource for UK NHS deployment. Mandates inclusion of the NHS Number extension (URL: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumber) containing a 10-digit NHS identifier and verification status code. Ethnic category must be coded using UK NHS Ethnic Category Codes.

@@ -19,23 +19,25 @@ HealRAG introduces a **self-reflective evaluation loop**. Before passing any ret
 
 ## 2. Tech Stack & Architectural "Whys"
 
-### Why FAISS (Facebook AI Similarity Search) instead of Pinecone/Milvus?
-- **The "Why":** Network latency and infrastructure overhead. 
-- **Explanation:** Vector DBs like Pinecone require network calls over HTTP/gRPC. For a targeted regulatory corpus (a few hundred to thousands of chunks), maintaining a cloud DB introduces unnecessary 50-100ms network round-trip overheads. FAISS `IndexFlatIP` (Inner Product) runs entirely in-memory on the local CPU, yielding **sub-2ms retrieval times**. I prioritized extreme local speed over the distributed scaling features of bloated enterprise DBs.
+### Why Qdrant (embedded mode) instead of FAISS, Pinecone or Milvus?
+- **The "Why":** A real vector *database* (persistence, payloads, filtering) without the network and infrastructure overhead of a hosted service.
+- **Explanation:** The first version used FAISS `IndexFlatIP`, which is a similarity-search *library*: it stores only vectors, so chunk metadata (jurisdiction, version, effective date, source hierarchy) had to be kept in a hand-maintained side file. Qdrant stores each chunk's vector and its full metadata as a single point with a JSON payload, so provenance comes back with every search hit. I run it in **embedded/local mode** (`QdrantClient(path=...)`): it is a library inside the Python process persisting to disk, so there is no server to operate and no network round-trip, unlike Pinecone or a Milvus cluster. The same client API works against Qdrant Server or Cloud, so scaling out later does not require rewriting retrieval code.
+- **Trade-offs:** Embedded mode is single-process (file lock, hence the thread-safe singleton in `embedder.py`), has no replication, and is slightly slower than a raw in-memory FAISS flat index. At ~100 chunks I am not yet using Qdrant's strengths (payload filtering, quantization, distributed search); I chose it for headroom and metadata handling, not because the current corpus needs it. FAISS retains the edge for pure in-process speed and simplicity.
+- **Note on benchmarks:** The latency/QPS figures quoted in this document (sub-2ms retrieval, 127 QPS, < 12ms application overhead) were measured on the earlier FAISS build and have not been re-run against Qdrant.
 
-### Why a "Hybrid" Retrieval (FAISS Dense + BM25 Sparse)?
+### Why a "Hybrid" Retrieval (Qdrant Dense + BM25 Sparse)?
 - **The "Why":** Dense embeddings capture *conceptual meaning*, but they are notoriously bad at *exact keyword matching*. 
 - **Explanation:** If a user searches for exactly "Article 9" or "Directive 2024/1689", a semantic embedder (`all-MiniLM-L6-v2`) might erroneously match a conceptually similar text about "Article 7". 
-- **The Fix:** I overlaid a sparse **BM25Okapi** index to count exact keyword frequencies. By mathematically combining FAISS and BM25 using **Reciprocal Rank Fusion (RRF)**, we pushed our Mean Recall @ k=10 to a flawless **100%**.
+- **The Fix:** I overlaid a sparse **BM25Okapi** index to count exact keyword frequencies. By mathematically combining Qdrant dense search and BM25 using **Reciprocal Rank Fusion (RRF)**, we pushed our Mean Recall @ k=10 to a flawless **100%**.
 
 ### Why the Heuristic Evaluator instead of an LLM Evaluator (as the CRAG paper suggests)?
 - **The "Why":** The academic CRAG paper uses a fine-tuned T5 LLM to read chunks and rate their relevance. 
 - **Explanation:** In an academic setting, that's fine. In a production API, invoking an LLM to evaluate 3 different chunks adds 2-5 seconds of latency *before* the final answer is generated.
-- **The Fix:** I engineered a deterministic **Heuristic Evaluator**. It calculates a weighted score based on FAISS Cosine Similarity (70%) and Keyword Overlap Ratio (30%). It gives us 90%+ of the accuracy of an LLM evaluator, but executes in **0.06 milliseconds** instead of 3,000 milliseconds.
+- **The Fix:** I engineered a deterministic **Heuristic Evaluator**. It calculates a weighted score based on Qdrant Cosine Similarity (70%) and Keyword Overlap Ratio (30%). It gives us 90%+ of the accuracy of an LLM evaluator, but executes in **0.06 milliseconds** instead of 3,000 milliseconds.
 
 ### Why FastAPI & Python ThreadPools?
 - **The "Why":** Scalability without concurrency blocking.
-- **Explanation:** FAISS math and BM25 ranking are CPU-bound, synchronous operations. If deployed on a standard synchronous Flask server, one user's query blocks the entire server. FastAPI’s async architecture allowed me to wrap the heavy math in `starlette.concurrency.run_in_threadpool`. 
+- **Explanation:** Vector search, embedding and BM25 ranking are CPU-bound, synchronous operations. If deployed on a standard synchronous Flask server, one user's query blocks the entire server. FastAPI’s async architecture allowed me to wrap the heavy math in `starlette.concurrency.run_in_threadpool`. 
 - **The Result:** We successfully scaled the retrieval engine to sustain **127 QPS** locally before hitting the Python Global Interpreter Lock (GIL).
 
 ### Why Tavily over DuckDuckGo for Web Search Fallback?
@@ -49,10 +51,10 @@ HealRAG introduces a **self-reflective evaluation loop**. Before passing any ret
 *If an interviewer asks you to explain the underlying math or mechanisms, use these explanations:*
 
 ### Concept 1: How does Reciprocal Rank Fusion (RRF) work?
-**What it is:** A mathematical formula to combine rankings from different search algorithms (like Dense FAISS and Sparse BM25) without needing to normalize their arbitrary scores.
+**What it is:** A mathematical formula to combine rankings from different search algorithms (like Dense Qdrant and Sparse BM25) without needing to normalize their arbitrary scores.
 **How it works:** Instead of adding their raw scores (which are on different scales), RRF looks at the *rank* position. 
 The formula is: `RRF Score = 1 / (k + rank)`. (Usually `k` is a constant like 60).
-If a document is Rank 1 in FAISS and Rank 5 in BM25, its final score is `(1/(60+1)) + (1/(60+5))`. It highly rewards documents that appear near the top of *both* lists.
+If a document is Rank 1 in Qdrant and Rank 5 in BM25, its final score is `(1/(60+1)) + (1/(60+5))`. It highly rewards documents that appear near the top of *both* lists.
 
 ### Concept 2: What exactly is BM25?
 **What it is:** The industry standard for sparse keyword search (an evolution of TF-IDF). 
@@ -60,7 +62,7 @@ If a document is Rank 1 in FAISS and Rank 5 in BM25, its final score is `(1/(60+
 
 ### Concept 3: The Python Global Interpreter Lock (GIL)
 **What it is:** A mutex that allows only one thread to execute Python bytecode at a time.
-**Why it bottlenecked us:** I ran concurrent benchmarks targeting our ThreadPool. Because FAISS and BM25 are heavily synchronous internal operations, using FastAPI's ThreadPool only scaled up to 2 workers (hitting 127 QPS). Adding 4, 8, or 16 workers saw zero QPS gain. The threads were simply waiting in line for the GIL. True scaling would require multi-processing or rewriting the engine in a non-GIL language (Rust/Go).
+**Why it bottlenecked us:** I ran concurrent benchmarks targeting our ThreadPool. Because vector search and BM25 are heavily synchronous internal operations, using FastAPI's ThreadPool only scaled up to 2 workers (hitting 127 QPS). Adding 4, 8, or 16 workers saw zero QPS gain. The threads were simply waiting in line for the GIL. True scaling would require multi-processing or rewriting the engine in a non-GIL language (Rust/Go).
 
 ### Concept 4: The Token Bucket Algorithm
 **What it is:** The logic behind Layer 2 of HealRAG's rate limiters.
@@ -78,7 +80,7 @@ If a document is Rank 1 in FAISS and Rank 5 in BM25, its final score is `(1/(60+
 **Problem 2: "The API vs. Static Pipeline Bottleneck"**
 - **What Happened:** We needed to prove the system was scalable, but benchmarking threw erratic latency numbers (sometimes 2s, sometimes 12s due to LLM networking).
 - **The Fix:** I wrote a completely isolated `Component-Level Profiler`.
-- **The Impact:** We proved that our internal app code (FAISS, Evaluator, Refiner) took **< 12 milliseconds (0.3% of the pipeline)**. The LLM Generation took 88% of the time, and the Web Search took 11%. This proved our local application architecture was ruthlessly mathematically optimized.
+- **The Impact:** We proved that our internal app code (Qdrant retrieval, Evaluator, Refiner) took **< 12 milliseconds (0.3% of the pipeline)**. The LLM Generation took 88% of the time, and the Web Search took 11%. This proved our local application architecture was ruthlessly mathematically optimized.
 
 ---
 
@@ -87,8 +89,8 @@ If a document is Rank 1 in FAISS and Rank 5 in BM25, its final score is `(1/(60+
 **Q: How exactly did you implement Semantic Caching?**
 *Answer:* "I check the incoming query string against a TTL-cached array of previously answered `(query_embedding, response)` pairs. I embed the new query using `all-MiniLM-L6-v2` and compute a dot-product cosine similarity. If the vector similarity is `>= 0.95`, I immediately return the cached dict. It takes `0.01ms` and drops Groq LLM API costs to $0.00."
 
-**Q: Your FAISS index and BM25 index are in-memory. FAISS is cute for 200 documents, but what if a hospital wants to index 10 Million files? Your 512MB RAM server crashes.**
-*Answer:* "100% correct. In-memory databases do not scale vertically beyond RAM constraints. At 10 Million documents, I would rip out the local FAISS instance and replace it with a distributed vector database like Milvus or Pinecone. I would migrate the sparse BM25 index to an ElasticSearch cluster. I sacrificed vertical scaling here strictly because I prioritized zero network latency (sub-12ms retrieval) for this specific proof-of-concept endpoint."
+**Q: Your Qdrant index is embedded (single-process) and your BM25 index is in-memory. What if a hospital wants to index 10 Million files? Your 512MB RAM server crashes.**
+*Answer:* "100% correct. Embedded Qdrant is single-process with no replication, and the BM25 index is rebuilt in Python memory from `metadata.json` at startup, so neither scales to that size. At 10 Million documents I would move Qdrant to server or cloud mode (same client API), add payload indexes on jurisdiction and effective date, enable scalar quantization to cut memory, and replace the in-memory BM25 with Qdrant's native sparse vectors and server-side hybrid fusion (or ElasticSearch). I chose embedded mode because it removes network latency and operational overhead for this proof-of-concept endpoint."
 
 **Q: What would you do if Groq (your LLM provider) completely crashes during a client demo?**
 *Answer:* "Any highly-available system needs LLM redundancy. I would implement an `@retry` decorator with a fallback routing mechanism. If Groq throws 5XX errors or times out after X seconds, the router would transparently fall back to OpenAI's `gpt-4o-mini` or Anthropic's `claude-3-haiku`. It requires mapping their distinct API wrappers into a unified `generate()` interface, which is standard practice in production GenAI pipelines."
@@ -106,5 +108,5 @@ If a document is Rank 1 in FAISS and Rank 5 in BM25, its final score is `(1/(60+
 3. **No Dead Ends:** When local databases fail, HealRAG doesn't apologize. It catches the failure, expands the jargon, connects to Tavily, and finds the answer dynamically.
 
 ### Limitations To Fix Before Enterprise V2
-1. **The Python GIL:** Rewrite the FAISS/BM25 retrieval microservice in Rust/Go for multi-threaded QPS throughput above 125+.
+1. **The Python GIL:** Rewrite the Qdrant/BM25 retrieval microservice in Rust/Go for multi-threaded QPS throughput above 125+.
 2. **Streaming:** Implement ASGI WebSockets / SSE to stream tokens directly from Groq to the frontend in real-time, reducing Time-To-First-Token (TTFT) to under 200ms and masking generation latency.

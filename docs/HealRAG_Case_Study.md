@@ -23,7 +23,7 @@ We introduced a custom **Retrieval Evaluator** between the DB and the LLM. It sc
 For `CORRECT` retrievals (score >= 0.60), we built a **Sentence-Level Refiner**. It breaks paragraphs into sentences and strips away any sentence that doesn't share keyword overlap with the original query. This reduced prompt sizes from ~1,200 tokens to ~450 tokens (a 62% reduction), making generation faster and much more precise.
 
 ### 3. Hybrid Search Selection (Solving Semantic Drift)
-To catch both conceptual intent and exact statutory keyword matches, we replaced vanilla Dense Search with a **Hybrid Search Engine** combining FAISS (Dense Vectors) and BM25 (Sparse Keyword Match) using Reciprocal Rank Fusion (RRF). 
+To catch both conceptual intent and exact statutory keyword matches, we replaced vanilla Dense Search with a **Hybrid Search Engine** combining Qdrant (Dense Vectors) and BM25 (Sparse Keyword Match) using Reciprocal Rank Fusion (RRF). 
 
 ### 4. Semantic Response Cache (Solving LLM Latency Bottlenecks)
 Through component-profiling, we proved the LLM generation caused ~88% of our latency. To combat this, we deployed a **Semantic Response Cache**. If an incoming query has high vector similarity (>= 0.95) to a previously answered question, the system returns the cached answer instantly (< 0.01ms), bypassing the LLM entirely.
