@@ -1,0 +1,16 @@
+{
+  "id": "doc_108_hipaa_overview",
+  "title": "Overview - What is HIPAA (Health Insurance Portability and Accountability Act)",
+  "source_url": "https://www.hhs.gov/hipaa/index.html",
+  "publisher": "HealRAG corpus summary of HIPAA",
+  "jurisdiction": "US",
+  "document_type": "secondary_commentary",
+  "publication_date": "1996-08-21",
+  "effective_from": "1996-08-21",
+  "version": "Pub. L. 104-191",
+  "article": "Overview",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "edc89e8d3d0d7617a10241470318a95d3f9961434551ba236d6118a8bec24351",
+  "hierarchy_rank": 4,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

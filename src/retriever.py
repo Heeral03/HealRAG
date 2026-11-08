@@ -2,6 +2,7 @@ import re
 from typing import Optional
 import numpy as np
 from rank_bm25 import BM25Okapi
+from qdrant_client.models import Filter, FieldCondition, MatchValue, Range
 
 import config
 from embedder import load_index, get_embedding_model
@@ -14,6 +15,46 @@ def tokenize(text: str) -> list[str]:
     refs = ["ref_" + m.group(1) + "_" + "_".join(re.findall(r'\((\w+)\)', m.group(2)))
             for m in ART_REF.finditer(text)]
     return re.findall(r'\w+', text) + refs
+
+# Record identifiers such as PAT-0026. Embeddings cannot separate near-identical records (dense rank of the exact
+# record can be far down the list), while BM25 ranks the exact record first, but rank-only RRF discards that
+# confidence. A chunk that literally contains an identifier from the query therefore gets extra RRF votes.
+RECORD_ID = re.compile(r'\b[a-z]{2,6}-\d{3,}\b')
+EXACT_ID_BOOST_VOTES = 2.0
+
+def extract_record_ids(query: str) -> set[str]:
+    return set(RECORD_ID.findall(query.lower()))
+
+def has_record_id(text: str, ids: set[str]) -> bool:
+    text = text.lower()
+    return any(re.search(r'\b' + re.escape(i) + r'\b', text) for i in ids)
+
+def build_qdrant_filter(jurisdiction: Optional[str] = None,
+                        document_type: Optional[str] = None,
+                        max_hierarchy_rank: Optional[int] = None) -> Optional[Filter]:
+    """Translate metadata constraints into a Qdrant payload filter (None if no constraints).
+    hierarchy_rank: 1 = primary law, so a lower number is more authoritative."""
+    conditions = []
+    if jurisdiction:
+        conditions.append(FieldCondition(key="jurisdiction", match=MatchValue(value=jurisdiction)))
+    if document_type:
+        conditions.append(FieldCondition(key="document_type", match=MatchValue(value=document_type)))
+    if max_hierarchy_rank is not None:
+        conditions.append(FieldCondition(key="hierarchy_rank", range=Range(lte=max_hierarchy_rank)))
+    return Filter(must=conditions) if conditions else None
+
+def matches_filters(chunk: dict, jurisdiction: Optional[str] = None,
+                    document_type: Optional[str] = None,
+                    max_hierarchy_rank: Optional[int] = None) -> bool:
+    """In-memory equivalent of build_qdrant_filter, used for the BM25 branch so
+    dense and sparse retrieval apply identical constraints."""
+    if jurisdiction and chunk.get("jurisdiction") != jurisdiction:
+        return False
+    if document_type and chunk.get("document_type") != document_type:
+        return False
+    if max_hierarchy_rank is not None and chunk.get("hierarchy_rank", 2) > max_hierarchy_rank:
+        return False
+    return True
 
 class Retriever:
     def __init__(self):
@@ -30,9 +71,13 @@ class Retriever:
         tokenized_corpus = [tokenize(text) for text in self.corpus_texts]
         self.bm25 = BM25Okapi(tokenized_corpus)
 
-    def retrieve(self, query: str, top_k: int = 5) -> list[dict]:
+    def retrieve(self, query: str, top_k: int = 5,
+                 jurisdiction: Optional[str] = None,
+                 document_type: Optional[str] = None,
+                 max_hierarchy_rank: Optional[int] = None) -> list[dict]:
         """
         Dense vector retrieval using Qdrant (supports asymmetric models like intfloat/multilingual-e5-small).
+        Optional metadata filters are applied inside the Qdrant search (pre-filtering).
         """
         is_e5 = "e5" in config.EMBEDDING_MODEL_NAME.lower()
         encoded_query = f"query: {query}" if is_e5 else query
@@ -41,6 +86,7 @@ class Retriever:
         search_results = self.client.query_points(
             collection_name=config.QDRANT_COLLECTION_NAME,
             query=query_vector,
+            query_filter=build_qdrant_filter(jurisdiction, document_type, max_hierarchy_rank),
             limit=top_k
         ).points
 
@@ -52,7 +98,10 @@ class Retriever:
 
         return results
 
-    def hybrid_retrieve(self, query: str, top_k: int = 5, candidate_k: int = 50, rrf_k: int = 60, enable_rerank: Optional[bool] = None) -> list[dict]:
+    def hybrid_retrieve(self, query: str, top_k: int = 5, candidate_k: int = 50, rrf_k: int = 60, enable_rerank: Optional[bool] = None,
+                        jurisdiction: Optional[str] = None,
+                        document_type: Optional[str] = None,
+                        max_hierarchy_rank: Optional[int] = None) -> list[dict]:
         """
         Hybrid retrieval combining Dense Vector Search (Qdrant) and Sparse Keyword Search (BM25)
         using Reciprocal Rank Fusion (RRF), followed by optional Cross-Encoder Reranking.
@@ -61,7 +110,9 @@ class Retriever:
         if enable_rerank is None:
             enable_rerank = config.ENABLE_CROSS_ENCODER
         # 1. Dense Retrieval (Qdrant)
-        dense_results = self.retrieve(query, top_k=candidate_k)
+        flt = dict(jurisdiction=jurisdiction, document_type=document_type,
+                   max_hierarchy_rank=max_hierarchy_rank)
+        dense_results = self.retrieve(query, top_k=candidate_k, **flt)
         dense_ranks = {}
         for rank, item in enumerate(dense_results, start=1):
             key = (item["source"], item["chunk_index"])
@@ -70,7 +121,10 @@ class Retriever:
         # 2. Sparse Retrieval (BM25)
         tokenized_query = tokenize(query)
         bm25_scores = self.bm25.get_scores(tokenized_query)
-        top_bm25_indices = np.argsort(bm25_scores)[::-1][:candidate_k]
+        ranked_indices = np.argsort(bm25_scores)[::-1]
+        # Apply the same metadata filters to the sparse branch before taking the top candidates
+        top_bm25_indices = [i for i in ranked_indices
+                            if matches_filters(self.metadata[self.doc_ids[i]], **flt)][:candidate_k]
 
         bm25_ranks = {}
         for rank, idx in enumerate(top_bm25_indices, start=1):
@@ -80,6 +134,7 @@ class Retriever:
             bm25_ranks[key] = (rank, chunk_info, bm25_scores[idx])
 
         # 3. Reciprocal Rank Fusion (RRF)
+        query_ids = extract_record_ids(query)
         all_keys = set(dense_ranks.keys()).union(set(bm25_ranks.keys()))
         rrf_scored_items = []
 
@@ -102,8 +157,10 @@ class Retriever:
                     chunk_info["similarity_score"] = 0.0
 
             item_out = dict(chunk_info)
-            item_out["rrf_score"] = float(rrf_score)
             item_out["similarity_score"] = float(dense_sim_score if dense_sim_score > 0 else rrf_score)
+            if query_ids and has_record_id(chunk_info.get("text", ""), query_ids):
+                rrf_score += EXACT_ID_BOOST_VOTES / (rrf_k + 1)
+            item_out["rrf_score"] = float(rrf_score)
             rrf_scored_items.append(item_out)
 
         # Sort by RRF score descending to form candidate pool

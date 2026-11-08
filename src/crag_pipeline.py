@@ -224,7 +224,7 @@ if __name__ == "__main__":
     sample_queries = [
         "What is GDPR Article 9?", # Should be CORRECT
         "How are break-glass emergency procedures handled?", # Should be AMBIGUOUS / Query Expansion
-        "What are the penalty fine tiers under US HIPAA Privacy Rule?", # Should be INCORRECT / Web Search
+        "What are the penalty fine tiers under Brazil's LGPD?", # Not in the corpus: should be INCORRECT / Web Search
     ]
 
     for q in sample_queries:

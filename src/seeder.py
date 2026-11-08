@@ -7,6 +7,7 @@ from pathlib import Path
 # Add src to python path to load config
 sys.path.append(str(Path(__file__).resolve().parent))
 import config
+from corpus_extra import EXTRA_CORPUS
 
 # Source hierarchy mapping: primary law > regulator guidance > official technical standard > secondary commentary
 HIERARCHY_MAP = {
@@ -807,6 +808,8 @@ def seed_corpus(corpus_dir=None):
     all_documents = list(AUTHORITATIVE_CORPUS)
     fhir_records = generate_patient_fhir_records(start_idx=FHIR_START_IDX, count=75)
     all_documents.extend(fhir_records)
+    # US health-data law and further EU/UK provisions (doc_108 onwards, so existing filenames are unchanged)
+    all_documents.extend(EXTRA_CORPUS)
 
     retrieved_at = "2026-09-03"
     corpus_manifest = []

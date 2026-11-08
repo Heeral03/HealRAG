@@ -1,0 +1,16 @@
+{
+  "id": "doc_147_us_smart_on_fhir",
+  "title": "SMART on FHIR App Launch - OAuth 2.0 Authorization for Health Apps",
+  "source_url": "https://hl7.org/fhir/smart-app-launch/",
+  "publisher": "HL7 International",
+  "jurisdiction": "US",
+  "document_type": "official_technical_standard",
+  "publication_date": "2024-01-01",
+  "effective_from": "2024-01-01",
+  "version": "SMART App Launch 2.2.0",
+  "article": "SMART App Launch",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "b9b6f5b14238eaeb96efcb50d75e53f45b010677ce1728a20873a25452245964",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

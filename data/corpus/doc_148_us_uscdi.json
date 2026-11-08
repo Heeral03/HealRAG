@@ -1,0 +1,16 @@
+{
+  "id": "doc_148_us_uscdi",
+  "title": "USCDI - United States Core Data for Interoperability",
+  "source_url": "https://www.healthit.gov/isp/united-states-core-data-interoperability-uscdi",
+  "publisher": "ASTP/ONC / HHS",
+  "jurisdiction": "US",
+  "document_type": "official_technical_standard",
+  "publication_date": "2024-07-01",
+  "effective_from": "2024-07-01",
+  "version": "USCDI v5",
+  "article": "USCDI",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "92c024c8476c9f037cc7ec57fa3db647cb5f9cfcdba89ff9ab4cd99862243975",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

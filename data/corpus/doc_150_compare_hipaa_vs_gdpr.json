@@ -1,0 +1,16 @@
+{
+  "id": "doc_150_compare_hipaa_vs_gdpr",
+  "title": "Comparison - HIPAA vs GDPR for Health Data (Scope, Legal Basis, Breach Notification, Penalties)",
+  "source_url": "https://www.hhs.gov/hipaa/for-professionals/index.html",
+  "publisher": "HealRAG corpus summary",
+  "jurisdiction": "Global",
+  "document_type": "secondary_commentary",
+  "publication_date": "2025-06-01",
+  "effective_from": "2025-06-01",
+  "version": "2025.06",
+  "article": "Comparison",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "04638c3de6cd19299fecab22125aa3e38ac9455995fcd8731ecd49393ff76d89",
+  "hierarchy_rank": 4,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

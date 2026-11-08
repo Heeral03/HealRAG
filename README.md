@@ -1,4 +1,4 @@
-# HealRAG: Corrective RAG for EU & UK Digital Health Governance
+# HealRAG: Corrective RAG for EU, UK & US Digital Health Governance
 
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-API-green.svg)](https://fastapi.tiangolo.com/)
@@ -6,7 +6,7 @@
 [![Embeddings](https://img.shields.io/badge/Embeddings-E5%20%2F%20MiniLM%20(ONNX)-purple.svg)](https://huggingface.co/intfloat/multilingual-e5-small)
 [![Reranker](https://img.shields.io/badge/Reranker-MS_MARCO_Cross--Encoder-orange.svg)](https://huggingface.co/cross-encoder/ms-marco-MiniLM-L-6-v2)
 
-HealRAG is a self-correcting Retrieval-Augmented Generation (RAG) system for EU & UK digital health governance: GDPR (Art. 5/6/9/32 and the scope and definition articles), the European Health Data Space (EHDS), NHS Caldicott and data-security guidance, and HL7 FHIR UK Core.
+HealRAG is a self-correcting Retrieval-Augmented Generation (RAG) system for EU, UK & US digital health governance: GDPR (including Arts. 5/6/7/9/12-22/25/28/32-35/44-49/83), the European Health Data Space (EHDS), the EU AI Act, MDR and NIS2, UK data protection and NHS guidance, US HIPAA (Privacy, Security and Breach Notification Rules), HITECH, 42 CFR Part 2, information blocking, FTC and state health-privacy laws, and HL7 FHIR (UK Core, US Core, IPS).
 
 ---
 
@@ -31,7 +31,7 @@ A second safety net runs **after** generation (see [Answerability check](#4-answ
 ```
  seeder.py                chunker.py                  embedder.py                    storage
 ┌──────────────┐   ┌─────────────────────┐   ┌───────────────────────┐   ┌──────────────────────────┐
-│ ~110 docs:   │   │ split on Chapter /  │   │ ONNX embeddings       │   │ Qdrant collection        │
+│ ~185 docs:   │   │ split on Chapter /  │   │ ONNX embeddings       │   │ Qdrant collection        │
 │ GDPR, EHDS,  │──▶│ Article / Section,  │──▶│ ("passage: " prefix   │──▶│  vector + payload/point  │
 │ NHS, FHIR    │   │ recursive fallback, │   │  for E5), L2-normed   │   │  (cosine, db/qdrant)     │
 │ + .json      │   │ 400 words, 55 ovlp  │   │                       │   │ metadata.json (for BM25) │
@@ -74,7 +74,7 @@ User query ─▶ FastAPI (auth, rate limit) ─▶ Semantic cache ──hit─�
 
 ### 1. Indexing (offline)
 
-- **Corpus (`seeder.py`)**: authoritative provisions condensed into the repo, plus 75 synthetic FHIR patient records used to exercise record-style retrieval. Each document is written as a `.txt` file with a `.json` sidecar holding publisher, jurisdiction, document type, version, effective date, source URL, a SHA-256 `content_hash`, and a `hierarchy_rank` (primary law = 1 < regulator guidance < technical standard < commentary = 4).
+- **Corpus (`seeder.py`)**: authoritative provisions condensed into the repo, plus 75 synthetic FHIR patient records used to exercise record-style retrieval. US health-data law and further EU/UK material live in `corpus_extra.py` (documents `doc_108` onwards, tagged `jurisdiction: "US"` / `"EU"` / `"UK"`, so retrieval can be filtered by jurisdiction). Because the chunker splits before every `Article N` / `Section N` / `Chapter X`, running text in those documents abbreviates cross-references (`Art. 9`) so each document stays a single coherent chunk; new documents should follow the same convention. Each document is written as a `.txt` file with a `.json` sidecar holding publisher, jurisdiction, document type, version, effective date, source URL, a SHA-256 `content_hash`, and a `hierarchy_rank` (primary law = 1 < regulator guidance < technical standard < commentary = 4).
 - **Chunking (`chunker.py`)**: structure-aware first, splitting before `Chapter`, `Article` and `Section` markers so a chunk lines up with a legal provision. Anything over 400 words is split recursively (paragraph, line, sentence, word) with a 55-word overlap. Every chunk carries the full sidecar metadata.
 - **Embedding (`embedder.py`)**: `fastembed` (ONNX, no PyTorch) behind a small SentenceTransformer-compatible wrapper, shared as a single instance to save RAM. E5 models get asymmetric prefixes: `passage: ` at index time and `query: ` at search time.
 

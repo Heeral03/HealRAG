@@ -1,0 +1,16 @@
+{
+  "id": "doc_143_us_nist_sp800_66r2",
+  "title": "NIST SP 800-66 Revision 2 - Implementing the HIPAA Security Rule: A Cybersecurity Resource",
+  "source_url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+  "publisher": "NIST",
+  "jurisdiction": "US",
+  "document_type": "official_technical_standard",
+  "publication_date": "2024-02-14",
+  "effective_from": "2024-02-14",
+  "version": "SP 800-66r2",
+  "article": "NIST SP 800-66r2",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "f2a937c76261fb55110c9ea86fe424f92ed727f09b8a8bc74361e3495228d3cc",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "doc_145_us_nist_ai_rmf",
+  "title": "NIST AI Risk Management Framework 1.0 and Generative AI Profile (NIST AI 600-1)",
+  "source_url": "https://www.nist.gov/itl/ai-risk-management-framework",
+  "publisher": "NIST",
+  "jurisdiction": "US",
+  "document_type": "official_technical_standard",
+  "publication_date": "2023-01-26",
+  "effective_from": "2023-01-26",
+  "version": "AI RMF 1.0; AI 600-1 (July 2024)",
+  "article": "NIST AI RMF",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "1057a00662c21992c2f8196e16b65172944c839cd000227cb463c5ea35cdc713",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

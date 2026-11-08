@@ -1,0 +1,16 @@
+{
+  "id": "doc_140_us_cms_interoperability_patient_access",
+  "title": "CMS Interoperability and Patient Access Rules - FHIR Patient Access API and Prior Authorization API (CMS-9115-F, CMS-0057-F)",
+  "source_url": "https://www.cms.gov/priorities/key-initiatives/burden-reduction/interoperability/policies-and-regulations/cms-interoperability-and-prior-authorization-final-rule-cms-0057-f",
+  "publisher": "Centers for Medicare & Medicaid Services",
+  "jurisdiction": "US",
+  "document_type": "regulator_guidance",
+  "publication_date": "2024-02-08",
+  "effective_from": "2024-04-08",
+  "version": "CMS-9115-F (2020); CMS-0057-F (2024)",
+  "article": "CMS-9115-F, CMS-0057-F",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "4da0a4b08b7d7f86de0d680b13854b8a885f120bfd23ebbe17007261901b9c4a",
+  "hierarchy_rank": 2,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

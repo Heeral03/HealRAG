@@ -1,0 +1,16 @@
+{
+  "id": "doc_181_fhir_provenance_auditevent",
+  "title": "HL7 FHIR Provenance and AuditEvent Resources - Audit Trails for Health Data Access",
+  "source_url": "https://hl7.org/fhir/R4/provenance.html",
+  "publisher": "HL7 International",
+  "jurisdiction": "Global",
+  "document_type": "official_technical_standard",
+  "publication_date": "2023-01-01",
+  "effective_from": "2023-01-01",
+  "version": "FHIR R4 (4.0.1)",
+  "article": "Provenance; AuditEvent",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "69f5491f58d3619a75526b5d8d2caf5bc91f3c4cf25d63f9366e4036e8cd019f",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

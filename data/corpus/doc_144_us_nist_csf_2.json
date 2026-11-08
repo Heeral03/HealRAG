@@ -1,0 +1,16 @@
+{
+  "id": "doc_144_us_nist_csf_2",
+  "title": "NIST Cybersecurity Framework 2.0 - Govern, Identify, Protect, Detect, Respond, Recover",
+  "source_url": "https://www.nist.gov/cyberframework",
+  "publisher": "NIST",
+  "jurisdiction": "US",
+  "document_type": "official_technical_standard",
+  "publication_date": "2024-02-26",
+  "effective_from": "2024-02-26",
+  "version": "CSF 2.0",
+  "article": "NIST CSF 2.0",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "02e5c7e3837867b197639a88b2ec1f09af8b8c9fa60e1b2eae6a4e36bbb98f02",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

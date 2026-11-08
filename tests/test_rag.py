@@ -92,3 +92,37 @@ def test_definitional_query_finds_overview_document():
     retriever = Retriever()
     results = retriever.hybrid_retrieve("What is GDPR?", top_k=3)
     assert any(r["source"] == "doc_000_gdpr_overview.txt" for r in results)
+
+def test_metadata_filter_dense():
+    retriever = Retriever()
+    results = retriever.retrieve("data protection obligations", top_k=5, jurisdiction="EU")
+    assert len(results) > 0
+    assert all(r["jurisdiction"] == "EU" for r in results)
+
+    # A jurisdiction that doesn't exist must return nothing (filter is applied, not ignored)
+    assert retriever.retrieve("data protection obligations", top_k=5, jurisdiction="Atlantis") == []
+
+def test_metadata_filter_hierarchy_rank():
+    retriever = Retriever()
+    results = retriever.retrieve("data protection obligations", top_k=5, max_hierarchy_rank=1)
+    assert len(results) > 0
+    assert all(r["hierarchy_rank"] <= 1 for r in results)
+
+def test_metadata_filter_hybrid_applies_to_both_branches():
+    retriever = Retriever()
+    results = retriever.hybrid_retrieve("data protection obligations", top_k=5,
+                                        jurisdiction="EU", max_hierarchy_rank=1,
+                                        enable_rerank=False)
+    assert len(results) > 0
+    assert all(r["jurisdiction"] == "EU" and r["hierarchy_rank"] <= 1 for r in results)
+    assert retriever.hybrid_retrieve("data protection obligations", top_k=5,
+                                     jurisdiction="Atlantis", enable_rerank=False) == []
+
+def test_matches_filters_unit():
+    from retriever import matches_filters
+    chunk = {"jurisdiction": "EU", "document_type": "primary_law", "hierarchy_rank": 1}
+    assert matches_filters(chunk)
+    assert matches_filters(chunk, jurisdiction="EU", max_hierarchy_rank=1)
+    assert not matches_filters(chunk, jurisdiction="UK")
+    assert not matches_filters(chunk, document_type="regulator_guidance")
+    assert not matches_filters({"hierarchy_rank": 3}, max_hierarchy_rank=2)

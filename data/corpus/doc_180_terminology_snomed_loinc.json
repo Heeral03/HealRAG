@@ -1,0 +1,16 @@
+{
+  "id": "doc_180_terminology_snomed_loinc",
+  "title": "Clinical Terminologies in Health Data Exchange - SNOMED CT, LOINC, ICD-10, RxNorm and dm+d",
+  "source_url": "https://www.snomed.org/",
+  "publisher": "SNOMED International / Regenstrief / WHO / NLM / NHS",
+  "jurisdiction": "Global",
+  "document_type": "official_technical_standard",
+  "publication_date": "2024-01-01",
+  "effective_from": "2024-01-01",
+  "version": "2024 releases",
+  "article": "Terminologies",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "78587256006396b5d1e5f3ac8f5861df03e7b412f36c22e1df5966fe0e35ef1f",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

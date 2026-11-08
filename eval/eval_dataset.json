@@ -594,7 +594,7 @@
   {
     "id": "adv_01",
     "category": "Adversarial",
-    "question": "What are the penalty fine tiers under US HIPAA Privacy Rule for patient data breaches?",
+    "question": "What are the penalty fine tiers under Brazil's LGPD for patient data breaches?",
     "expected_answer_keywords": [
       "not present",
       "does not contain"
@@ -690,5 +690,71 @@
       "does not contain"
     ],
     "out_of_scope": true
+  },
+  {
+    "id": "us_01",
+    "category": "Easy",
+    "question": "How soon must a HIPAA covered entity notify individuals of a breach of unsecured PHI?",
+    "expected_answer_keywords": [
+      "60",
+      "without unreasonable delay",
+      "calendar days"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "us_02",
+    "category": "Easy",
+    "question": "What are the two methods for de-identifying PHI under the HIPAA Privacy Rule?",
+    "expected_answer_keywords": [
+      "safe harbor",
+      "expert determination",
+      "18"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "us_03",
+    "category": "Easy",
+    "question": "What are the HIPAA civil penalty tiers based on?",
+    "expected_answer_keywords": [
+      "tier",
+      "willful neglect",
+      "reasonable cause"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "us_04",
+    "category": "Hard",
+    "question": "How does HIPAA breach notification timing differ from the GDPR 72-hour rule?",
+    "expected_answer_keywords": [
+      "60",
+      "72 hours",
+      "supervisory authority"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "us_05",
+    "category": "Hard",
+    "question": "Does a cloud provider that stores only encrypted ePHI need a HIPAA business associate agreement?",
+    "expected_answer_keywords": [
+      "business associate",
+      "yes",
+      "encrypted"
+    ],
+    "out_of_scope": false
+  },
+  {
+    "id": "us_06",
+    "category": "Easy",
+    "question": "Which US state law regulates consumer health data held by companies not covered by HIPAA?",
+    "expected_answer_keywords": [
+      "washington",
+      "my health my data",
+      "consumer health data"
+    ],
+    "out_of_scope": false
   }
 ]

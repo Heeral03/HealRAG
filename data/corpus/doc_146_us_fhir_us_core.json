@@ -1,0 +1,16 @@
+{
+  "id": "doc_146_us_fhir_us_core",
+  "title": "HL7 FHIR US Core Implementation Guide - Profiles Based on USCDI",
+  "source_url": "https://hl7.org/fhir/us/core/",
+  "publisher": "HL7 International",
+  "jurisdiction": "US",
+  "document_type": "official_technical_standard",
+  "publication_date": "2024-06-01",
+  "effective_from": "2024-06-01",
+  "version": "US Core 6.1.0 (USCDI v3), 7.0.0 (USCDI v4)",
+  "article": "US Core IG",
+  "retrieved_at": "2026-09-03",
+  "content_hash": "22cb0c12e8dc5631fe0689ee9ae232c934821dbda130ed8a0bd548a3b326fbad",
+  "hierarchy_rank": 3,
+  "source_hierarchy": "primary law > regulator guidance > official technical standard > secondary commentary"
+}

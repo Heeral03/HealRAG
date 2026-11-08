@@ -98,7 +98,7 @@ class WebSearcher:
         query_clean = query.strip()
         jargon_map = {
             "break-glass": "EHDS Article 7 emergency access vital interests override",
-            "hipaa": "GDPR Article 9 EU US health data compliance differences",
+            "hipaa": "HIPAA Privacy Rule Security Rule Breach Notification 45 CFR 164 protected health information US (compare GDPR Article 9)",
             "fhir r4b": "HL7 FHIR Release 4B vs Release 5 specification changes",
             "gdpr": "General Data Protection Regulation (EU) 2016/679 overview scope definitions",
             "ehds": "European Health Data Space Regulation overview primary and secondary use of electronic health data",
